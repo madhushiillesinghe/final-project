@@ -1,9 +1,5 @@
 package lk.ijse.project;
 
-/*
-    @author DanujaV
-    @created 10/24/23 - 8:59 AM
-*/
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

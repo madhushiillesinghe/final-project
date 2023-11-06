@@ -13,12 +13,12 @@
             <Image url="@../icon/sign%20in.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnsignup" layoutX="385.0" layoutY="381.0" mnemonicParsing="false" onAction="#btnsignupOnaction" onMouseDragEntered="#signup" style="-fx-background-color: #339900;" text="SIGN UP" textFill="#fff3f3">
+      <Button layoutX="385.0" layoutY="381.0" prefHeight="24.0" prefWidth="86.0" style="-fx-background-color: #339900;" text="SIGN UP" textFill="#fff3f3">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-    <Button fx:id="btnsignin" layoutX="567.0" layoutY="381.0" mnemonicParsing="false" onAction="#btnsigninOnaction" style="-fx-background-color: #339900;" text="SIGN IN" textFill="WHITE">
+    <Button layoutX="567.0" layoutY="381.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="86.0" style="-fx-background-color: #339900;" text="SIGN IN" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
