@@ -9,10 +9,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.addProductController">
    <children>
-      <ImageView fitHeight="768.0" fitWidth="1366.0">
+      <ImageView fitHeight="758.0" fitWidth="1366.0" layoutY="-31.0">
          <image>
             <Image url="@../icon/add%20product.png" />
          </image>
@@ -47,7 +46,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btnlogout" layoutX="118.0" layoutY="699.0" mnemonicParsing="false" onAction="#logoutbtnonaction" prefHeight="27.0" prefWidth="97.0" style="-fx-background-color: #ffffff;" text="LOGOUT" textFill="#305532" />
+      <Button fx:id="btnlogout" layoutX="125.0" layoutY="673.0" mnemonicParsing="false" onAction="#logoutbtnonaction" prefHeight="27.0" prefWidth="97.0" style="-fx-background-color: #ffffff;" text="LOGOUT" textFill="#305532" />
       <Button fx:id="btnorder" layoutX="105.0" layoutY="543.0" mnemonicParsing="false" onAction="#orderbtnonaction" prefHeight="33.0" prefWidth="136.0" style="-fx-background-color: #89DC65;" text="Orders" textFill="#305532">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -112,8 +111,8 @@
             <Blend />
          </effect>
       </TextField>
-      <Button fx:id="btncancel" layoutX="1129.0" layoutY="686.0" mnemonicParsing="false" onAction="#cancelbtnonaction" style="-fx-background-color: #ffffff; -fx-border-style: solid;" text="CANCEL" textFill="#0b7923" />
-      <Button fx:id="btnadd" layoutX="1229.0" layoutY="686.0" mnemonicParsing="false" onAction="#addbtnonaction" style="-fx-background-color: #0B7923;" text="ADD" textFill="#f2e8e8">
+      <Button fx:id="btncancel" layoutX="1070.0" layoutY="619.0" mnemonicParsing="false" onAction="#cancelbtnonaction" style="-fx-background-color: #ffffff; -fx-border-style: solid;" text="CANCEL" textFill="#0b7923" />
+      <Button fx:id="btnadd" layoutX="1180.0" layoutY="620.0" mnemonicParsing="false" onAction="#addbtnonaction" prefHeight="24.0" prefWidth="65.0" style="-fx-background-color: #0B7923;" text="ADD" textFill="#f2e8e8">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
