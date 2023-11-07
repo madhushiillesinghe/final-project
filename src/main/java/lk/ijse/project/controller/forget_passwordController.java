@@ -22,7 +22,12 @@ public class forget_passwordController {
 
     @FXML
     void btnOnAction(MouseEvent event) throws IOException {
-        System.out.println("stn on action success but not navigate");
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/resetPassword.fxml"));
+        Stage stage = (Stage) root.getScene().getWindow();
+
+        stage.setScene(new Scene(anchorPane));
+        stage.setTitle("Dashboard");
+        stage.centerOnScreen();
 
     }
 
