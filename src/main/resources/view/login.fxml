@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -9,26 +10,21 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="550.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.LoginController">
    <children>
-      <ImageView fitHeight="550.0" fitWidth="1000.0">
+      <ImageView fx:id="btnlogin" fitHeight="550.0" fitWidth="1000.0" onDragDetected="#btnloginonaction">
          <image>
             <Image url="@../icon/Sign%20up.png" />
          </image>
       </ImageView>
-      <TextField layoutX="264.0" layoutY="251.0" promptText="        user Name" />
-      <TextField layoutX="264.0" layoutY="325.0" promptText="         password" />
-      <ImageView fitHeight="15.0" fitWidth="12.0" layoutX="407.0" layoutY="330.0">
-         <image>
-            <Image url="@../icon/image%201.png" />
-         </image>
-      </ImageView>
-      <Text layoutX="345.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" forgot password?">
+      <TextField fx:id="txtusername" layoutX="269.0" layoutY="234.0" prefHeight="32.0" prefWidth="171.0" promptText="         username" />
+      <PasswordField fx:id="pwfpassword" layoutX="269.0" layoutY="292.0" prefHeight="32.0" prefWidth="171.0" promptText="         password" />
+      <Text fontSmoothingType="LCD" layoutX="350.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="forget password ?">
          <font>
             <Font size="10.0" />
          </font>
       </Text>
-      <Button layoutX="314.0" layoutY="400.0" mnemonicParsing="false" style="-fx-background-color: #339900;" text="LOGIN" textFill="#f5ecec">
+      <Button layoutX="310.0" layoutY="371.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="80.0" style="-fx-background-color: #339900;" text="LOGIN" textFill="#ffe3e3">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

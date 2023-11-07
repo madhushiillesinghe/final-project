@@ -1,4 +1,3 @@
-﻿
 package lk.ijse.project.model;
 
 import lk.ijse.project.dto.supplierDto;
@@ -10,7 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class supplierModel {
     public boolean saveSupplier(supplierDto supDto) throws SQLException {
@@ -113,5 +111,3 @@ public class supplierModel {
         return dtoList;
     }
 }
-
-
