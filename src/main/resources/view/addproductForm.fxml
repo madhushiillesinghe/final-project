@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.addProductController">
+   <children>
+      <ImageView fitHeight="350.0" fitWidth="600.0">
+         <image>
+            <Image url="@../icon/add%20customer%20(1).png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtproductname" layoutX="239.0" layoutY="55.0" prefHeight="24.0" prefWidth="249.0" style="-fx-background-color: #ACE1AF;" />
+      <TextField fx:id="txtusername" layoutX="239.0" layoutY="105.0" prefHeight="24.0" prefWidth="130.0" promptText="        LKR" style="-fx-background-color: #ACE1AF;" />
+      <TextField fx:id="txtqtyonstock" layoutX="239.0" layoutY="155.0" prefHeight="24.0" prefWidth="130.0" style="-fx-background-color: #ACE1AF;" />
+      <TextField fx:id="txtexpiredate" layoutX="239.0" layoutY="205.0" prefHeight="24.0" prefWidth="146.0" promptText="     DD/MM/YYYY" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="120.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product name" />
+      <Text layoutX="120.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit price" />
+      <Text layoutX="120.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qty on stock" />
+      <Text layoutX="120.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expire date" />
+      <Button fx:id="btncancel" layoutX="375.0" layoutY="283.0" mnemonicParsing="false" onAction="#cancelbtnonaction" style="-fx-background-color: #ffffff;" text="CANCEL" textFill="#0b7923" />
+      <Button fx:id="btnadd" layoutX="459.0" layoutY="283.0" mnemonicParsing="false" onAction="#addbtnonaction" style="-fx-background-color: #0B7923;" text="ADD" textFill="#ebd6d6">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Text layoutX="81.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Product">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <ImageView layoutX="46.0" layoutY="13.0">
+         <image>
+            <Image url="@../icon/profile-2user.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

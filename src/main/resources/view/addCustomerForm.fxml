@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.addCustomerController">
+   <children>
+      <ImageView fitHeight="350.0" fitWidth="600.0">
+         <image>
+            <Image url="@../icon/add%20customer%20(1).png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtfirstname" layoutX="152.0" layoutY="43.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="68.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" />
+      <TextField fx:id="txtlastname" layoutX="397.0" layoutY="42.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="303.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name" />
+      <Text layoutX="67.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact no" />
+      <TextField fx:id="txtcontactno" layoutX="152.0" layoutY="82.0" prefHeight="24.0" prefWidth="131.0" style="-fx-background-color: #ACE1AF;" />
+      <TextField fx:id="txtstreet" layoutX="407.0" layoutY="120.0" prefHeight="24.0" prefWidth="138.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="347.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Street" />
+      <TextField fx:id="txtcity" layoutX="152.0" layoutY="120.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="68.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
+      <TextField fx:id="txthouseno" layoutX="152.0" layoutY="154.0" prefHeight="24.0" prefWidth="53.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="68.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="house no" />
+      <Text layoutX="68.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+      <TextField fx:id="txtemail" layoutX="153.0" layoutY="193.0" prefHeight="24.0" prefWidth="290.0" style="-fx-background-color: #ACE1AF;" />
+      <TextField fx:id="txtnic" layoutX="151.0" layoutY="234.0" prefHeight="24.0" prefWidth="185.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="68.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIC" />
+      <Text layoutX="65.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account type" />
+      <Button fx:id="btncancel" layoutX="371.0" layoutY="297.0" mnemonicParsing="false" onAction="#cancelbtnonaction" style="-fx-background-color: #ffffff;" text="CANCEL" textFill="#0b7923" />
+      <Button fx:id="btnadd" layoutX="452.0" layoutY="297.0" mnemonicParsing="false" onAction="#addbtnonaction" style="-fx-background-color: #0B7923;" text="ADD" textFill="#ebd6d6">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="comboxaccounttype" layoutX="152.0" layoutY="276.0" prefWidth="150.0" style="-fx-background-color: #ACE1AF;" />
+   </children>
+</AnchorPane>

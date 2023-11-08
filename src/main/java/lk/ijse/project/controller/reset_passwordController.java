@@ -4,6 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import lk.ijse.project.util.Navigation;
+
+import java.io.IOException;
 
 public class reset_passwordController {
 
@@ -26,13 +29,13 @@ public class reset_passwordController {
     private TextField txt4;
 
     @FXML
-    void backonaction(ActionEvent event) {
-
+    void backonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("forgetPasswordForm.fxml",event);
     }
 
     @FXML
-    void verifyonaction(ActionEvent event) {
-
+    void verifyonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("dashboardForm.fxml",event);
     }
 
 }

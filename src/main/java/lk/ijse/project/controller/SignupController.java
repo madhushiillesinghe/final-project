@@ -5,6 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import lk.ijse.project.util.Navigation;
+
+import java.io.IOException;
 
 public class SignupController {
 
@@ -24,8 +27,8 @@ public class SignupController {
     private TextField txtusername;
 
     @FXML
-    void signuponaction(ActionEvent event) {
-
+    void signuponaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("loginForm.fxml",event);
     }
 
 }

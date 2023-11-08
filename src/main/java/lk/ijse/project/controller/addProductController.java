@@ -4,6 +4,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import lk.ijse.project.util.Navigation;
+
+import java.io.IOException;
+
 public class addProductController {
 
     @FXML
@@ -13,88 +17,25 @@ public class addProductController {
     private Button btncancel;
 
     @FXML
-    private Button btncustomer;
-
-    @FXML
-    private Button btndashboard;
-
-    @FXML
-    private Button btnemployee;
-
-    @FXML
-    private Button btnlogout;
-
-    @FXML
-    private Button btnmachine;
-
-    @FXML
-    private Button btnorder;
-
-    @FXML
-    private Button btnproducts;
-
-    @FXML
-    private Button btnsupplier;
-
-    @FXML
     private TextField txtexpiredate;
 
     @FXML
     private TextField txtproductname;
 
     @FXML
-    private TextField txtquantity;
+    private TextField txtqtyonstock;
 
     @FXML
-    private TextField txtunitprice;
+    private TextField txtusername;
 
     @FXML
-    void addbtnonaction(ActionEvent event) {
-
+    void addbtnonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("productForm.fxml",event);
     }
 
     @FXML
-    void cancelbtnonaction(ActionEvent event) {
-
+    void cancelbtnonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("productForm.fxml",event);
     }
 
-    @FXML
-    void customeronaction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void dashboardonaction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void employeebtnonaction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void logoutbtnonaction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void machinebtnonaction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void orderbtnonaction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void productsbtnonaction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void supplierbtnonaction(ActionEvent event) {
-
-    }
 }
