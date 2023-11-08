@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.project.controller.addMachineCotroller"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.addMachineCotroller">
+   <children>
+      <ImageView fitHeight="350.0" fitWidth="600.0">
+         <image>
+            <Image url="@../icon/add%20customer%20(1).png" />
+         </image>
+      </ImageView>
+      <Text layoutX="69.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Machine">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <ImageView layoutX="32.0" layoutY="8.0">
+         <image>
+            <Image url="@../icon/chart-3%202.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtmachinename" layoutX="227.0" layoutY="75.0" prefHeight="24.0" prefWidth="228.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="108.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine name" />
+      <TextField fx:id="txtmachinetask" layoutX="227.0" layoutY="120.0" prefHeight="24.0" prefWidth="228.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="108.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine task" />
+      <TextField fx:id="txtquantity" layoutX="227.0" layoutY="163.0" prefHeight="24.0" prefWidth="86.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="108.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" />
+      <TextField fx:id="txtperdayrent" layoutX="227.0" layoutY="206.0" prefHeight="24.0" prefWidth="86.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="108.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Per day rent" wrappingWidth="85.91552734375" />
+      <Button fx:id="btncancel" layoutX="371.0" layoutY="297.0" mnemonicParsing="false" onAction="#cancelbtnonaction" style="-fx-background-color: #ffffff;" text="CANCEL" textFill="#0b7923" />
+      <Button fx:id="btnadd" layoutX="455.0" layoutY="297.0" mnemonicParsing="false" onAction="#addbtnonaction" style="-fx-background-color: #0B7923;" text="ADD" textFill="#ebd6d6">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>

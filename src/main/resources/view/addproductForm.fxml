@@ -34,9 +34,9 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <ImageView layoutX="46.0" layoutY="13.0">
+      <ImageView layoutX="44.0" layoutY="13.0">
          <image>
-            <Image url="@../icon/profile-2user.png" />
+            <Image url="@../icon/box.png" />
          </image>
       </ImageView>
    </children>
