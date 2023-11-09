@@ -13,7 +13,7 @@ import java.util.List;
 
 
     public class customerModel {
-        public boolean saveCustomer( final  customerDto cusDto) throws SQLException {
+        public static boolean saveCustomer(final customerDto cusDto) throws SQLException {
             Connection connection = FpConnection.getInstance().getConnection();
             String sql = "INSERT INTO customer VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pstm = connection.prepareStatement(sql);
@@ -55,7 +55,7 @@ import java.util.List;
             return pstm.executeUpdate() > 0;
         }
 
-        public customerDto searchCustomer( String cus_id) throws SQLException {
+        public  customerDto searchCustomer(String cus_id) throws SQLException {
             Connection connection = FpConnection.getInstance().getConnection();
             String sql = "SELECT * FROM customer WHERE cus_id = ?";
 

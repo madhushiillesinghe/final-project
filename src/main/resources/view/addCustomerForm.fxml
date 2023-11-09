@@ -39,7 +39,6 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <ComboBox fx:id="comboxaccounttype" layoutX="152.0" layoutY="276.0" prefWidth="150.0" style="-fx-background-color: #ACE1AF;" />
       <Text layoutX="81.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Customer">
          <font>
             <Font name="System Bold" size="20.0" />
@@ -52,11 +51,12 @@
       </ImageView>
       <TextField fx:id="txtid" layoutX="502.0" layoutY="9.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ffffff;" />
       <Text layoutX="437.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="          Id:" />
-      <ComboBox fx:id="cmbempid" layoutX="322.0" layoutY="9.0" prefWidth="150.0" style="-fx-background-color: #ffffff;" />
+      <ComboBox fx:id="cmbempid" layoutX="322.0" layoutY="9.0" onAction="#empididonaction" prefWidth="150.0" style="-fx-background-color: #ffffff;" />
       <Text fill="#f8eeee" fontSmoothingType="LCD" layoutX="265.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Emp_id">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
+      <TextField fx:id="txtaccounttype" layoutX="151.0" layoutY="276.0" prefHeight="24.0" prefWidth="131.0" style="-fx-background-color: #ACE1AF;" />
    </children>
 </AnchorPane>

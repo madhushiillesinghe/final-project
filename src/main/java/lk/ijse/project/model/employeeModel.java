@@ -55,7 +55,7 @@ public class employeeModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public employeeDto searchEmployee( String emp_id) throws SQLException {
+    public static employeeDto searchEmployee( String emp_id) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
         String sql = "SELECT * FROM employee WHERE emp_id = ?";
 
@@ -67,17 +67,20 @@ public class employeeModel {
         employeeDto dto = null;
 
         if(resultSet.next()) {
-            dto = new employeeDto();
-                    dto.setEmp_id(resultSet.getString(1));
-                    dto.setCity(resultSet.getString(2));
-                    dto.setStreet(resultSet.getString(3));
-                    dto.setHouse_no(resultSet.getInt(4));
-                    dto.setContact_no( resultSet.getInt(5));
-                    dto.setRole(resultSet.getString(6));
-                    dto.setEmail( resultSet.getString(9));
-                    dto.setFirst_name(resultSet.getString(10));
-                    dto.setLast_name(resultSet.getString(11));
-                    dto.setNic(resultSet.getInt(12));
+            dto = new employeeDto(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getInt(4),
+                    resultSet.getInt(5),
+                    resultSet.getString(6),
+                    resultSet.getString(7),
+                    resultSet.getString(8),
+                    resultSet.getString(3),
+                    resultSet.getString(10),
+                    resultSet.getString(11),
+                    resultSet.getInt(12)
+            );
         }
         return dto;
     }
@@ -92,7 +95,7 @@ public class employeeModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public List<employeeDto> loadAllEmployee() throws SQLException {
+    public static List<employeeDto> loadAllEmployee() throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
 
         String sql = "SELECT * FROM employee";
@@ -101,23 +104,24 @@ public class employeeModel {
         ResultSet resultSet = pstm.executeQuery();
 
         List<employeeDto> dtoList = new ArrayList<>();
-        var dto = new employeeDto();
         while (resultSet.next()) {
-            dto.setEmp_id(resultSet.getString(1));
-            dto.setCity(resultSet.getString(2));
-            dto.setStreet(resultSet.getString(3));
-            dto.setHouse_no(resultSet.getInt(4));
-            dto.setContact_no( resultSet.getInt(5));
-            dto.setRole(resultSet.getString(6));
-            dto.setEmail( resultSet.getString(9));
-            dto.setUser_name(resultSet.getString(10));
-            dto.setLast_name(resultSet.getString(11));
-            dto.setNic(resultSet.getInt(12));
-
+            var dto = new employeeDto(
+                  resultSet.getString(1),
+                   resultSet.getString(2),
+                   resultSet.getString(3),
+                   resultSet.getInt(4),
+                   resultSet.getInt(5),
+                   resultSet.getString(6),
+                   resultSet.getString(7),
+                   resultSet.getString(8),
+                   resultSet.getString(3),
+                   resultSet.getString(10),
+                   resultSet.getString(11),
+                   resultSet.getInt(12)
+                   );
 
             dtoList.add(dto);
         }
- dto = new employeeDto();
         return dtoList;
     }
 

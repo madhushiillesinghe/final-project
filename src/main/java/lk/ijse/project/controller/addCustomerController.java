@@ -1,5 +1,7 @@
 package lk.ijse.project.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -10,11 +12,15 @@ import lk.ijse.project.dto.employeeDto;
 import lk.ijse.project.model.customerModel;
 import lk.ijse.project.model.employeeModel;
 import lk.ijse.project.util.Navigation;
+import lk.ijse.project.dto.customerDto;
+
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 public class addCustomerController {
+
 
     @FXML
     private Button btnadd;
@@ -23,10 +29,10 @@ public class addCustomerController {
     private Button btncancel;
 
     @FXML
-    private ComboBox<?> cmbempid;
+    private ComboBox<String> cmbempid;
 
     @FXML
-    private ComboBox<?> comboxaccounttype;
+    private TextField txtaccounttype;
 
     @FXML
     private TextField txtcity;
@@ -54,9 +60,12 @@ public class addCustomerController {
 
     @FXML
     private TextField txtstreet;
+    public void initialize(){
+        loademployeeids();
+    }
 
     @FXML
-    void addbtnonaction(ActionEvent event) throws IOException {
+    void addbtnonaction(ActionEvent event){
         String city= txtcity.getText();
         String firstname = txtfirstname.getText();
         String lastname = txtlastname.getText();
@@ -65,21 +74,22 @@ public class addCustomerController {
         int contactno = Integer.parseInt(txtcontactno.getText());
         int nic= Integer.parseInt(txtnic.getText());
         String email=txtemail.getText();
-        String id=txtid.getText();
+        String cid=txtid.getText();
+        String type=txtaccounttype.getText();
 
 
 
 
-       /* var model = new employeeDto(id,city,street,houseno,contactno,role,usename,password,email,firstname,lastname,nic);
+       var model = new customerDto(cid,city,street,houseno,contactno, cmbempid.getId(),type,email,firstname,lastname,nic);
         try {
             boolean isSaved;
-            isSaved = employeeModel.saveEmployee(model);
+            isSaved = customerModel.saveCustomer(model);
             if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Employee saveddd!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "Customer saveddd!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }*/
+        }
     }
 
     @FXML
@@ -87,5 +97,23 @@ public class addCustomerController {
 
         Navigation.switchNavigation("customerForm.fxml",event);
     }
+     @FXML
+     void empididonaction(ActionEvent actionEvent) throws SQLException {
+    String  id = cmbempid.getSelectionModel().getSelectedItem().toString();
+}
+    private void loademployeeids() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        cmbempid.setItems(obList);
+        try {
+            List<employeeDto> empidList = employeeModel.loadAllEmployee();
 
+            for (employeeDto dto : empidList) {
+                obList.add(dto.getEmp_id());
+            }
+
+            // cmbItemCode.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
