@@ -3,6 +3,7 @@ package lk.ijse.project.model;
 import lk.ijse.project.dto.employeeDto;
 import lk.ijse.project.fp.FpConnection;
 
+import java.awt.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +13,8 @@ import java.util.List;
 
 
 public class employeeModel {
-    public boolean saveEmployee(employeeDto empDto) throws SQLException {
+
+    public static boolean saveEmployee(employeeDto empDto) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
         String sql = "INSERT INTO employee VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -108,7 +110,7 @@ public class employeeModel {
             dto.setContact_no( resultSet.getInt(5));
             dto.setRole(resultSet.getString(6));
             dto.setEmail( resultSet.getString(9));
-            dto.setFirst_name(resultSet.getString(10));
+            dto.setUser_name(resultSet.getString(10));
             dto.setLast_name(resultSet.getString(11));
             dto.setNic(resultSet.getInt(12));
 
@@ -118,5 +120,7 @@ public class employeeModel {
  dto = new employeeDto();
         return dtoList;
     }
+
+
 
 }

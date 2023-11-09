@@ -13,7 +13,7 @@ import java.util.List;
 
 
     public class customerModel {
-        public boolean saveCustomer(customerDto cusDto) throws SQLException {
+        public boolean saveCustomer( final  customerDto cusDto) throws SQLException {
             Connection connection = FpConnection.getInstance().getConnection();
             String sql = "INSERT INTO customer VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pstm = connection.prepareStatement(sql);
@@ -124,6 +124,7 @@ import java.util.List;
 
             return dtoList;
         }
+
 
     }
 

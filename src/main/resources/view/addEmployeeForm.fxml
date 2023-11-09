@@ -34,7 +34,7 @@
       <TextField fx:id="txtcity" layoutX="144.0" layoutY="130.0" prefHeight="24.0" prefWidth="108.0" style="-fx-background-color: #ACE1AF;" />
       <Text layoutX="47.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:" />
       <Text layoutX="344.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Street:" />
-      <TextField fx:id="txtfirstnatxtstreet" layoutX="405.0" layoutY="129.0" prefHeight="24.0" prefWidth="108.0" style="-fx-background-color: #ACE1AF;" />
+      <TextField fx:id="txtstreet" layoutX="405.0" layoutY="129.0" prefHeight="24.0" prefWidth="108.0" style="-fx-background-color: #ACE1AF;" />
       <TextField fx:id="txthouseno" layoutX="144.0" layoutY="169.0" prefHeight="24.0" prefWidth="68.0" style="-fx-background-color: #ACE1AF;" />
       <Text layoutX="47.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="House no:" />
       <TextField fx:id="txtemail" layoutX="144.0" layoutY="208.0" prefHeight="24.0" prefWidth="290.0" style="-fx-background-color: #ACE1AF;" />
@@ -53,5 +53,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
+      <TextField fx:id="txtid" layoutX="489.0" layoutY="8.0" prefHeight="24.0" prefWidth="96.0" style="-fx-background-color: #ffffff;" />
+      <Text layoutX="466.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" />
    </children>
 </AnchorPane>

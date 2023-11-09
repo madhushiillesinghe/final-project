@@ -8,7 +8,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.addMachineCotroller">
    <children>
       <ImageView fitHeight="350.0" fitWidth="600.0">
@@ -21,7 +20,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <ImageView layoutX="32.0" layoutY="8.0">
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="40.0" layoutY="10.0">
          <image>
             <Image url="@../icon/chart-3%202.png" />
          </image>
