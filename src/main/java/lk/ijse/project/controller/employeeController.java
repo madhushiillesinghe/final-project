@@ -1,12 +1,12 @@
 package lk.ijse.project.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.event.ActionEvent;
-public class employeeController {
 
+public class employeeController {
 
     @FXML
     private Button btncustomer;
@@ -87,4 +87,5 @@ public class employeeController {
     void supplierbtnonaction(ActionEvent event) {
 
     }
+
 }

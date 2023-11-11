@@ -1,15 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.machineController">
    <children>
       <ImageView fitHeight="768.0" fitWidth="1366.0">
          <image>
-            <Image url="@../icon/protect-environment%20.jpg" />
+            <Image url="@../icon/machine.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btndashboard" layoutX="107.0" layoutY="173.0" mnemonicParsing="false" onAction="#dashboardonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="      Dashboard" textFill="#305532">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnemployee" layoutX="107.0" layoutY="237.0" mnemonicParsing="false" onAction="#employeebtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="     Employee" textFill="#305532">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnsupplier" layoutX="107.0" layoutY="300.0" mnemonicParsing="false" onAction="#supplierbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="  Supplier" textFill="#305532">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btncustomer" layoutX="107.0" layoutY="363.0" mnemonicParsing="false" onAction="#customerbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="    Customer" textFill="#305532">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnproducts" layoutX="107.0" layoutY="423.0" mnemonicParsing="false" onAction="#productsbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="  Products" textFill="#305532">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnmachine" layoutX="107.0" layoutY="486.0" mnemonicParsing="false" onAction="#machinebtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #51A52D;" text=" Machine" textFill="#305532">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnorders" layoutX="107.0" layoutY="549.0" mnemonicParsing="false" onAction="#ordersbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="Orders" textFill="#305532">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnlogout" layoutX="134.0" layoutY="674.0" mnemonicParsing="false" onAction="#logoutbtnonaction" style="-fx-background-color: #ffffff;" text="LOGOUT" textFill="#305532" />
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="181.0">
+         <image>
+            <Image url="@../icon/category.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="245.0">
+         <image>
+            <Image url="@../icon/profile-2user.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="310.0">
+         <image>
+            <Image url="@../icon/Group%20693.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="371.0">
+         <image>
+            <Image url="@../icon/profile-2user.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="104.0" layoutY="411.0" x="20.0" y="20.0">
+         <image>
+            <Image url="@../icon/box.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="494.0">
+         <image>
+            <Image url="@../icon/chart-3%202.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="557.0">
+         <image>
+            <Image url="@../icon/receipt-item%203.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtsearch1" layoutX="655.0" layoutY="72.0" prefHeight="28.0" prefWidth="165.0" promptText="            Add Customer" />
+      <ImageView layoutX="672.0" layoutY="76.0" onMouseClicked="#addmachine">
+         <image>
+            <Image url="@../icon/addicon.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtsearch" layoutX="916.0" layoutY="75.0" prefHeight="28.0" prefWidth="205.0" promptText="    Search id or name" />
+      <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="1096.0" layoutY="82.0" onMouseClicked="#searchmachine">
+         <image>
+            <Image url="@../icon/search-normal.png" />
          </image>
       </ImageView>
    </children>
