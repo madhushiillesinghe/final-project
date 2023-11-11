@@ -38,19 +38,19 @@ public class agriProductController {
     private ImageView deleteImg;
 
     @FXML
-    private Text txtproductid;
+    private Text txtId;
 
     @FXML
-    private Text txtproductname;
+    private Text txtName;
+
+    @FXML
+    private Text txtexpiredate;
 
     @FXML
     private Text txtqty;
 
     @FXML
     private TextField txtsearch;
-
-    @FXML
-    private TextField txtsearch1;
 
     @FXML
     private Text txtunitprice;
@@ -78,16 +78,6 @@ public class agriProductController {
 
     @FXML
     void deleteOnMouseClick(MouseEvent event) {
-
-    }
-
-    @FXML
-    void deleteOnMouseEntered(MouseEvent event) {
-
-    }
-
-    @FXML
-    void deleteOnMouseExited(MouseEvent event) {
 
     }
 
@@ -133,26 +123,6 @@ public class agriProductController {
 
     @FXML
     void updateOnMouseClick(MouseEvent event) {
-
-    }
-
-    @FXML
-    void updateOnMouseEntered(MouseEvent event) {
-
-    }
-
-    @FXML
-    void updateOnMouseExited(MouseEvent event) {
-
-    }
-
-    @FXML
-    void viewOnMouseEntered(MouseEvent event) {
-
-    }
-
-    @FXML
-    void viewOnMouseExited(MouseEvent event) {
 
     }
 

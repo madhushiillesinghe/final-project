@@ -4,8 +4,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
+
 public class machineController {
+
     @FXML
     private Button btncustomer;
 
@@ -31,10 +35,28 @@ public class machineController {
     private Button btnsupplier;
 
     @FXML
+    private ImageView deleteImg;
+
+    @FXML
+    private Text txtId;
+
+    @FXML
+    private Text txtName;
+
+    @FXML
+    private Text txtqty;
+
+    @FXML
+    private Text txtrent;
+
+    @FXML
     private TextField txtsearch;
 
     @FXML
-    private TextField txtsearch1;
+    private ImageView updateImg;
+
+    @FXML
+    private ImageView viewImg;
 
     @FXML
     void addmachine(MouseEvent event) {
@@ -48,6 +70,16 @@ public class machineController {
 
     @FXML
     void dashboardonaction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void deleteOnMouseClick(MouseEvent event) {
+
+    }
+
+    @FXML
+    void detailsOnMouseClick(MouseEvent event) {
 
     }
 
@@ -85,5 +117,10 @@ public class machineController {
     void supplierbtnonaction(ActionEvent event) {
 
     }
-}
 
+    @FXML
+    void updateOnMouseClick(MouseEvent event) {
+
+    }
+
+}

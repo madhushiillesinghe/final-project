@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -16,7 +16,7 @@
    <children>
       <ImageView fitHeight="768.0" fitWidth="1366.0">
          <image>
-            <Image url="@../icon/add%20product.png" />
+            <Image url="@../icon/product.png" />
          </image>
       </ImageView>
       <TextField fx:id="txtsearch" layoutX="907.0" layoutY="72.0" prefHeight="28.0" prefWidth="205.0" promptText="    Search id or name" />
@@ -91,64 +91,69 @@
          </image>
       </ImageView>
       <Button fx:id="btnlogout" layoutX="134.0" layoutY="673.0" mnemonicParsing="false" onAction="#logoutbtnonaction" style="-fx-background-color: #ffffff;" text="LOGOUT" textFill="#305532" />
-      <GridPane layoutX="512.0" layoutY="226.0" prefHeight="46.0" prefWidth="179.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-         </rowConstraints>
-      </GridPane>
-      <HBox alignment="CENTER_LEFT" layoutX="391.0" layoutY="189.0" prefHeight="46.0" prefWidth="938.0" spacing="10.0" style="-fx-background-color: white;">
-         <children>
-            <Text fx:id="txtproductid" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="  product id" wrappingWidth="172.81900024414062">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtproductname" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="product name" wrappingWidth="236.9127197265625">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtqty" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Qty" wrappingWidth="182.00238037109375">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtunitprice" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit price" wrappingWidth="155.2198486328125">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <ImageView fx:id="viewImg" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#detailsOnMouseClick" onMouseEntered="#viewOnMouseEntered" onMouseExited="#viewOnMouseExited" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../Downloads/Fishery-Harbor-master/src/main/resources/img/icon/action-btn-details.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="updateImg" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#updateOnMouseClick" onMouseEntered="#updateOnMouseEntered" onMouseExited="#updateOnMouseExited" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../Downloads/Fishery-Harbor-master/src/main/resources/img/icon/action-btn.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="deleteImg" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#deleteOnMouseClick" onMouseEntered="#deleteOnMouseEntered" onMouseExited="#deleteOnMouseExited" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../Downloads/Fishery-Harbor-master/src/main/resources/img/icon/action-delete-btn.png" />
-               </image>
-            </ImageView>
-         </children>
-      </HBox>
       <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="1077.0" layoutY="79.0" onMouseClicked="#searchproducts">
          <image>
             <Image url="@../icon/search-normal.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtsearch1" layoutX="655.0" layoutY="72.0" prefHeight="28.0" prefWidth="165.0" promptText="            Add products" />
+      <TextField layoutX="655.0" layoutY="72.0" prefHeight="28.0" prefWidth="165.0" promptText="            Add products" />
       <ImageView layoutX="672.0" layoutY="76.0" onMouseClicked="#addproducts">
          <image>
             <Image url="@../icon/addicon.png" />
          </image>
       </ImageView>
+      <ScrollPane layoutX="376.0" layoutY="156.0" opacity="0.87" prefHeight="568.0" prefWidth="942.0" style="-fx-background-color: #ffffff;">
+         <content>
+            <VBox prefHeight="583.0" prefWidth="929.0" style="-fx-background-color: #ffffff;" visible="false">
+               <effect>
+                  <BoxBlur />
+               </effect>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <HBox alignment="CENTER_LEFT" layoutX="375.0" layoutY="164.0" prefHeight="42.0" prefWidth="928.0" spacing="20.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Text fx:id="txtId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="           id" wrappingWidth="121.8519287109375">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtName" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="106.81900024414062">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtunitprice" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit price" wrappingWidth="168.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtqty" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" wrappingWidth="127.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtexpiredate" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Expire Date" wrappingWidth="159.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="updateImg" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#updateOnMouseClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Downloads/Fishery-Harbor-master/src/main/resources/img/icon/action-btn.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="deleteImg" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#deleteOnMouseClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Downloads/Fishery-Harbor-master/src/main/resources/img/icon/action-delete-btn.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="viewImg" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#detailsOnMouseClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Downloads/Fishery-Harbor-master/src/main/resources/img/icon/action-btn-details.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

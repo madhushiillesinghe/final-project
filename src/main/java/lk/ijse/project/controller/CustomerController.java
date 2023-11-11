@@ -1,9 +1,13 @@
 package lk.ijse.project.controller;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
+
 public class CustomerController {
 
         @FXML
@@ -31,10 +35,34 @@ public class CustomerController {
         private Button btnsupplier;
 
         @FXML
+        private ImageView deleteImg;
+
+        @FXML
+        private Text txtAddress;
+
+        @FXML
+        private Text txtEmail;
+
+        @FXML
+        private Text txtId;
+
+        @FXML
+        private Text txtMobile;
+
+        @FXML
+        private Text txtName;
+
+        @FXML
+        private Text txtaccount;
+
+        @FXML
         private TextField txtsearch;
 
         @FXML
-        private TextField txtsearch1;
+        private ImageView updateImg;
+
+        @FXML
+        private ImageView viewImg;
 
         @FXML
         void addcustomer(MouseEvent event) {
@@ -48,6 +76,16 @@ public class CustomerController {
 
         @FXML
         void dashboardonaction(ActionEvent event) {
+
+        }
+
+        @FXML
+        void deleteOnMouseClick(MouseEvent event) {
+
+        }
+
+        @FXML
+        void detailsOnMouseClick(MouseEvent event) {
 
         }
 
@@ -86,4 +124,9 @@ public class CustomerController {
 
         }
 
-    }
+        @FXML
+        void updateOnMouseClick(MouseEvent event) {
+
+        }
+
+}
