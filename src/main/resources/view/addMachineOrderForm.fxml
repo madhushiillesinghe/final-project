@@ -2,13 +2,14 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
 
 <AnchorPane prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.addOrderMachineController">
    <children>
@@ -17,27 +18,53 @@
             <Image url="@../icon/add%20customer%20(1).png" />
          </image>
       </ImageView>
-      <Text layoutX="59.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Machine Order">
+      <Text layoutX="55.0" layoutY="28.0" strokeType="INSIDE" strokeWidth="0.0" text="Add Machine Order">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="39.0" layoutY="16.0">
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="35.0" layoutY="10.0">
          <image>
             <Image url="@../icon/receipt-item%203.png" />
          </image>
       </ImageView>
-      <ComboBox fx:id="comboxmachineid" layoutX="201.0" layoutY="90.0" prefWidth="150.0" style="-fx-background-color: #ACE1AF;" />
-      <ComboBox fx:id="comboxcustomerid" layoutX="201.0" layoutY="145.0" prefWidth="150.0" style="-fx-background-color: #ACE1AF;" />
-      <TextField fx:id="txtdaysofkeep" layoutX="201.0" layoutY="197.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="76.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine id:" />
-      <Text layoutX="76.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer id:" />
-      <Text layoutX="76.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="days of keep:" />
+      <ComboBox fx:id="comboxmachineid" layoutX="126.0" layoutY="54.0" prefWidth="150.0" style="-fx-background-color: #ACE1AF;" />
+      <ComboBox fx:id="comboxcustomerid" layoutX="395.0" layoutY="54.0" prefWidth="150.0" style="-fx-background-color: #ACE1AF;" />
+      <TextField fx:id="txtdaysofkeep" layoutX="152.0" layoutY="142.0" prefHeight="24.0" prefWidth="128.0" style="-fx-background-color: #ACE1AF;" />
+      <Text fill="#fceaea" layoutX="283.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="order Id">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Text>
+      <Text layoutX="311.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer id:" />
+      <Text layoutX="41.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="days of keep:" />
       <Button fx:id="btncancel" layoutX="371.0" layoutY="297.0" mnemonicParsing="false" onAction="#cancelbtnonaction" style="-fx-background-color: #ffffff;" text="CANCEL" textFill="#0b7923" />
-      <Button fx:id="btnadd" layoutX="461.0" layoutY="297.0" mnemonicParsing="false" onAction="#addbtnonaction" style="-fx-background-color: #0B7923;" text="ADD" textFill="#ebd6d6">
+      <Button fx:id="btnplaceorder" layoutX="461.0" layoutY="297.0" mnemonicParsing="false" onAction="#placeorderbtnonaction" style="-fx-background-color: #0B7923;" text="PLACE ORDER" textFill="#ebd6d6">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
+      <TextField fx:id="txtorderid" layoutX="351.0" layoutY="9.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ffffff;" />
+      <Text layoutX="454.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" />
+      <DatePicker fx:id="datepickdate" layoutX="487.0" layoutY="8.0" onAction="#dateonaction" prefHeight="24.0" prefWidth="111.0" promptText="DD/MM/YY" />
+      <Text layoutX="38.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="machine id:" />
+      <TextField fx:id="txtqtyq" layoutX="486.0" layoutY="93.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="411.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qty stock" />
+      <TextField fx:id="txtrentprice" layoutX="271.0" layoutY="93.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <TextField fx:id="txtname" layoutX="85.0" layoutY="95.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="37.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="name" />
+      <Text layoutX="201.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent price" />
+      <Line endX="100.0" startX="-100.0" />
+      <Line endX="413.5" layoutX="163.0" layoutY="180.0" startX="-134.5" />
+      <TextField fx:id="txtpayid" layoutX="111.0" layoutY="212.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="35.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pay id" />
+      <TextField fx:id="txtpaymentmethod" layoutX="470.0" layoutY="212.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="339.0" layoutY="227.0" strokeLineCap="BUTT" strokeWidth="0.0" text="Payment method" />
+      <TextField fx:id="txttotalamount" layoutX="129.0" layoutY="257.0" prefHeight="24.0" prefWidth="128.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="28.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total amount" />
+      <Text layoutX="35.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Detail">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
