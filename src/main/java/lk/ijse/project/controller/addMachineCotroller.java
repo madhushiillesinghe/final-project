@@ -2,11 +2,16 @@ package lk.ijse.project.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import lk.ijse.project.dto.machineDto;
+import lk.ijse.project.model.machineModel;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.sql.SQLException;
 
 public class addMachineCotroller {
 
@@ -36,7 +41,23 @@ public class addMachineCotroller {
 
     @FXML
     void addbtnonaction(ActionEvent event) throws IOException {
-        Navigation.switchNavigation("machineForm.fxml",event);
+        String m_id= txtid.getText();
+        String m_name=txtmachinename.getText();
+        String m_task=txtmachinetask.getText();
+        int qty = Integer.parseInt(txtquantity.getText());
+        int amount= Integer.parseInt(txtperdayrent.getText());
+        String rent_id=txtrentid.getText();
+
+        var model = new machineDto(m_id,m_name,m_task,qty,rent_id,amount);
+        try {
+            boolean isSaved;
+            isSaved = machineModel.saveMachine(model);
+            if (isSaved) {
+                new Alert(Alert.AlertType.CONFIRMATION, "machine saveddd!").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
     @FXML

@@ -6,8 +6,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import lk.ijse.project.dto.employeeDto;
-import lk.ijse.project.model.employeeModel;
+import lk.ijse.project.dto.productDto;
+import lk.ijse.project.model.productModel;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
@@ -39,8 +39,7 @@ public class addProductController {
 
     @FXML
     void datepickeronaction(ActionEvent event) {
-
-
+        Date date= Date.valueOf(dateexpire.getValue());
     }
 
     @FXML
@@ -50,13 +49,12 @@ public class addProductController {
         String description=txtproductname.getText();
         int qty = Integer.parseInt(txtqtyonstock.getText());
 
-
-        var model = new employeeDto(p_code,price,description,qty,dateexpire.getValue());
+        var model = new productDto(p_code,price,description,qty,Date.valueOf(dateexpire.getValue()));
         try {
             boolean isSaved;
-            isSaved = employeeModel.saveEmployee(model);
+            isSaved = productModel.saveProduct(model);
             if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Employee saveddd!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "product saveddd!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
