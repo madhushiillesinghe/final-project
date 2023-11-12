@@ -1,9 +1,9 @@
 package lk.ijse.project.model;
 
 import lk.ijse.project.dto.employeeDto;
+import lk.ijse.project.dto.tm.employeeTm;
 import lk.ijse.project.fp.FpConnection;
 
-import java.awt.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,7 +35,7 @@ public class employeeModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public boolean updateEmployee(employeeDto empDto) throws SQLException {
+    public boolean updateEmployee(employeeTm empDto) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
 
         String sql = "UPDATE employee SET city = ?, street = ?, house_no = ?, contact_no = ?, role = ?, email = ?, first_name = ?, last_name = ?, nic = ? WHERE emp_id = ?";
