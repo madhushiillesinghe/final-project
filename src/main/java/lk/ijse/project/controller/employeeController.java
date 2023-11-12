@@ -7,6 +7,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import lk.ijse.project.dto.employeeDto;
+import lk.ijse.project.model.employeeModel;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+import lk.ijse.project.util.*;
 
 public class employeeController {
 
@@ -71,13 +77,13 @@ public class employeeController {
     private ImageView viewImg;
 
     @FXML
-    void addcustomer(MouseEvent event) {
-
+    void addcustomer(MouseEvent event) throws IOException {
+   Navigation.switchNavigation("addCustomerForm",event);
     }
 
     @FXML
-    void customerbtnonaction(ActionEvent event) {
-
+    void customerbtnonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("",event);
     }
 
     @FXML
