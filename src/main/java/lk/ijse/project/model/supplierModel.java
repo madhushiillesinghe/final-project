@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class supplierModel {
-    public boolean saveSupplier(supplierDto supDto) throws SQLException {
+    public static boolean saveSupplier(supplierDto supDto) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
         String sql = "INSERT INTO supplier VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement pstm = connection.prepareStatement(sql);

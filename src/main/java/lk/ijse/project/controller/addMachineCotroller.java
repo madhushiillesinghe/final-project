@@ -17,6 +17,12 @@ public class addMachineCotroller {
     private Button btncancel;
 
     @FXML
+    private TextField txtid;
+
+    @FXML
+    private TextField txtrentid;
+
+    @FXML
     private TextField txtmachinename;
 
     @FXML

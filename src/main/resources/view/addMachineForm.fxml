@@ -39,5 +39,13 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
+      <TextField fx:id="txtid" layoutX="505.0" layoutY="8.0" prefHeight="24.0" prefWidth="86.0" style="-fx-background-color: #ffffff;" />
+      <Text layoutX="426.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="machine id" />
+      <TextField fx:id="txtrentid" layoutX="321.0" layoutY="8.0" prefHeight="24.0" prefWidth="86.0" style="-fx-background-color: #ffffff;" />
+      <Text fill="#f8e8e8" layoutX="260.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent id">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

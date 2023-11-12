@@ -11,6 +11,9 @@ import javafx.scene.text.Text;
 public class agriProductController {
 
     @FXML
+    private ImageView addimg;
+
+    @FXML
     private Button btncustomer;
 
     @FXML
@@ -36,6 +39,9 @@ public class agriProductController {
 
     @FXML
     private ImageView deleteImg;
+
+    @FXML
+    private ImageView searchimg;
 
     @FXML
     private Text txtId;

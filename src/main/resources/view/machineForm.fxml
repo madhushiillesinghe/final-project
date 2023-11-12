@@ -19,42 +19,42 @@
             <Image url="@../icon/machine.png" />
          </image>
       </ImageView>
-      <Button fx:id="btndashboard" layoutX="107.0" layoutY="173.0" mnemonicParsing="false" onAction="#dashboardonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="      Dashboard" textFill="#305532">
+      <Button fx:id="btndashboard" layoutX="110.0" layoutY="173.0" mnemonicParsing="false" onAction="#dashboardonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="      Dashboard" textFill="#305532">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btnemployee" layoutX="107.0" layoutY="237.0" mnemonicParsing="false" onAction="#employeebtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="     Employee" textFill="#305532">
+      <Button fx:id="btnemployee" layoutX="110.0" layoutY="237.0" mnemonicParsing="false" onAction="#employeebtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="     Employee" textFill="#305532">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btnsupplier" layoutX="107.0" layoutY="300.0" mnemonicParsing="false" onAction="#supplierbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="  Supplier" textFill="#305532">
+      <Button fx:id="btnsupplier" layoutX="110.0" layoutY="300.0" mnemonicParsing="false" onAction="#supplierbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="  Supplier" textFill="#305532">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btncustomer" layoutX="107.0" layoutY="363.0" mnemonicParsing="false" onAction="#customerbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="    Customer" textFill="#305532">
+      <Button fx:id="btncustomer" layoutX="110.0" layoutY="363.0" mnemonicParsing="false" onAction="#customerbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="    Customer" textFill="#305532">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btnproducts" layoutX="107.0" layoutY="423.0" mnemonicParsing="false" onAction="#productsbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="  Products" textFill="#305532">
+      <Button fx:id="btnproducts" layoutX="110.0" layoutY="423.0" mnemonicParsing="false" onAction="#productsbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="  Products" textFill="#305532">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btnmachine" layoutX="107.0" layoutY="486.0" mnemonicParsing="false" onAction="#machinebtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #51A52D;" text=" Machine" textFill="#305532">
+      <Button fx:id="btnmachine" layoutX="110.0" layoutY="486.0" mnemonicParsing="false" onAction="#machinebtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #51A52D;" text=" Machine" textFill="#305532">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btnorders" layoutX="107.0" layoutY="549.0" mnemonicParsing="false" onAction="#ordersbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="Orders" textFill="#305532">
+      <Button fx:id="btnorders" layoutX="110.0" layoutY="549.0" mnemonicParsing="false" onAction="#ordersbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="Orders" textFill="#305532">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btnlogout" layoutX="134.0" layoutY="674.0" mnemonicParsing="false" onAction="#logoutbtnonaction" style="-fx-background-color: #ffffff;" text="LOGOUT" textFill="#305532" />
+      <Button fx:id="btnlogout" layoutX="140.0" layoutY="674.0" mnemonicParsing="false" onAction="#logoutbtnonaction" style="-fx-background-color: #ffffff;" text="LOGOUT" textFill="#305532" />
       <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="181.0">
          <image>
             <Image url="@../icon/category.png" />
@@ -91,13 +91,13 @@
          </image>
       </ImageView>
       <TextField layoutX="655.0" layoutY="72.0" prefHeight="28.0" prefWidth="165.0" promptText="            Add Customer" />
-      <ImageView layoutX="672.0" layoutY="76.0" onMouseClicked="#addmachine">
+      <ImageView fx:id="addimg" layoutX="672.0" layoutY="76.0" onMouseClicked="#addmachine">
          <image>
             <Image url="@../icon/addicon.png" />
          </image>
       </ImageView>
       <TextField fx:id="txtsearch" layoutX="916.0" layoutY="75.0" prefHeight="28.0" prefWidth="205.0" promptText="    Search id or name" />
-      <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="1096.0" layoutY="82.0" onMouseClicked="#searchmachine">
+      <ImageView fx:id="searchimg" fitHeight="15.0" fitWidth="15.0" layoutX="1096.0" layoutY="82.0" onMouseClicked="#searchmachine">
          <image>
             <Image url="@../icon/search-normal.png" />
          </image>

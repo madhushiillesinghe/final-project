@@ -60,8 +60,13 @@ public class addCustomerController {
 
     @FXML
     private TextField txtstreet;
+
     public void initialize(){
         loademployeeids();
+    }
+    @FXML
+    void empididonaction(ActionEvent actionEvent) throws SQLException {
+        String  id = cmbempid.getSelectionModel().getSelectedItem().toString();
     }
 
     @FXML
@@ -76,16 +81,15 @@ public class addCustomerController {
         String email=txtemail.getText();
         String cid=txtid.getText();
         String type=txtaccounttype.getText();
+        String id = cmbempid.getValue();
 
-
-
-
-       var model = new customerDto(cid,city,street,houseno,contactno, cmbempid.getId(),type,email,firstname,lastname,nic);
+        var model = new customerDto(cid,city,street,houseno,contactno,id,type,email,firstname,lastname,nic);
         try {
             boolean isSaved;
             isSaved = customerModel.saveCustomer(model);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Customer saveddd!").show();
+
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -97,10 +101,7 @@ public class addCustomerController {
 
         Navigation.switchNavigation("customerForm.fxml",event);
     }
-     @FXML
-     void empididonaction(ActionEvent actionEvent) throws SQLException {
-    String  id = cmbempid.getSelectionModel().getSelectedItem().toString();
-}
+
     private void loademployeeids() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         cmbempid.setItems(obList);
