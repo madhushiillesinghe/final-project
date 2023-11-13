@@ -10,12 +10,9 @@ import java.util.Date;
 @NoArgsConstructor
 @Data
 
-public class machinePaymentDto {
-    private String d_id;
+public class machineOrderDetailDto {
     private Date order_date;
     private String payment_method;
-    private String p_id;
-    private String order_status;
     private String pay_id;
     private int no_of_days_keep_the_machine;
     private int qty_on_hand;

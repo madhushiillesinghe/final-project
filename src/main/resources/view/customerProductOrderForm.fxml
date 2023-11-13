@@ -1,14 +1,190 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.project.controller.OrderProductController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.OrderProductController">
+   <children>
+      <ImageView fitHeight="768.0" fitWidth="1366.0">
+         <image>
+            <Image url="@../icon/customer%20order%20item.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btndashboard" layoutX="110.0" layoutY="173.0" mnemonicParsing="false" onAction="#dashboardonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="      Dashboard" textFill="#305532">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnemployee" layoutX="110.0" layoutY="237.0" mnemonicParsing="false" onAction="#employeebtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="     Employee" textFill="#305532">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnsupplier" layoutX="110.0" layoutY="300.0" mnemonicParsing="false" onAction="#supplierbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="  Supplier" textFill="#305532">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btncustomer" layoutX="110.0" layoutY="363.0" mnemonicParsing="false" onAction="#customerbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="    Customer" textFill="#305532">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnproducts" layoutX="110.0" layoutY="423.0" mnemonicParsing="false" onAction="#productsbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="  Products" textFill="#305532">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnmachine" layoutX="110.0" layoutY="486.0" mnemonicParsing="false" onAction="#machinebtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text=" Machine" textFill="#305532">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnorders" layoutX="110.0" layoutY="549.0" mnemonicParsing="false" onAction="#ordersbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #51A52D;" text="Orders" textFill="#305532">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnlogout" layoutX="140.0" layoutY="673.0" mnemonicParsing="false" onAction="#logoutbtnonaction" style="-fx-background-color: #ffffff;" text="LOGOUT" textFill="#305532" />
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="181.0">
+         <image>
+            <Image url="@../icon/category.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="245.0">
+         <image>
+            <Image url="@../icon/profile-2user.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="310.0">
+         <image>
+            <Image url="@../icon/Group%20693.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="371.0">
+         <image>
+            <Image url="@../icon/profile-2user.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="104.0" layoutY="411.0" x="20.0" y="20.0">
+         <image>
+            <Image url="@../icon/box.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="494.0">
+         <image>
+            <Image url="@../icon/chart-3%202.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="557.0">
+         <image>
+            <Image url="@../icon/receipt-item%203.png" />
+         </image>
+      </ImageView>
+      <TextField layoutX="655.0" layoutY="72.0" prefHeight="28.0" prefWidth="165.0" promptText="             Add Order" />
+      <TextField fx:id="txtsearch" layoutX="907.0" layoutY="72.0" prefHeight="28.0" prefWidth="165.0" promptText="    Search id " />
+      <ImageView fx:id="addimg" layoutX="672.0" layoutY="76.0" onMouseClicked="#addcustomerorder">
+         <image>
+            <Image url="@../icon/addicon.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="searchimg" fitHeight="15.0" fitWidth="15.0" layoutX="1050.0" layoutY="79.0" onMouseClicked="#searchemployee">
+         <image>
+            <Image url="@../icon/search-normal.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btncustomerorder" layoutX="369.0" layoutY="157.0" mnemonicParsing="false" onAction="#customerorderonaction" prefHeight="24.0" prefWidth="140.0" style="-fx-border-radius: 20; -fx-background-color: #228B22;" styleClass="customerclass" text="Customer Order" textFill="#f5e5e5">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnsupplierorder" layoutX="526.0" layoutY="157.0" mnemonicParsing="false" onAction="#supplierorderbtnonaction" prefHeight="24.0" prefWidth="140.0" style="-fx-border-radius: 20; -fx-background-color: #ffffff;" styleClass="customerclass" text="Supplier Order" textFill="#1e1010">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnproductorder" layoutX="369.0" layoutY="196.0" mnemonicParsing="false" onAction="#productorderbtnonaction" prefHeight="24.0" prefWidth="140.0" style="-fx-border-radius: 20; -fx-background-color: #03C03C;" styleClass="customerclass" text="Product Order" textFill="#e8dbdb">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnmachineorder" layoutX="526.0" layoutY="196.0" mnemonicParsing="false" onAction="#machineorderbtnonaction" prefHeight="24.0" prefWidth="140.0" style="-fx-border-radius: 20; -fx-background-color: #ffffff;" styleClass="customerclass" text=" Machine Order" textFill="#2f2323">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <ScrollPane layoutX="379.0" layoutY="241.0" opacity="0.87" prefHeight="497.0" prefWidth="923.0" style="-fx-background-color: #ffffff;">
+         <content>
+            <VBox prefHeight="583.0" prefWidth="929.0" style="-fx-background-color: #ffffff;" visible="false" />
+         </content>
+      </ScrollPane>
+      <HBox alignment="CENTER_LEFT" layoutX="380.0" layoutY="235.0" prefHeight="42.0" prefWidth="879.0" spacing="20.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Text fx:id="txtoid" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   OId" wrappingWidth="81.8519287109375">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtcusid" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Cus Id" wrappingWidth="92.81900024414062">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtmachineid" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="product Id" wrappingWidth="136.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtpayid" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Pay Id" wrappingWidth="72.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtstatus" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" wrappingWidth="93.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtdate" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="63.00238037109375">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txttotalamount" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Amount" wrappingWidth="118.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="updateImg" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#updateOnMouseClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Downloads/Fishery-Harbor-master/src/main/resources/img/icon/action-btn.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="deleteImg" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#deleteOnMouseClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Downloads/Fishery-Harbor-master/src/main/resources/img/icon/action-delete-btn.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="viewImg" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#detailsOnMouseClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Downloads/Fishery-Harbor-master/src/main/resources/img/icon/action-btn-details.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Button fx:id="btndeliveer" layoutX="1150.0" layoutY="196.0" mnemonicParsing="false" onAction="#deliverbtnonaction" prefHeight="24.0" prefWidth="140.0" style="-fx-border-radius: 20; -fx-background-color: #DAF7A6;" styleClass="customerclass" text="Deliver detail" textFill="#1e1010">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>

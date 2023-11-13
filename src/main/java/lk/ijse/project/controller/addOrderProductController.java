@@ -4,18 +4,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import lk.ijse.project.util.Navigation;
-
-import java.io.IOException;
 
 public class addOrderProductController {
 
     @FXML
-    private Button btnadd;
+    private Button btncancel;
 
     @FXML
-    private Button btncancel;
+    private Button btnplaceorder;
 
     @FXML
     private ComboBox<?> comboxcustomerid;
@@ -24,16 +22,64 @@ public class addOrderProductController {
     private ComboBox<?> comboxproductid;
 
     @FXML
+    private DatePicker datepickdate;
+
+    @FXML
+    private TextField txtdeliverfee;
+
+    @FXML
+    private TextField txtdeliverid;
+
+    @FXML
+    private TextField txtdescription;
+
+    @FXML
+    private TextField txtmethod;
+
+    @FXML
+    private TextField txtorderid;
+
+    @FXML
+    private TextField txtpayid;
+
+    @FXML
+    private TextField txtqty;
+
+    @FXML
     private TextField txtqtyofbuy;
 
     @FXML
-    void addbtnonaction(ActionEvent event) throws IOException {
-        Navigation.switchNavigation("customerProductOrderForm.fxml",event);
+    private TextField txtstatus;
+
+    @FXML
+    private TextField txttotalamount;
+
+    @FXML
+    private TextField txtunitprice;
+
+    @FXML
+    void cancelbtnonaction(ActionEvent event) {
+
     }
 
     @FXML
-    void cancelbtnonaction(ActionEvent event) throws IOException {
-        Navigation.switchNavigation("customerProductOrderForm.fxml",event);
+    void customeridonaction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void dateonaction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void placeorderbtnonaction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void productidonaction(ActionEvent event) {
+
     }
 
 }
