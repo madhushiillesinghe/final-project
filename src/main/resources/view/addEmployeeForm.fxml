@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="350.0" fitWidth="600.0">
          <image>
-            <Image url="@../icon/add%20customer%20(1).png" />
+            <Image url="@../icon/addcustomer%20(1).png" />
          </image>
       </ImageView>
       <Text layoutX="74.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Employee">

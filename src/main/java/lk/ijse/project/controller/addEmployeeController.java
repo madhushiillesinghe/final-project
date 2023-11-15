@@ -20,6 +20,9 @@ public class addEmployeeController {
     @FXML
     private Button btncancel;
 
+
+
+
     @FXML
     private TextField txtcity;
 
@@ -77,10 +80,11 @@ public class addEmployeeController {
 
 
 
-        var model = new employeeDto(id,city,street,houseno,contactno,role,usename,password,email,firstname,lastname,nic);
+        var dto = new employeeDto(id,city,street,houseno,contactno,role,usename,password,email,firstname,lastname,nic);
+        var model=new employeeModel();
         try {
             boolean isSaved;
-            isSaved = employeeModel.saveEmployee(model);
+            isSaved = model.saveEmployee(dto);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Employee saveddd!").show();
             }
@@ -94,4 +98,5 @@ public class addEmployeeController {
     void cancelbtnonaction(ActionEvent event) throws IOException {
         Navigation.switchNavigation("employeeForm.fxml",event);
     }
+
 }

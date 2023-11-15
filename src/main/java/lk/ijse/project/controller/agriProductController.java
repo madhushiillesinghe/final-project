@@ -7,6 +7,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import lk.ijse.project.util.Navigation;
+import lk.ijse.project.util.Navigation.*;
+
+import java.io.IOException;
 
 public class agriProductController {
 
@@ -37,8 +41,6 @@ public class agriProductController {
     @FXML
     private Button btnsupplier;
 
-    @FXML
-    private ImageView deleteImg;
 
     @FXML
     private ImageView searchimg;
@@ -61,60 +63,48 @@ public class agriProductController {
     @FXML
     private Text txtunitprice;
 
-    @FXML
-    private ImageView updateImg;
+
 
     @FXML
-    private ImageView viewImg;
+    void addproducts(MouseEvent event) throws IOException {
+        Navigation.switchNavigation("addproductForm.fxml",event);
+    }
 
     @FXML
-    void addproducts(MouseEvent event) {
+    void customerbtnonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("customerForm.fxml",event);
+    }
+
+    @FXML
+    void dashboardonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("dashboardForm.fxml",event);
+    }
+
+
+    @FXML
+    void employeebtnonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("employeeForm.fxml",event);
 
     }
 
     @FXML
-    void customerbtnonaction(ActionEvent event) {
-
+    void logoutbtnonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("loginForm.fxml",event);
     }
 
     @FXML
-    void dashboardonaction(ActionEvent event) {
-
+    void machinebtnonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("machineForm.fxml",event);
     }
 
     @FXML
-    void deleteOnMouseClick(MouseEvent event) {
-
+    void ordersbtnonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("customerProductOrderForm.fxml",event);
     }
 
     @FXML
-    void detailsOnMouseClick(MouseEvent event) {
-
-    }
-
-    @FXML
-    void employeebtnonaction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void logoutbtnonaction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void machinebtnonaction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void ordersbtnonaction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void productsbtnonaction(ActionEvent event) {
-
+    void productsbtnonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("productForm.fxml",event);
     }
 
     @FXML
@@ -123,13 +113,10 @@ public class agriProductController {
     }
 
     @FXML
-    void supplierbtnonaction(ActionEvent event) {
-
+    void supplierbtnonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("supplierForm.fxml",event);
     }
 
-    @FXML
-    void updateOnMouseClick(MouseEvent event) {
 
-    }
 
 }

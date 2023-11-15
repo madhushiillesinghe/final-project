@@ -28,7 +28,7 @@ public class supplierModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public boolean updateSupplier(supplierDto supDto) throws SQLException {
+    public static boolean updateSupplier(supplierDto supDto) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
 
         String sql = "UPDATE supplier SET  contact_no = ?, emp_id = ?, supplier_product_type = ?, email = ?, first_name = ?, last_name = ?, nic = ? WHERE sup_id = ?";
@@ -73,7 +73,7 @@ public class supplierModel {
         return dto;
     }
 
-    public boolean deleteSupplier(String sup_id) throws SQLException {
+    public static boolean deleteSupplier(String sup_id) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
 
         String sql = "DELETE FROM supplier WHERE sup_id = ?";

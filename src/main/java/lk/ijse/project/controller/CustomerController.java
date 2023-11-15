@@ -2,13 +2,26 @@ package lk.ijse.project.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import lk.ijse.project.model.customerModel;
+import lk.ijse.project.util.Navigation;
 
-public class CustomerController {
+import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
+public class CustomerController implements Initializable {
+
 
         @FXML
         private ImageView addimg;
@@ -38,22 +51,16 @@ public class CustomerController {
         private Button btnsupplier;
 
         @FXML
-        private ImageView deleteImg;
-
-        @FXML
         private ImageView searchimg;
-
-        @FXML
-        private Text txtAddress;
 
         @FXML
         private Text txtEmail;
 
         @FXML
-        private Text txtId;
+        private Text txtEmail1;
 
         @FXML
-        private Text txtMobile;
+        private Text txtId;
 
         @FXML
         private Text txtName;
@@ -65,59 +72,78 @@ public class CustomerController {
         private TextField txtsearch;
 
         @FXML
-        private ImageView updateImg;
+        private VBox vBoxCustomerManage;
+
+        private void getAllIds() throws SQLException {
+                vBoxCustomerManage.getChildren().clear();
+
+                ArrayList<String> list=null;
+                customerModel cusmodel=new customerModel();
+                list=cusmodel.getAllCustomerId();
+
+                for(int i=0;i<list.size();i++){
+                        loadTableData(list.get(i));
+                }
+
+        }
+
+        private void loadTableData(String id) {
+                try{
+                        FXMLLoader loader=new FXMLLoader(CustomerController.class.getResource("/view/customerBarForm.fxml"));
+                        Parent root=loader.load();
+                        CustomerBarFormController controller=loader.getController();
+                        controller.setData(id);
+                        vBoxCustomerManage.getChildren().add(root);
+                }catch (IOException | SQLException e) {
+                    throw new RuntimeException(e);
+                }
+        }
+        @FXML
+        void btnaddcustomeronaction(ActionEvent event) throws IOException {
+                Navigation.switchNavigation("addCustomerForm.fxml",event);
+        }
+
 
         @FXML
-        private ImageView viewImg;
-
-        @FXML
-        void addcustomer(MouseEvent event) {
+        void addcustomer(MouseEvent event) throws IOException {
 
         }
 
         @FXML
-        void customerbtnonaction(ActionEvent event) {
-
+        void customerbtnonaction(ActionEvent event) throws IOException {
+                Navigation.switchNavigation("customerForm.fxml",event);
         }
 
         @FXML
-        void dashboardonaction(ActionEvent event) {
+        void dashboardonaction(ActionEvent event) throws IOException {
+                Navigation.switchNavigation("dashboardForm.fxml",event);
+        }
 
+
+
+        @FXML
+        void employeebtnonaction(ActionEvent event) throws IOException {
+                Navigation.switchNavigation("employeeForm.fxml",event);
         }
 
         @FXML
-        void deleteOnMouseClick(MouseEvent event) {
-
+        void logoutbtnonaction(ActionEvent event) throws IOException {
+                Navigation.switchNavigation("loginForm.fxml",event);
         }
 
         @FXML
-        void detailsOnMouseClick(MouseEvent event) {
-
+        void machinebtnonaction(ActionEvent event) throws IOException {
+                Navigation.switchNavigation("machineForm.fxml",event);
         }
 
         @FXML
-        void employeebtnonaction(ActionEvent event) {
-
+        void ordersbtnonaction(ActionEvent event) throws IOException {
+                Navigation.switchNavigation("customerProductOrderForm.fxml",event);
         }
 
         @FXML
-        void logoutbtnonaction(ActionEvent event) {
-
-        }
-
-        @FXML
-        void machinebtnonaction(ActionEvent event) {
-
-        }
-
-        @FXML
-        void ordersbtnonaction(ActionEvent event) {
-
-        }
-
-        @FXML
-        void productsbtnonaction(ActionEvent event) {
-
+        void productsbtnonaction(ActionEvent event) throws IOException {
+                Navigation.switchNavigation("productForm.fxml",event);
         }
 
         @FXML
@@ -126,13 +152,17 @@ public class CustomerController {
         }
 
         @FXML
-        void supplierbtnonaction(ActionEvent event) {
-
+        void supplierbtnonaction(ActionEvent event) throws IOException {
+                Navigation.switchNavigation("supplierForm.fxml",event);
         }
 
-        @FXML
-        void updateOnMouseClick(MouseEvent event) {
 
+        @Override
+        public void initialize(URL url, ResourceBundle resourceBundle) {
+                try {
+                        getAllIds();
+                } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                }
         }
-
 }

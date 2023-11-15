@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -13,13 +14,17 @@ import lk.ijse.project.model.customerModel;
 import lk.ijse.project.model.employeeModel;
 import lk.ijse.project.util.Navigation;
 import lk.ijse.project.dto.customerDto;
+import lk.ijse.project.util.NewId;
 
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class addCustomerController {
+public class addCustomerController implements Initializable {
 
 
     @FXML
@@ -27,6 +32,12 @@ public class addCustomerController {
 
     @FXML
     private Button btncancel;
+    @FXML
+    private Button btndelete;
+
+    @FXML
+    private Button btnupdate;
+
 
     @FXML
     private ComboBox<String> cmbempid;
@@ -61,34 +72,62 @@ public class addCustomerController {
     @FXML
     private TextField txtstreet;
 
-    public void initialize(){
-        loademployeeids();
+    customerModel cusModel=new customerModel();
+
+
+    ArrayList<String> list;
+
+    {
+        try {
+            list = cusModel.getAllCustomerId();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
+
+   /* public void initialize(){
+        loademployeeids();
+
+
+    }
+*/
+   /* private void generateorderid() {
+        try{
+            txtid.setText(customerModel.genarateNextCustomereId());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }*/
+
     @FXML
     void empididonaction(ActionEvent actionEvent) throws SQLException {
         String  id = cmbempid.getSelectionModel().getSelectedItem().toString();
     }
 
     @FXML
-    void addbtnonaction(ActionEvent event){
-        String city= txtcity.getText();
-        String firstname = txtfirstname.getText();
-        String lastname = txtlastname.getText();
-        String street = txtstreet.getText();
-        int houseno= Integer.parseInt(txthouseno.getText());
-        int contactno = Integer.parseInt(txtcontactno.getText());
-        int nic= Integer.parseInt(txtnic.getText());
-        String email=txtemail.getText();
-        String cid=txtid.getText();
-        String type=txtaccounttype.getText();
-        String id = cmbempid.getValue();
+    void addbtnonaction(ActionEvent event) throws SQLException {
+        customerDto cusdto=new customerDto();
 
-        var model = new customerDto(cid,city,street,houseno,contactno,id,type,email,firstname,lastname,nic);
+        cusdto.setCus_id(txtid.getText());
+        cusdto.setCity(txtcity.getText());
+        cusdto.setFirst_name(txtfirstname.getText());
+        cusdto.setLast_name(txtlastname.getText());
+        cusdto.setStreet(txtstreet.getText());
+        cusdto.setContact_no(Integer.parseInt(txtcontactno.getText()));
+        cusdto.setHouse_no(Integer.parseInt(txthouseno.getText()));
+        cusdto.setNic(Integer.parseInt(txtnic.getText()));
+        cusdto.setEmail(txtemail.getText());
+        cusdto.setAccount_type(txtaccounttype.getText());
+        cusdto.setEmp_id(cmbempid.getSelectionModel().getSelectedItem());
+
+
+
+
         try {
             boolean isSaved;
-            isSaved = customerModel.saveCustomer(model);
+            isSaved = customerModel.saveCustomer(cusdto);
             if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Customer saveddd!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "Customer saved!").show();
 
             }
         } catch (SQLException e) {
@@ -116,5 +155,15 @@ public class addCustomerController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loademployeeids();
+        //System.out.println();
+        txtid.setText(NewId.newId(list,NewId.GetType.CUSTOMER));
+        System.out.println(NewId.newId(list,NewId.GetType.CUSTOMER));
+        System.out.println(txtid+"   id");
     }
 }

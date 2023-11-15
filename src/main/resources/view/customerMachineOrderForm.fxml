@@ -15,7 +15,7 @@
    <children>
       <ImageView fitHeight="768.0" fitWidth="1366.0">
          <image>
-            <Image url="@../icon/customer%20order%20item.png" />
+            <Image url="@../icon/customerorderitem.png" />
          </image>
       </ImageView>
       <Button fx:id="btndashboard" layoutX="110.0" layoutY="173.0" mnemonicParsing="false" onAction="#dashboardonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="      Dashboard" textFill="#305532">

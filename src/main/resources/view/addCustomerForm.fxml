@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="350.0" fitWidth="600.0">
          <image>
-            <Image url="@../icon/add%20customer%20(1).png" />
+            <Image url="@../icon/addcustomer%20(1).png" />
          </image>
       </ImageView>
       <TextField fx:id="txtfirstname" layoutX="152.0" layoutY="43.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ACE1AF;" />

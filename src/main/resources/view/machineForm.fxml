@@ -133,21 +133,6 @@
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <ImageView fx:id="updateImg" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#updateOnMouseClick" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../Downloads/Fishery-Harbor-master/src/main/resources/img/icon/action-btn.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="deleteImg" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#deleteOnMouseClick" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../Downloads/Fishery-Harbor-master/src/main/resources/img/icon/action-delete-btn.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="viewImg" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#detailsOnMouseClick" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../Downloads/Fishery-Harbor-master/src/main/resources/img/icon/action-btn-details.png" />
-               </image>
-            </ImageView>
          </children>
       </HBox>
    </children>

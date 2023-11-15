@@ -14,7 +14,7 @@
    <children>
       <ImageView fitHeight="350.0" fitWidth="600.0">
          <image>
-            <Image url="@../icon/add%20customer%20(1).png" />
+            <Image url="@../icon/addcustomer%20(1).png" />
          </image>
       </ImageView>
       <Text layoutX="57.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Product Order">
@@ -24,7 +24,7 @@
       </Text>
       <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="33.0" layoutY="10.0">
          <image>
-            <Image url="@../icon/receipt-item%203.png" />
+            <Image url="@../icon/recipt.png" />
          </image>
       </ImageView>
       <ComboBox fx:id="comboxproductid" layoutX="141.0" layoutY="60.0" onAction="#productidonaction" prefWidth="150.0" style="-fx-background-color: #ACE1AF;" />

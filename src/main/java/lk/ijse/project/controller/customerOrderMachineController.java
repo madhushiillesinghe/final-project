@@ -7,6 +7,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import lk.ijse.project.util.Navigation;
+import lk.ijse.project.util.Navigation.*;
+
+import java.io.IOException;
 
 public class customerOrderMachineController {
 
@@ -83,8 +87,8 @@ public class customerOrderMachineController {
     private ImageView viewImg;
 
     @FXML
-    void addcustomerorder(MouseEvent event) {
-
+    void addcustomerorder(MouseEvent event) throws IOException {
+Navigation.switchNavigation("addMachineOrderForm.fxml",event);
     }
 
     @FXML
@@ -94,7 +98,6 @@ public class customerOrderMachineController {
 
     @FXML
     void customerorderonaction(ActionEvent event) {
-
     }
 
     @FXML
@@ -128,8 +131,8 @@ public class customerOrderMachineController {
     }
 
     @FXML
-    void machineorderbtnonaction(ActionEvent event) {
-
+    void machineorderbtnonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("customerMachineOrderForm.fxml",event);
     }
 
     @FXML
@@ -138,8 +141,8 @@ public class customerOrderMachineController {
     }
 
     @FXML
-    void productorderbtnonaction(ActionEvent event) {
-
+    void productorderbtnonaction(ActionEvent event) throws IOException {
+Navigation.switchNavigation("customerProductOrderForm.fxml",event);
     }
 
     @FXML
@@ -158,8 +161,8 @@ public class customerOrderMachineController {
     }
 
     @FXML
-    void supplierorderbtnonaction(ActionEvent event) {
-
+    void supplierorderbtnonaction(ActionEvent event) throws IOException {
+Navigation.switchNavigation("supplierOrderForm.fxml",event);
     }
 
     @FXML

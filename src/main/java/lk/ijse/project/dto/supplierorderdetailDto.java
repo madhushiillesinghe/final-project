@@ -10,14 +10,13 @@ import java.util.Date;
 @NoArgsConstructor
 @Data
 
-public class supplierpaymentDto {
+public class supplierorderdetailDto {
     private String p_id;
-    private String sup_o_id;
+    private String  sup_o_id;
     private Date date;
     private String payment_method;
-    private String count_of_supplyproduct;
+    private int count_of_supplyproduct;
     private double discount_fee;
     private double selling_product_amount;
     private double after_discount_total_amount;
-
 }

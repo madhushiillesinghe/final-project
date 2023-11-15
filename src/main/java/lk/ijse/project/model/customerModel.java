@@ -3,6 +3,7 @@ package lk.ijse.project.model;
 
 import lk.ijse.project.dto.customerDto;
 import lk.ijse.project.fp.FpConnection;
+import lk.ijse.project.dto.tm.customerTm;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,7 +34,7 @@ import java.util.List;
             return pstm.executeUpdate() > 0;
         }
 
-        public boolean updateCustomer(customerDto cusDto) throws SQLException {
+        public static boolean updateCustomer(customerDto cusDto) throws SQLException {
             Connection connection = FpConnection.getInstance().getConnection();
 
             String sql = "UPDATE customer SET city = ?, street = ?, house_no = ?, contact_no = ?, emp_id = ?, account_type = ?, email = ?, first_name = ?, last_name = ?, nic = ? WHERE cus_id = ?";
@@ -50,17 +51,17 @@ import java.util.List;
             pstm.setString(8, cusDto.getFirst_name());
             pstm.setString(9,cusDto.getLast_name());
             pstm.setInt(10, cusDto.getNic());
-            pstm.setString(11, cusDto.getEmp_id());
+            pstm.setString(11, cusDto.getCus_id());
 
             return pstm.executeUpdate() > 0;
         }
 
-        public  customerDto searchCustomer(String cus_id) throws SQLException {
+        public static customerDto searchCustomer(String cusid) throws SQLException {
             Connection connection = FpConnection.getInstance().getConnection();
             String sql = "SELECT * FROM customer WHERE cus_id = ?";
 
             PreparedStatement pstm = connection.prepareStatement(sql);
-            pstm.setString(1,cus_id);
+            pstm.setString(1,cusid);
 
             ResultSet resultSet = pstm.executeQuery();
 
@@ -84,7 +85,7 @@ import java.util.List;
             return dto;
         }
 
-        public boolean deleteCustomer(String cus_id) throws SQLException {
+        public static boolean deleteCustomer(String cus_id) throws SQLException {
             Connection connection = FpConnection.getInstance().getConnection();
 
             String sql = "DELETE FROM customer WHERE cus_id = ?";
@@ -125,6 +126,62 @@ import java.util.List;
             return dtoList;
         }
 
+        public static String genarateNextCustomereId() throws SQLException {
+            Connection connection=FpConnection.getInstance().getConnection();
+            String sql="SELECT cus_id FROM customer ORDER BY cus_id DESC LIMIT 1";
+            ResultSet resultSet=connection.prepareStatement(sql).executeQuery();
+            String currentCustomerId=null;
+            if(resultSet.next()){
+                currentCustomerId=resultSet.getString(1);
+                return splitCustomerId(currentCustomerId);
+            }
+            return splitCustomerId(null);
+        }
 
-    }
+        private static String splitCustomerId(String currentCustomerId) {
+            if(currentCustomerId !=null){
+                String[] split=currentCustomerId.split("0");
+                int id=Integer.parseInt(split[1]);
+                id++;
+                return "C00"+id;
+            }
+            return"C001";
+        }
+        public static customerTm getCustomer(String cusid) throws SQLException {
+            Connection connection = FpConnection.getInstance().getConnection();
+            String sql = "SELECT * FROM customer WHERE cus_id = ?";
+
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            pstm.setString(1,cusid);
+
+            ResultSet resultSet = pstm.executeQuery();
+
+            customerTm tm = null;
+
+            if(resultSet.next()) {
+                tm = new customerTm(
+                        resultSet.getString(1),
+                        resultSet.getString(9),
+                        resultSet.getString(7),
+                        resultSet.getString(8)
+                );
+            }
+            return tm;
+
+
+            }
+        public ArrayList<String> getAllCustomerId() throws SQLException{
+            Connection connection = FpConnection.getInstance().getConnection();
+            String sql="SELECT cus_id FROM customer ORDER BY LENGTH(cus_id),cus_id";
+            PreparedStatement pstm=connection.prepareStatement(sql);
+
+            ResultSet resultSet = pstm.executeQuery();
+            ArrayList<String> list = new ArrayList<>();
+
+            while (resultSet.next()) {
+                list.add(resultSet.getString(1));
+            }
+            return list;
+        }
+        }
 

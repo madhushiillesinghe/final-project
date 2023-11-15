@@ -21,7 +21,7 @@ public class productModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public boolean updateProduct(productDto prodto) throws SQLException {
+    public static boolean updateProduct(productDto prodto) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
 
         String sql = "UPDATE agri_product SET  unit_price = ?, description = ?, qty_on_stock = ?, expire_date = ? WHERE p_code = ?";
@@ -61,7 +61,7 @@ public class productModel {
         return dto;
     }
 
-    public boolean deleteProduct(String p_code) throws SQLException {
+    public static boolean deleteProduct(String p_code) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
 
         String sql = "DELETE FROM agri_products WHERE p_code = ?";

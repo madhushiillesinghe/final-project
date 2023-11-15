@@ -1,5 +1,6 @@
 package lk.ijse.project.dto.tm;
 
+import javafx.scene.control.Button;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,8 +11,6 @@ import lombok.NoArgsConstructor;
 public class customerTm {
     private String Id;
     private String Name;
-    private String Address;
     private String Account;
-    private int Mobile;
     private String Email;
 }

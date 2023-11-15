@@ -6,7 +6,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import lk.ijse.project.dto.employeeDto;
 import lk.ijse.project.dto.productDto;
+import lk.ijse.project.model.employeeModel;
 import lk.ijse.project.model.productModel;
 import lk.ijse.project.util.Navigation;
 
@@ -22,6 +24,7 @@ public class addProductController {
 
     @FXML
     private Button btncancel;
+
     @FXML
     private TextField txtid;
 
