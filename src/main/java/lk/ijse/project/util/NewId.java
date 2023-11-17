@@ -41,17 +41,17 @@ public class NewId {
                 } catch (Exception e) {
                     return "E-01";
                 }
-/*
-            case STOCK:
+
+            case PRODUCT:
                 try {
-                    String[] split = lastId.split("I-0");
+                    String[] split = lastId.split("P-0");
                     int idNum = Integer.parseInt(split[1]);
                     idNum++;
-                    return "I-0" + idNum;
+                    return "P-0" + idNum;
                 } catch (Exception e) {
-                    return "I-01";
+                    return "P-01";
                 }
-
+/*
             case RENT:
                 try {
                     String[] split = lastId.split("R-0");

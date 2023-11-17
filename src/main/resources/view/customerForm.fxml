@@ -126,7 +126,7 @@
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="txtEmail1" layoutX="683.0" layoutY="37.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Action" wrappingWidth="75.9127197265625">
+            <Text fx:id="txtaction" layoutX="683.0" layoutY="37.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Action" wrappingWidth="75.9127197265625">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>

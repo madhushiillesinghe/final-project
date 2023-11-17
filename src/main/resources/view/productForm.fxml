@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -77,17 +79,17 @@
       </ImageView>
       <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="310.0">
          <image>
-            <Image url="@../icon/Group%20693.png" />
+            <Image url="@../icon/Group693.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="557.0">
          <image>
-            <Image url="@../icon/receipt-item%203.png" />
+            <Image url="@../icon/recipt.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="494.0">
          <image>
-            <Image url="@../icon/chart-3%202.png" />
+            <Image url="@../icon/charticon.png" />
          </image>
       </ImageView>
       <Button fx:id="btnlogout" layoutX="140.0" layoutY="673.0" mnemonicParsing="false" onAction="#logoutbtnonaction" style="-fx-background-color: #ffffff;" text="LOGOUT" textFill="#305532" />
@@ -96,44 +98,50 @@
             <Image url="@../icon/search-normal.png" />
          </image>
       </ImageView>
-      <TextField layoutX="655.0" layoutY="72.0" prefHeight="28.0" prefWidth="165.0" promptText="            Add products" />
-      <ImageView fx:id="addimg" layoutX="672.0" layoutY="76.0" onMouseClicked="#addproducts">
-         <image>
-            <Image url="@../icon/addicon.png" />
-         </image>
-      </ImageView>
-      <ScrollPane layoutX="376.0" layoutY="156.0" opacity="0.87" prefHeight="568.0" prefWidth="942.0" style="-fx-background-color: #ffffff;">
+      <Pane layoutX="683.0" layoutY="74.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fx:id="addimg" layoutX="6.0" layoutY="3.0" onMouseClicked="#addcustomer">
+               <image>
+                  <Image url="@../icon/addicon.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="75.0" layoutY="5.0" text="Add Product" />
+         </children>
+      </Pane>
+      <JFXButton layoutX="683.0" layoutY="74.0" onAction="#btnaddcustomeronaction" prefHeight="25.0" prefWidth="195.0" text="  " />
+      <ScrollPane layoutX="376.0" layoutY="212.0" opacity="0.87" prefHeight="512.0" prefWidth="942.0" style="-fx-background-color: #ffffff;">
          <content>
-            <VBox prefHeight="583.0" prefWidth="929.0" style="-fx-background-color: #ffffff;" visible="false">
-               <effect>
-                  <BoxBlur />
-               </effect>
-            </VBox>
+            <VBox fx:id="vBoxProductManage" prefHeight="506.0" prefWidth="935.0" />
          </content>
       </ScrollPane>
-      <HBox alignment="CENTER_LEFT" layoutX="375.0" layoutY="164.0" prefHeight="42.0" prefWidth="928.0" spacing="20.0" style="-fx-background-color: #ffffff;">
+      <HBox alignment="CENTER_LEFT" layoutX="376.0" layoutY="160.0" prefHeight="42.0" prefWidth="942.0" spacing="20.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Text fx:id="txtId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="           id" wrappingWidth="121.8519287109375">
+            <Text fx:id="txtId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="141.8519287109375">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="txtName" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="106.81900024414062">
+            <Text fx:id="txtName" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="129.81900024414062">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="txtunitprice" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit price" wrappingWidth="168.9127197265625">
+            <Text fx:id="txtunitPrice" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit Price" wrappingWidth="166.9127197265625">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="txtqty" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" wrappingWidth="127.9127197265625">
+            <Text fx:id="txtqty" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" wrappingWidth="146.9127197265625">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="txtexpiredate" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Expire Date" wrappingWidth="159.9127197265625">
+            <Text fx:id="txtExpiredate" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Expire Date" wrappingWidth="159.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtAction" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Action" wrappingWidth="54.9127197265625">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>

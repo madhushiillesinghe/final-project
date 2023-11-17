@@ -57,9 +57,6 @@ public class CustomerController implements Initializable {
         private Text txtEmail;
 
         @FXML
-        private Text txtEmail1;
-
-        @FXML
         private Text txtId;
 
         @FXML
@@ -69,10 +66,14 @@ public class CustomerController implements Initializable {
         private Text txtaccount;
 
         @FXML
+        private Text txtaction;
+
+        @FXML
         private TextField txtsearch;
 
         @FXML
         private VBox vBoxCustomerManage;
+
 
         private void getAllIds() throws SQLException {
                 vBoxCustomerManage.getChildren().clear();

@@ -1,6 +1,6 @@
 package lk.ijse.project.model;
 import lk.ijse.project.dto.productDto;
-import lk.ijse.project.dto.supplierDto;
+import lk.ijse.project.dto.tm.productTm;
 import lk.ijse.project.fp.FpConnection;
 
 import java.sql.*;
@@ -37,6 +37,7 @@ public class productModel {
 
         return pstm.executeUpdate() > 0;
     }
+
 
     public productDto searchProduct(String p_code) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
@@ -94,6 +95,41 @@ public class productModel {
         }
 
         return dtoList;
+    }
+    public static productTm getProduct(String pCode) throws SQLException {
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql = "SELECT * FROM agri_product WHERE p_code = ?";
+
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setString(1,pCode);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+       productTm protm = null;
+
+        if(resultSet.next()) {
+            protm = new productTm(
+                    resultSet.getString(1),
+                    resultSet.getString(3),
+                    resultSet.getDouble(2),
+                    resultSet.getInt(4),
+                    resultSet.getDate(5)
+            );
+        }
+        return protm;
+    }
+    public ArrayList<String> getAllProductId() throws SQLException{
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql="SELECT p_code FROM agri_product ORDER BY LENGTH(p_code),p_code";
+        PreparedStatement pstm=connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+        ArrayList<String> list = new ArrayList<>();
+
+        while (resultSet.next()) {
+            list.add(resultSet.getString(1));
+        }
+        return list;
     }
 
 }

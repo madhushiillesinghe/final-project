@@ -2,17 +2,26 @@ package lk.ijse.project.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import lk.ijse.project.model.customerModel;
+import lk.ijse.project.model.productModel;
 import lk.ijse.project.util.Navigation;
-import lk.ijse.project.util.Navigation.*;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class agriProductController {
+public class agriProductController implements Initializable {
 
     @FXML
     private ImageView addimg;
@@ -41,9 +50,14 @@ public class agriProductController {
     @FXML
     private Button btnsupplier;
 
-
     @FXML
     private ImageView searchimg;
+
+    @FXML
+    private Text txtAction;
+
+    @FXML
+    private Text txtExpiredate;
 
     @FXML
     private Text txtId;
@@ -52,23 +66,28 @@ public class agriProductController {
     private Text txtName;
 
     @FXML
-    private Text txtexpiredate;
-
-    @FXML
     private Text txtqty;
 
     @FXML
     private TextField txtsearch;
 
     @FXML
-    private Text txtunitprice;
+    private Text txtunitPrice;
 
-
+     @FXML
+    private VBox vBoxProductManage;
 
     @FXML
-    void addproducts(MouseEvent event) throws IOException {
-        Navigation.switchNavigation("addproductForm.fxml",event);
+    void addcustomer(MouseEvent event) {
+
     }
+
+    @FXML
+    void btnaddcustomeronaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("addproductForm.fxml",event);
+
+    }
+
 
     @FXML
     void customerbtnonaction(ActionEvent event) throws IOException {
@@ -118,5 +137,38 @@ public class agriProductController {
     }
 
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            getAllIds();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
+    private void getAllIds() throws SQLException {
+       vBoxProductManage.getChildren().clear();
+
+        ArrayList<String> list=null;
+        productModel promodel=new productModel();
+        list=promodel.getAllProductId();
+
+        for(int i=0;i<list.size();i++){
+            loadTableData(list.get(i));
+        }
+
+
+    }
+
+        private void loadTableData(String code) {
+            try{
+                FXMLLoader loader=new FXMLLoader(CustomerController.class.getResource("/view/ProductBarForm.fxml"));
+                Parent root=loader.load();
+                ProductBarFormController controller=loader.getController();
+                controller.setData(code);
+                vBoxProductManage.getChildren().add(root);
+            }catch (IOException | SQLException e) {
+                throw new RuntimeException(e);
+            }
+    }
 }
