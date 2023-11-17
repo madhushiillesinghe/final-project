@@ -29,6 +29,7 @@ public class Navigation {
         stage.centerOnScreen();
         stage.show();
     }
+
     }
 
 

@@ -120,5 +120,6 @@ public class addEmployeeController  implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
             txtid.setText(NewId.newId(list,NewId.GetType.EMPLOYEE));
         }
-    }
+
+}
 

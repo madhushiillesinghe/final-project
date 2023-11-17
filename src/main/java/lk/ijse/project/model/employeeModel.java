@@ -40,7 +40,7 @@ public class employeeModel {
     public static boolean updateEmployee(employeeDto empDto) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
 
-        String sql = "UPDATE employee SET city = ?, street = ?, house_no = ?, contact_no = ?, role = ?, email = ?, user_name = ?, password = ?, first_name = ?, last_name = ?, nic = ? WHERE emp_id = ?";
+        String sql = "UPDATE employee SET city = ?, street = ?, house_no = ?, contact_no = ?, role = ?, user_name = ?, password = ?, email = ?, first_name = ?, last_name = ?, nic = ? WHERE emp_id = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, empDto.getCity());
@@ -48,9 +48,9 @@ public class employeeModel {
         pstm.setInt(3, empDto.getHouse_no());
         pstm.setInt(4, empDto.getContact_no());
         pstm.setString(5, empDto.getRole());
-        pstm.setString(6,empDto.getEmail());
-        pstm.setString(7, empDto.getUser_name());
-        pstm.setString(8, empDto.getPassword());
+        pstm.setString(6, empDto.getUser_name());
+        pstm.setString(7, empDto.getPassword());
+        pstm.setString(8,empDto.getEmail());
         pstm.setString(9, empDto.getFirst_name());
         pstm.setString(10,empDto.getLast_name());
         pstm.setInt(11, empDto.getNic());
@@ -119,6 +119,37 @@ public class employeeModel {
             );
         }
         return tm;
+
+
+    }
+    public static employeeDto getemployee(String empid) throws SQLException {
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql = "SELECT * FROM employee WHERE emp_id = ?";
+
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setString(1,empid);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        employeeDto dto = null;
+
+        if(resultSet.next()) {
+            dto = new employeeDto(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getInt(4),
+                    resultSet.getInt(5),
+                    resultSet.getString(6),
+                    resultSet.getString(7),
+                    resultSet.getString(8),
+                    resultSet.getString(3),
+                    resultSet.getString(10),
+                    resultSet.getString(11),
+                    resultSet.getInt(12)
+            );
+        }
+        return dto;
 
 
     }
