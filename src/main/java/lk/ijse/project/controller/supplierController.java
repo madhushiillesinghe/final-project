@@ -2,17 +2,28 @@ package lk.ijse.project.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import lk.ijse.project.model.customerModel;
 import lk.ijse.project.util.Navigation;
 import lk.ijse.project.util.Navigation.*;
+import lk.ijse.project.model.supplierModel;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+import java.util.function.Supplier;
 
-public class supplierController {
+public class supplierController implements Initializable {
 
     @FXML
     private ImageView addimg;
@@ -41,10 +52,11 @@ public class supplierController {
     @FXML
     private Button btnsupplier;
 
-
-
     @FXML
     private ImageView searchimg;
+
+    @FXML
+    private Text txtAction;
 
     @FXML
     private Text txtEmail;
@@ -53,23 +65,28 @@ public class supplierController {
     private Text txtId;
 
     @FXML
-    private Text txtMobile;
-
-    @FXML
     private Text txtName;
 
     @FXML
-    private Text txtproductname;
+    private Text txtType;
 
     @FXML
     private TextField txtsearch;
 
-
+    @FXML
+    private VBox vBoxSupplierManage;
 
     @FXML
-    void addsupplier(MouseEvent event) throws IOException {
-        Navigation.switchNavigation("addSupplierForm.fxml",event);
+    void addcustomer(MouseEvent event) {
+
     }
+
+    @FXML
+    void btnaddsupplieronaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("addSupplierForm.fxml",event);
+
+    }
+
 
     @FXML
     void customerbtnonaction(ActionEvent event) throws IOException {
@@ -118,5 +135,36 @@ public class supplierController {
     }
 
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            getAllIds();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
+    private void getAllIds() throws SQLException {
+        vBoxSupplierManage.getChildren().clear();
+
+        ArrayList<String> list=null;
+        supplierModel supmodel=new supplierModel();
+        list=supmodel.getAllSupplierId();
+
+        for(int i=0;i<list.size();i++){
+            loadTableData(list.get(i));
+        }
+    }
+
+    private void loadTableData(String id) {
+        try{
+            FXMLLoader loader=new FXMLLoader(CustomerController.class.getResource("/view/SupplierBarForm.fxml"));
+            Parent root=loader.load();
+          supplierBarFormController controller=loader.getController();
+            controller.setData(id);
+           vBoxSupplierManage.getChildren().add(root);
+        }catch (IOException | SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

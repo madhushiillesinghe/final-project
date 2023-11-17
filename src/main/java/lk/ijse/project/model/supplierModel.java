@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import lk.ijse.project.dto.tm.supplierTm;
 
 public class supplierModel {
     public static boolean saveSupplier(supplierDto supDto) throws SQLException {
@@ -109,5 +110,42 @@ public class supplierModel {
         }
 
         return dtoList;
+    }
+
+    public static supplierTm getSupplier(String supid) throws SQLException {
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql = "SELECT * FROM supplier WHERE sup_id = ?";
+
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setString(1,supid);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        supplierTm tm = null;
+
+        if(resultSet.next()) {
+            tm = new supplierTm(
+                    resultSet.getString(1),
+                    resultSet.getString(6),
+                    resultSet.getString(4),
+                    resultSet.getString(5)
+            );
+        }
+        return tm;
+
+
+    }
+    public ArrayList<String> getAllSupplierId() throws SQLException{
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql="SELECT sup_id FROM supplier ORDER BY LENGTH(sup_id),sup_id";
+        PreparedStatement pstm=connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+        ArrayList<String> list = new ArrayList<>();
+
+        while (resultSet.next()) {
+            list.add(resultSet.getString(1));
+        }
+        return list;
     }
 }

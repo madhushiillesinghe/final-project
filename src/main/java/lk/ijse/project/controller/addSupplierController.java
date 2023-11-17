@@ -4,20 +4,27 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import lk.ijse.project.dto.employeeDto;
+import lk.ijse.project.model.customerModel;
 import lk.ijse.project.model.employeeModel;
 import lk.ijse.project.util.Navigation;
 import lk.ijse.project.dto.supplierDto;
 import lk.ijse.project.model.supplierModel;
+import lk.ijse.project.util.NewId;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
-public class addSupplierController {
+import java.util.ResourceBundle;
+
+public class addSupplierController implements Initializable {
 
     @FXML
     private Button btnadd;
@@ -48,10 +55,20 @@ public class addSupplierController {
 
     @FXML
     private TextField txttype;
+    supplierModel supModel=new supplierModel();
 
-    public void initialize(){
-        loademployeeids();
+
+    ArrayList<String> list;
+
+    {
+        try {
+            list = supModel.getAllSupplierId();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
+
+
 
     private void loademployeeids() {
         ObservableList<String> obList = FXCollections.observableArrayList();
@@ -102,5 +119,9 @@ public class addSupplierController {
     }
 
 
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loademployeeids();
+        txtid.setText(NewId.newId(list,NewId.GetType.SUPPLIER));
+    }
 }

@@ -1,0 +1,56 @@
+package lk.ijse.project.controller;
+
+import javafx.fxml.FXML;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
+import lk.ijse.project.dto.tm.supplierTm;
+import lk.ijse.project.model.supplierModel;
+
+import java.sql.SQLException;
+
+public class supplierBarFormController {
+
+    @FXML
+    private ImageView deleteImg;
+
+    @FXML
+    private Text txtEmail;
+
+    @FXML
+    private Text txtId;
+
+    @FXML
+    private Text txtName;
+
+    @FXML
+    private Text txtType;
+
+    @FXML
+    private ImageView updateImg;
+
+    @FXML
+    void deleteOnMouseClick(MouseEvent event) {
+
+    }
+
+    @FXML
+    void updateOnMouseClick(MouseEvent event) {
+
+    }
+
+    supplierModel supmodel = new supplierModel();
+
+    public void setData(String id) throws SQLException {
+        supplierTm suptm = null;
+        try {
+            suptm = supplierModel.getSupplier(id);
+            this.txtId.setText(suptm.getId());
+            txtName.setText(suptm.getName());
+            txtType.setText(suptm.getType());
+            txtEmail.setText(suptm.getEmail());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
