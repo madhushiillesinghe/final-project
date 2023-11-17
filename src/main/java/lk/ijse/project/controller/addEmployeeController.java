@@ -2,18 +2,24 @@ package lk.ijse.project.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import lk.ijse.project.model.customerModel;
 import lk.ijse.project.model.employeeModel;
 import lk.ijse.project.dto.employeeDto;
 import lk.ijse.project.util.Navigation;
 import javafx.scene.control.Label;
+import lk.ijse.project.util.NewId;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class addEmployeeController {
+public class addEmployeeController  implements Initializable {
     @FXML
     private Button btnadd;
 
@@ -58,7 +64,18 @@ public class addEmployeeController {
 
     @FXML
     private TextField txtusername;
+    employeeModel empModel=new employeeModel();
 
+
+    ArrayList<String> list;
+
+    {
+        try {
+            list = empModel.getAllEmployeeId();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
 
@@ -99,4 +116,9 @@ public class addEmployeeController {
         Navigation.switchNavigation("employeeForm.fxml",event);
     }
 
-}
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+            txtid.setText(NewId.newId(list,NewId.GetType.EMPLOYEE));
+        }
+    }
+

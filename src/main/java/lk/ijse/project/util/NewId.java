@@ -32,16 +32,16 @@ public class NewId {
                     return "S-01";
                 }
 
-           /* case OWNER:
+            case EMPLOYEE:
                 try {
-                    String[] split = lastId.split("O-0");
+                    String[] split = lastId.split("E-0");
                     int idNum = Integer.parseInt(split[1]);
                     idNum++;
-                    return "O-0" + idNum;
+                    return "E-0" + idNum;
                 } catch (Exception e) {
-                    return "O-01";
+                    return "E-01";
                 }
-
+/*
             case STOCK:
                 try {
                     String[] split = lastId.split("I-0");

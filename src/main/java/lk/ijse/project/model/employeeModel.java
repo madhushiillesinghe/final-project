@@ -1,6 +1,7 @@
 package lk.ijse.project.model;
 
 import lk.ijse.project.dto.employeeDto;
+import lk.ijse.project.dto.tm.customerTm;
 import lk.ijse.project.dto.tm.employeeTm;
 import lk.ijse.project.fp.FpConnection;
 
@@ -98,31 +99,42 @@ public class employeeModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public List<employeeDto> getAllEmployee() throws SQLException {
-        Connection connection=FpConnection.getInstance().getConnection();
-        String sql="SELECT * FROM employee";
-        PreparedStatement pstm=connection.prepareStatement(sql);
-        List<employeeDto> dtoList=new ArrayList<>();
-        ResultSet resultSet=pstm.executeQuery();
-        while(resultSet.next()){
-            String empid =resultSet.getString(1);
-            String city=  resultSet.getString(2);
-            String street =resultSet.getString(3);
-            int house_no= resultSet.getInt(4);
-            int contact_no= resultSet.getInt(5);
-            String role= resultSet.getString(6);
-            String username= resultSet.getString(7);
-            String password=resultSet.getString(8);
-            String email= resultSet.getString(9);
-            String fname=resultSet.getString(10);
-            String lname= resultSet.getString(11);
-            int nic= resultSet.getInt(12);
+    public static employeeTm getEmployee(String empid) throws SQLException {
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql = "SELECT * FROM employee WHERE emp_id = ?";
 
-           var dto=new employeeDto(empid,city,street,house_no,contact_no,role,username,password,email,fname,lname,nic);
-      dtoList.add(dto);
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setString(1,empid);
 
+        ResultSet resultSet = pstm.executeQuery();
+
+        employeeTm tm = null;
+
+        if(resultSet.next()) {
+            tm = new employeeTm(
+                    resultSet.getString(1),
+                    resultSet.getString(10),
+                    resultSet.getString(6),
+                    resultSet.getString(9)
+            );
         }
-        return dtoList;
+        return tm;
+
+
+    }
+
+    public ArrayList<String> getAllEmployeeId() throws SQLException{
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql="SELECT emp_id FROM employee ORDER BY LENGTH(emp_id),emp_id";
+        PreparedStatement pstm=connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+        ArrayList<String> list = new ArrayList<>();
+
+        while (resultSet.next()) {
+            list.add(resultSet.getString(1));
+        }
+        return list;
     }
 
     public static List<employeeDto> loadAllEmployee() throws SQLException {
@@ -154,26 +166,6 @@ public class employeeModel {
         }
         return dtoList;
     }
-    public String genarateNextEmployeeId() throws SQLException {
-        Connection connection=FpConnection.getInstance().getConnection();
-        String sql="SELECT emp_id FROM employee ORDER BY emp_id DESC LIMIT 1";
-        ResultSet resultSet=connection.prepareStatement(sql).executeQuery();
-        String currentEmployeeId=null;
-        if(resultSet.next()){
-            currentEmployeeId=resultSet.getString(1);
-            return splitEmployeeId(currentEmployeeId);
-        }
-        return splitEmployeeId(null);
-    }
 
-    private String splitEmployeeId(String currentEmployeeId) {
-        if(currentEmployeeId !=null){
-            String[] split=currentEmployeeId.split("0");
-            int id=Integer.parseInt(split[1]);
-            id++;
-            return "E00"+id;
-        }
-        return"E001";
-    }
 
 }

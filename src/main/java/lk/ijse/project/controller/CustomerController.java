@@ -95,7 +95,7 @@ public class CustomerController implements Initializable {
                         controller.setData(id);
                         vBoxCustomerManage.getChildren().add(root);
                 }catch (IOException | SQLException e) {
-                    throw new RuntimeException(e);
+                        throw new RuntimeException(e);
                 }
         }
         @FXML

@@ -104,24 +104,24 @@
             <VBox fx:id="vBoxCustomerManage" prefHeight="506.0" prefWidth="935.0" />
          </content>
       </ScrollPane>
-      <HBox alignment="CENTER_LEFT" layoutX="395.0" layoutY="164.0" prefHeight="42.0" prefWidth="910.0" spacing="20.0" style="-fx-background-color: #ffffff;">
+      <HBox alignment="CENTER_LEFT" layoutX="375.0" layoutY="164.0" prefHeight="42.0" prefWidth="942.0" spacing="20.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Text fx:id="txtId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="146.8519287109375">
+            <Text fx:id="txtId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="138.8519287109375">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="txtName" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="169.81900024414062">
+            <Text fx:id="txtName" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="196.81900024414062">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="txtaccount" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Account" wrappingWidth="229.9127197265625">
+            <Text fx:id="txtaccount" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Account" wrappingWidth="200.9127197265625">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="txtEmail" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="173.9127197265625">
+            <Text fx:id="txtEmail" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="199.9127197265625">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
@@ -133,7 +133,7 @@
             </Text>
          </children>
       </HBox>
-      <Pane layoutX="683.0" layoutY="74.0" prefHeight="25.0" prefWidth="205.0" style="-fx-background-color: #ffffff;">
+      <Pane layoutX="683.0" layoutY="74.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #ffffff;">
          <children>
             <ImageView fx:id="addimg" layoutX="6.0" layoutY="3.0" onMouseClicked="#addcustomer">
                <image>
@@ -143,6 +143,6 @@
             <Label layoutX="75.0" layoutY="5.0" text="Add customer" />
          </children>
       </Pane>
-      <JFXButton layoutX="683.0" layoutY="74.0" onAction="#btnaddcustomeronaction" prefHeight="25.0" prefWidth="205.0" text="  " />
+      <JFXButton layoutX="683.0" layoutY="74.0" onAction="#btnaddcustomeronaction" prefHeight="25.0" prefWidth="195.0" text="  " />
    </children>
 </AnchorPane>

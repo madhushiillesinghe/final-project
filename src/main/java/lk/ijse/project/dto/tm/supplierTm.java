@@ -11,6 +11,5 @@ public class supplierTm {
     private String Id;
     private String Name;
     private String Type;
-    private int Mobile;
     private String Email;
 }
