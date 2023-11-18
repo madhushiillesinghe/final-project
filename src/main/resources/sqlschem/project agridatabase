@@ -105,9 +105,9 @@ rent_fee INT NOT NULL
 
 
 CREATE TABLE expired_product(
+p_id VARCHAR(15) NOT NULL,
 description VARCHAR (50) NOT NULL,
 expired_product_count INT,
-p_id VARCHAR(15) NOT NULL,
 FOREIGN KEY (p_id) REFERENCES agri_product(p_code) ON DELETE CASCADE ON UPDATE CASCADE
 );
 

@@ -134,8 +134,8 @@ public class agriProductController implements Initializable {
 
     }
     @FXML
-    void btnexpiredateonaction(ActionEvent event) {
-
+    void btnexpiredateonaction(ActionEvent event) throws IOException {
+    Navigation.switchNavigation("ExpireProductForm.fxml",event);
     }
 
     @FXML
