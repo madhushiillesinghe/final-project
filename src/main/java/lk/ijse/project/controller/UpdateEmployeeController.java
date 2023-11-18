@@ -6,7 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import lk.ijse.project.dto.tm.employeeTm;
 import lk.ijse.project.util.Navigation;
 import lk.ijse.project.model.employeeModel;
 import lk.ijse.project.dto.employeeDto;

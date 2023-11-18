@@ -7,8 +7,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import lk.ijse.project.dto.tm.customerTm;
 import lk.ijse.project.model.customerModel;
-import lk.ijse.project.model.employeeModel;
+import lk.ijse.project.controller.addCustomerController;
+import lk.ijse.project.util.Navigation;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class CustomerBarFormController {
@@ -48,8 +50,9 @@ public class CustomerBarFormController {
     }
 
     @FXML
-    void updateOnMouseClick(MouseEvent event) {
-
+    void updateOnMouseClick(MouseEvent event) throws IOException {
+        UpdateCustomerController.setId(txtId.getText());
+        Navigation.switchNavigation("updateCustomerForm.fxml",event);
     }
     customerModel cusmodel=new customerModel();
     public void setData(String id) throws SQLException {

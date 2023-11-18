@@ -146,10 +146,37 @@ public class customerModel {
             );
         }
         return tm;
-
-
     }
-    public ArrayList<String> getAllCustomerId() throws SQLException{
+    public static customerDto getCustomerdto(String cusid) throws SQLException {
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql = "SELECT * FROM customer WHERE cus_id = ?";
+
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setString(1, cusid);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        customerDto dto = null;
+
+        if (resultSet.next()) {
+            dto= new customerDto(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getInt(4),
+                    resultSet.getInt(5),
+                    resultSet.getString(6),
+                    resultSet.getString(7),
+                    resultSet.getString(8),
+                    resultSet.getString(9),
+                    resultSet.getString(10),
+                    resultSet.getInt(11)
+            );
+        }
+        return dto;
+    }
+
+        public ArrayList<String> getAllCustomerId() throws SQLException{
         Connection connection = FpConnection.getInstance().getConnection();
         String sql="SELECT cus_id FROM customer ORDER BY LENGTH(cus_id),cus_id";
         PreparedStatement pstm=connection.prepareStatement(sql);
