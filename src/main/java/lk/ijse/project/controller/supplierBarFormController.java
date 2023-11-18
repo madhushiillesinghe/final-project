@@ -8,7 +8,9 @@ import javafx.scene.text.Text;
 import lk.ijse.project.dto.tm.supplierTm;
 import lk.ijse.project.model.customerModel;
 import lk.ijse.project.model.supplierModel;
+import lk.ijse.project.util.Navigation;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class supplierBarFormController {
@@ -47,8 +49,9 @@ public class supplierBarFormController {
     }
 
     @FXML
-    void updateOnMouseClick(MouseEvent event) {
-
+    void updateOnMouseClick(MouseEvent event) throws IOException {
+        UpdateSupplierController.setId(txtId.getText());
+        Navigation.switchNavigation("UpdateSupplierForm.fxml",event);
     }
 
     supplierModel supmodel = new supplierModel();
