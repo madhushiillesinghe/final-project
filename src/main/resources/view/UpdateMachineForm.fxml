@@ -8,14 +8,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.addMachineCotroller">
+<AnchorPane prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.UpdateMachineFormController">
    <children>
       <ImageView fitHeight="350.0" fitWidth="600.0">
          <image>
             <Image url="@../icon/addcustomer%20(1).png" />
          </image>
       </ImageView>
-      <Text layoutX="69.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Machine">
+      <Text layoutX="69.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Machine">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -34,7 +34,7 @@
       <TextField fx:id="txtperdayrent" layoutX="227.0" layoutY="206.0" prefHeight="24.0" prefWidth="86.0" style="-fx-background-color: #ACE1AF;" />
       <Text layoutX="108.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Per day rent" wrappingWidth="85.91552734375" />
       <Button fx:id="btncancel" layoutX="371.0" layoutY="297.0" mnemonicParsing="false" onAction="#cancelbtnonaction" style="-fx-background-color: #ffffff;" text="CANCEL" textFill="#0b7923" />
-      <Button fx:id="btnadd" layoutX="455.0" layoutY="297.0" mnemonicParsing="false" onAction="#addbtnonaction" style="-fx-background-color: #0B7923;" text="ADD" textFill="#ebd6d6">
+      <Button fx:id="btnupdate" layoutX="455.0" layoutY="297.0" mnemonicParsing="false" onAction="#updatebtnonaction" style="-fx-background-color: #0B7923;" text="UPDATE" textFill="#ebd6d6">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

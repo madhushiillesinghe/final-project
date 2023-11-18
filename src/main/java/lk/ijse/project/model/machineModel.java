@@ -6,6 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import lk.ijse.project.dto.machineDto;
+import lk.ijse.project.dto.tm.machineTm;
 import lk.ijse.project.fp.FpConnection;
 import java.sql.*;
 import java.util.ArrayList;
@@ -27,10 +28,10 @@ public class machineModel {
             return pstm.executeUpdate() > 0;
         }
 
-        public boolean updateMachine(machineDto mdto) throws SQLException {
+        public static boolean updateMachine(machineDto mdto) throws SQLException {
             Connection connection = FpConnection.getInstance().getConnection();
 
-            String sql = "UPDATE machine SET  m_name = ?, m_task = ?, machine_qty = ?, machine_per_day_amount = ? WHERE p_id = ?";
+            String sql = "UPDATE machine SET  m_name = ?, m_task = ?, machine_qty = ?, rent_fee = ? WHERE m_id = ?";
             PreparedStatement pstm = connection.prepareStatement(sql);
 
 
@@ -67,7 +68,7 @@ public class machineModel {
             return dto;
         }
 
-        public boolean deleteMachine(String m_id) throws SQLException {
+        public static boolean deleteMachine(String m_id) throws SQLException {
             Connection connection = FpConnection.getInstance().getConnection();
 
             String sql = "DELETE FROM machine WHERE m_id = ?";
@@ -101,6 +102,63 @@ public class machineModel {
 
             return dtoList;
         }
+    public static machineTm getMachine(String mId) throws SQLException {
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql = "SELECT * FROM machine WHERE m_id = ?";
 
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setString(1,mId);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+       machineTm machtm = null;
+
+        if(resultSet.next()) {
+            machtm = new machineTm(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getInt(5),
+                    resultSet.getInt(4)
+            );
+        }
+        return machtm;
     }
+    public static machineDto getMachineDto(String mId) throws SQLException {
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql = "SELECT * FROM machine WHERE m_id = ?";
+
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setString(1,mId);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        machineDto mdto= null;
+
+        if(resultSet.next()) {
+            mdto = new machineDto(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getInt(4),
+                    resultSet.getInt(5)
+            );
+        }
+        return mdto;
+    }
+    public ArrayList<String> getAllMachineId() throws SQLException{
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql="SELECT m_id FROM machine ORDER BY LENGTH(m_id),m_id";
+        PreparedStatement pstm=connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+        ArrayList<String> list = new ArrayList<>();
+
+        while (resultSet.next()) {
+            list.add(resultSet.getString(1));
+        }
+        return list;
+    }
+
+
+}
 

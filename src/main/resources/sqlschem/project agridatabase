@@ -99,7 +99,7 @@ m_id VARCHAR(15) PRIMARY KEY,
 m_name VARCHAR(30) NOT NULL,
 m_task VARCHAR(50) NOT NULL,
 machine_qty INT NOT NULL,
-rent_id VARCHAR(15) NOT NULL UNIQUE
+rent_fee INT NOT NULL
 );
 
 

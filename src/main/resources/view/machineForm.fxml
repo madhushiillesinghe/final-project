@@ -142,6 +142,6 @@
             <Label layoutX="75.0" layoutY="5.0" text="Add Machine" />
          </children>
       </Pane>
-      <JFXButton layoutX="684.0" layoutY="74.0" onAction="#btnaddsupplieronaction" prefHeight="25.0" prefWidth="195.0" text="  " />
+      <JFXButton layoutX="684.0" layoutY="74.0" onAction="#btnaddmachineonaction" prefHeight="25.0" prefWidth="195.0" text="  " />
    </children>
 </AnchorPane>

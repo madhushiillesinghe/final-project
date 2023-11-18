@@ -14,7 +14,4 @@ public class machineTm {
     private  String Name;
     private int rent_perday;
     private int Quantity;
-    private Icon delete;
-    private  Icon update;
-    private Icon detail;
 }

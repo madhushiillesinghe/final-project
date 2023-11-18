@@ -1,19 +1,26 @@
-
 package lk.ijse.project.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import lk.ijse.project.model.machineModel;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class machineController {
+public class machineController implements Initializable {
 
     @FXML
     private ImageView addimg;
@@ -67,15 +74,15 @@ public class machineController {
     private VBox vBoxMachineManage;
 
     @FXML
-    void addcustomer(MouseEvent event) throws IOException {
-        Navigation.switchNavigation("addMachineForm.fxml",event);
+    void addcustomer(MouseEvent event) {
 
     }
 
     @FXML
-    void btnaddsupplieronaction(ActionEvent event) {
-
+    void btnaddmachineonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("addMachineForm.fxml",event);
     }
+
     @FXML
     void customerbtnonaction(ActionEvent event) throws IOException {
         Navigation.switchNavigation("customerForm.fxml",event);
@@ -120,6 +127,40 @@ public class machineController {
     @FXML
     void supplierbtnonaction(ActionEvent event) throws IOException {
         Navigation.switchNavigation("supplierForm.fxml",event);
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            getAllIds();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void getAllIds() throws SQLException {
+        vBoxMachineManage.getChildren().clear();
+
+        ArrayList<String> list=null;
+        machineModel machmodel=new machineModel();
+        list=machmodel.getAllMachineId();
+
+        for(int i=0;i<list.size();i++){
+            loadTableData(list.get(i));
+        }
+
+
+    }
+
+    private void loadTableData(String id) {
+        try{
+            FXMLLoader loader=new FXMLLoader(CustomerController.class.getResource("/view/MachineBarForm.fxml"));
+            Parent root=loader.load();
+            MachineBarFormController controller=loader.getController();
+            controller.setData(id);
+            vBoxMachineManage.getChildren().add(root);
+        }catch (IOException | SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

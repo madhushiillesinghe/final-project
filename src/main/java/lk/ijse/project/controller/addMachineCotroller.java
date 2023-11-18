@@ -2,18 +2,24 @@ package lk.ijse.project.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import lk.ijse.project.dto.machineDto;
+import lk.ijse.project.model.customerModel;
 import lk.ijse.project.model.machineModel;
 import lk.ijse.project.util.Navigation;
+import lk.ijse.project.util.NewId;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class addMachineCotroller {
+public class addMachineCotroller  implements Initializable {
 
     @FXML
     private Button btnadd;
@@ -23,9 +29,6 @@ public class addMachineCotroller {
 
     @FXML
     private TextField txtid;
-
-    @FXML
-    private TextField txtrentid;
 
     @FXML
     private TextField txtmachinename;
@@ -38,6 +41,21 @@ public class addMachineCotroller {
 
     @FXML
     private TextField txtquantity;
+
+
+   machineModel mModel=new machineModel();
+
+
+        ArrayList<String> list;
+
+    {
+        try {
+            list = mModel.getAllMachineId();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     @FXML
     void addbtnonaction(ActionEvent event) throws IOException {
@@ -64,4 +82,8 @@ public class addMachineCotroller {
         Navigation.switchNavigation("machineForm.fxml",event);
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        txtid.setText(NewId.newId(list,NewId.GetType.MACHINE));
+    }
 }

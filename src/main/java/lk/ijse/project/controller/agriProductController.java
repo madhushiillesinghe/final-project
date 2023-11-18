@@ -164,7 +164,6 @@ public class agriProductController implements Initializable {
             loadTableData(list.get(i));
         }
 
-
     }
 
         private void loadTableData(String code) {

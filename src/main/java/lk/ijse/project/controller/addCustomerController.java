@@ -161,9 +161,7 @@ public class addCustomerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loademployeeids();
-        //System.out.println();
         txtid.setText(NewId.newId(list,NewId.GetType.CUSTOMER));
-        System.out.println(NewId.newId(list,NewId.GetType.CUSTOMER));
-        System.out.println(txtid+"   id");
+
     }
 }
