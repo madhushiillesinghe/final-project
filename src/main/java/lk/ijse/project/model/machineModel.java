@@ -15,15 +15,14 @@ public class machineModel {
 
         public static boolean saveMachine(machineDto mdto) throws SQLException {
             Connection connection = FpConnection.getInstance().getConnection();
-            String sql = "INSERT INTO machine VALUES(?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO machine VALUES(?, ?, ?, ?, ?)";
             PreparedStatement pstm = connection.prepareStatement(sql);
 
             pstm.setString(1, mdto.getM_id());
             pstm.setString(2, mdto.getM_name());
             pstm.setString(3, mdto.getM_task());
             pstm.setInt(4, mdto.getMachine_qty());
-            pstm.setString(5, mdto.getRent_id());
-            pstm.setInt(6,mdto.getMachine_per_day_amount());
+            pstm.setInt(5,mdto.getMachine_per_day_amount());
 
             return pstm.executeUpdate() > 0;
         }
@@ -31,16 +30,15 @@ public class machineModel {
         public boolean updateMachine(machineDto mdto) throws SQLException {
             Connection connection = FpConnection.getInstance().getConnection();
 
-            String sql = "UPDATE machine SET  m_name = ?, m_task = ?, machine_qty = ?, rent_id = ?, machine_per_day_amount = ? WHERE p_id = ?";
+            String sql = "UPDATE machine SET  m_name = ?, m_task = ?, machine_qty = ?, machine_per_day_amount = ? WHERE p_id = ?";
             PreparedStatement pstm = connection.prepareStatement(sql);
 
 
             pstm.setString(1, mdto.getM_name());
             pstm.setString(2, mdto.getM_task());
             pstm.setInt(3, mdto.getMachine_qty());
-            pstm.setString(4, mdto.getRent_id());
-            pstm.setInt(5,mdto.getMachine_per_day_amount());
-            pstm.setString(6, mdto.getM_id());
+            pstm.setInt(4,mdto.getMachine_per_day_amount());
+            pstm.setString(5, mdto.getM_id());
 
 
             return pstm.executeUpdate() > 0;
@@ -63,8 +61,7 @@ public class machineModel {
                         resultSet.getString(2),
                         resultSet.getString(3),
                         resultSet.getInt(4),
-                        resultSet.getString(5),
-                        resultSet.getInt(6)
+                        resultSet.getInt(5)
                 );
             }
             return dto;
@@ -96,8 +93,7 @@ public class machineModel {
                         resultSet.getString(2),
                         resultSet.getString(3),
                         resultSet.getInt(4),
-                        resultSet.getString(5),
-                        resultSet.getInt(6)
+                        resultSet.getInt(5)
                 );
 
                 dtoList.add(dto);

@@ -46,9 +46,8 @@ public class addMachineCotroller {
         String m_task=txtmachinetask.getText();
         int qty = Integer.parseInt(txtquantity.getText());
         int amount= Integer.parseInt(txtperdayrent.getText());
-        String rent_id=txtrentid.getText();
 
-        var model = new machineDto(m_id,m_name,m_task,qty,rent_id,amount);
+        var model = new machineDto(m_id,m_name,m_task,qty,amount);
         try {
             boolean isSaved;
             isSaved = machineModel.saveMachine(model);
