@@ -33,6 +33,9 @@ public class agriProductController implements Initializable {
     private Button btndashboard;
 
     @FXML
+    private Button btnexpiredate;
+
+    @FXML
     private Button btnemployee;
 
     @FXML
@@ -128,6 +131,10 @@ public class agriProductController implements Initializable {
 
     @FXML
     void searchproducts(MouseEvent event) {
+
+    }
+    @FXML
+    void btnexpiredateonaction(ActionEvent event) {
 
     }
 

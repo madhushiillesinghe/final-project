@@ -48,6 +48,8 @@ FOREIGN KEY (emp_id) REFERENCES employee(emp_id)ON DELETE CASCADE ON UPDATE CASC
 CREATE TABLE customer_order(
 order_id VARCHAR(30) PRIMARY KEY,
 cus_id VARCHAR(15) NOT NULL,
+m_id VARCHAR(15),
+FOREIGN KEY (m_id) REFERENCES machine(m_id) ON DELETE CASCADE ON UPDATE CASCADE,
 FOREIGN KEY (cus_id) REFERENCES customer(cus_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -97,9 +99,7 @@ m_id VARCHAR(15) PRIMARY KEY,
 m_name VARCHAR(30) NOT NULL,
 m_task VARCHAR(50) NOT NULL,
 machine_qty INT NOT NULL,
-rent_id VARCHAR(15) NOT NULL UNIQUE,
-machine_per_day_amount INT NOT NULL,
-FOREIGN KEY (rent_id) REFERENCES customer_order(order_id) ON DELETE CASCADE ON UPDATE CASCADE
+rent_id VARCHAR(15) NOT NULL UNIQUE
 );
 
 
@@ -107,7 +107,6 @@ FOREIGN KEY (rent_id) REFERENCES customer_order(order_id) ON DELETE CASCADE ON U
 CREATE TABLE expired_product(
 description VARCHAR (50) NOT NULL,
 expired_product_count INT,
-qty_on_stock INT,
 p_id VARCHAR(15) NOT NULL,
 FOREIGN KEY (p_id) REFERENCES agri_product(p_code) ON DELETE CASCADE ON UPDATE CASCADE
 );

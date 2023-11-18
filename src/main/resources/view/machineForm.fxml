@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -67,7 +69,7 @@
       </ImageView>
       <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="310.0">
          <image>
-            <Image url="@../icon/Group%20693.png" />
+            <Image url="@../icon/Group693.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="371.0">
@@ -82,18 +84,12 @@
       </ImageView>
       <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="494.0">
          <image>
-            <Image url="@../icon/chart-3%202.png" />
+            <Image url="@../icon/charticon.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="557.0">
          <image>
-            <Image url="@../icon/receipt-item%203.png" />
-         </image>
-      </ImageView>
-      <TextField layoutX="655.0" layoutY="72.0" prefHeight="28.0" prefWidth="165.0" promptText="            Add Customer" />
-      <ImageView fx:id="addimg" layoutX="672.0" layoutY="76.0" onMouseClicked="#addmachine">
-         <image>
-            <Image url="@../icon/addicon.png" />
+            <Image url="@../icon/recipt.png" />
          </image>
       </ImageView>
       <TextField fx:id="txtsearch" layoutX="916.0" layoutY="75.0" prefHeight="28.0" prefWidth="205.0" promptText="    Search id or name" />
@@ -102,38 +98,50 @@
             <Image url="@../icon/search-normal.png" />
          </image>
       </ImageView>
-      <ScrollPane layoutX="376.0" layoutY="156.0" opacity="0.87" prefHeight="568.0" prefWidth="942.0" style="-fx-background-color: #ffffff;">
-         <content>
-            <VBox prefHeight="583.0" prefWidth="929.0" style="-fx-background-color: #ffffff;" visible="false">
-               <effect>
-                  <BoxBlur />
-               </effect>
-            </VBox>
-         </content>
-      </ScrollPane>
-      <HBox alignment="CENTER_LEFT" layoutX="375.0" layoutY="164.0" prefHeight="42.0" prefWidth="928.0" spacing="20.0" style="-fx-background-color: #ffffff;">
+      <HBox alignment="CENTER_LEFT" layoutX="375.0" layoutY="164.0" prefHeight="42.0" prefWidth="942.0" spacing="20.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Text fx:id="txtId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="                id" wrappingWidth="183.8519287109375">
+            <Text fx:id="txtId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="138.8519287109375">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="txtName" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="132.81900024414062">
+            <Text fx:id="txtName" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="196.81900024414062">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="txtrent" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="rent(per day)" wrappingWidth="248.9127197265625">
+            <Text fx:id="txtxrentfee" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent fee" wrappingWidth="200.9127197265625">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="txtqty" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" wrappingWidth="159.9127197265625">
+            <Text fx:id="txtqty" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="QTY" wrappingWidth="199.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtAction" layoutX="683.0" layoutY="37.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Action" wrappingWidth="75.9127197265625">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
          </children>
       </HBox>
+      <ScrollPane layoutX="376.0" layoutY="212.0" opacity="0.87" prefHeight="512.0" prefWidth="942.0" style="-fx-background-color: #ffffff;">
+         <content>
+            <VBox fx:id="vBoxMachineManage" prefHeight="506.0" prefWidth="935.0" />
+         </content>
+      </ScrollPane>
+      <Pane layoutX="683.0" layoutY="74.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fx:id="addimg" layoutX="6.0" layoutY="3.0" onMouseClicked="#addcustomer">
+               <image>
+                  <Image url="@../icon/addicon.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="75.0" layoutY="5.0" text="Add Machine" />
+         </children>
+      </Pane>
+      <JFXButton layoutX="684.0" layoutY="74.0" onAction="#btnaddsupplieronaction" prefHeight="25.0" prefWidth="195.0" text="  " />
    </children>
 </AnchorPane>

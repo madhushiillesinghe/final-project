@@ -109,12 +109,12 @@
          </children>
       </Pane>
       <JFXButton layoutX="683.0" layoutY="74.0" onAction="#btnaddcustomeronaction" prefHeight="25.0" prefWidth="195.0" text="  " />
-      <ScrollPane layoutX="376.0" layoutY="212.0" opacity="0.87" prefHeight="512.0" prefWidth="942.0" style="-fx-background-color: #ffffff;">
+      <ScrollPane layoutX="376.0" layoutY="236.0" opacity="0.87" prefHeight="500.0" prefWidth="942.0" style="-fx-background-color: #ffffff;">
          <content>
             <VBox fx:id="vBoxProductManage" prefHeight="506.0" prefWidth="935.0" />
          </content>
       </ScrollPane>
-      <HBox alignment="CENTER_LEFT" layoutX="376.0" layoutY="160.0" prefHeight="42.0" prefWidth="942.0" spacing="20.0" style="-fx-background-color: #ffffff;">
+      <HBox alignment="CENTER_LEFT" layoutX="376.0" layoutY="187.0" prefHeight="42.0" prefWidth="942.0" spacing="20.0" style="-fx-background-color: #ffffff;">
          <children>
             <Text fx:id="txtId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="141.8519287109375">
                <font>
@@ -148,5 +148,10 @@
             </Text>
          </children>
       </HBox>
+      <Button fx:id="btnexpiredate" layoutX="1191.0" layoutY="149.0" mnemonicParsing="false" onAction="#btnexpiredateonaction" style="-fx-background-color: #228B22;" text="Expire Product" textFill="#dad5d5">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

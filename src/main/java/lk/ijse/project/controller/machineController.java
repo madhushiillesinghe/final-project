@@ -1,3 +1,4 @@
+
 package lk.ijse.project.controller;
 
 import javafx.event.ActionEvent;
@@ -6,9 +7,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import lk.ijse.project.util.Navigation;
-import lk.ijse.project.util.Navigation.*;
 
 import java.io.IOException;
 
@@ -41,10 +42,11 @@ public class machineController {
     @FXML
     private Button btnsupplier;
 
-
-
     @FXML
     private ImageView searchimg;
+
+    @FXML
+    private Text txtAction;
 
     @FXML
     private Text txtId;
@@ -56,18 +58,24 @@ public class machineController {
     private Text txtqty;
 
     @FXML
-    private Text txtrent;
-
-    @FXML
     private TextField txtsearch;
 
-
+    @FXML
+    private Text txtxrentfee;
 
     @FXML
-    void addmachine(MouseEvent event) throws IOException {
+    private VBox vBoxMachineManage;
+
+    @FXML
+    void addcustomer(MouseEvent event) throws IOException {
         Navigation.switchNavigation("addMachineForm.fxml",event);
+
     }
 
+    @FXML
+    void btnaddsupplieronaction(ActionEvent event) {
+
+    }
     @FXML
     void customerbtnonaction(ActionEvent event) throws IOException {
         Navigation.switchNavigation("customerForm.fxml",event);

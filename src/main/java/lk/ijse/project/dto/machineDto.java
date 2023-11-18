@@ -13,6 +13,5 @@ public class machineDto {
     private String  m_name;
     private String m_task;
     private int machine_qty;
-    private String rent_id;
     private int machine_per_day_amount;
 }
