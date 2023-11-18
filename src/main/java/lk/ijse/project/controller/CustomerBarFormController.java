@@ -1,11 +1,13 @@
 package lk.ijse.project.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import lk.ijse.project.dto.tm.customerTm;
 import lk.ijse.project.model.customerModel;
+import lk.ijse.project.model.employeeModel;
 
 import java.sql.SQLException;
 
@@ -32,7 +34,17 @@ public class CustomerBarFormController {
 
     @FXML
     void deleteOnMouseClick(MouseEvent event) {
+        String id = txtId.getText();
 
+        var cusmodel = new customerModel();
+        try {
+            boolean isDeleted = customerModel.deleteCustomer(id);
+            if (isDeleted) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Customer deleted").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
     @FXML

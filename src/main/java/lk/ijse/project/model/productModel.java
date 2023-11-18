@@ -65,7 +65,7 @@ public class productModel {
     public static boolean deleteProduct(String p_code) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
 
-        String sql = "DELETE FROM agri_products WHERE p_code = ?";
+        String sql = "DELETE FROM agri_product WHERE p_code = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
         pstm.setString(1, p_code);
 

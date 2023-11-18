@@ -1,12 +1,14 @@
 package lk.ijse.project.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import lk.ijse.project.dto.productDto;
 import lk.ijse.project.dto.tm.productTm;
 import lk.ijse.project.model.productModel;
+import lk.ijse.project.model.supplierModel;
 
 import java.sql.SQLException;
 
@@ -35,7 +37,17 @@ public class ProductBarFormController {
 
     @FXML
     void deleteOnMouseClick(MouseEvent event) {
+        String id = txtId.getText();
 
+        var promodel = new productModel();
+        try {
+            boolean isDeleted = productModel.deleteProduct(id);
+            if (isDeleted) {
+                new Alert(Alert.AlertType.CONFIRMATION, "product deleted").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
     @FXML
