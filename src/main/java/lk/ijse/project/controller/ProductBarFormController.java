@@ -9,7 +9,9 @@ import lk.ijse.project.dto.productDto;
 import lk.ijse.project.dto.tm.productTm;
 import lk.ijse.project.model.productModel;
 import lk.ijse.project.model.supplierModel;
+import lk.ijse.project.util.Navigation;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class ProductBarFormController {
@@ -51,8 +53,9 @@ public class ProductBarFormController {
     }
 
     @FXML
-    void updateOnMouseClick(MouseEvent event) {
-
+    void updateOnMouseClick(MouseEvent event) throws IOException {
+        UpdateProductController.setId(txtId.getText());
+        Navigation.switchNavigation("UpdateProductForm.fxml",event);
     }
     productModel promodel=new productModel();
     public void setData(String id) throws SQLException {

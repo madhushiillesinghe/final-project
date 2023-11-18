@@ -39,6 +39,7 @@ public class productModel {
     }
 
 
+
     public productDto searchProduct(String p_code) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
         String sql = "SELECT * FROM agri_product WHERE p_code = ?";
@@ -117,6 +118,28 @@ public class productModel {
             );
         }
         return protm;
+    }
+    public static productDto getProductDto(String pCode) throws SQLException {
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql = "SELECT * FROM agri_product WHERE p_code = ?";
+
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setString(1,pCode);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        productDto prodto= null;
+
+        if(resultSet.next()) {
+            prodto = new productDto(
+                    resultSet.getString(1),
+                    resultSet.getDouble(2),
+                    resultSet.getString(3),
+                    resultSet.getInt(4),
+                    resultSet.getDate(5)
+            );
+        }
+        return prodto;
     }
     public ArrayList<String> getAllProductId() throws SQLException{
         Connection connection = FpConnection.getInstance().getConnection();
