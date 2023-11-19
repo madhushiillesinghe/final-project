@@ -6,10 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import lk.ijse.project.util.Navigation;
-
-import java.io.IOException;
 
 public class OrderProductController {
 
@@ -56,44 +54,39 @@ public class OrderProductController {
     private Button btnsupplierorder;
 
     @FXML
-    private ImageView deleteImg;
-
-    @FXML
     private ImageView searchimg;
 
     @FXML
-    private Text txtcusid;
+    private Text txtId;
+
+    @FXML
+    private Text txtName;
 
     @FXML
     private Text txtdate;
 
     @FXML
-    private Text txtmachineid;
-
-    @FXML
-    private Text txtoid;
-
-    @FXML
-    private Text txtpayid;
+    private Text txtqty;
 
     @FXML
     private TextField txtsearch;
 
     @FXML
-    private Text txtstatus;
+    private Text txtunitPrice;
 
     @FXML
-    private Text txttotalamount;
+    private Text txtxAmount;
 
     @FXML
-    private ImageView updateImg;
+    private VBox vBoxCusProductOrderManage;
 
     @FXML
-    private ImageView viewImg;
+    void addcustomer(MouseEvent event) {
+
+    }
 
     @FXML
-    void addcustomerorder(MouseEvent event) throws IOException {
-        Navigation.switchNavigation("addProductOrderForm.fxml",event);
+    void btnaddcustomeronaction(ActionEvent event) {
 
     }
 
@@ -113,17 +106,7 @@ public class OrderProductController {
     }
 
     @FXML
-    void deleteOnMouseClick(MouseEvent event) {
-
-    }
-
-    @FXML
     void deliverbtnonaction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void detailsOnMouseClick(MouseEvent event) {
 
     }
 
@@ -174,11 +157,6 @@ public class OrderProductController {
 
     @FXML
     void supplierorderbtnonaction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void updateOnMouseClick(MouseEvent event) {
 
     }
 

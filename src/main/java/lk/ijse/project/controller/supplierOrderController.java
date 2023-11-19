@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 public class supplierOrderController {
@@ -44,40 +45,39 @@ public class supplierOrderController {
     private Button btnsupplierorder;
 
     @FXML
-    private ImageView deleteImg;
+    private ImageView searchimg;
 
     @FXML
-    private ImageView searchimg;
+    private Text txtId;
+
+    @FXML
+    private Text txtName;
 
     @FXML
     private Text txtdate;
 
     @FXML
-    private Text txtoid;
-
-    @FXML
-    private Text txtpayid;
-
-    @FXML
-    private Text txtproductid;
+    private Text txtqty;
 
     @FXML
     private TextField txtsearch;
 
     @FXML
-    private Text txtsupid;
+    private Text txtunitPrice;
 
     @FXML
-    private Text txttotalamount;
+    private Text txtxAmount;
 
     @FXML
-    private ImageView updateImg;
+    private VBox vBoxSupOrderManage;
 
     @FXML
-    private ImageView viewImg;
+    void addcustomer(MouseEvent event) {
+
+    }
 
     @FXML
-    void addcustomerorder(MouseEvent event) {
+    void btnaddcustomeronaction(ActionEvent event) {
 
     }
 
@@ -93,16 +93,6 @@ public class supplierOrderController {
 
     @FXML
     void dashboardonaction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void deleteOnMouseClick(MouseEvent event) {
-
-    }
-
-    @FXML
-    void detailsOnMouseClick(MouseEvent event) {
 
     }
 
@@ -143,11 +133,6 @@ public class supplierOrderController {
 
     @FXML
     void supplierorderbtnonaction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void updateOnMouseClick(MouseEvent event) {
 
     }
 

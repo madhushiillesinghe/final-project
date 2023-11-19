@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -66,7 +69,7 @@
       </ImageView>
       <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="310.0">
          <image>
-            <Image url="@../icon/Group%20693.png" />
+            <Image url="@../icon/Group693.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="371.0">
@@ -81,31 +84,20 @@
       </ImageView>
       <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="494.0">
          <image>
-            <Image url="@../icon/chart-3%202.png" />
+            <Image url="@../icon/charticon.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="557.0">
          <image>
-            <Image url="@../icon/receipt-item%203.png" />
+            <Image url="@../icon/recipt.png" />
          </image>
       </ImageView>
-      <TextField layoutX="655.0" layoutY="72.0" prefHeight="28.0" prefWidth="165.0" promptText="             Add Order" />
       <TextField fx:id="txtsearch" layoutX="907.0" layoutY="72.0" prefHeight="28.0" prefWidth="165.0" promptText="    Search id " />
-      <ImageView fx:id="addimg" layoutX="672.0" layoutY="76.0" onMouseClicked="#addcustomerorder">
-         <image>
-            <Image url="@../icon/addicon.png" />
-         </image>
-      </ImageView>
       <ImageView fx:id="searchimg" fitHeight="15.0" fitWidth="15.0" layoutX="1050.0" layoutY="79.0" onMouseClicked="#searchemployee">
          <image>
             <Image url="@../icon/search-normal.png" />
          </image>
       </ImageView>
-      <ScrollPane layoutX="369.0" layoutY="231.0" opacity="0.87" prefHeight="507.0" prefWidth="933.0" style="-fx-background-color: #ffffff;">
-         <content>
-            <VBox prefHeight="583.0" prefWidth="929.0" style="-fx-background-color: #ffffff;" visible="false" />
-         </content>
-      </ScrollPane>
       <Button fx:id="btncustomerorder" layoutX="369.0" layoutY="157.0" mnemonicParsing="false" onAction="#customerorderonaction" prefHeight="24.0" prefWidth="140.0" style="-fx-border-radius: 20; -fx-background-color: #228B22;" styleClass="customerclass" text="Customer Order" textFill="#f5e5e5">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -125,54 +117,55 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <HBox alignment="CENTER_LEFT" layoutX="370.0" layoutY="230.0" prefHeight="42.0" prefWidth="917.0" spacing="20.0" style="-fx-background-color: #ffffff;">
+      <HBox alignment="CENTER_LEFT" layoutX="375.0" layoutY="224.0" prefHeight="42.0" prefWidth="942.0" spacing="20.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Text fx:id="txtoid" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   OId" wrappingWidth="81.8519287109375">
+            <Text fx:id="txtId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="119.8519287109375">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="txtcusid" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Cus Id" wrappingWidth="92.81900024414062">
+            <Text fx:id="txtName" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine Name" wrappingWidth="200.81900024414062">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="txtmachineid" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine Id" wrappingWidth="136.9127197265625">
+            <Text fx:id="txtrent" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="rent fee" wrappingWidth="166.9127197265625">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="txtpayid" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Pay Id" wrappingWidth="136.9127197265625">
+            <Text fx:id="txtdays" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Days" wrappingWidth="138.9127197265625">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="txtdate" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="98.00238037109375">
+            <Text fx:id="txtdate" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="125.9127197265625">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="txttotalamount" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Amount" wrappingWidth="118.9127197265625">
+            <Text fx:id="txtxAmount" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" wrappingWidth="68.9127197265625">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <ImageView fx:id="updateImg" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#updateOnMouseClick" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../Downloads/Fishery-Harbor-master/src/main/resources/img/icon/action-btn.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="deleteImg" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#deleteOnMouseClick" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../Downloads/Fishery-Harbor-master/src/main/resources/img/icon/action-delete-btn.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="viewImg" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#detailsOnMouseClick" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../Downloads/Fishery-Harbor-master/src/main/resources/img/icon/action-btn-details.png" />
-               </image>
-            </ImageView>
          </children>
       </HBox>
+      <ScrollPane layoutX="375.0" layoutY="278.0" opacity="0.87" prefHeight="461.0" prefWidth="936.0" style="-fx-background-color: #ffffff;">
+         <content>
+            <VBox fx:id="vBoxSupOrderManage" prefHeight="453.0" prefWidth="942.0" />
+         </content>
+      </ScrollPane>
+      <Pane layoutX="683.0" layoutY="74.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fx:id="addimg" layoutX="6.0" layoutY="3.0" onMouseClicked="#addcustomer">
+               <image>
+                  <Image url="@../icon/addicon.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="75.0" layoutY="5.0" text="Add Cus Order" />
+         </children>
+      </Pane>
+      <JFXButton layoutX="683.0" layoutY="74.0" onAction="#btnaddcustomeronaction" prefHeight="25.0" prefWidth="195.0" text="  " />
    </children>
 </AnchorPane>

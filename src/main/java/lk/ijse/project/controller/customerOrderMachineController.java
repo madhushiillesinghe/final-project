@@ -6,11 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import lk.ijse.project.util.Navigation;
-import lk.ijse.project.util.Navigation.*;
-
-import java.io.IOException;
 
 public class customerOrderMachineController {
 
@@ -54,41 +51,40 @@ public class customerOrderMachineController {
     private Button btnsupplierorder;
 
     @FXML
-    private ImageView deleteImg;
-
-    @FXML
     private ImageView searchimg;
 
     @FXML
-    private Text txtcusid;
+    private Text txtId;
+
+    @FXML
+    private Text txtName;
 
     @FXML
     private Text txtdate;
 
     @FXML
-    private Text txtmachineid;
+    private Text txtdays;
 
     @FXML
-    private Text txtoid;
-
-    @FXML
-    private Text txtpayid;
+    private Text txtrent;
 
     @FXML
     private TextField txtsearch;
 
     @FXML
-    private Text txttotalamount;
+    private Text txtxAmount;
 
     @FXML
-    private ImageView updateImg;
+    private VBox vBoxSupOrderManage;
 
     @FXML
-    private ImageView viewImg;
+    void addcustomer(MouseEvent event) {
+
+    }
 
     @FXML
-    void addcustomerorder(MouseEvent event) throws IOException {
-Navigation.switchNavigation("addMachineOrderForm.fxml",event);
+    void btnaddcustomeronaction(ActionEvent event) {
+
     }
 
     @FXML
@@ -98,20 +94,11 @@ Navigation.switchNavigation("addMachineOrderForm.fxml",event);
 
     @FXML
     void customerorderonaction(ActionEvent event) {
+
     }
 
     @FXML
     void dashboardonaction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void deleteOnMouseClick(MouseEvent event) {
-
-    }
-
-    @FXML
-    void detailsOnMouseClick(MouseEvent event) {
 
     }
 
@@ -131,8 +118,8 @@ Navigation.switchNavigation("addMachineOrderForm.fxml",event);
     }
 
     @FXML
-    void machineorderbtnonaction(ActionEvent event) throws IOException {
-        Navigation.switchNavigation("customerMachineOrderForm.fxml",event);
+    void machineorderbtnonaction(ActionEvent event) {
+
     }
 
     @FXML
@@ -141,8 +128,8 @@ Navigation.switchNavigation("addMachineOrderForm.fxml",event);
     }
 
     @FXML
-    void productorderbtnonaction(ActionEvent event) throws IOException {
-Navigation.switchNavigation("customerProductOrderForm.fxml",event);
+    void productorderbtnonaction(ActionEvent event) {
+
     }
 
     @FXML
@@ -161,12 +148,7 @@ Navigation.switchNavigation("customerProductOrderForm.fxml",event);
     }
 
     @FXML
-    void supplierorderbtnonaction(ActionEvent event) throws IOException {
-Navigation.switchNavigation("supplierOrderForm.fxml",event);
-    }
-
-    @FXML
-    void updateOnMouseClick(MouseEvent event) {
+    void supplierorderbtnonaction(ActionEvent event) {
 
     }
 

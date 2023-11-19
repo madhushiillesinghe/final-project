@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="42.0" prefWidth="942.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.CustomerProductOrderBarFormController">
+   <children>
+      <HBox alignment="CENTER_LEFT" layoutY="7.0" prefHeight="42.0" prefWidth="942.0" spacing="20.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Text fx:id="txtId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="141.8519287109375">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtName" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Product" wrappingWidth="129.81900024414062">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtunitPrice" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit Price" wrappingWidth="166.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtqty" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" wrappingWidth="162.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtdate" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="125.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtxAmount" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" wrappingWidth="68.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
