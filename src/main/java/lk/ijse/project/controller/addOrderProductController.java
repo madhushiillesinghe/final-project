@@ -25,6 +25,12 @@ public class addOrderProductController {
     private DatePicker datepickdate;
 
     @FXML
+    private TextField txtExpireDate;
+
+    @FXML
+    private TextField txtcity;
+
+    @FXML
     private TextField txtdeliverfee;
 
     @FXML
@@ -34,13 +40,7 @@ public class addOrderProductController {
     private TextField txtdescription;
 
     @FXML
-    private TextField txtmethod;
-
-    @FXML
     private TextField txtorderid;
-
-    @FXML
-    private TextField txtpayid;
 
     @FXML
     private TextField txtqty;
@@ -50,6 +50,9 @@ public class addOrderProductController {
 
     @FXML
     private TextField txtstatus;
+
+    @FXML
+    private TextField txtstreet;
 
     @FXML
     private TextField txttotalamount;

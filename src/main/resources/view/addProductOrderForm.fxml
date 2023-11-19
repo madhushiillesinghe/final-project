@@ -29,10 +29,10 @@
       </ImageView>
       <ComboBox fx:id="comboxproductid" layoutX="141.0" layoutY="60.0" onAction="#productidonaction" prefWidth="150.0" style="-fx-background-color: #ACE1AF;" />
       <ComboBox fx:id="comboxcustomerid" layoutX="419.0" layoutY="60.0" onAction="#customeridonaction" prefWidth="150.0" style="-fx-background-color: #ACE1AF;" />
-      <TextField fx:id="txtqtyofbuy" layoutX="195.0" layoutY="153.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <TextField fx:id="txtqtyofbuy" layoutX="190.0" layoutY="140.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
       <Text layoutX="43.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product id:" />
       <Text layoutX="335.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer id:" />
-      <Text layoutX="43.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity of buy:" />
+      <Text layoutX="42.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity of buy:" />
       <Button fx:id="btncancel" layoutX="372.0" layoutY="309.0" mnemonicParsing="false" onAction="#cancelbtnonaction" style="-fx-background-color: #ffffff;" text="CANCEL" textFill="#0b7923" />
       <Button fx:id="btnplaceorder" layoutX="457.0" layoutY="309.0" mnemonicParsing="false" onAction="#placeorderbtnonaction" style="-fx-background-color: #0B7923;" text="PLACE ORDER" textFill="#ebd6d6">
          <font>
@@ -53,17 +53,19 @@
       <Text layoutX="246.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit Price" />
       <TextField fx:id="txtqty" layoutX="494.0" layoutY="102.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
       <Text layoutX="456.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QTY" />
-      <TextField fx:id="txtpayid" layoutX="113.0" layoutY="205.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="43.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pay Id:" />
-      <TextField fx:id="txtmethod" layoutX="342.0" layoutY="205.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="227.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment method" />
-      <TextField fx:id="txtdeliverid" layoutX="113.0" layoutY="261.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <TextField fx:id="txtstatus" layoutX="502.0" layoutY="205.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="449.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
-      <Text layoutX="43.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="deliver id" />
-      <TextField fx:id="txtdeliverfee" layoutX="284.0" layoutY="261.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="216.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="deliver fee" />
-      <TextField fx:id="txttotalamount" layoutX="494.0" layoutY="261.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="400.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total amount" />
+      <TextField fx:id="txtdeliverid" layoutX="134.0" layoutY="220.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="42.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="deliver id" />
+      <TextField fx:id="txtdeliverfee" layoutX="134.0" layoutY="260.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="38.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="deliver fee" />
+      <TextField fx:id="txttotalamount" layoutX="430.0" layoutY="260.0" prefHeight="24.0" prefWidth="111.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="333.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total amount" />
+      <TextField fx:id="txtExpireDate" layoutX="453.0" layoutY="153.0" prefHeight="24.0" prefWidth="106.0" promptText="DD/MM/YYYY" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="361.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expire Date" />
+      <TextField fx:id="txtstreet" layoutX="494.0" layoutY="219.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <TextField fx:id="txtcity" layoutX="294.0" layoutY="220.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="437.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Street" />
+      <Text layoutX="255.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
+      <TextField fx:id="txtstatus" layoutX="134.0" layoutY="177.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="50.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
    </children>
 </AnchorPane>

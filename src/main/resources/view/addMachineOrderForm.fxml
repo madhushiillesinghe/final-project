@@ -28,8 +28,8 @@
             <Image url="@../icon/recipt.png" />
          </image>
       </ImageView>
-      <ComboBox fx:id="comboxmachineid" layoutX="126.0" layoutY="54.0" prefWidth="150.0" style="-fx-background-color: #ACE1AF;" />
-      <ComboBox fx:id="comboxcustomerid" layoutX="395.0" layoutY="54.0" prefWidth="150.0" style="-fx-background-color: #ACE1AF;" />
+      <ComboBox fx:id="comboxmachineid" layoutX="126.0" layoutY="54.0" onAction="#machidcmbonaction" prefWidth="150.0" style="-fx-background-color: #ACE1AF;" />
+      <ComboBox fx:id="comboxcustomerid" layoutX="395.0" layoutY="54.0" onAction="#cusidcmbonaction" prefWidth="150.0" style="-fx-background-color: #ACE1AF;" />
       <TextField fx:id="txtdaysofkeep" layoutX="152.0" layoutY="142.0" prefHeight="24.0" prefWidth="128.0" style="-fx-background-color: #ACE1AF;" />
       <Text fill="#fceaea" layoutX="283.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="order Id">
          <font>
@@ -55,16 +55,15 @@
       <Text layoutX="201.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent price" />
       <Line endX="100.0" startX="-100.0" />
       <Line endX="413.5" layoutX="163.0" layoutY="180.0" startX="-134.5" />
-      <TextField fx:id="txtpayid" layoutX="111.0" layoutY="212.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="35.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pay id" />
-      <TextField fx:id="txtpaymentmethod" layoutX="470.0" layoutY="212.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="339.0" layoutY="227.0" strokeLineCap="BUTT" strokeWidth="0.0" text="Payment method" />
-      <TextField fx:id="txttotalamount" layoutX="129.0" layoutY="257.0" prefHeight="24.0" prefWidth="128.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="28.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total amount" />
+      <Text layoutX="35.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <TextField fx:id="txttotalamount" layoutX="129.0" layoutY="231.0" prefHeight="24.0" prefWidth="128.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="33.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total amount" />
       <Text layoutX="35.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Detail">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font>
       </Text>
+      <TextField fx:id="txttask" layoutX="446.0" layoutY="142.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="348.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="machine task" />
    </children>
 </AnchorPane>

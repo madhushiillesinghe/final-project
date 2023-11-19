@@ -6,9 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import lk.ijse.project.util.Navigation;
-
-import java.io.IOException;
 
 public class addOrderMachineController {
 
@@ -34,13 +31,11 @@ public class addOrderMachineController {
     private TextField txtname;
 
     @FXML
+    private TextField txttask;
+
+
+    @FXML
     private TextField txtorderid;
-
-    @FXML
-    private TextField txtpayid;
-
-    @FXML
-    private TextField txtpaymentmethod;
 
     @FXML
     private TextField txtqtyq;
@@ -52,12 +47,22 @@ public class addOrderMachineController {
     private TextField txttotalamount;
 
     @FXML
-    void cancelbtnonaction(ActionEvent event) throws IOException {
-    Navigation.switchNavigation("customerMachineOrderForm",event);
+    void cancelbtnonaction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void cusidcmbonaction(ActionEvent event) {
+
     }
 
     @FXML
     void dateonaction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void machidcmbonaction(ActionEvent event) {
 
     }
 
