@@ -101,7 +101,7 @@ public class CustomerController implements Initializable {
         }
         @FXML
         void btnaddcustomeronaction(ActionEvent event) throws IOException {
-                Navigation.switchNavigation("addCustomerForm.fxml",event);
+                Navigation.popupNavigation("addCustomerForm.fxml");
         }
 
 

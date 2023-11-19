@@ -77,7 +77,7 @@ public class ExpireProductFormController  implements Initializable {
 
     @FXML
     void btnaddexpireProductonaction(ActionEvent event) throws IOException {
-        Navigation.switchNavigation("AddExpireProductForm.fxml",event);
+        Navigation.popupNavigation("AddExpireProductForm.fxml");
 
     }
 

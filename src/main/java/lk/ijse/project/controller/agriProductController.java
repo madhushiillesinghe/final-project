@@ -87,7 +87,7 @@ public class agriProductController implements Initializable {
 
     @FXML
     void btnaddcustomeronaction(ActionEvent event) throws IOException {
-        Navigation.switchNavigation("addproductForm.fxml",event);
+        Navigation.popupNavigation("addproductForm.fxml");
 
     }
 

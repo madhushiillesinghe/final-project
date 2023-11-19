@@ -50,7 +50,7 @@ public class MachineBarFormController {
     @FXML
     void updateOnMouseClick(MouseEvent event) throws IOException {
        UpdateMachineFormController.setId(txtId.getText());
-        Navigation.switchNavigation("UpdateMachineForm.fxml",event);
+        Navigation.popupNavigation("UpdateMachineForm.fxml");
     }
     machineModel machmodel=new machineModel();
     public void setData(String id) throws SQLException {

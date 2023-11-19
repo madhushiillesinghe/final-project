@@ -52,7 +52,7 @@ public class EmployeeBarFormController {
     @FXML
     void updateOnMouseClick(MouseEvent event) throws IOException {
         UpdateEmployeeController.setId(txtId.getText());
-        Navigation.switchNavigation("updateEmployee.fxml",event);
+        Navigation.popupNavigation("updateEmployee.fxml");
     }
    employeeModel empmodel=new employeeModel();
     public void setData(String id) throws SQLException {

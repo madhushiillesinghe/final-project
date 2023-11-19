@@ -81,7 +81,7 @@ public class employeeController implements Initializable {
 
     @FXML
     void btnaddemployeeonaction(ActionEvent event) throws IOException {
-        Navigation.switchNavigation("addEmployeeForm.fxml",event);
+        Navigation.popupNavigation("addEmployeeForm.fxml");
 
     }
     @FXML

@@ -80,7 +80,7 @@ public class machineController implements Initializable {
 
     @FXML
     void btnaddmachineonaction(ActionEvent event) throws IOException {
-        Navigation.switchNavigation("addMachineForm.fxml",event);
+        Navigation.popupNavigation("addMachineForm.fxml");
     }
 
     @FXML

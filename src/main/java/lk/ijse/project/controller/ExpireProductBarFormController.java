@@ -48,7 +48,7 @@ public class ExpireProductBarFormController {
     @FXML
     void updateOnMouseClick(MouseEvent event) throws IOException {
         UpdateExpireProductFormController.setId(txtId.getText());
-        Navigation.switchNavigation("UpdateExpireProductForm.fxml",event);
+        Navigation.popupNavigation("UpdateExpireProductForm.fxml");
     }
 
     public void setData(String id) {

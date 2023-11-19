@@ -51,7 +51,7 @@ public class supplierBarFormController {
     @FXML
     void updateOnMouseClick(MouseEvent event) throws IOException {
         UpdateSupplierController.setId(txtId.getText());
-        Navigation.switchNavigation("UpdateSupplierForm.fxml",event);
+        Navigation.popupNavigation("UpdateSupplierForm.fxml");
     }
 
     supplierModel supmodel = new supplierModel();

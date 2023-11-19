@@ -55,7 +55,7 @@ public class ProductBarFormController {
     @FXML
     void updateOnMouseClick(MouseEvent event) throws IOException {
         UpdateProductController.setId(txtId.getText());
-        Navigation.switchNavigation("UpdateProductForm.fxml",event);
+        Navigation.popupNavigation("UpdateProductForm.fxml");
     }
     productModel promodel=new productModel();
     public void setData(String id) throws SQLException {

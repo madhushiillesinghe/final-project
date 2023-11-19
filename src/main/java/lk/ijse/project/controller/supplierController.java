@@ -83,7 +83,7 @@ public class supplierController implements Initializable {
 
     @FXML
     void btnaddsupplieronaction(ActionEvent event) throws IOException {
-        Navigation.switchNavigation("addSupplierForm.fxml",event);
+        Navigation.popupNavigation("addSupplierForm.fxml");
 
     }
 
