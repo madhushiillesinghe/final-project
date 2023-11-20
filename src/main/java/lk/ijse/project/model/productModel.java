@@ -40,7 +40,7 @@ public class productModel {
 
 
 
-    public productDto searchProduct(String p_code) throws SQLException {
+    public static productDto searchProduct(String p_code) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
         String sql = "SELECT * FROM agri_product WHERE p_code = ?";
 
@@ -73,7 +73,7 @@ public class productModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public List<productDto> loadAllProduct() throws SQLException {
+    public static List<productDto> loadAllProduct() throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
 
         String sql = "SELECT * FROM agri_product";

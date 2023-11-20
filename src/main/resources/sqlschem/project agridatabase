@@ -1,137 +1,136 @@
-DROP DATABASE project_agri_company;
-CREATE DATABASE project_agri_company;
+    DROP DATABASE project_agri_company;
+    CREATE DATABASE project_agri_company;
 
-USE project_agri_company;
-
-
-CREATE TABLE employee(
-emp_id VARCHAR(15) PRIMARY KEY,
-city VARCHAR(15)NOT NULL,
-street VARCHAR(20),
-house_no int,
-contact_no int NOT NULL,
-role VARCHAR (30)NOT NULL,
-user_name VARCHAR(25) ,
-password VARCHAR(35),
-email VARCHAR(25) UNIQUE,
-first_name VARCHAR (25) NOT NULL,
-last_name VARCHAR(35),
-nic int UNIQUE NOT NULL
-);
+    USE project_agri_company;
 
 
-
-CREATE TABLE agri_product(
-p_code VARCHAR(15) PRIMARY KEY,
-unit_price DOUBLE NOT NULL,
-description VARCHAR(15) NOT NULL,
-qty_on_stock INT ,
-expire_date DATE
-);
-
-CREATE TABLE customer(
-cus_id VARCHAR(15) PRIMARY KEY,
-city VARCHAR(15) NOT NULL,
-street VARCHAR(20),
-house_no int,
-contact_no int,
-emp_id VARCHAR (30) NOT NULL,
-account_type VARCHAR(35),
-email VARCHAR(25) UNIQUE,
-first_name VARCHAR (25) NOT NULL,
-last_name VARCHAR(35),
-nic int UNIQUE NOT NULL,
-FOREIGN KEY (emp_id) REFERENCES employee(emp_id)ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-
-CREATE TABLE customer_order(
-order_id VARCHAR(30) PRIMARY KEY,
-cus_id VARCHAR(15) NOT NULL,
-m_id VARCHAR(15),
-FOREIGN KEY (m_id) REFERENCES machine(m_id) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN KEY (cus_id) REFERENCES customer(cus_id) ON DELETE CASCADE ON UPDATE CASCADE
-);
+    CREATE TABLE employee(
+    emp_id VARCHAR(15) PRIMARY KEY,
+    city VARCHAR(15)NOT NULL,
+    street VARCHAR(20),
+    house_no int,
+    contact_no int NOT NULL,
+    role VARCHAR (30)NOT NULL,
+    user_name VARCHAR(25) ,
+    password VARCHAR(35),
+    email VARCHAR(25) UNIQUE,
+    first_name VARCHAR (25) NOT NULL,
+    last_name VARCHAR(35),
+    nic int UNIQUE NOT NULL
+    );
 
 
 
-CREATE TABLE supplier(
-sup_id VARCHAR(15) PRIMARY KEY,
-contact_no int NOT NULL,
-emp_id VARCHAR (30) NOT NULL,
-supplier_product_type VARCHAR(35) NOT NULL,
-email VARCHAR(25) UNIQUE,
-first_name VARCHAR (25)NOT NULL,
-last_name VARCHAR(35),
-nic int UNIQUE NOT NULL,
-FOREIGN KEY (emp_id) REFERENCES employee(emp_id) ON DELETE CASCADE ON UPDATE CASCADE
-);
+    CREATE TABLE agri_product(
+    p_code VARCHAR(15) PRIMARY KEY,
+    unit_price DOUBLE NOT NULL,
+    description VARCHAR(15) NOT NULL,
+    qty_on_stock INT ,
+    expire_date DATE
+    );
+
+    CREATE TABLE customer(
+    cus_id VARCHAR(15) PRIMARY KEY,
+    city VARCHAR(15) NOT NULL,
+    street VARCHAR(20),
+    house_no int,
+    contact_no int,
+    emp_id VARCHAR (30) NOT NULL,
+    account_type VARCHAR(35),
+    email VARCHAR(25) UNIQUE,
+    first_name VARCHAR (25) NOT NULL,
+    last_name VARCHAR(35),
+    nic int UNIQUE NOT NULL,
+    FOREIGN KEY (emp_id) REFERENCES employee(emp_id)ON DELETE CASCADE ON UPDATE CASCADE
+    );
+
+
+    CREATE TABLE customer_order(
+    order_id VARCHAR(30) PRIMARY KEY,
+    cus_id VARCHAR(15) NOT NULL,
+    m_id VARCHAR(15),
+    FOREIGN KEY (m_id) REFERENCES machine(m_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (cus_id) REFERENCES customer(cus_id) ON DELETE CASCADE ON UPDATE CASCADE
+    );
 
 
 
-CREATE TABLE supplier_order(
-sup_order_id VARCHAR(30) PRIMARY KEY,
-sup_id VARCHAR(15),
-FOREIGN KEY (sup_id) REFERENCES supplier(sup_id)  ON DELETE CASCADE ON UPDATE CASCADE
-);
+    CREATE TABLE supplier(
+    sup_id VARCHAR(15) PRIMARY KEY,
+    contact_no int NOT NULL,
+    emp_id VARCHAR (30) NOT NULL,
+    supplier_product_type VARCHAR(35) NOT NULL,
+    email VARCHAR(25) UNIQUE,
+    first_name VARCHAR (25)NOT NULL,
+    last_name VARCHAR(35),
+    nic int UNIQUE NOT NULL,
+    FOREIGN KEY (emp_id) REFERENCES employee(emp_id) ON DELETE CASCADE ON UPDATE CASCADE
+    );
+
+
+
+    CREATE TABLE supplier_order(
+    sup_order_id VARCHAR(30) PRIMARY KEY,
+    sup_id VARCHAR(15),
+    date DATE NOT NULL,
+    FOREIGN KEY (sup_id) REFERENCES supplier(sup_id)  ON DELETE CASCADE ON UPDATE CASCADE
+    );
 
 
 
 
-CREATE TABLE supplier_order_detail(
-p_id VARCHAR(15) NOT NULL,
-sup_o_id VARCHAR(15)NOT NULL,
-date DATE NOT NULL,
-count_of_supplyproduct INT NOT NULL,
-discount_fee DOUBLE,
-total_payment DOUBLE,
-FOREIGN KEY (P_id) REFERENCES agri_product(p_code) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN KEY (sup_o_id) REFERENCES supplier_order(sup_id) ON DELETE CASCADE ON UPDATE CASCADE
-);
+    CREATE TABLE supplier_order_detail(
+    p_id VARCHAR(15) NOT NULL,
+    sup_o_id VARCHAR(15)NOT NULL,
+    count_of_supplyproduct INT NOT NULL,
+    unitPrice DOUBLE,
+    FOREIGN KEY (P_id) REFERENCES agri_product(p_code) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (sup_o_id) REFERENCES supplier_order(sup_id) ON DELETE CASCADE ON UPDATE CASCADE
+    );
 
 
-CREATE TABLE machine(
-m_id VARCHAR(15) PRIMARY KEY,
-m_name VARCHAR(30) NOT NULL,
-m_task VARCHAR(50) NOT NULL,
-machine_qty INT NOT NULL,
-rent_fee INT NOT NULL
-);
+    CREATE TABLE machine(
+    m_id VARCHAR(15) PRIMARY KEY,
+    m_name VARCHAR(30) NOT NULL,
+    m_task VARCHAR(50) NOT NULL,
+    machine_qty INT NOT NULL,
+    rent_fee INT NOT NULL
+    );
 
 
 
-CREATE TABLE expired_product(
-p_id VARCHAR(15) NOT NULL,
-description VARCHAR (50) NOT NULL,
-expired_product_count INT,
-FOREIGN KEY (p_id) REFERENCES agri_product(p_code) ON DELETE CASCADE ON UPDATE CASCADE
-);
+    CREATE TABLE expired_product(
+    p_id VARCHAR(15) NOT NULL,
+    description VARCHAR (50) NOT NULL,
+    expired_product_count INT,
+    FOREIGN KEY (p_id) REFERENCES agri_product(p_code) ON DELETE CASCADE ON UPDATE CASCADE
+    );
 
 
-CREATE TABLE deliver(
-d_id VARCHAR(15) PRIMARY KEY,
-city VARCHAR(25) NOT NULL,
-street VARCHAR(30) NOT NULL,
-p_id VARCHAR (15) NOT NULL,
-FOREIGN KEY (p_id) REFERENCES agri_product(p_code) ON DELETE CASCADE ON UPDATE CASCADE
-);
+    CREATE TABLE deliver(
+    d_id VARCHAR(15) PRIMARY KEY,
+    city VARCHAR(25) NOT NULL,
+    street VARCHAR(30) NOT NULL,
+    p_id VARCHAR (15) NOT NULL,
+    FOREIGN KEY (p_id) REFERENCES agri_product(p_code) ON DELETE CASCADE ON UPDATE CASCADE
+    );
 
-CREATE TABLE order_payment(
-d_id VARCHAR(15),
-order_date DATE NOT NULL,
-p_id VARCHAR(15),
-no_of_days_keep_the_machine INT,
-qty_on_hand INT ,
-o_id VARCHAR(15) NOT NULL,
-m_id VARCHAR(15),
-rental_payment DOUBLE,
-deliver_charge DOUBLE,
-full_amount_of_products DOUBLE,
-FOREIGN KEY (p_id) REFERENCES agri_product(p_code) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN KEY (o_id) REFERENCES customer_order(order_id) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN KEY (d_id) REFERENCES deliver(d_id) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN KEY (m_id) REFERENCES machine(m_id) ON DELETE CASCADE ON UPDATE CASCADE
-);
+    CREATE TABLE order_payment(
+    d_id VARCHAR(15),
+    order_date DATE NOT NULL,
+    p_id VARCHAR(15),
+    no_of_days_keep_the_machine INT,
+    qty_on_hand INT ,
+    o_id VARCHAR(15) NOT NULL,
+    m_id VARCHAR(15),
+    rental_payment DOUBLE,
+    deliver_charge DOUBLE,
+    full_amount_of_products DOUBLE,
+    FOREIGN KEY (p_id) REFERENCES agri_product(p_code) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (o_id) REFERENCES customer_order(order_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (d_id) REFERENCES deliver(d_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (m_id) REFERENCES machine(m_id) ON DELETE CASCADE ON UPDATE CASCADE
+    );
 
 
 

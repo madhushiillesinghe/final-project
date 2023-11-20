@@ -8,6 +8,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import lk.ijse.project.util.Navigation;
+
+import java.io.IOException;
 
 public class OrderProductController {
 
@@ -101,7 +104,8 @@ public class OrderProductController {
     }
 
     @FXML
-    void dashboardonaction(ActionEvent event) {
+    void dashboardonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("dashboardForm.fxml",event);
 
     }
 
@@ -111,37 +115,42 @@ public class OrderProductController {
     }
 
     @FXML
-    void employeebtnonaction(ActionEvent event) {
+    void employeebtnonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("employeeForm.fxml",event);
 
     }
 
     @FXML
-    void logoutbtnonaction(ActionEvent event) {
+    void logoutbtnonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("loginForm.fxml",event);
 
     }
 
     @FXML
-    void machinebtnonaction(ActionEvent event) {
+    void machinebtnonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("machineForm.fxml",event);
 
     }
 
     @FXML
-    void machineorderbtnonaction(ActionEvent event) {
+    void machineorderbtnonaction(ActionEvent event) throws IOException {
+    Navigation.switchNavigation("customerMachineOrderForm.fxml",event);
+    }
+
+    @FXML
+    void ordersbtnonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("customerProductOrderForm.fxml",event);
 
     }
 
     @FXML
-    void ordersbtnonaction(ActionEvent event) {
-
+    void productorderbtnonaction(ActionEvent event) throws IOException {
+    Navigation.switchNavigation("customerProductOrderForm.fxml",event);
     }
 
     @FXML
-    void productorderbtnonaction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void productsbtnonaction(ActionEvent event) {
+    void productsbtnonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("productForm.fxml",event);
 
     }
 
@@ -151,13 +160,14 @@ public class OrderProductController {
     }
 
     @FXML
-    void supplierbtnonaction(ActionEvent event) {
+    void supplierbtnonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("supplierForm.fxml",event);
 
     }
 
     @FXML
-    void supplierorderbtnonaction(ActionEvent event) {
-
+    void supplierorderbtnonaction(ActionEvent event) throws IOException {
+    Navigation.switchNavigation("supplierOrderForm.fxml",event);
     }
 
 }

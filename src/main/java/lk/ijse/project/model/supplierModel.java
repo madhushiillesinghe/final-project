@@ -84,7 +84,7 @@ public class supplierModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public List<supplierDto> loadAllSupplier() throws SQLException {
+    public static List<supplierDto> loadAllSupplier() throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
 
         String sql = "SELECT * FROM supplier";

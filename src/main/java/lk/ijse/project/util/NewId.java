@@ -61,16 +61,16 @@ public class NewId {
                 } catch (Exception e) {
                     return "M-01";
                 }
-/*
-            case TAX:
+
+            case SUPPLYORDERID:
                 try {
-                    String[] split = lastId.split("T-0");
+                    String[] split = lastId.split("SO-0");
                     int idNum = Integer.parseInt(split[1]);
                     idNum++;
-                    return "T-0" + idNum;
+                    return "SO-0" + idNum;
                 } catch (Exception e) {
-                    return "T-01";
-                }
+                    return "SO-01";
+                }/*
             case BOAT:
                 try {
                     String[] split = lastId.split("B-0");
@@ -89,6 +89,6 @@ public class NewId {
     }
 
     public enum GetType {
-        EMPLOYEE, SUPPLIER, CUSTOMER, PRODUCT,MACHINE
+        EMPLOYEE, SUPPLIER, CUSTOMER, PRODUCT,MACHINE,SUPPLYORDERID
     }
 }

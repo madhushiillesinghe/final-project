@@ -12,4 +12,5 @@ import lombok.NoArgsConstructor;
 public class supplyOderDto {
     private String sup_order_id;
     private String sup_id;
+
 }
