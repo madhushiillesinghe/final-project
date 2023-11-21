@@ -8,6 +8,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import lk.ijse.project.util.Navigation;
 
 public class addOrderProductController {
 
@@ -75,7 +76,7 @@ public class addOrderProductController {
 
     @FXML
     void cancelbtnonaction(ActionEvent event) {
-
+        Navigation.close(event);
     }
 
     @FXML

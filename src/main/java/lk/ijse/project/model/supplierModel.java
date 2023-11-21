@@ -161,7 +161,7 @@ public class supplierModel {
         return dto;
     }
 
-    public supplierDto getData(String supid) throws SQLException {
+    public static supplierDto getData(String supid) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
         String sql = "SELECT * FROM supplier WHERE sup_id = ?";
 

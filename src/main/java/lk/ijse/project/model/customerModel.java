@@ -2,6 +2,7 @@
 package lk.ijse.project.model;
 
 import lk.ijse.project.dto.customerDto;
+import lk.ijse.project.dto.supplierDto;
 import lk.ijse.project.fp.FpConnection;
 import lk.ijse.project.dto.tm.customerTm;
 
@@ -93,6 +94,35 @@ public class customerModel {
         pstm.setString(1, cus_id);
 
         return pstm.executeUpdate() > 0;
+    }
+
+    public static customerDto getData(String cusId) throws SQLException {
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql = "SELECT * FROM customer WHERE cus_id = ?";
+
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setString(1,cusId);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+       customerDto dto = null;
+
+        if(resultSet.next()) {
+            dto = new customerDto(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getInt(4),
+                    resultSet.getInt(5),
+                    resultSet.getString(6),
+                    resultSet.getString(7),
+                    resultSet.getString(8),
+                    resultSet.getString(9),
+                    resultSet.getString(10),
+                    resultSet.getInt(11)
+            );
+        }
+        return dto;
     }
 
     public List<customerDto> loadAllCustomer() throws SQLException {
