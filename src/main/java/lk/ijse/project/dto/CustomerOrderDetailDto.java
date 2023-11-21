@@ -12,6 +12,5 @@ import java.util.Date;
 
 public class CustomerOrderDetailDto {
     private String p_id;
-    private String m_id;
-    private String  sup_o_id;
+    private String  cus_o_id;
 }

@@ -8,6 +8,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import lk.ijse.project.util.Navigation;
 
+import java.io.IOException;
+
 public class addOrderMachineController {
 
     @FXML
@@ -50,8 +52,9 @@ public class addOrderMachineController {
     private TextField txttotalamount;
 
     @FXML
-    void cancelbtnonaction(ActionEvent event) {
+    void cancelbtnonaction(ActionEvent event) throws IOException {
         Navigation.close(event);
+        Navigation.switchNavigation("customerMachineOrderForm.fxml",event);
     }
 
     @FXML

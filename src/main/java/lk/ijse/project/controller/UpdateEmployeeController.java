@@ -71,6 +71,7 @@ public class UpdateEmployeeController implements Initializable {
 
     @FXML
     void cancelbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("employeeForm.fxml",event);
     }
 

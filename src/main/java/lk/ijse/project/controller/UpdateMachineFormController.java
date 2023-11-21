@@ -49,6 +49,7 @@ public class UpdateMachineFormController implements Initializable {
 
     @FXML
     void cancelbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("machineForm.fxml",event);
     }
 

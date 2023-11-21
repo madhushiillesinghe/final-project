@@ -87,6 +87,11 @@ public class OrderProductController  implements Initializable {
     private VBox vBoxCusProductOrderManage;
     private static OrderProductController controller;
 
+    public static OrderProductController getInstance() {
+        return controller;
+    }
+
+
 
     @FXML
     void addcustomer(MouseEvent event) {
@@ -138,7 +143,8 @@ public class OrderProductController  implements Initializable {
 
     @FXML
     void machineorderbtnonaction(ActionEvent event) throws IOException {
-    Navigation.switchNavigation("customerMachineOrderForm.fxml",event);
+        Navigation.close(event);
+        Navigation.switchNavigation("customerMachineOrderForm.fxml",event);
     }
 
     @FXML

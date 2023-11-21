@@ -65,6 +65,7 @@ public class UpdateSupplierController implements Initializable {
 
     @FXML
     void cancelbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("supplierForm.fxml",event);
 
     }

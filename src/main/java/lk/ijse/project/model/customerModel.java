@@ -125,7 +125,7 @@ public class customerModel {
         return dto;
     }
 
-    public List<customerDto> loadAllCustomer() throws SQLException {
+    public static List<customerDto> loadAllCustomer() throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
 
         String sql = "SELECT * FROM customer";

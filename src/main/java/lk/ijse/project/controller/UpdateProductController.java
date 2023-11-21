@@ -50,6 +50,7 @@ public class UpdateProductController implements Initializable {
 
     @FXML
     void cancelbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
      Navigation.switchNavigation("productForm.fxml",event);
     }
 

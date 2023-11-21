@@ -101,6 +101,7 @@ public class CustomerController implements Initializable {
         }
         @FXML
         void btnaddcustomeronaction(ActionEvent event) throws IOException {
+                Navigation.close(event);
                 Navigation.popupNavigation("addCustomerForm.fxml");
         }
 
@@ -112,11 +113,13 @@ public class CustomerController implements Initializable {
 
         @FXML
         void customerbtnonaction(ActionEvent event) throws IOException {
+                Navigation.close(event);
                 Navigation.switchNavigation("customerForm.fxml",event);
         }
 
         @FXML
         void dashboardonaction(ActionEvent event) throws IOException {
+                Navigation.close(event);
                 Navigation.switchNavigation("dashboardForm.fxml",event);
         }
 
@@ -124,26 +127,31 @@ public class CustomerController implements Initializable {
 
         @FXML
         void employeebtnonaction(ActionEvent event) throws IOException {
+                Navigation.close(event);
                 Navigation.switchNavigation("employeeForm.fxml",event);
         }
 
         @FXML
         void logoutbtnonaction(ActionEvent event) throws IOException {
+                Navigation.close(event);
                 Navigation.switchNavigation("loginForm.fxml",event);
         }
 
         @FXML
         void machinebtnonaction(ActionEvent event) throws IOException {
+                Navigation.close(event);
                 Navigation.switchNavigation("machineForm.fxml",event);
         }
 
         @FXML
         void ordersbtnonaction(ActionEvent event) throws IOException {
+                Navigation.close(event);
                 Navigation.switchNavigation("customerProductOrderForm.fxml",event);
         }
 
         @FXML
         void productsbtnonaction(ActionEvent event) throws IOException {
+                Navigation.close(event);
                 Navigation.switchNavigation("productForm.fxml",event);
         }
 

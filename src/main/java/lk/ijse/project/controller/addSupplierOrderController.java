@@ -13,7 +13,6 @@ import javafx.scene.text.Text;
 import lk.ijse.project.dto.SupplyOderDto;
 import lk.ijse.project.dto.productDto;
 import lk.ijse.project.dto.supplierDto;
-import lk.ijse.project.dto.tm.SupplyProductCartTm;
 import lk.ijse.project.model.ProductModel;
 import lk.ijse.project.model.SupplierPlaceOrderModel;
 import lk.ijse.project.model.supplierModel;
@@ -30,7 +29,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class addSupplierOrderController implements Initializable {
-    private final ObservableList<SupplyProductCartTm> obList = FXCollections.observableArrayList();
     @FXML
     private Button btnaddtocart;
 
@@ -114,13 +112,12 @@ public class addSupplierOrderController implements Initializable {
     }
 
     @FXML
-    void cancelbtnonaction(ActionEvent event) {
-        Navigation.close(event);
+    void cancelbtnonaction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("supplierOrderForm.fxml",event);
     }
 
     @FXML
     void supplieridonaction(ActionEvent event) throws SQLException {
-        String  sid = comboxsupplierid.getSelectionModel().getSelectedItem().toString();
 
     }
 
@@ -131,8 +128,6 @@ public class addSupplierOrderController implements Initializable {
 
     @FXML
     void placeorderbtnonaction(ActionEvent event) throws SQLException {
-
-
 
         SupplyOderDto supplierOrderDto = new SupplyOderDto();
 
@@ -227,5 +222,7 @@ public class addSupplierOrderController implements Initializable {
     }
 
     public void customeridonaction(ActionEvent actionEvent) {
+        String  sid = comboxsupplierid.getSelectionModel().getSelectedItem().toString();
+
     }
 }

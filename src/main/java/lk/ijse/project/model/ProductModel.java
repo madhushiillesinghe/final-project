@@ -53,6 +53,21 @@ public class ProductModel {
         }
         return true;
     }
+    public static boolean updateproduct(ArrayList<String[]> arrayList) throws SQLException {
+        String sql = "UPDATE agri_product SET qty_on_stock = qty_on_stock - ? WHERE p_code=?";
+        PreparedStatement statement = FpConnection.getInstance().getConnection().prepareStatement(sql);
+
+        for (int i = 0; i < arrayList.size() ; i++) {
+            statement.setInt(1, Integer.parseInt(arrayList.get(i)[1]));
+            statement.setString(2,arrayList.get(i)[0]);
+            int value = statement.executeUpdate();
+
+            if (value == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 
 

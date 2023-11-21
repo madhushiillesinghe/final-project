@@ -70,17 +70,28 @@ public class NewId {
                     return "SO-0" + idNum;
                 } catch (Exception e) {
                     return "SO-01";
-                }/*
-            case BOAT:
+                }
+            case CUSTOMERORDERID:
                 try {
-                    String[] split = lastId.split("B-0");
+                    String[] split = lastId.split("CO-0");
                     int idNum = Integer.parseInt(split[1]);
                     idNum++;
-                    return "B-0" + idNum;
+                    return "CO-0" + idNum;
                 } catch (Exception e) {
-                    return "B-01";
+                    return "CO-01";
                 }
-*/
+
+            case CUSTOMERRENTID:
+                try {
+                    String[] split = lastId.split("R-0");
+                    int idNum = Integer.parseInt(split[1]);
+                    idNum++;
+                    return "R-0" + idNum;
+                } catch (Exception e) {
+                    return "R-01";
+                }
+
+
             default:
                 return null;
         }
@@ -89,6 +100,6 @@ public class NewId {
     }
 
     public enum GetType {
-        EMPLOYEE, SUPPLIER, CUSTOMER, PRODUCT,MACHINE,SUPPLYORDERID
+        EMPLOYEE, SUPPLIER, CUSTOMER, PRODUCT,MACHINE,SUPPLYORDERID,CUSTOMERORDERID,CUSTOMERRENTID
     }
 }

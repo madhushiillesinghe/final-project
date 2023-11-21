@@ -80,42 +80,50 @@ public class machineController implements Initializable {
 
     @FXML
     void btnaddmachineonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.popupNavigation("addMachineForm.fxml");
     }
 
     @FXML
     void customerbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("customerForm.fxml",event);
     }
 
     @FXML
     void dashboardonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("dashboardForm.fxml",event);
     }
 
 
     @FXML
     void employeebtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("employeeForm.fxml",event);
     }
 
     @FXML
     void logoutbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("loginForm.fxml",event);
     }
 
     @FXML
     void machinebtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("machineForm.fxml",event);
     }
 
     @FXML
     void ordersbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("customerProductOrderForm.fxml",event);
     }
 
     @FXML
     void productsbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("productForm.fxml",event);
     }
 
@@ -126,6 +134,7 @@ public class machineController implements Initializable {
 
     @FXML
     void supplierbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("supplierForm.fxml",event);
     }
     @Override

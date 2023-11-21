@@ -86,44 +86,52 @@ public class agriProductController implements Initializable {
 
     @FXML
     void btnaddcustomeronaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.popupNavigation("addproductForm.fxml");
     }
 
 
     @FXML
     void customerbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("customerForm.fxml",event);
     }
 
     @FXML
     void dashboardonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("dashboardForm.fxml",event);
     }
 
 
     @FXML
     void employeebtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("employeeForm.fxml",event);
 
     }
 
     @FXML
     void logoutbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("loginForm.fxml",event);
     }
 
     @FXML
     void machinebtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("machineForm.fxml",event);
     }
 
     @FXML
     void ordersbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("customerProductOrderForm.fxml",event);
     }
 
     @FXML
     void productsbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("productForm.fxml",event);
     }
 
@@ -133,11 +141,13 @@ public class agriProductController implements Initializable {
     }
     @FXML
     void btnexpiredateonaction(ActionEvent event) throws IOException {
-    Navigation.switchNavigation("ExpireProductForm.fxml",event);
+        Navigation.close(event);
+        Navigation.switchNavigation("ExpireProductForm.fxml",event);
     }
 
     @FXML
     void supplierbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("supplierForm.fxml",event);
     }
 

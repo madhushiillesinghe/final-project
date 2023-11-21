@@ -119,7 +119,7 @@
       </Button>
       <ScrollPane layoutX="375.0" layoutY="278.0" opacity="0.87" prefHeight="461.0" prefWidth="936.0" style="-fx-background-color: #ffffff;">
          <content>
-            <VBox fx:id="vBoxSupOrderManage" prefHeight="441.0" prefWidth="916.0" />
+            <VBox fx:id="vBoxCusOrderManage" prefHeight="441.0" prefWidth="916.0" />
          </content>
       </ScrollPane>
       <Pane layoutX="683.0" layoutY="74.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #ffffff;">

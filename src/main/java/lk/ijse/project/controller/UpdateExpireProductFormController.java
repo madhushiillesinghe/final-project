@@ -48,6 +48,7 @@ public class UpdateExpireProductFormController  implements Initializable {
 
     @FXML
     void cancelbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("ExpireProductForm.fxml",event);
     }
 

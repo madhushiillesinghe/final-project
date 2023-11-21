@@ -107,10 +107,8 @@ CREATE TABLE expired_product(
 CREATE TABLE order_payment(
                               p_id VARCHAR(15),
                               o_id VARCHAR(15) NOT NULL,
-                              m_id VARCHAR(15),
                               FOREIGN KEY (p_id) REFERENCES agri_product(p_code) ON DELETE CASCADE ON UPDATE CASCADE,
-                              FOREIGN KEY (o_id) REFERENCES customer_order(order_id) ON DELETE CASCADE ON UPDATE CASCADE,
-                              FOREIGN KEY (m_id) REFERENCES machine(m_id) ON DELETE CASCADE ON UPDATE CASCADE
+                              FOREIGN KEY (o_id) REFERENCES customer_order(order_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 

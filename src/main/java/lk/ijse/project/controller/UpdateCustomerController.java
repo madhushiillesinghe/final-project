@@ -79,6 +79,7 @@ public class UpdateCustomerController implements Initializable {
 
     @FXML
     void cancelbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("customerForm.fxml",event);
     }
 

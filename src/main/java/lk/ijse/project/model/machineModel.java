@@ -6,6 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import lk.ijse.project.dto.machineDto;
+import lk.ijse.project.dto.supplierDto;
 import lk.ijse.project.dto.tm.machineTm;
 import lk.ijse.project.fp.FpConnection;
 import java.sql.*;
@@ -45,7 +46,30 @@ public class machineModel {
             return pstm.executeUpdate() > 0;
         }
 
-        public machineDto searchMachine(String m_id) throws SQLException {
+    public static machineDto getData(String mId) throws SQLException {
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql = "SELECT * FROM machine WHERE m_id = ?";
+
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setString(1,mId);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+       machineDto dto = null;
+
+        if(resultSet.next()) {
+            dto = new machineDto(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getInt(4),
+                    resultSet.getInt(5)
+            );
+        }
+        return dto;
+    }
+
+    public machineDto searchMachine(String m_id) throws SQLException {
             Connection connection = FpConnection.getInstance().getConnection();
             String sql = "SELECT * FROM machine WHERE m_id = ?";
 
@@ -159,6 +183,21 @@ public class machineModel {
         return list;
     }
 
+    public static boolean update(ArrayList<String[]> arrayList) throws SQLException {
+        String sql = "UPDATE machine SET machine_qty = machine_qty - ? WHERE m_id=?";
+        PreparedStatement statement = FpConnection.getInstance().getConnection().prepareStatement(sql);
+
+        for (int i = 0; i < arrayList.size() ; i++) {
+            statement.setInt(1, Integer.parseInt(arrayList.get(i)[1]));
+            statement.setString(2,arrayList.get(i)[0]);
+            int value = statement.executeUpdate();
+
+            if (value == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 }
 
