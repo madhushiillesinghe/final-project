@@ -167,7 +167,7 @@ public class OrderProductController {
 
     @FXML
     void supplierorderbtnonaction(ActionEvent event) throws IOException {
-    Navigation.switchNavigation("supplierOrderForm.fxml",event);
+        Navigation.switchNavigation("supplierOrderForm.fxml",event);
     }
 
 }

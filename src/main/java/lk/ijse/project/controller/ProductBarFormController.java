@@ -5,10 +5,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import lk.ijse.project.dto.productDto;
 import lk.ijse.project.dto.tm.productTm;
-import lk.ijse.project.model.productModel;
-import lk.ijse.project.model.supplierModel;
+import lk.ijse.project.model.ProductModel;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
@@ -41,9 +39,9 @@ public class ProductBarFormController {
     void deleteOnMouseClick(MouseEvent event) {
         String id = txtId.getText();
 
-        var promodel = new productModel();
+        var promodel = new ProductModel();
         try {
-            boolean isDeleted = productModel.deleteProduct(id);
+            boolean isDeleted = ProductModel.deleteProduct(id);
             if (isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "product deleted").show();
             }
@@ -57,11 +55,11 @@ public class ProductBarFormController {
         UpdateProductController.setId(txtId.getText());
         Navigation.popupNavigation("UpdateProductForm.fxml");
     }
-    productModel promodel=new productModel();
+    ProductModel promodel=new ProductModel();
     public void setData(String id) throws SQLException {
        productTm protm= null;
        try{
-        protm=productModel.getProduct(id);
+        protm= ProductModel.getProduct(id);
 
         this.txtId.setText(protm.getId());
         txtName.setText(protm.getName());

@@ -3,16 +3,19 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.addOrderProductController">
+<AnchorPane prefHeight="462.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.addOrderProductController">
    <children>
-      <ImageView fitHeight="350.0" fitWidth="600.0">
+      <ImageView fitHeight="598.0" fitWidth="774.0" layoutX="-53.0" layoutY="-112.0">
          <image>
             <Image url="@../icon/addcustomer%20(1).png" />
          </image>
@@ -27,45 +30,91 @@
             <Image url="@../icon/recipt.png" />
          </image>
       </ImageView>
-      <ComboBox fx:id="comboxproductid" layoutX="141.0" layoutY="60.0" onAction="#productidonaction" prefWidth="150.0" style="-fx-background-color: #ACE1AF;" />
-      <ComboBox fx:id="comboxcustomerid" layoutX="419.0" layoutY="60.0" onAction="#customeridonaction" prefWidth="150.0" style="-fx-background-color: #ACE1AF;" />
-      <TextField fx:id="txtqtyofbuy" layoutX="190.0" layoutY="140.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="43.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product id:" />
-      <Text layoutX="335.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer id:" />
-      <Text layoutX="42.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity of buy:" />
-      <Button fx:id="btncancel" layoutX="372.0" layoutY="309.0" mnemonicParsing="false" onAction="#cancelbtnonaction" style="-fx-background-color: #ffffff;" text="CANCEL" textFill="#0b7923" />
-      <Button fx:id="btnplaceorder" layoutX="457.0" layoutY="309.0" mnemonicParsing="false" onAction="#placeorderbtnonaction" style="-fx-background-color: #0B7923;" text="PLACE ORDER" textFill="#ebd6d6">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Button>
+      <ComboBox fx:id="comboxproductid" layoutX="95.0" layoutY="89.0" onAction="#productidonaction" prefHeight="24.0" prefWidth="106.0" style="-fx-background-color: #ACE1AF;" />
+      <ComboBox fx:id="comboxcustomerid" layoutX="109.0" layoutY="47.0" onAction="#customeridonaction" prefHeight="24.0" prefWidth="106.0" style="-fx-background-color: #ACE1AF;" />
+      <TextField fx:id="txtqtyofbuy" layoutX="134.0" layoutY="128.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="18.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product id:" />
+      <Text layoutX="15.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer id:" />
+      <Text layoutX="18.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity of buy:" />
       <TextField fx:id="txtorderid" layoutX="351.0" layoutY="9.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ffffff;" />
       <DatePicker fx:id="datepickdate" layoutX="487.0" layoutY="9.0" onAction="#dateonaction" prefHeight="24.0" prefWidth="111.0" promptText="DD/MM/YY" />
-      <Text fill="#fceaea" layoutX="283.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="order Id">
+      <Text fill="#110b0b" fontSmoothingType="LCD" layoutX="283.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="order Id">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
       <Text layoutX="454.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" />
-      <TextField fx:id="txtdescription" layoutX="121.0" layoutY="102.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="43.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
-      <TextField fx:id="txtunitprice" layoutX="325.0" layoutY="102.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="246.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit Price" />
-      <TextField fx:id="txtqty" layoutX="494.0" layoutY="102.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="456.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QTY" />
-      <TextField fx:id="txtdeliverid" layoutX="134.0" layoutY="220.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="42.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="deliver id" />
-      <TextField fx:id="txtdeliverfee" layoutX="134.0" layoutY="260.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="38.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="deliver fee" />
-      <TextField fx:id="txttotalamount" layoutX="430.0" layoutY="260.0" prefHeight="24.0" prefWidth="111.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="333.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total amount" />
-      <TextField fx:id="txtExpireDate" layoutX="453.0" layoutY="153.0" prefHeight="24.0" prefWidth="106.0" promptText="DD/MM/YYYY" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="361.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expire Date" />
-      <TextField fx:id="txtstreet" layoutX="494.0" layoutY="219.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <TextField fx:id="txtcity" layoutX="294.0" layoutY="220.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="437.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Street" />
-      <Text layoutX="255.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
-      <TextField fx:id="txtstatus" layoutX="134.0" layoutY="177.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="50.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
+      <TextField fx:id="txtdescription" layoutX="598.0" layoutY="85.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="540.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+      <TextField fx:id="txtunitprice" layoutX="301.0" layoutY="87.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="224.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit Price" />
+      <TextField fx:id="txtqtyonstock" layoutX="444.0" layoutY="85.0" prefHeight="24.0" prefWidth="69.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="406.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QTY" />
+      <TextField fx:id="txtdeliverid" layoutX="307.0" layoutY="162.0" prefHeight="24.0" prefWidth="69.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="237.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="deliver id" />
+      <TextField fx:id="txtdeliverfee" layoutX="134.0" layoutY="207.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="28.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="deliver fee" />
+      <TextField fx:id="txttotalamount" layoutX="364.0" layoutY="207.0" prefHeight="24.0" prefWidth="111.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="269.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total amount" />
+      <TextField fx:id="txtExpireDate" layoutX="404.0" layoutY="121.0" prefHeight="24.0" prefWidth="106.0" promptText="DD/MM/YYYY" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="295.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expire Date" />
+      <TextField fx:id="txtstreet" layoutX="585.0" layoutY="161.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <TextField fx:id="txtcity" layoutX="444.0" layoutY="161.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="539.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Street" />
+      <Text layoutX="406.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
+      <TextField fx:id="txtstatus" layoutX="134.0" layoutY="163.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="22.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
+      <TextField fx:id="txtcusnme" layoutX="453.0" layoutY="48.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="376.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cus Name" />
+      <Button fx:id="btncancel" layoutX="452.0" layoutY="460.0" mnemonicParsing="false" onAction="#cancelbtnonaction" style="-fx-background-color: #ffffff;" text="CANCEL" textFill="#0b7923" />
+      <Button fx:id="btnplaceorder" layoutX="538.0" layoutY="460.0" mnemonicParsing="false" onAction="#placeorderbtnonaction" style="-fx-background-color: #0B7923;" text="PLACE ORDER" textFill="#ebd6d6">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <ScrollPane layoutX="11.0" layoutY="282.0" opacity="0.87" prefHeight="170.0" prefWidth="686.0" style="-fx-background-color: #ffffff;">
+         <content>
+            <VBox fx:id="vBoxproductorderbar" prefHeight="160.0" prefWidth="672.0" />
+         </content>
+      </ScrollPane>
+      <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="233.0" prefHeight="42.0" prefWidth="686.0" spacing="20.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Text fx:id="txtorderbarid" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="OId" wrappingWidth="77.8519287109375">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtcustomerid" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="CId" wrappingWidth="85.81900024414062">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtproductid" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="PId" wrappingWidth="99.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtqty" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="qty" wrappingWidth="97.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txttotal" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Total" wrappingWidth="101.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtAction" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Action" wrappingWidth="90.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <Button fx:id="btnaddtocart" layoutX="538.0" layoutY="201.0" mnemonicParsing="false" onAction="#addtocartbtnonaction" style="-fx-background-color: #0B7923;" text="ADD TO CART" textFill="#ebd6d6">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

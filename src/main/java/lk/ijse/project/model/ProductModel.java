@@ -6,7 +6,7 @@ import lk.ijse.project.fp.FpConnection;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-public class productModel {
+public class ProductModel {
     public static boolean saveProduct(productDto prodto) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
         String sql = "INSERT INTO agri_product VALUES(?, ?, ?, ?, ?)";
@@ -36,6 +36,22 @@ public class productModel {
 
 
         return pstm.executeUpdate() > 0;
+    }
+
+    public static boolean update(ArrayList<String[]> arrayList) throws SQLException {
+        String sql = "UPDATE agri_product SET qty_on_stock = qty_on_stock + ? WHERE p_code=?";
+        PreparedStatement statement = FpConnection.getInstance().getConnection().prepareStatement(sql);
+
+        for (int i = 0; i < arrayList.size() ; i++) {
+            statement.setInt(1, Integer.parseInt(arrayList.get(i)[1]));
+            statement.setString(2,arrayList.get(i)[0]);
+            int value = statement.executeUpdate();
+
+            if (value == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
 
@@ -155,4 +171,21 @@ public class productModel {
         return list;
     }
 
+    public String[] descAndUnitPriceGet(String id) throws SQLException {
+        String sql = "SELECT description, unit_price FROM agri_product WHERE p_code=?";
+
+        PreparedStatement preparedStatement = FpConnection.getInstance().getConnection().prepareStatement(sql);
+        preparedStatement.setString(1,id);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        String[] set = new String[2];
+
+        if (resultSet.next()) {
+            set[0] = resultSet.getString(1);
+            set[1] = resultSet.getString(2);
+        }
+
+        return set;
+    }
 }

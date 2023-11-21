@@ -79,7 +79,7 @@ public class addMachineCotroller  implements Initializable {
 
     @FXML
     void cancelbtnonaction(ActionEvent event) throws IOException {
-        Navigation.switchNavigation("machineForm.fxml",event);
+        Navigation.close(event);
     }
 
     @Override

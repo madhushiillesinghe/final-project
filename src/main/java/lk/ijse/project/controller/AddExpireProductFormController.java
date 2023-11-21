@@ -72,7 +72,7 @@ public class AddExpireProductFormController  {
 
     @FXML
     void cancelbtnonaction(ActionEvent event) throws IOException {
-        Navigation.switchNavigation("ExpireProductForm.fxml",event);
+        Navigation.close(event);
     }
 
 }

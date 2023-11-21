@@ -152,6 +152,6 @@
             <Label layoutX="75.0" layoutY="5.0" text="Add Sup Order" />
          </children>
       </Pane>
-      <JFXButton layoutX="683.0" layoutY="74.0" onAction="#btnaddcustomeronaction" prefHeight="25.0" prefWidth="195.0" text="  " />
+      <JFXButton layoutX="683.0" layoutY="74.0" onAction="#btnAddSupplierOrderOnAction" prefHeight="25.0" prefWidth="195.0" text="  " />
    </children>
 </AnchorPane>

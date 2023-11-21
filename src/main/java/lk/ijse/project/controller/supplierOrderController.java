@@ -11,8 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import lk.ijse.project.model.employeeModel;
-import lk.ijse.project.model.supplierOrderModel;
+import lk.ijse.project.model.SupplierOrderModel;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
@@ -83,26 +82,34 @@ public class supplierOrderController implements Initializable {
     @FXML
     private VBox vBoxSupOrderManage;
 
+    private static supplierOrderController controller;
+
+    public supplierOrderController() {
+        controller = this;
+    }
+
+    public static supplierOrderController getInstance() {
+        return controller;
+    }
+
     @FXML
     void addcustomer(MouseEvent event) {
 
     }
 
     @FXML
-    void btnaddcustomeronaction(ActionEvent event) throws IOException {
-        Navigation.switchNavigation("addSupplyOrderForm.fxml", event);
+    void btnAddSupplierOrderOnAction(ActionEvent event) throws IOException {
+        Navigation.popupNavigation("addSupplyOrderForm.fxml");
     }
 
     @FXML
     void customerbtnonaction(ActionEvent event) throws IOException {
         Navigation.switchNavigation("customerForm.fxml", event);
-
     }
 
     @FXML
     void customerorderonaction(ActionEvent event) throws IOException {
         Navigation.switchNavigation("customerProductOrderForm.fxml", event);
-
     }
 
     @FXML
@@ -154,22 +161,21 @@ public class supplierOrderController implements Initializable {
     @FXML
     void supplierorderbtnonaction(ActionEvent event) throws IOException {
         Navigation.switchNavigation("supplierOrderForm.fxml", event);
-
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-          //  getAllIds();
+            getAllIds();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
- /*   private void getAllIds() throws SQLException {
+    public void getAllIds() throws SQLException {
         vBoxSupOrderManage.getChildren().clear();
         ArrayList<String> list = null;
-        supplierOrderModel supomodel = new supplierOrderModel();
+        SupplierOrderModel supomodel = new SupplierOrderModel();
         list = supomodel.getAllOrderIds();
 
         for (int i = 0; i < list.size(); i++) {
@@ -179,7 +185,7 @@ public class supplierOrderController implements Initializable {
 
     private void loadTableData(String id) {
         try {
-            FXMLLoader loader = new FXMLLoader(employeeController.class.getResource("/view/SupplierOrderBarForm.fxml"));
+            FXMLLoader loader = new FXMLLoader(supplierOrderController.class.getResource("/view/SupplierOrderBarForm.fxml"));
             Parent root = loader.load();
             SupplierOrderBarFormController controller = loader.getController();
             controller.setData(id);
@@ -187,5 +193,5 @@ public class supplierOrderController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }*/
+    }
 }

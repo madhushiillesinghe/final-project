@@ -154,6 +154,7 @@ public class CustomerController implements Initializable {
 
         @FXML
         void supplierbtnonaction(ActionEvent event) throws IOException {
+                Navigation.close(event);
                 Navigation.switchNavigation("supplierForm.fxml",event);
         }
 

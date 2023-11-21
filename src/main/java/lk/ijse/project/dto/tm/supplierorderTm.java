@@ -13,6 +13,5 @@ public class supplierorderTm {
     private String name;
     private double price;
     private int qty;
-    private Date date;
     private double total;
 }

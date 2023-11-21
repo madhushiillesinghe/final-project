@@ -3,16 +3,19 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.addSupplierOrderController">
+<AnchorPane prefHeight="462.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.addSupplierOrderController">
    <children>
-      <ImageView fitHeight="350.0" fitWidth="600.0">
+      <ImageView fitHeight="462.0" fitWidth="670.0">
          <image>
             <Image url="@../icon/addcustomer%20(1).png" />
          </image>
@@ -43,21 +46,65 @@
       <Text layoutX="41.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
       <TextField fx:id="txtunitprice" layoutX="331.0" layoutY="101.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
       <Text layoutX="241.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit Price" />
-      <TextField fx:id="txtqtyofbuy" layoutX="168.0" layoutY="190.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="46.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity of buy:" />
-      <TextField fx:id="txttotalamount" layoutX="402.0" layoutY="256.0" prefHeight="24.0" prefWidth="111.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="298.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total amount" />
-      <Button fx:id="btncancel" layoutX="372.0" layoutY="309.0" mnemonicParsing="false" onAction="#cancelbtnonaction" style="-fx-background-color: #ffffff;" text="CANCEL" textFill="#0b7923" />
-      <Button fx:id="btnplaceorder" layoutX="457.0" layoutY="309.0" mnemonicParsing="false" onAction="#placeorderbtnonaction" style="-fx-background-color: #0B7923;" text="PLACE ORDER" textFill="#ebd6d6">
+      <TextField fx:id="txtqtyofbuy" layoutX="453.0" layoutY="144.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="332.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity of buy:" />
+      <TextField fx:id="txttotalamount" layoutX="378.0" layoutY="185.0" prefHeight="24.0" prefWidth="111.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="279.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total amount" />
+      <Button fx:id="btncancel" layoutX="434.0" layoutY="424.0" mnemonicParsing="false" onAction="#cancelbtnonaction" style="-fx-background-color: #ffffff;" text="CANCEL" textFill="#0b7923" />
+      <Button fx:id="btnplaceorder" layoutX="515.0" layoutY="424.0" mnemonicParsing="false" onAction="#placeorderbtnonaction" style="-fx-background-color: #0B7923;" text="PLACE ORDER" textFill="#ebd6d6">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
       <Text layoutX="454.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QTY" />
       <TextField fx:id="txtQty" layoutX="487.0" layoutY="100.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="43.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Discount amount" />
-      <TextField fx:id="txtDiscountfee" layoutX="168.0" layoutY="254.0" prefHeight="24.0" prefWidth="111.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="43.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Discount amount" />
+      <TextField fx:id="txtDiscountfee" layoutX="168.0" layoutY="185.0" prefHeight="24.0" prefWidth="111.0" style="-fx-background-color: #ACE1AF;" />
       <Text layoutX="49.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expire Date" />
       <TextField fx:id="txtxExpireDtae" layoutX="170.0" layoutY="145.0" prefHeight="24.0" prefWidth="142.0" promptText="DD/MM/YYYY" style="-fx-background-color: #ACE1AF;" />
+      <HBox alignment="CENTER_LEFT" layoutX="32.0" layoutY="216.0" prefHeight="42.0" prefWidth="620.0" spacing="20.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Text fx:id="txtorderbarid" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="OId" wrappingWidth="77.8519287109375">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtsupplierid" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="SId" wrappingWidth="77.81900024414062">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtproductid" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="PId" wrappingWidth="99.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtqty" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="qty" wrappingWidth="91.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txttotal" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Total" wrappingWidth="78.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtAction" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Action" wrappingWidth="64.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <ScrollPane layoutX="29.0" layoutY="266.0" opacity="0.87" prefHeight="154.0" prefWidth="626.0" style="-fx-background-color: #ffffff;">
+         <content>
+            <VBox fx:id="vBoxSupplyOrderBar" prefHeight="151.0" prefWidth="620.0" />
+         </content>
+      </ScrollPane>
+      <Button fx:id="btnaddtocart" layoutX="528.0" layoutY="185.0" mnemonicParsing="false" onAction="#addtocartbtnonaction" style="-fx-background-color: #0B7923;" text="ADD TO CART" textFill="#ebd6d6">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

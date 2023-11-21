@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import lk.ijse.project.util.Navigation;
 
 public class addOrderMachineController {
 
@@ -25,30 +26,32 @@ public class addOrderMachineController {
     private DatePicker datepickdate;
 
     @FXML
+    private TextField txtcusname;
+
+    @FXML
     private TextField txtdaysofkeep;
 
     @FXML
     private TextField txtname;
 
     @FXML
-    private TextField txttask;
-
-
-    @FXML
     private TextField txtorderid;
 
     @FXML
-    private TextField txtqtyq;
+    private TextField txtqty;
 
     @FXML
     private TextField txtrentprice;
+
+    @FXML
+    private TextField txttask;
 
     @FXML
     private TextField txttotalamount;
 
     @FXML
     void cancelbtnonaction(ActionEvent event) {
-
+        Navigation.close(event);
     }
 
     @FXML

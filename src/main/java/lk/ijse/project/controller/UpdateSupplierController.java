@@ -101,7 +101,7 @@ public class UpdateSupplierController implements Initializable {
 
     public void setData(){
         try{
-           supplierDto supdto= supplierModel.getSupplierDto(id);
+           supplierDto supdto = supplierModel.getSupplierDto(id);
             txtcontactno.setText(String.valueOf(supdto.getContact_no()));
             txtemail.setText(supdto.getEmail());
             txtlastname.setText(supdto.getLast_name());

@@ -8,8 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import lk.ijse.project.dto.productDto;
-import lk.ijse.project.dto.tm.productTm;
-import lk.ijse.project.model.productModel;
+import lk.ijse.project.model.ProductModel;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
@@ -43,7 +42,7 @@ public class UpdateProductController implements Initializable {
 
     public static String id;
 
-    productModel promodel = new productModel();
+    ProductModel promodel = new ProductModel();
 
     public static void setId(String id) {
         UpdateProductController.id = id;
@@ -71,8 +70,8 @@ public class UpdateProductController implements Initializable {
         prodto.setUnit_price(Double.parseDouble(txtunitprice.getText()));
 
         try {
-            boolean updated =productModel.updateProduct(prodto);
-            var model=new productModel();
+            boolean updated = ProductModel.updateProduct(prodto);
+            var model=new ProductModel();
             if (updated) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Product updatedd!").show();
             }
@@ -82,7 +81,7 @@ public class UpdateProductController implements Initializable {
     }
     public void setData(){
         try{
-            productDto prodto= productModel.getProductDto(id);
+            productDto prodto= ProductModel.getProductDto(id);
             txtunitprice.setText(String.valueOf(prodto.getUnit_price()));
             txtproductname.setText(prodto.getDescription());
             txtqtyonstock.setText(String.valueOf(prodto.getQty_on_stock()));

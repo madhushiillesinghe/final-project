@@ -16,7 +16,6 @@ public class Navigation {
         private static Scene scene;
         private static Parent parent;
 
-
         public static void switchNavigation(String link, ActionEvent event) throws IOException {
             parent = FXMLLoader.load(Navigation.class.getResource("/view/" + link));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -25,6 +24,7 @@ public class Navigation {
             stage.centerOnScreen();
             stage.show();
         }
+
     public static void switchNavigation(String link, javafx.scene.input.MouseEvent event) throws IOException {
         parent = FXMLLoader.load(Navigation.class.getResource("/view/" + link));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -33,12 +33,13 @@ public class Navigation {
         stage.centerOnScreen();
         stage.show();
     }
+
     public static void popupNavigation(String link) throws IOException {
         URL resource = Navigation.class.getResource("/view/" + link);
         Parent parent = FXMLLoader.load(resource);
         Scene scene = new Scene(parent);
         Stage stage = new Stage();
-        //stage.initStyle(StageStyle.UNDECORATED);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setAlwaysOnTop(true);
         stage.setScene(scene);
         stage.show();

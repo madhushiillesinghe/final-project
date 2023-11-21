@@ -14,22 +14,22 @@
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="txtName" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Product" wrappingWidth="209.81900024414062">
+            <Text fx:id="txtSupplierId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="SupplierId" wrappingWidth="209.81900024414062">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="txtunitPrice" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit Price" wrappingWidth="211.9127197265625">
+            <Text fx:id="txtProductType" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="ProductType" wrappingWidth="211.9127197265625">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="txtqty" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" wrappingWidth="206.9127197265625">
+            <Text fx:id="txtDate" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="182.3671875">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="txtxAmount" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" wrappingWidth="68.9127197265625">
+            <Text fx:id="txtTime" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="time" wrappingWidth="101.6400146484375">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>

@@ -80,20 +80,6 @@ public class addCustomerController implements Initializable {
         }
     }
 
-   /* public void initialize(){
-        loademployeeids();
-
-
-    }
-*/
-   /* private void generateorderid() {
-        try{
-            txtid.setText(customerModel.genarateNextCustomereId());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }*/
-
     @FXML
     void empididonaction(ActionEvent actionEvent) throws SQLException {
         String  id = cmbempid.getSelectionModel().getSelectedItem().toString();
@@ -133,7 +119,7 @@ public class addCustomerController implements Initializable {
     @FXML
     void cancelbtnonaction(ActionEvent event) throws IOException {
 
-        Navigation.switchNavigation("customerForm.fxml",event);
+        Navigation.close(event);
     }
 
     private void loademployeeids() {

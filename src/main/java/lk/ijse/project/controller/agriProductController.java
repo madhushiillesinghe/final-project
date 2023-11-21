@@ -11,8 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import lk.ijse.project.model.customerModel;
-import lk.ijse.project.model.productModel;
+import lk.ijse.project.model.ProductModel;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
@@ -88,7 +87,6 @@ public class agriProductController implements Initializable {
     @FXML
     void btnaddcustomeronaction(ActionEvent event) throws IOException {
         Navigation.popupNavigation("addproductForm.fxml");
-
     }
 
 
@@ -157,7 +155,7 @@ public class agriProductController implements Initializable {
        vBoxProductManage.getChildren().clear();
 
         ArrayList<String> list=null;
-        productModel promodel=new productModel();
+        ProductModel promodel=new ProductModel();
         list=promodel.getAllProductId();
 
         for(int i=0;i<list.size();i++){

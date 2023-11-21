@@ -1,29 +1,31 @@
 package lk.ijse.project.model;
-import lk.ijse.project.dto.PlaceOrderDto;
-import lk.ijse.project.dto.productDto;
-import lk.ijse.project.dto.tm.supplierorderTm;
+import lk.ijse.project.dto.SupplyOderDto;
 import lk.ijse.project.fp.FpConnection;
-import lk.ijse.project.dto.supplierorderdetailDto;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public class SupplierPlaceOrderModel {
     private final supplierOrderDetailModel suporderdetailmodel=new supplierOrderDetailModel();
-    private final productModel promodel=new productModel();
-    private final supplierOrderModel supordermodel=new supplierOrderModel();
-    public  static boolean SavesupplierplaceOrder(PlaceOrderDto prodto) throws SQLException {
+    private final ProductModel promodel=new ProductModel();
+    private final SupplierOrderModel supordermodel=new SupplierOrderModel();
+
+    public boolean SavesupplierplaceOrder(SupplyOderDto dto) throws SQLException {
         boolean result = false;
         Connection connection = null;
         try {
             connection = FpConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
 
-            boolean isOrderSaved = supplierOrderModel.saveOrder(prodto.getOrderId(),prodto.getSupId());
+            boolean isOrderSaved = SupplierOrderModel.saveOrder(dto);
+
             if (isOrderSaved) {
-                boolean isUpdated = productModel.updateProduct((productDto) prodto.getTmlist());
+
+                boolean isUpdated = ProductModel.update(dto.getTmlist());
+
                 if(isUpdated) {
-                    boolean isOrderDetailSaved = supplierOrderDetailModel.saveSupplierOrder(prodto.getOrderId(), (supplierorderTm) prodto.getTmlist());
+                    boolean isOrderDetailSaved = supplierOrderDetailModel.save(dto);
+
                     if(isOrderDetailSaved) {
                         connection.commit();
                         result = true;
@@ -31,6 +33,7 @@ public class SupplierPlaceOrderModel {
                 }
             }
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
             connection.rollback();
         } finally {
             connection.setAutoCommit(true);

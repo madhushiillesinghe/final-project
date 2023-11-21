@@ -7,9 +7,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import lk.ijse.project.dto.employeeDto;
 import lk.ijse.project.dto.productDto;
-import lk.ijse.project.model.productModel;
+import lk.ijse.project.model.ProductModel;
 import lk.ijse.project.util.Navigation;
 import lk.ijse.project.util.NewId;
 
@@ -17,7 +16,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -44,7 +42,7 @@ public class addProductController implements Initializable {
     @FXML
     private TextField txtusername;
 
-    productModel proModel=new productModel();
+    ProductModel proModel=new ProductModel();
     ArrayList<String> list;
 
     {
@@ -69,7 +67,7 @@ public class addProductController implements Initializable {
         var model = new productDto(p_code,price,description,qty,Date.valueOf(dateexpire.getValue()));
         try {
             boolean isSaved;
-            isSaved = productModel.saveProduct(model);
+            isSaved = ProductModel.saveProduct(model);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "product saveddd!").show();
             }

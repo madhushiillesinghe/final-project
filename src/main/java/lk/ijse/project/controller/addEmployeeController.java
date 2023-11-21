@@ -113,7 +113,7 @@ public class addEmployeeController  implements Initializable {
 
     @FXML
     void cancelbtnonaction(ActionEvent event) throws IOException {
-        Navigation.switchNavigation("employeeForm.fxml",event);
+        Navigation.close(event);
     }
 
     @Override
