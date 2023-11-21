@@ -13,8 +13,4 @@ import java.util.Date;
 public class supplierorderdetailDto {
     private String p_id;
     private String  sup_o_id;
-    private Date date;
-    private int count_of_supplyproduct;
- private double qty;
-
 }

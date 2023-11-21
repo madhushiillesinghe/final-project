@@ -22,6 +22,7 @@ import java.util.ResourceBundle;
 
 public class supplierOrderController implements Initializable {
 
+
     @FXML
     private ImageView addimg;
 
@@ -59,25 +60,23 @@ public class supplierOrderController implements Initializable {
     private ImageView searchimg;
 
     @FXML
+    private Text txtDate;
+
+    @FXML
     private Text txtId;
 
     @FXML
-    private Text txtName;
+    private Text txtProductType;
 
     @FXML
-    private Text txtdate;
+    private Text txtSupplierId;
 
     @FXML
-    private Text txtqty;
+    private Text txtTime;
 
     @FXML
     private TextField txtsearch;
 
-    @FXML
-    private Text txtunitPrice;
-
-    @FXML
-    private Text txtxAmount;
 
     @FXML
     private VBox vBoxSupOrderManage;
@@ -99,51 +98,60 @@ public class supplierOrderController implements Initializable {
 
     @FXML
     void btnAddSupplierOrderOnAction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.popupNavigation("addSupplyOrderForm.fxml");
     }
 
     @FXML
     void customerbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("customerForm.fxml", event);
     }
 
     @FXML
     void customerorderonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("customerProductOrderForm.fxml", event);
     }
 
     @FXML
     void dashboardonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("dashboardForm.fxml", event);
 
     }
 
     @FXML
     void employeebtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("employeeForm.fxml", event);
 
     }
 
     @FXML
     void logoutbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("loginForm.fxml", event);
 
     }
 
     @FXML
     void machinebtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("machineForm.fxml", event);
 
     }
 
     @FXML
     void ordersbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("customerProductOrderForm.fxml", event);
 
     }
 
     @FXML
     void productsbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("productForm.fxml", event);
 
     }
@@ -155,11 +163,13 @@ public class supplierOrderController implements Initializable {
 
     @FXML
     void supplierbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("supplierForm.fxml", event);
     }
 
     @FXML
     void supplierorderbtnonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
         Navigation.switchNavigation("supplierOrderForm.fxml", event);
     }
 

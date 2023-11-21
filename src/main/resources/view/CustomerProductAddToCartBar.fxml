@@ -2,47 +2,41 @@
 
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="42.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.CustomerProductAddToCartBarController">
+<HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="620.0" spacing="20.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.CustomerProductAddToCartBarController">
    <children>
-      <HBox alignment="CENTER_LEFT" layoutX="6.0" layoutY="7.0" prefHeight="42.0" prefWidth="686.0" spacing="20.0" style="-fx-background-color: #ffffff;">
-         <children>
-            <Text fx:id="txtorderbarid" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="OId" wrappingWidth="77.8519287109375">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtcustomerid" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="CId" wrappingWidth="85.81900024414062">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtproductid" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="PId" wrappingWidth="99.9127197265625">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtqty" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="qty" wrappingWidth="97.9127197265625">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="txttotal" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Total" wrappingWidth="101.9127197265625">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <ImageView fx:id="deleteimg" fitHeight="27.0" fitWidth="49.0" onMouseClicked="#deleteonclick" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../icon/img_1.png" />
-               </image>
-            </ImageView>
-         </children>
-      </HBox>
+      <Text fx:id="txtProductId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="code" wrappingWidth="77.81900024414062">
+         <font>
+            <Font name="SansSerif Regular" size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="description" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="descripton" wrappingWidth="128.09466552734375">
+         <font>
+            <Font name="SansSerif Regular" size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtUnitPrice" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="unitPrice" wrappingWidth="103.73095703125">
+         <font>
+            <Font name="SansSerif Regular" size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtQty1" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="qty" wrappingWidth="66.1854248046875">
+         <font>
+            <Font name="SansSerif Regular" size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="txttotal" layoutX="228.0" layoutY="38.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="total" wrappingWidth="66.9127197265625">
+         <font>
+            <Font name="SansSerif Regular" size="16.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="deleteImg" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#deleteOnMouseClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon/img_1.png" />
+         </image>
+      </ImageView>
    </children>
-</AnchorPane>
+</HBox>

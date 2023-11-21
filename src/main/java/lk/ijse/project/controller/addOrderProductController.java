@@ -30,40 +30,28 @@ public class addOrderProductController {
     private DatePicker datepickdate;
 
     @FXML
+    private Text description;
+
+    @FXML
     private Text txtAction;
 
     @FXML
-    private TextField txtExpireDate;
+    private Text txtProductId;
 
     @FXML
-    private TextField txtcity;
+    private Text txtQty1;
+
+    @FXML
+    private Text txtUnitPrice;
 
     @FXML
     private TextField txtcusnme;
 
     @FXML
-    private Text txtcustomerid;
-
-    @FXML
-    private TextField txtdeliverfee;
-
-    @FXML
-    private TextField txtdeliverid;
-
-    @FXML
     private TextField txtdescription;
 
     @FXML
-    private Text txtorderbarid;
-
-    @FXML
     private TextField txtorderid;
-
-    @FXML
-    private Text txtproductid;
-
-    @FXML
-    private Text txtqty;
 
     @FXML
     private TextField txtqtyofbuy;
@@ -72,16 +60,7 @@ public class addOrderProductController {
     private TextField txtqtyonstock;
 
     @FXML
-    private TextField txtstatus;
-
-    @FXML
-    private TextField txtstreet;
-
-    @FXML
     private Text txttotal;
-
-    @FXML
-    private TextField txttotalamount;
 
     @FXML
     private TextField txtunitprice;
@@ -120,4 +99,3 @@ public class addOrderProductController {
     }
 
 }
-

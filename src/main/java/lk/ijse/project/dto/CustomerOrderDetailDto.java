@@ -5,12 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class PlaceOrderDto {
-    private String orderId;
-    private String supId;
-    private Date date;
+
+public class CustomerOrderDetailDto {
+
 }

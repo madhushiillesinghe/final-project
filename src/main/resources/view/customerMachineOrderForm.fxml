@@ -117,43 +117,9 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <HBox alignment="CENTER_LEFT" layoutX="375.0" layoutY="224.0" prefHeight="42.0" prefWidth="942.0" spacing="20.0" style="-fx-background-color: #ffffff;">
-         <children>
-            <Text fx:id="txtId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="119.8519287109375">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtName" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine Name" wrappingWidth="200.81900024414062">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtrent" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="rent fee" wrappingWidth="166.9127197265625">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtdays" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Days" wrappingWidth="138.9127197265625">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtdate" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="125.9127197265625">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtxAmount" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" wrappingWidth="68.9127197265625">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-         </children>
-      </HBox>
       <ScrollPane layoutX="375.0" layoutY="278.0" opacity="0.87" prefHeight="461.0" prefWidth="936.0" style="-fx-background-color: #ffffff;">
          <content>
-            <VBox fx:id="vBoxSupOrderManage" prefHeight="453.0" prefWidth="942.0" />
+            <VBox fx:id="vBoxSupOrderManage" prefHeight="441.0" prefWidth="916.0" />
          </content>
       </ScrollPane>
       <Pane layoutX="683.0" layoutY="74.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #ffffff;">
@@ -167,5 +133,34 @@
          </children>
       </Pane>
       <JFXButton layoutX="683.0" layoutY="74.0" onAction="#btnaddcustomeronaction" prefHeight="25.0" prefWidth="195.0" text="  " />
+      <HBox alignment="CENTER_LEFT" layoutX="372.0" layoutY="234.0" prefHeight="42.0" prefWidth="942.0" spacing="20.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Text fx:id="txtId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="141.8519287109375">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtCustomerId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Id" wrappingWidth="209.81900024414062">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtMachineName" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine Name" wrappingWidth="211.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtDate" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="182.3671875">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtTime" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="time" wrappingWidth="101.6400146484375">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

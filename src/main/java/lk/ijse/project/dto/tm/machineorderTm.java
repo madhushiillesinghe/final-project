@@ -15,6 +15,5 @@ public class machineorderTm {
     private String name;
     private int rent;
     private int days;
-    private Date date;
     private int total;
 }

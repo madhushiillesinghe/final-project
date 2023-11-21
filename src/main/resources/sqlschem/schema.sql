@@ -56,6 +56,7 @@ CREATE TABLE customer_order(
                                order_id VARCHAR(30) PRIMARY KEY,
                                cus_id VARCHAR(15) NOT NULL,
                                m_id VARCHAR(15),
+                               order_date DATE NOT NULL,
                                FOREIGN KEY (m_id) REFERENCES machine(m_id) ON DELETE CASCADE ON UPDATE CASCADE,
                                FOREIGN KEY (cus_id) REFERENCES customer(cus_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -102,28 +103,13 @@ CREATE TABLE expired_product(
 );
 
 
-CREATE TABLE deliver(
-                        d_id VARCHAR(15) PRIMARY KEY,
-                        city VARCHAR(25) NOT NULL,
-                        street VARCHAR(30) NOT NULL,
-                        p_id VARCHAR (15) NOT NULL,
-                        FOREIGN KEY (p_id) REFERENCES agri_product(p_code) ON DELETE CASCADE ON UPDATE CASCADE
-);
 
 CREATE TABLE order_payment(
-                              d_id VARCHAR(15),
-                              order_date DATE NOT NULL,
                               p_id VARCHAR(15),
-                              no_of_days_keep_the_machine INT,
-                              qty_on_hand INT ,
                               o_id VARCHAR(15) NOT NULL,
                               m_id VARCHAR(15),
-                              rental_payment DOUBLE,
-                              deliver_charge DOUBLE,
-                              full_amount_of_products DOUBLE,
                               FOREIGN KEY (p_id) REFERENCES agri_product(p_code) ON DELETE CASCADE ON UPDATE CASCADE,
                               FOREIGN KEY (o_id) REFERENCES customer_order(order_id) ON DELETE CASCADE ON UPDATE CASCADE,
-                              FOREIGN KEY (d_id) REFERENCES deliver(d_id) ON DELETE CASCADE ON UPDATE CASCADE,
                               FOREIGN KEY (m_id) REFERENCES machine(m_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 

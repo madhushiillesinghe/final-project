@@ -5,7 +5,6 @@ import lk.ijse.project.dto.tm.ProductOrderTm;
 import lk.ijse.project.dto.tm.employeeTm;
 import lk.ijse.project.dto.tm.supplierorderTm;
 import lk.ijse.project.fp.FpConnection;
-import lk.ijse.project.dto.supplierorderdetailDto;
 
 import java.sql.*;
 import java.util.List;

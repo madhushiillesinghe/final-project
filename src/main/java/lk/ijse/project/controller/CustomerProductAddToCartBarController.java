@@ -8,25 +8,25 @@ import javafx.scene.text.Text;
 public class CustomerProductAddToCartBarController {
 
     @FXML
-    private ImageView deleteimg;
+    private ImageView deleteImg;
 
     @FXML
-    private Text txtcustomerid;
+    private Text description;
 
     @FXML
-    private Text txtorderbarid;
+    private Text txtProductId;
 
     @FXML
-    private Text txtproductid;
+    private Text txtQty1;
 
     @FXML
-    private Text txtqty;
+    private Text txtUnitPrice;
 
     @FXML
     private Text txttotal;
 
     @FXML
-    void deleteonclick(MouseEvent event) {
+    void deleteOnMouseClick(MouseEvent event) {
 
     }
 

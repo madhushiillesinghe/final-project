@@ -31,7 +31,6 @@ import java.util.ResourceBundle;
 
 public class addSupplierOrderController implements Initializable {
     private final ObservableList<SupplyProductCartTm> obList = FXCollections.observableArrayList();
-
     @FXML
     private Button btnaddtocart;
 
@@ -42,7 +41,7 @@ public class addSupplierOrderController implements Initializable {
     private Button btnplaceorder;
 
     @FXML
-    private ComboBox<String> comboxproductid;
+    private ComboBox<String > comboxproductid;
 
     @FXML
     private ComboBox<String> comboxsupplierid;
@@ -51,40 +50,34 @@ public class addSupplierOrderController implements Initializable {
     private DatePicker datepickdate;
 
     @FXML
+    private Text description;
+
+    @FXML
     private Text txtAction;
 
     @FXML
-    private TextField txtDiscountfee;
+    private Text txtProductId;
 
     @FXML
     private TextField txtQty;
 
     @FXML
-    private TextField txtdescription;
+    private Text txtQty1;
 
     @FXML
-    private Text txtorderbarid;
+    private Text txtUnitPrice;
+
+    @FXML
+    private TextField txtdescription;
 
     @FXML
     private TextField txtorderid;
 
     @FXML
-    private Text txtproductid;
-
-    @FXML
-    private Text txtqty;
-
-    @FXML
     private TextField txtqtyofbuy;
 
     @FXML
-    private Text txtsupplierid;
-
-    @FXML
     private Text txttotal;
-
-    @FXML
-    private TextField txttotalamount;
 
     @FXML
     private TextField txtunitprice;
@@ -94,6 +87,7 @@ public class addSupplierOrderController implements Initializable {
 
     @FXML
     private VBox vBoxSupplyOrderBar;
+
     SupplierOrderModel supomodel=new SupplierOrderModel();
     SupplierPlaceOrderModel placeSupplierOrder = new SupplierPlaceOrderModel();
 
@@ -138,33 +132,7 @@ public class addSupplierOrderController implements Initializable {
     @FXML
     void placeorderbtnonaction(ActionEvent event) throws SQLException {
 
-//        String orderId =txtorderid.getText();
-//        String supId = comboxsupplierid.getSelectionModel().getSelectedItem().toString();
-//       Date date = Date.valueOf(datepickdate.getValue());
-//
-//        List<SupplyProductCartTm> tmList = new ArrayList<>();
-//
-//        for (SupplyProductCartTm cartTm : obList) {
-//            tmList.add(cartTm);
-//        }
-//
-//        var dto = new supplyOderDto(
-//                orderId,
-//                supId,
-//                date,
-//                tmList
-//        );
-//
-//
-//
-//        try {
-//            boolean isSuccess = SupplierPlaceOrderModel.SavesupplierplaceOrder(dto);
-//            if(isSuccess) {
-//                new Alert(Alert.AlertType.CONFIRMATION, "order completed!").show();
-//            }
-//        } catch (SQLException e) {
-//            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-//        }
+
 
         SupplyOderDto supplierOrderDto = new SupplyOderDto();
 

@@ -118,45 +118,6 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btndeliveer" layoutX="1150.0" layoutY="196.0" mnemonicParsing="false" onAction="#deliverbtnonaction" prefHeight="24.0" prefWidth="140.0" style="-fx-border-radius: 20; -fx-background-color: #DAF7A6;" styleClass="customerclass" text="Deliver detail" textFill="#1e1010">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Button>
-      <HBox alignment="CENTER_LEFT" layoutX="369.0" layoutY="234.0" prefHeight="42.0" prefWidth="942.0" spacing="20.0" style="-fx-background-color: #ffffff;">
-         <children>
-            <Text fx:id="txtId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="141.8519287109375">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtName" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Product" wrappingWidth="129.81900024414062">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtunitPrice" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit Price" wrappingWidth="166.9127197265625">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtqty" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" wrappingWidth="162.9127197265625">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtdate" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="125.9127197265625">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtxAmount" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" wrappingWidth="68.9127197265625">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-         </children>
-      </HBox>
       <ScrollPane layoutX="369.0" layoutY="284.0" opacity="0.87" prefHeight="460.0" prefWidth="942.0" style="-fx-background-color: #ffffff;">
          <content>
             <VBox fx:id="vBoxCusProductOrderManage" prefHeight="458.0" prefWidth="936.0" />
@@ -173,5 +134,34 @@
          </children>
       </Pane>
       <JFXButton layoutX="683.0" layoutY="74.0" onAction="#btnaddcustomeronaction" prefHeight="25.0" prefWidth="195.0" text="  " />
+      <HBox alignment="CENTER_LEFT" layoutX="369.0" layoutY="234.0" prefHeight="42.0" prefWidth="942.0" spacing="20.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Text fx:id="txtId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="141.8519287109375">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtCustomerId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Id" wrappingWidth="209.81900024414062">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtProductName" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Name" wrappingWidth="211.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtDate" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="182.3671875">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtTime" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="time" wrappingWidth="101.6400146484375">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

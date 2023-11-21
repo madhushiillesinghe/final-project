@@ -6,21 +6,18 @@ import javafx.scene.text.Text;
 public class CustomerProductOrderBarFormController {
 
     @FXML
+    private Text txtCustomerId;
+
+    @FXML
+    private Text txtDate;
+
+    @FXML
     private Text txtId;
 
     @FXML
-    private Text txtName;
+    private Text txtProductName;
 
     @FXML
-    private Text txtdate;
-
-    @FXML
-    private Text txtqty;
-
-    @FXML
-    private Text txtunitPrice;
-
-    @FXML
-    private Text txtxAmount;
+    private Text txtTime;
 
 }

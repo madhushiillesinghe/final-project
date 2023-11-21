@@ -1,6 +1,5 @@
 package lk.ijse.project.dto;
 
-import lk.ijse.project.dto.tm.SupplyProductCartTm;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

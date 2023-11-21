@@ -32,8 +32,6 @@ public class addCustomerController implements Initializable {
 
     @FXML
     private Button btncancel;
-
-
     @FXML
     private ComboBox<String> cmbempid;
 

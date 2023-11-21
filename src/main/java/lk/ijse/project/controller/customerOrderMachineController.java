@@ -54,25 +54,22 @@ public class customerOrderMachineController {
     private ImageView searchimg;
 
     @FXML
+    private Text txtCustomerId;
+
+    @FXML
+    private Text txtDate;
+
+    @FXML
     private Text txtId;
 
     @FXML
-    private Text txtName;
+    private Text txtMachineName;
 
     @FXML
-    private Text txtdate;
-
-    @FXML
-    private Text txtdays;
-
-    @FXML
-    private Text txtrent;
+    private Text txtTime;
 
     @FXML
     private TextField txtsearch;
-
-    @FXML
-    private Text txtxAmount;
 
     @FXML
     private VBox vBoxSupOrderManage;
