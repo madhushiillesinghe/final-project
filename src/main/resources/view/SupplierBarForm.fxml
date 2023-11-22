@@ -41,6 +41,11 @@
                   <Image url="@../icon/img_1.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="reportImg" fitHeight="19.0" fitWidth="20.0" onMouseClicked="#reportOnMouseClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/recipt.png" />
+               </image>
+            </ImageView>
          </children>
       </HBox>
    </children>

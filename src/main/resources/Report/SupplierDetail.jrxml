@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2023-11-22T21:51:52 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SupplierDetail" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="de76e9ae-950f-4da6-a7e3-384f10931373">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (8)"/>
+	<queryString>
+		<![CDATA[SELECT * FROM supplier]]>
+	</queryString>
+	<field name="sup_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="supplier_product_type" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="first_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="sup_id">
+		<groupExpression><![CDATA[$F{sup_id}]]></groupExpression>
+	</group>
+	<group name="supplier_product_type">
+		<groupExpression><![CDATA[$F{supplier_product_type}]]></groupExpression>
+	</group>
+	<group name="email">
+		<groupExpression><![CDATA[$F{email}]]></groupExpression>
+	</group>
+	<group name="first_name">
+		<groupExpression><![CDATA[$F{first_name}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="210" y="30" width="206" height="30" uuid="ee7fda04-a928-423e-90d7-30631a201a02"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Supplier Detail]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="150" y="15" width="100" height="30" uuid="58425ffb-d014-4dc6-bc85-a888750c7152"/>
+				<text><![CDATA[supplier_product_type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="20" width="100" height="30" uuid="f33df06a-aac1-4170-9030-e49c85c8bf4c"/>
+				<text><![CDATA[SupplierId
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="15" width="100" height="30" uuid="274c467e-16fd-4436-8943-ba466234ca6b"/>
+				<text><![CDATA[email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="20" width="100" height="30" uuid="48a4fd03-e1e7-4dc6-84d1-b913bdbf7413"/>
+				<text><![CDATA[first_name]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="350" splitType="Stretch">
+			<textField>
+				<reportElement x="150" y="60" width="100" height="30" uuid="11480203-046a-4d16-9473-9f464fbea896"/>
+				<textFieldExpression><![CDATA[$F{supplier_product_type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="60" width="100" height="30" uuid="9b02596c-6821-4096-86d3-f5dd40b6db5d"/>
+				<textFieldExpression><![CDATA[$F{sup_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="60" width="100" height="30" uuid="20edce71-48c6-4f89-9785-b32ab877b150"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="60" width="100" height="30" uuid="a5f9eb77-eb65-4a15-accc-93cf7abf5871"/>
+				<textFieldExpression><![CDATA[$F{first_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
