@@ -167,6 +167,7 @@ public class addOrderProductController implements Initializable {
 
         cusOrderDto.setCus_order_id(txtorderid.getText());
         cusOrderDto.setCus_id(comboxcustomerid.getSelectionModel().getSelectedItem());
+        cusOrderDto.setM_id(comboxmachineid.getSelectionModel().getSelectedItem());
         cusOrderDto.setDate(Date.valueOf(datepickdate.getValue()));
        cusOrderDto.setTmlist(productList);
 

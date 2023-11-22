@@ -144,7 +144,6 @@ public class OrderProductController  implements Initializable {
     @FXML
     void machineorderbtnonaction(ActionEvent event) throws IOException {
        // Navigation.close(event);
-        System.out.println("clickme");
         Navigation.switchNavigation("customerMachineOrderForm.fxml",event);
 
     }
