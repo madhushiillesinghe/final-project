@@ -139,7 +139,7 @@ public class addSupplierOrderController implements Initializable {
         boolean isSaved = placeSupplierOrder.SavesupplierplaceOrder(supplierOrderDto);
 
         if (isSaved) {
-            Navigation.close(event);
+            //Navigation.close(event);
             supplierOrderController.getInstance().getAllIds();
         }
         else {
@@ -153,9 +153,9 @@ public class addSupplierOrderController implements Initializable {
     void productidonaction(ActionEvent event) {
         String  pid = comboxproductid.getSelectionModel().getSelectedItem().toString();
         try {
-          productDto dto = ProductModel.searchProduct(pid);
+            productDto dto = ProductModel.searchProduct(pid);
 
-           txtdescription.setText(dto.getDescription());
+            txtdescription.setText(dto.getDescription());
             txtunitprice.setText(String.valueOf(dto.getUnit_price()));
             txtQty.setText(String.valueOf(dto.getQty_on_stock()));
 
@@ -187,9 +187,9 @@ public class addSupplierOrderController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-     loadAllProductIds();
-     loadAllSupplierIds();
-     txtorderid.setText(NewId.newId(list,NewId.GetType.SUPPLYORDERID));
+        loadAllProductIds();
+        loadAllSupplierIds();
+        txtorderid.setText(NewId.newId(list,NewId.GetType.SUPPLYORDERID));
     }
 
     private void loadAllSupplierIds() {
@@ -200,7 +200,7 @@ public class addSupplierOrderController implements Initializable {
             for (supplierDto supDto : supplierList) {
                 obList.add(supDto.getSup_id());
             }
-           comboxsupplierid.setItems(obList);
+            comboxsupplierid.setItems(obList);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -32,7 +32,10 @@ public class customerModel {
         pstm.setString(10,cusDto.getLast_name());
         pstm.setInt(11, cusDto.getNic());
 
-        return pstm.executeUpdate() > 0;
+        boolean isSaved = pstm.executeUpdate() > 0;
+
+        return isSaved;
+
     }
 
     public static boolean updateCustomer(customerDto cusDto) throws SQLException {

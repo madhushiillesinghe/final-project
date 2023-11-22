@@ -23,6 +23,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class addCustomerController implements Initializable {
 
@@ -85,6 +86,8 @@ public class addCustomerController implements Initializable {
 
     @FXML
     void addbtnonaction(ActionEvent event) throws SQLException {
+        boolean isValidate=validateCustomer();
+        if(isValidate){
         customerDto cusdto=new customerDto();
 
         cusdto.setCus_id(txtid.getText());
@@ -99,18 +102,12 @@ public class addCustomerController implements Initializable {
         cusdto.setAccount_type(txtaccounttype.getText());
         cusdto.setEmp_id(cmbempid.getSelectionModel().getSelectedItem());
 
-
-
-
-        try {
+        customerModel cusodel=new customerModel();
             boolean isSaved;
-            isSaved = customerModel.saveCustomer(cusdto);
+            isSaved = cusodel.saveCustomer(cusdto);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Customer saved!").show();
-
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 
@@ -142,5 +139,21 @@ public class addCustomerController implements Initializable {
         loademployeeids();
         txtid.setText(NewId.newId(list,NewId.GetType.CUSTOMER));
 
+    }
+    private boolean validateCustomer() {
+        String idText=txtid.getText();
+        String nameText=txtfirstname.getText();
+
+        boolean cusIdisValidated= Pattern.matches("[C][-][0-9]{2,}",idText);
+        boolean cusnameValidated=Pattern.matches("[A-z]{3,}",nameText);
+
+        if(!cusIdisValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid customer id").show();
+            return  false;
+        } if (!cusnameValidated){
+            new Alert(Alert.AlertType.ERROR, "Invalid customer name").show();
+            return false;
+        }
+        return true;
     }
 }

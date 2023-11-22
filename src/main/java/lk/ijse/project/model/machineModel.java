@@ -69,7 +69,7 @@ public class machineModel {
         return dto;
     }
 
-    public machineDto searchMachine(String m_id) throws SQLException {
+    public static machineDto searchMachine(String m_id) throws SQLException {
             Connection connection = FpConnection.getInstance().getConnection();
             String sql = "SELECT * FROM machine WHERE m_id = ?";
 
@@ -102,7 +102,7 @@ public class machineModel {
             return pstm.executeUpdate() > 0;
         }
 
-        public List<machineDto> loadAllMachine() throws SQLException {
+        public static List<machineDto> loadAllMachine() throws SQLException {
             Connection connection = FpConnection.getInstance().getConnection();
 
             String sql = "SELECT * FROM machine";

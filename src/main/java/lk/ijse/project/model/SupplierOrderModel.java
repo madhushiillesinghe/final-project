@@ -9,16 +9,16 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class SupplierOrderModel {
-        public static boolean saveOrder(SupplyOderDto dto) throws SQLException {
-            Connection connection= FpConnection.getInstance().getConnection();
-            String sql="INSERT INTO supplier_order VALUES(?, ?, ?)";
-            PreparedStatement pstm=connection.prepareStatement(sql);
-            pstm.setString(1,dto.getSup_order_id());
-            pstm.setString(2,dto.getSup_id());
-            pstm.setDate(3, (Date) dto.getDate());
+    public static boolean saveOrder(SupplyOderDto dto) throws SQLException {
+        Connection connection= FpConnection.getInstance().getConnection();
+        String sql="INSERT INTO supplier_order VALUES(?, ?, ?)";
+        PreparedStatement pstm=connection.prepareStatement(sql);
+        pstm.setString(1,dto.getSup_order_id());
+        pstm.setString(2,dto.getSup_id());
+        pstm.setDate(3, (Date) dto.getDate());
 
-            return pstm.executeUpdate()>0;
-        }
+        return pstm.executeUpdate()>0;
+    }
 
     public static ArrayList<String> getAllOrderIds() throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
@@ -74,4 +74,3 @@ public class SupplierOrderModel {
 
     }*/
 }
-

@@ -32,7 +32,7 @@ public class CustomerMachineOrderBarFormController {
 
     public void setData(String id) {
         try {
-           CustomerOrderDto cusorderdto = CustomerOrderModel.getData(id);
+            CustomerOrderDto cusorderdto = CustomerOrderModel.getData(id);
             machineDto mdto= machineModel.getData(cusorderdto.getM_id());
 
             this.txtId.setText(cusorderdto.getCus_order_id());
@@ -40,6 +40,7 @@ public class CustomerMachineOrderBarFormController {
             txtTime.setText(DateTimeUtil.timeNow());
             txtCustomerId.setText(cusorderdto.getCus_id());
             txtmachineName.setText(mdto.getM_name());
+            //System.out.println(mdto.getM_name);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

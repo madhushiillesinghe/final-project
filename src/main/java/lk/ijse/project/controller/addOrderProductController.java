@@ -10,10 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import lk.ijse.project.dto.CustomerOrderDto;
-import lk.ijse.project.dto.SupplyOderDto;
-import lk.ijse.project.dto.customerDto;
-import lk.ijse.project.dto.productDto;
+import lk.ijse.project.dto.*;
 import lk.ijse.project.model.*;
 import lk.ijse.project.util.Navigation;
 import lk.ijse.project.util.NewId;
@@ -42,6 +39,8 @@ public class addOrderProductController implements Initializable {
 
     @FXML
     private ComboBox<String> comboxproductid;
+    @FXML
+    private ComboBox<String> comboxmachineid;
 
     @FXML
     private DatePicker datepickdate;
@@ -140,7 +139,21 @@ public class addOrderProductController implements Initializable {
     @FXML
     void customeridonaction(ActionEvent event) {
         String  sid = comboxcustomerid.getSelectionModel().getSelectedItem().toString();
+        try{
+            customerDto dto=customerModel.searchCustomer(sid);
+            txtcusnme.setText(dto.getFirst_name());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
+    }@FXML
+    void machidcmbonaction(ActionEvent event) {
+        String  mid = comboxmachineid.getSelectionModel().getSelectedItem().toString();
+        try{
+           machineDto dto=machineModel.searchMachine(mid);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
@@ -160,7 +173,7 @@ public class addOrderProductController implements Initializable {
         boolean isSaved = placeCustomerOrder.SaveCustomerplaceOrder(cusOrderDto);
 
         if (isSaved) {
-            Navigation.close(event);
+           // Navigation.close(event);
             OrderProductController.getInstance().getAllIds();
         }
         else {
@@ -190,7 +203,23 @@ public class addOrderProductController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadAllProductIds();
         loadAllCustomerIds();
+        loadAllMachineIds();
         txtorderid.setText(NewId.newId(list,NewId.GetType.CUSTOMERORDERID));
+    }
+
+    private void loadAllMachineIds() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        try {
+            List<machineDto> machList = machineModel.loadAllMachine();
+
+            for (machineDto machDto : machList) {
+                obList.add(machDto.getM_id());
+            }
+
+            comboxmachineid.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void loadAllCustomerIds() {

@@ -12,7 +12,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import lk.ijse.project.model.CustomerOrderModel;
-import lk.ijse.project.model.SupplierOrderModel;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
@@ -84,7 +83,13 @@ public class customerOrderMachineController implements Initializable {
     private TextField txtsearch;
 
     @FXML
-    private VBox vBoxSupOrderManage;
+    private VBox vBoxCusOrderManage;
+
+    private static customerOrderMachineController controller;
+
+    public static customerOrderMachineController getInstance() {
+        return controller;
+    }
 
     @FXML
     void addcustomer(MouseEvent event) {
@@ -92,7 +97,9 @@ public class customerOrderMachineController implements Initializable {
     }
 
     @FXML
-    void btnaddcustomeronaction(ActionEvent event) {
+    void btnaddcustomeronaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
+        Navigation.switchNavigation("addMachineOrderForm.fxml",event);
 
     }
 
@@ -104,8 +111,9 @@ public class customerOrderMachineController implements Initializable {
     }
 
     @FXML
-    void customerorderonaction(ActionEvent event) {
-
+    void customerorderonaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
+        Navigation.switchNavigation("customerProductOrderForm.fxml", event);
     }
 
     @FXML
@@ -178,13 +186,13 @@ public class customerOrderMachineController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             getAllIds();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private void getAllIds() throws SQLException {
-        vBoxSupOrderManage.getChildren().clear();
+    void getAllIds() throws SQLException {
+       vBoxCusOrderManage.getChildren().clear();
         ArrayList<String> list = null;
         CustomerOrderModel cusomodel = new CustomerOrderModel();
         list = cusomodel.getAllOrderIds();
@@ -200,7 +208,7 @@ public class customerOrderMachineController implements Initializable {
             Parent root = loader.load();
             CustomerMachineOrderBarFormController controller = loader.getController();
             controller.setData(id);
-            vBoxSupOrderManage.getChildren().add(root);
+            vBoxCusOrderManage.getChildren().add(root);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

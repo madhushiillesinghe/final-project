@@ -102,5 +102,7 @@
             </Text>
          </children>
       </HBox>
+      <ComboBox fx:id="comboxmachineid" layoutX="358.0" layoutY="128.0" onAction="#machidcmbonaction" prefWidth="150.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="281.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine Id" />
    </children>
 </AnchorPane>

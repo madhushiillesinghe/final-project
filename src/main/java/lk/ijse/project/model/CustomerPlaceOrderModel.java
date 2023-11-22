@@ -24,8 +24,11 @@ public class CustomerPlaceOrderModel {
             boolean isOrderSaved = CustomerOrderModel.saveCustomerOrder(dto);
 
             if (isOrderSaved) {
-                if(dto.getM_id()==null) {
+                if(dto.getCus_order_id()!=null) {
                     isUpdatedproduct = ProductModel.updateproduct(dto.getTmlist());
+                    if(dto.getM_id()==null){
+                        isUpdaetedMachine=machineModel.update(dto.getTmlist());
+                    }
                 }
                 isUpdaetedMachine=machineModel.update(dto.getTmlist());
 
