@@ -100,6 +100,7 @@ public class addOrderProductController implements Initializable {
 
     @FXML
     void addtocartbtnonaction(ActionEvent event) {
+
         String[] products = {String.valueOf(comboxproductid.getSelectionModel().getSelectedItem()), txtqtyofbuy.getText()};
 
         productList.add(products);
@@ -111,7 +112,8 @@ public class addOrderProductController implements Initializable {
     }
 
     private void allCustomerProductOrderCartId() {
-       vBoxproductorderbar.getChildren().clear();
+        vBoxproductorderbar.getChildren().removeAll(vBoxproductorderbar.getChildren());
+        vBoxproductorderbar.getChildren().clear();
 
         for (int i = 0; i < productList.size(); i++) {
             loadDataTable(productList.get(i));
@@ -180,8 +182,7 @@ public class addOrderProductController implements Initializable {
         else {
             new Alert(Alert.AlertType.ERROR, "Unable to Save the ORDER!!!").show();
         }
-
-
+        vBoxproductorderbar.getChildren().removeAll(vBoxproductorderbar.getChildren());
 
     }
 

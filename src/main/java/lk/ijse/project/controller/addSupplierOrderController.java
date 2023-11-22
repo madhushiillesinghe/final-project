@@ -145,6 +145,7 @@ public class addSupplierOrderController implements Initializable {
         else {
             new Alert(Alert.AlertType.ERROR, "Unable to Save the ORDER!!!").show();
         }
+        vBoxSupplyOrderBar.getChildren().removeAll(vBoxSupplyOrderBar.getChildren());
 
 
     }
