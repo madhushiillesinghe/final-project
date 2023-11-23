@@ -214,4 +214,16 @@ public class employeeModel {
         }
         return "no";
     }
+
+    public  static int dashboardEmployeeCount() throws SQLException {
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql = "SELECT COUNT(emp_id) FROM employee";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet set = pstm.executeQuery();
+        if (set.next()) {
+            int count = set.getInt(1);
+            return count;
+        }
+        return  0;
+    }
 }

@@ -2,12 +2,18 @@ package lk.ijse.project.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import lk.ijse.project.model.employeeModel;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class DashboardController {
+public class DashboardController implements Initializable {
 
     @FXML
     private Button btncustomer;
@@ -33,6 +39,20 @@ public class DashboardController {
     @FXML
     private Button btnsupplier;
 
+    @FXML
+    private Label lblcustomer;
+
+    @FXML
+    private Label lblemployee;
+
+    @FXML
+    private Label lblproduct;
+
+    @FXML
+    private Label lblsupplier;
+
+
+employeeModel empmodel =new employeeModel();
     @FXML
     void customerbtnonaction(ActionEvent event) throws IOException {
         Navigation.close(event);
@@ -81,4 +101,19 @@ public class DashboardController {
         Navigation.switchNavigation("supplierForm.fxml",event);
     }
 
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        try {
+            showDashboardValue(empmodel);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void showDashboardValue(employeeModel empmodel) throws SQLException {
+        int totalEmployee=empmodel.dashboardEmployeeCount();
+        lblemployee.setText(String.valueOf(totalEmployee));
+    }
 }

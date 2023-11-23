@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.DashboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.DashboardManagerController">
    <children>
       <ImageView fitHeight="768.0" fitWidth="1366.0">
          <image>
@@ -18,78 +18,68 @@
          </image>
       </ImageView>
       <Pane layoutX="363.0" layoutY="76.0" prefHeight="43.0" prefWidth="200.0" />
-      <Button fx:id="btndashboard" layoutX="110.0" layoutY="173.0" mnemonicParsing="false" onAction="#dashboardonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #51A52D;" text="      Dashboard" textFill="#305532">
+      <Button fx:id="btndashboard" layoutX="110.0" layoutY="191.0" mnemonicParsing="false" onAction="#dashboardonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #51A52D;" text="      Dashboard" textFill="#305532">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btnemployee" layoutX="110.0" layoutY="237.0" mnemonicParsing="false" onAction="#employeebtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="     Employee" textFill="#305532">
+      <Button fx:id="btnsupplier" layoutX="107.0" layoutY="264.0" mnemonicParsing="false" onAction="#supplierbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="  Supplier" textFill="#305532">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btnsupplier" layoutX="110.0" layoutY="300.0" mnemonicParsing="false" onAction="#supplierbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="  Supplier" textFill="#305532">
+      <Button fx:id="btncustomer" layoutX="107.0" layoutY="336.0" mnemonicParsing="false" onAction="#customerbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="    Customer" textFill="#305532">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btncustomer" layoutX="110.0" layoutY="363.0" mnemonicParsing="false" onAction="#customerbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="    Customer" textFill="#305532">
+      <Button fx:id="btnproducts" layoutX="107.0" layoutY="406.0" mnemonicParsing="false" onAction="#productsbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="  Products" textFill="#305532">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btnproducts" layoutX="110.0" layoutY="423.0" mnemonicParsing="false" onAction="#productsbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="  Products" textFill="#305532">
+      <Button fx:id="btnmachine" layoutX="107.0" layoutY="477.0" mnemonicParsing="false" onAction="#machinebtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text=" Machine" textFill="#305532">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btnmachine" layoutX="110.0" layoutY="486.0" mnemonicParsing="false" onAction="#machinebtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text=" Machine" textFill="#305532">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnorders" layoutX="110.0" layoutY="549.0" mnemonicParsing="false" onAction="#ordersbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="Orders" textFill="#305532">
+      <Button fx:id="btnorders" layoutX="101.0" layoutY="550.0" mnemonicParsing="false" onAction="#ordersbtnonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="Orders" textFill="#305532">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
       <Button fx:id="btnlogout" layoutX="140.0" layoutY="673.0" mnemonicParsing="false" onAction="#logoutbtnonaction" style="-fx-background-color: #ffffff;" text="LOGOUT" textFill="#305532" />
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="181.0">
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="199.0">
          <image>
             <Image url="@../icon/category.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="245.0">
-         <image>
-            <Image url="@../icon/profile-2user.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="310.0">
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="272.0">
          <image>
             <Image url="@../icon/Group693.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="371.0">
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="344.0">
          <image>
             <Image url="@../icon/profile-2user.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="104.0" layoutY="411.0" x="20.0" y="20.0">
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="104.0" layoutY="394.0" x="20.0" y="20.0">
          <image>
             <Image url="@../icon/box.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="494.0">
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="485.0">
          <image>
             <Image url="@../icon/charticon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="124.0" layoutY="557.0">
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="114.0" layoutY="558.0">
          <image>
             <Image url="@../icon/recipt.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="450.0" layoutY="296.0" prefHeight="426.0" prefWidth="818.0" style="-fx-background-color: #FFFFFF;" />
+      <AnchorPane layoutX="472.0" layoutY="281.0" prefHeight="426.0" prefWidth="818.0" style="-fx-background-color: #FFFFFF;" />
       <Pane layoutX="494.0" layoutY="191.0" opacity="0.7" prefHeight="69.0" prefWidth="161.0" style="-fx-background-color: #74B72E; -fx-border-radius: 15;">
          <effect>
             <ColorAdjust brightness="0.31" contrast="-0.02" hue="0.29" saturation="-0.21" />
@@ -148,7 +138,7 @@
       </Pane>
       <AnchorPane layoutX="363.0" layoutY="42.0" prefHeight="77.0" prefWidth="396.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Text layoutX="14.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WELCOME  Owner DashBoard" wrappingWidth="420.1005859375">
+            <Text layoutX="14.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WELCOME  Manager DashBoard" wrappingWidth="420.1005859375">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
