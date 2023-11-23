@@ -87,16 +87,21 @@ public class addOrderProductController implements Initializable {
     CustomerOrderModel cusomodel=new CustomerOrderModel();
     CustomerPlaceOrderModel placeCustomerOrder = new CustomerPlaceOrderModel();
 
-    public static ArrayList<String[]> productList = new ArrayList<>();
+    ArrayList<String[]> productList = new ArrayList<>();
 
     ArrayList<String> list;
-    {
-        try {
-            list = cusomodel.getAllOrderIds();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+    public addOrderProductController(){
+
+        {
+            try {
+                list = cusomodel.getAllOrderIds();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
+
     }
+
 
     @FXML
     void addtocartbtnonaction(ActionEvent event) {
@@ -112,7 +117,6 @@ public class addOrderProductController implements Initializable {
     }
 
     private void allCustomerProductOrderCartId() {
-        vBoxproductorderbar.getChildren().removeAll(vBoxproductorderbar.getChildren());
         vBoxproductorderbar.getChildren().clear();
 
         for (int i = 0; i < productList.size(); i++) {

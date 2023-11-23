@@ -28,6 +28,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static lk.ijse.project.controller.addOrderMachineController.productList;
+
 public class addSupplierOrderController implements Initializable {
     @FXML
     private Button btnaddtocart;
@@ -88,17 +90,20 @@ public class addSupplierOrderController implements Initializable {
 
     SupplierOrderModel supomodel=new SupplierOrderModel();
     SupplierPlaceOrderModel placeSupplierOrder = new SupplierPlaceOrderModel();
-
-    public static ArrayList<String[]> productList = new ArrayList<>();
+    ArrayList<String[]> productList = new ArrayList<>();
 
     ArrayList<String> list;
-    {
-        try {
-            list = supomodel.getAllOrderIds();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
+  public addSupplierOrderController(){
+
+      {
+          try {
+              list = supomodel.getAllOrderIds();
+          } catch (SQLException e) {
+              throw new RuntimeException(e);
+          }
+      }
+
+  }
 
     @FXML
     void addtocartbtnonaction(ActionEvent event) {

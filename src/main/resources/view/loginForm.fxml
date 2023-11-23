@@ -11,19 +11,19 @@
 
 <AnchorPane prefHeight="550.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.LoginController">
    <children>
-      <ImageView fx:id="btnlogin" fitHeight="550.0" fitWidth="1000.0" onDragDetected="#btnloginonaction">
+      <ImageView fitHeight="550.0" fitWidth="1000.0">
          <image>
             <Image url="@../icon/Sign%20up.png" />
          </image>
       </ImageView>
       <TextField fx:id="txtusername" layoutX="269.0" layoutY="234.0" prefHeight="32.0" prefWidth="171.0" promptText="         username" />
       <PasswordField fx:id="pwfpassword" layoutX="269.0" layoutY="292.0" prefHeight="32.0" prefWidth="171.0" promptText="         password" />
-      <Text fontSmoothingType="LCD" layoutX="350.0" layoutY="333.0" onMouseClicked="#forgetpasswordclick" strokeType="OUTSIDE" strokeWidth="0.0" text="forget password ?">
+      <Text fontSmoothingType="LCD" layoutX="350.0" layoutY="333.0" onMouseClicked="#forgetpasswordonclick" strokeType="OUTSIDE" strokeWidth="0.0" text="forget password ?">
          <font>
             <Font size="10.0" />
          </font>
       </Text>
-      <Button layoutX="310.0" layoutY="371.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="80.0" style="-fx-background-color: #339900;" text="LOGIN" textFill="#ffe3e3">
+      <Button fx:id="btnlogin" layoutX="310.0" layoutY="371.0" mnemonicParsing="false" onAction="#loginbtnonaction" prefHeight="24.0" prefWidth="80.0" style="-fx-background-color: #339900;" text="LOGIN" textFill="#ffe3e3">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

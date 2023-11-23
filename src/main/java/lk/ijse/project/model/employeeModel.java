@@ -1,7 +1,6 @@
 package lk.ijse.project.model;
 
 import lk.ijse.project.dto.employeeDto;
-import lk.ijse.project.dto.tm.customerTm;
 import lk.ijse.project.dto.tm.employeeTm;
 import lk.ijse.project.fp.FpConnection;
 
@@ -23,15 +22,15 @@ public class employeeModel {
 
         pstm.setString(1, empDto.getEmp_id());
         pstm.setString(2, empDto.getCity());
-        pstm.setString(3,empDto.getStreet());
+        pstm.setString(3, empDto.getStreet());
         pstm.setInt(4, empDto.getHouse_no());
         pstm.setInt(5, empDto.getContact_no());
         pstm.setString(6, empDto.getRole());
         pstm.setString(7, empDto.getUser_name());
         pstm.setString(8, empDto.getPassword());
-        pstm.setString(9,empDto.getEmail());
+        pstm.setString(9, empDto.getEmail());
         pstm.setString(10, empDto.getFirst_name());
-        pstm.setString(11,empDto.getLast_name());
+        pstm.setString(11, empDto.getLast_name());
         pstm.setInt(12, empDto.getNic());
 
         return pstm.executeUpdate() > 0;
@@ -44,46 +43,46 @@ public class employeeModel {
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, empDto.getCity());
-        pstm.setString(2,empDto.getStreet());
+        pstm.setString(2, empDto.getStreet());
         pstm.setInt(3, empDto.getHouse_no());
         pstm.setInt(4, empDto.getContact_no());
         pstm.setString(5, empDto.getRole());
         pstm.setString(6, empDto.getUser_name());
         pstm.setString(7, empDto.getPassword());
-        pstm.setString(8,empDto.getEmail());
+        pstm.setString(8, empDto.getEmail());
         pstm.setString(9, empDto.getFirst_name());
-        pstm.setString(10,empDto.getLast_name());
+        pstm.setString(10, empDto.getLast_name());
         pstm.setInt(11, empDto.getNic());
         pstm.setString(12, empDto.getEmp_id());
 
         return pstm.executeUpdate() > 0;
     }
 
-    public static employeeDto searchEmployee( String emp_id) throws SQLException {
+    public static employeeDto searchEmployee(String emp_id) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
         String sql = "SELECT * FROM employee WHERE emp_id = ?";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setString(1,emp_id);
+        pstm.setString(1, emp_id);
 
         ResultSet resultSet = pstm.executeQuery();
 
         employeeDto dto = null;
 
-        if(resultSet.next()) {
-                   String empid =resultSet.getString(1);
-                  String city=  resultSet.getString(2);
-                   String street =resultSet.getString(3);
-                   int house_no= resultSet.getInt(4);
-                   int contact_no= resultSet.getInt(5);
-                   String role= resultSet.getString(6);
-                   String username= resultSet.getString(7);
-                    String password=resultSet.getString(8);
-                   String email= resultSet.getString(9);
-                    String fname=resultSet.getString(10);
-                   String lname= resultSet.getString(11);
-                   int nic= resultSet.getInt(12);
-                   dto=new employeeDto(empid,city,street,house_no,contact_no,role,username,password,email,fname,lname,nic);
+        if (resultSet.next()) {
+            String empid = resultSet.getString(1);
+            String city = resultSet.getString(2);
+            String street = resultSet.getString(3);
+            int house_no = resultSet.getInt(4);
+            int contact_no = resultSet.getInt(5);
+            String role = resultSet.getString(6);
+            String username = resultSet.getString(7);
+            String password = resultSet.getString(8);
+            String email = resultSet.getString(9);
+            String fname = resultSet.getString(10);
+            String lname = resultSet.getString(11);
+            int nic = resultSet.getInt(12);
+            dto = new employeeDto(empid, city, street, house_no, contact_no, role, username, password, email, fname, lname, nic);
 
         }
         return dto;
@@ -104,13 +103,13 @@ public class employeeModel {
         String sql = "SELECT * FROM employee WHERE emp_id = ?";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setString(1,empid);
+        pstm.setString(1, empid);
 
         ResultSet resultSet = pstm.executeQuery();
 
         employeeTm tm = null;
 
-        if(resultSet.next()) {
+        if (resultSet.next()) {
             tm = new employeeTm(
                     resultSet.getString(1),
                     resultSet.getString(10),
@@ -122,18 +121,19 @@ public class employeeModel {
 
 
     }
+
     public static employeeDto getemployee(String empid) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
         String sql = "SELECT * FROM employee WHERE emp_id = ?";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setString(1,empid);
+        pstm.setString(1, empid);
 
         ResultSet resultSet = pstm.executeQuery();
 
         employeeDto dto = null;
 
-        if(resultSet.next()) {
+        if (resultSet.next()) {
             dto = new employeeDto(
                     resultSet.getString(1),
                     resultSet.getString(2),
@@ -154,10 +154,10 @@ public class employeeModel {
 
     }
 
-    public ArrayList<String> getAllEmployeeId() throws SQLException{
+    public ArrayList<String> getAllEmployeeId() throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
-        String sql="SELECT emp_id FROM employee ORDER BY LENGTH(emp_id),emp_id";
-        PreparedStatement pstm=connection.prepareStatement(sql);
+        String sql = "SELECT emp_id FROM employee ORDER BY LENGTH(emp_id),emp_id";
+        PreparedStatement pstm = connection.prepareStatement(sql);
 
         ResultSet resultSet = pstm.executeQuery();
         ArrayList<String> list = new ArrayList<>();
@@ -179,24 +179,39 @@ public class employeeModel {
         List<employeeDto> dtoList = new ArrayList<>();
         while (resultSet.next()) {
             var dto = new employeeDto(
-                  resultSet.getString(1),
-                   resultSet.getString(2),
-                   resultSet.getString(3),
-                   resultSet.getInt(4),
-                   resultSet.getInt(5),
-                   resultSet.getString(6),
-                   resultSet.getString(7),
-                   resultSet.getString(8),
-                   resultSet.getString(3),
-                   resultSet.getString(10),
-                   resultSet.getString(11),
-                   resultSet.getInt(12)
-                   );
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getInt(4),
+                    resultSet.getInt(5),
+                    resultSet.getString(6),
+                    resultSet.getString(7),
+                    resultSet.getString(8),
+                    resultSet.getString(3),
+                    resultSet.getString(10),
+                    resultSet.getString(11),
+                    resultSet.getInt(12)
+            );
 
             dtoList.add(dto);
         }
         return dtoList;
     }
 
+    public String checkUsernameAndPassword(String userName, String password) throws SQLException {
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql = "SELECT role FROM employee WHERE user_name=? AND  password=?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
 
+        pstm.setString(1, userName);
+        pstm.setString(2, password);
+
+        ResultSet set = pstm.executeQuery();
+
+        if (set.next()) {
+            String role = set.getString(1);
+            return role;
+        }
+        return "no";
+    }
 }
