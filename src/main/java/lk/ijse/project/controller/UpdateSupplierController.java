@@ -22,6 +22,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class UpdateSupplierController implements Initializable {
 
@@ -78,43 +79,45 @@ public class UpdateSupplierController implements Initializable {
 
     @FXML
     void updatebtnonaction(ActionEvent event) {
-        supplierDto supdto = new supplierDto();
+        boolean isValidate=validateSupplier();
+        if (isValidate) {
+            supplierDto supdto = new supplierDto();
 
 
-        supdto.setSup_id(UpdateSupplierController.id);
-        supdto.setFirst_name(txtfirstname.getText());
-        supdto.setEmp_id(cmbempid.getSelectionModel().getSelectedItem().toString());
-        supdto.setLast_name(txtlastname.getText());
-        supdto.setNic(Integer.parseInt(txtnic.getText()));
-        supdto.setEmail(txtemail.getText());
-        supdto.setContact_no(Integer.parseInt(txtcontactno.getText()));
-        supdto.setSupplier_product_type(txttype.getText());
-        try {
-            boolean updated = supplierModel.updateSupplier(supdto);
-            var model=new supplierModel();
-            if (updated) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Supplier updatedd!").show();
+            supdto.setSup_id(UpdateSupplierController.id);
+            supdto.setFirst_name(txtfirstname.getText());
+            supdto.setEmp_id(cmbempid.getSelectionModel().getSelectedItem().toString());
+            supdto.setLast_name(txtlastname.getText());
+            supdto.setNic(Integer.parseInt(txtnic.getText()));
+            supdto.setEmail(txtemail.getText());
+            supdto.setContact_no(Integer.parseInt(txtcontactno.getText()));
+            supdto.setSupplier_product_type(txttype.getText());
+            try {
+                boolean updated = supplierModel.updateSupplier(supdto);
+                var model = new supplierModel();
+                if (updated) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Supplier updatedd!").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 
-    public void setData(){
-        try{
-           supplierDto supdto = supplierModel.getSupplierDto(id);
-            txtcontactno.setText(String.valueOf(supdto.getContact_no()));
-            txtemail.setText(supdto.getEmail());
-            txtlastname.setText(supdto.getLast_name());
-            txtfirstname.setText(supdto.getFirst_name());
-            txtnic.setText(String.valueOf(supdto.getNic()));
-            txttype.setText(supdto.getSupplier_product_type());
+    public void setData() {
+            try {
+                supplierDto supdto = supplierModel.getSupplierDto(id);
+                txtcontactno.setText(String.valueOf(supdto.getContact_no()));
+                txtemail.setText(supdto.getEmail());
+                txtlastname.setText(supdto.getLast_name());
+                txtfirstname.setText(supdto.getFirst_name());
+                txtnic.setText(String.valueOf(supdto.getNic()));
+                txttype.setText(supdto.getSupplier_product_type());
 
 
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
     }
     private void loademployeeids() {
         ObservableList<String> obList = FXCollections.observableArrayList();
@@ -137,4 +140,34 @@ public class UpdateSupplierController implements Initializable {
         setData();
         loademployeeids();
     }
+        private boolean validateSupplier() {
+            String nameText=txtfirstname.getText();
+            String contxt=txtcontactno.getText();
+            String emailtext=txtemail.getText();
+            String lastnameText=txtlastname.getText();
+
+            boolean supnameValidated= Pattern.matches("[A-z]{3,}",nameText);
+            boolean suplastnameValidated=Pattern.matches("[A-z]{3,}",lastnameText);
+            boolean supcontactValidated=Pattern.matches("[0-9]{10}",contxt);
+            boolean supemailValidated=Pattern.matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",emailtext);
+
+
+            if (!supnameValidated) {
+                new Alert(Alert.AlertType.ERROR, "Invalid supplier firstname").show();
+                return false;
+            }
+            if(!supcontactValidated) {
+                new Alert(Alert.AlertType.ERROR, "Invalid supplier tele no").show();
+                return false;
+            }
+            if(!supemailValidated) {
+                new Alert(Alert.AlertType.ERROR, "Invalid supplier email").show();
+                return false;
+            }
+            if(!suplastnameValidated) {
+                new Alert(Alert.AlertType.ERROR, "Invalid supplier last name").show();
+                return false;
+            }
+            return true;
+        }
 }

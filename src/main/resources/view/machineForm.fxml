@@ -18,7 +18,7 @@
    <children>
       <ImageView fitHeight="768.0" fitWidth="1366.0">
          <image>
-            <Image url="@../icon/machine.png" />
+            <Image url="@../icon/MachinePaage.png" />
          </image>
       </ImageView>
       <Button fx:id="btndashboard" layoutX="110.0" layoutY="173.0" mnemonicParsing="false" onAction="#dashboardonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="      Dashboard" textFill="#305532">
@@ -143,5 +143,7 @@
          </children>
       </Pane>
       <JFXButton layoutX="684.0" layoutY="74.0" onAction="#btnaddmachineonaction" prefHeight="25.0" prefWidth="195.0" text="  " />
+      <Label fx:id="lbldate" layoutX="1217.0" layoutY="60.0" prefHeight="28.0" prefWidth="100.0" text="Label" />
+      <Label fx:id="lbltime" layoutX="1217.0" layoutY="89.0" prefHeight="28.0" prefWidth="100.0" text="Label" />
    </children>
 </AnchorPane>

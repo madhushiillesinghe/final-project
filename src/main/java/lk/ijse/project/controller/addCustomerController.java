@@ -86,30 +86,34 @@ public class addCustomerController implements Initializable {
 
     @FXML
     void addbtnonaction(ActionEvent event) throws SQLException {
-        boolean isValidate=validateCustomer();
-        if(isValidate){
-        customerDto cusdto=new customerDto();
+        boolean isValidate = validateCustomer();
+        if (isValidate) {
+            customerDto cusdto = new customerDto();
 
-        cusdto.setCus_id(txtid.getText());
-        cusdto.setCity(txtcity.getText());
-        cusdto.setFirst_name(txtfirstname.getText());
-        cusdto.setLast_name(txtlastname.getText());
-        cusdto.setStreet(txtstreet.getText());
-        cusdto.setContact_no(Integer.parseInt(txtcontactno.getText()));
-        cusdto.setHouse_no(Integer.parseInt(txthouseno.getText()));
-        cusdto.setNic(Integer.parseInt(txtnic.getText()));
-        cusdto.setEmail(txtemail.getText());
-        cusdto.setAccount_type(txtaccounttype.getText());
-        cusdto.setEmp_id(cmbempid.getSelectionModel().getSelectedItem());
+            cusdto.setCus_id(txtid.getText());
+            cusdto.setCity(txtcity.getText());
+            cusdto.setFirst_name(txtfirstname.getText());
+            cusdto.setLast_name(txtlastname.getText());
+            cusdto.setStreet(txtstreet.getText());
+            cusdto.setContact_no(Integer.parseInt(txtcontactno.getText()));
+            cusdto.setHouse_no(Integer.parseInt(txthouseno.getText()));
+            cusdto.setNic(Integer.parseInt(txtnic.getText()));
+            cusdto.setEmail(txtemail.getText());
+            cusdto.setAccount_type(txtaccounttype.getText());
+            cusdto.setEmp_id(cmbempid.getSelectionModel().getSelectedItem());
 
-        customerModel cusodel=new customerModel();
-            boolean isSaved;
-            isSaved = cusodel.saveCustomer(cusdto);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Customer saved!").show();
+            customerModel cusodel = new customerModel();
+            try {
+                boolean isSaved;
+                isSaved = cusodel.saveCustomer(cusdto);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Customer saved!").show();
+                }
+                } catch (SQLException e) {
+                    new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                }
             }
         }
-    }
 
     @FXML
     void cancelbtnonaction(ActionEvent event) throws IOException {
@@ -141,17 +145,31 @@ public class addCustomerController implements Initializable {
 
     }
     private boolean validateCustomer() {
-        String idText=txtid.getText();
         String nameText=txtfirstname.getText();
+        String contxt=txtcontactno.getText();
+        String emailtext=txtemail.getText();
+        String cityText=txtcity.getText();
 
-        boolean cusIdisValidated= Pattern.matches("[C][-][0-9]{2,}",idText);
         boolean cusnameValidated=Pattern.matches("[A-z]{3,}",nameText);
+        boolean cusaddressValidated=Pattern.matches("[A-z]{3,}",cityText);
+        boolean cuscontactValidated=Pattern.matches("[0-9]{10}",contxt);
+        boolean cusemailValidated=Pattern.matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",emailtext);
 
-        if(!cusIdisValidated) {
-            new Alert(Alert.AlertType.ERROR, "Invalid customer id").show();
-            return  false;
-        } if (!cusnameValidated){
-            new Alert(Alert.AlertType.ERROR, "Invalid customer name").show();
+
+            if (!cusnameValidated) {
+                new Alert(Alert.AlertType.ERROR, "Invalid customer name").show();
+                return false;
+            }
+            if(!cuscontactValidated) {
+                new Alert(Alert.AlertType.ERROR, "Invalid customer tele no").show();
+                return false;
+        }
+        if(!cusemailValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid customer email").show();
+            return false;
+        }
+        if(!cusaddressValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid customer City").show();
             return false;
         }
         return true;

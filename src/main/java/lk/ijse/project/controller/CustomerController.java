@@ -12,7 +12,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import lk.ijse.project.model.customerModel;
-import lk.ijse.project.util.Navigation;
+import lk.ijse.project.util.*;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
@@ -70,6 +71,12 @@ public class CustomerController implements Initializable {
 
         @FXML
         private TextField txtsearch;
+
+        @FXML
+        private Label lbldate;
+
+        @FXML
+        private Label lbltime;
 
         @FXML
         private VBox vBoxCustomerManage;
@@ -170,6 +177,8 @@ public class CustomerController implements Initializable {
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
                 try {
+                        lbldate.setText(DateTimeUtil.dateNow());
+                        lbltime.setText(DateTimeUtil.timeNow());
                         getAllIds();
                 } catch (SQLException e) {
                         throw new RuntimeException(e);

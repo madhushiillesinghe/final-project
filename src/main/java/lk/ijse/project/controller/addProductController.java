@@ -19,6 +19,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class addProductController implements Initializable {
 
@@ -48,7 +49,7 @@ public class addProductController implements Initializable {
     private TextField txtTime;
 
 
-    ProductModel proModel=new ProductModel();
+    ProductModel proModel = new ProductModel();
     ArrayList<String> list;
 
     {
@@ -61,31 +62,47 @@ public class addProductController implements Initializable {
 
     @FXML
     void addbtnonaction(ActionEvent event) throws IOException {
-        String p_code= txtid.getText();
-        Double price= Double.valueOf(txtprice.getText());
-        String description=txtproductname.getText();
-        int qty = Integer.parseInt(txtqtyonstock.getText());
 
-        var model = new productDto(p_code,price,description,qty,txtTime.getText());
-        try {
-            boolean isSaved;
-            isSaved = ProductModel.saveProduct(model);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "product saveddd!").show();
+        boolean isValidate = validateProduct();
+        if (isValidate) {
+            String p_code = txtid.getText();
+            Double price = Double.valueOf(txtprice.getText());
+            String description = txtproductname.getText();
+            int qty = Integer.parseInt(txtqtyonstock.getText());
+
+            var model = new productDto(p_code, price, description, qty, txtTime.getText());
+            try {
+                boolean isSaved;
+                isSaved = ProductModel.saveProduct(model);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "product saveddd!").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 
     @FXML
     void cancelbtnonaction(ActionEvent event) throws IOException {
         Navigation.close(event);
-        Navigation.switchNavigation("productForm.fxml",event);
+        Navigation.switchNavigation("productForm.fxml", event);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        txtid.setText(NewId.newId(list,NewId.GetType.PRODUCT));
+        txtid.setText(NewId.newId(list, NewId.GetType.PRODUCT));
+    }
+
+    private boolean validateProduct() {
+        String expiredatetxt = txtTime.getText();
+
+        boolean prodateValidated = Pattern.matches("^(3[01]|1[0-9]|0[1-9]|2[0-9])/(1[0-2]|0[1-9])/[0-9]{4}",expiredatetxt);
+
+        if (!prodateValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid expire date").show();
+            return false;
+        }
+        return true;
     }
 }

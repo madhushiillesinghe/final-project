@@ -23,6 +23,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class addSupplierController implements Initializable {
 
@@ -87,24 +88,27 @@ public class addSupplierController implements Initializable {
 
     @FXML
     void addbtnonaction(ActionEvent event) {
-        String firstname = txtfirstname.getText();
-        String lastname = txtlastname.getText();
-        int contactno = Integer.parseInt(txtcontactno.getText());
-        int nic= Integer.parseInt(txtnic.getText());
-        String email=txtemail.getText();
-        String sid=txtid.getText();
-        String type=txttype.getText();
+        boolean isValidate=validateSupplier();
+        if (isValidate) {
+            String firstname = txtfirstname.getText();
+            String lastname = txtlastname.getText();
+            int contactno = Integer.parseInt(txtcontactno.getText());
+            int nic = Integer.parseInt(txtnic.getText());
+            String email = txtemail.getText();
+            String sid = txtid.getText();
+            String type = txttype.getText();
 
-        var model = new supplierDto(sid,contactno,cmbempid.getValue(),type,email,firstname,lastname,nic);
-        try {
-            boolean isSaved;
-            isSaved = supplierModel.saveSupplier(model);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Supplier saveddd!").show();
+            var model = new supplierDto(sid, contactno, cmbempid.getValue(), type, email, firstname, lastname, nic);
+            try {
+                boolean isSaved;
+                isSaved = supplierModel.saveSupplier(model);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Supplier saveddd!").show();
 
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 
@@ -124,5 +128,36 @@ public class addSupplierController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loademployeeids();
         txtid.setText(NewId.newId(list,NewId.GetType.SUPPLIER));
+    }
+
+    private boolean validateSupplier() {
+        String nameText=txtfirstname.getText();
+        String contxt=txtcontactno.getText();
+        String emailtext=txtemail.getText();
+        String lastnameText=txtlastname.getText();
+
+        boolean supnameValidated= Pattern.matches("[A-z]{3,}",nameText);
+        boolean suplastnameValidated=Pattern.matches("[A-z]{3,}",lastnameText);
+        boolean supcontactValidated=Pattern.matches("[0-9]{10}",contxt);
+        boolean supemailValidated=Pattern.matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",emailtext);
+
+
+        if (!supnameValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid supplier firstname").show();
+            return false;
+        }
+        if(!supcontactValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid supplier tele no").show();
+            return false;
+        }
+        if(!supemailValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid supplier email").show();
+            return false;
+        }
+        if(!suplastnameValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid supplier last name").show();
+            return false;
+        }
+        return true;
     }
 }

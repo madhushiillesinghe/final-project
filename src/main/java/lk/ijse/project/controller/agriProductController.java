@@ -12,7 +12,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import lk.ijse.project.model.ProductModel;
-import lk.ijse.project.util.Navigation;
+import lk.ijse.project.util.*;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
@@ -75,6 +76,12 @@ public class agriProductController implements Initializable {
 
     @FXML
     private Text txtunitPrice;
+
+    @FXML
+    private Label lbldate;
+
+    @FXML
+    private Label lbltime;
 
      @FXML
     private VBox vBoxProductManage;
@@ -155,6 +162,9 @@ public class agriProductController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
+            lbldate.setText(DateTimeUtil.dateNow());
+            lbltime.setText(DateTimeUtil.timeNow());
+
             getAllIds();
         } catch (SQLException e) {
             throw new RuntimeException(e);

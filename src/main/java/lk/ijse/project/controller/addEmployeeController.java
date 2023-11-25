@@ -18,6 +18,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class addEmployeeController  implements Initializable {
     @FXML
@@ -81,32 +82,34 @@ public class addEmployeeController  implements Initializable {
 
     @FXML
     void addbtnonaction(ActionEvent event) throws IOException {
-        String city= txtcity.getText();
-        String firstname = txtfirstname.getText();
-        String lastname = txtlastname.getText();
-        String street = txtstreet.getText();
-        int houseno= Integer.parseInt(txthouseno.getText());
-        String role=txtrole.getText();
-        int contactno = Integer.parseInt(txtcontactno.getText());
-        int nic= Integer.parseInt(txtnicno.getText());
-        String email=txtemail.getText();
-        String password=txtpassword.getText();
-        String usename=txtusername.getText();
-        String id=txtid.getText();
+
+        boolean isValidated=validateEmployee();
+        if(isValidated) {
+            String city = txtcity.getText();
+            String firstname = txtfirstname.getText();
+            String lastname = txtlastname.getText();
+            String street = txtstreet.getText();
+            int houseno = Integer.parseInt(txthouseno.getText());
+            String role = txtrole.getText();
+            int contactno = Integer.parseInt(txtcontactno.getText());
+            int nic = Integer.parseInt(txtnicno.getText());
+            String email = txtemail.getText();
+            String password = txtpassword.getText();
+            String usename = txtusername.getText();
+            String id = txtid.getText();
 
 
-
-
-        var dto = new employeeDto(id,city,street,houseno,contactno,role,usename,password,email,firstname,lastname,nic);
-        var model=new employeeModel();
-        try {
-            boolean isSaved;
-            isSaved = model.saveEmployee(dto);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Employee saveddd!").show();
+            var dto = new employeeDto(id, city, street, houseno, contactno, role, usename, password, email, firstname, lastname, nic);
+            var model = new employeeModel();
+            try {
+                boolean isSaved;
+                isSaved = model.saveEmployee(dto);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Employee saveddd!").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 
@@ -121,6 +124,41 @@ public class addEmployeeController  implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
             txtid.setText(NewId.newId(list,NewId.GetType.EMPLOYEE));
         }
+    private boolean validateEmployee() {
+        String nameText=txtfirstname.getText();
+        String contxt=txtcontactno.getText();
+        String emailtext=txtemail.getText();
+        String lastnameText=txtlastname.getText();
+        String cityText=txtcity.getText();
 
+        boolean empnameValidated= Pattern.matches("[A-z]{3,}",nameText);
+        boolean emplastnameValidated=Pattern.matches("[A-z]{3,}",lastnameText);
+        boolean empcityValidated=Pattern.matches("[A-z]{3,}",lastnameText);
+        boolean empcontactValidated=Pattern.matches("[0-9]{10}",contxt);
+        boolean empemailValidated=Pattern.matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",emailtext);
+
+
+        if (!empnameValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid supplier firstname").show();
+            return false;
+        }
+        if(!empcontactValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid supplier tele no").show();
+            return false;
+        }
+        if(!empemailValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid supplier email").show();
+            return false;
+        }
+        if(!emplastnameValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid supplier last name").show();
+            return false;
+        }
+        if(!empcityValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid supplier city").show();
+            return false;
+        }
+        return true;
+    }
 }
 
