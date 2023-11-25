@@ -17,6 +17,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class UpdateProductController implements Initializable {
 
@@ -99,5 +100,17 @@ public class UpdateProductController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setData();
     }
+    private boolean validateProduct() {
+        //String expiredatetxt = txtdatepicker.getText();
+
+        boolean prodateValidated = Pattern.matches("^(3[01]|1[0-9]|0[1-9]|2[0-9])/(1[0-2]|0[1-9])/[0-9]{4}",expiredatetxt);
+
+        if (!prodateValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid expire date").show();
+            return false;
+        }
+        return true;
+    }
 }
+
 
