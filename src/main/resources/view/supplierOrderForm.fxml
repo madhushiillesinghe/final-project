@@ -18,7 +18,7 @@
    <children>
       <ImageView fitHeight="768.0" fitWidth="1366.0">
          <image>
-            <Image url="@../icon/supplier%20orders.png" />
+            <Image url="@../icon/SupplierOrderPage.png" />
          </image>
       </ImageView>
       <Button fx:id="btndashboard" layoutX="110.0" layoutY="173.0" mnemonicParsing="false" onAction="#dashboardonaction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #89DC65;" text="      Dashboard" textFill="#305532">
@@ -153,5 +153,7 @@
             </Text>
          </children>
       </HBox>
+      <Label fx:id="txtdate" layoutX="1218.0" layoutY="60.0" prefHeight="28.0" prefWidth="103.0" text="Label" />
+      <Label fx:id="txttime" layoutX="1217.0" layoutY="94.0" prefHeight="25.0" prefWidth="94.0" text="Label" />
    </children>
 </AnchorPane>

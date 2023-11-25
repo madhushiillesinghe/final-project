@@ -15,7 +15,7 @@ public class SupplierOrderModel {
         PreparedStatement pstm=connection.prepareStatement(sql);
         pstm.setString(1,dto.getSup_order_id());
         pstm.setString(2,dto.getSup_id());
-        pstm.setDate(3, (Date) dto.getDate());
+        pstm.setString(3, dto.getDate());
 
         return pstm.executeUpdate()>0;
     }
@@ -49,7 +49,7 @@ public class SupplierOrderModel {
         if (resultSet.next()) {
             supplyOderDto.setSup_order_id(resultSet.getString(1));
             supplyOderDto.setSup_id(resultSet.getString(2));
-            supplyOderDto.setDate(resultSet.getDate(3));
+            supplyOderDto.setDate(resultSet.getString(3));
         }
         return supplyOderDto;
     }

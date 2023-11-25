@@ -6,7 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import lk.ijse.project.model.employeeModel;
-import lk.ijse.project.util.Navigation;
+import lk.ijse.project.util.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -50,6 +50,12 @@ public class DashboardController implements Initializable {
 
     @FXML
     private Label lblsupplier;
+
+    @FXML
+    private Label txtdate;
+
+    @FXML
+    private Label txttime;
 
 
 employeeModel empmodel =new employeeModel();
@@ -104,6 +110,9 @@ employeeModel empmodel =new employeeModel();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        txtdate.setText(DateTimeUtil.dateNow());
+        txttime.setText(DateTimeUtil.timeNow());
+
 
         try {
             showDashboardValue(empmodel);

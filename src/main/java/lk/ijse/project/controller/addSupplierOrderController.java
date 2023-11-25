@@ -17,7 +17,7 @@ import lk.ijse.project.model.ProductModel;
 import lk.ijse.project.model.SupplierPlaceOrderModel;
 import lk.ijse.project.model.supplierModel;
 import lk.ijse.project.model.SupplierOrderModel;
-import lk.ijse.project.util.Navigation;
+import lk.ijse.project.util.*;
 import lk.ijse.project.util.NewId;
 
 import java.io.IOException;
@@ -45,9 +45,6 @@ public class addSupplierOrderController implements Initializable {
 
     @FXML
     private ComboBox<String> comboxsupplierid;
-
-    @FXML
-    private DatePicker datepickdate;
 
     @FXML
     private Text description;
@@ -88,6 +85,14 @@ public class addSupplierOrderController implements Initializable {
     @FXML
     private VBox vBoxSupplyOrderBar;
 
+    @FXML
+    private Label lblNetTotal;
+
+    @FXML
+    private Label lbldate;
+
+    public static double netTotal;
+
     SupplierOrderModel supomodel=new SupplierOrderModel();
     SupplierPlaceOrderModel placeSupplierOrder = new SupplierPlaceOrderModel();
     ArrayList<String[]> productList = new ArrayList<>();
@@ -110,6 +115,10 @@ public class addSupplierOrderController implements Initializable {
         String[] products = {String.valueOf(comboxproductid.getSelectionModel().getSelectedItem()), txtqtyofbuy.getText()};
 
         productList.add(products);
+        System.out.println(txtUnitPrice);
+
+        netTotal += ((Double.parseDouble(txtunitprice.getText())) * (Double.parseDouble(txtqtyofbuy.getText())));
+        lblNetTotal.setText(String.valueOf(netTotal));
 
         allSupplierOrderCartId();
 
@@ -127,18 +136,13 @@ public class addSupplierOrderController implements Initializable {
     }
 
     @FXML
-    void dateonaction(ActionEvent event) {
-        Date date= Date.valueOf(datepickdate.getValue());
-    }
-
-    @FXML
     void placeorderbtnonaction(ActionEvent event) throws SQLException {
 
         SupplyOderDto supplierOrderDto = new SupplyOderDto();
 
         supplierOrderDto.setSup_order_id(txtorderid.getText());
         supplierOrderDto.setSup_id(comboxsupplierid.getSelectionModel().getSelectedItem());
-        supplierOrderDto.setDate(Date.valueOf(datepickdate.getValue()));
+        supplierOrderDto.setDate(lbldate.getText());
         supplierOrderDto.setTmlist(productList);
 
         boolean isSaved = placeSupplierOrder.SavesupplierplaceOrder(supplierOrderDto);
@@ -193,6 +197,7 @@ public class addSupplierOrderController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        lbldate.setText(DateTimeUtil.dateNow());
         loadAllProductIds();
         loadAllSupplierIds();
         txtorderid.setText(NewId.newId(list,NewId.GetType.SUPPLYORDERID));

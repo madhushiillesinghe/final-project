@@ -65,7 +65,7 @@ public class ProductBarFormController {
         txtName.setText(protm.getName());
         txtunitprice.setText(String.valueOf(protm.getUnitPrice()));
         txtqty.setText(String.valueOf(protm.getQty()));
-        txtExpiredate.setText(String.valueOf(protm.getExpireDate()));
+        txtExpiredate.setText(protm.getExpireDate());
        } catch (SQLException e) {
            throw new RuntimeException(e);
        }

@@ -16,10 +16,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class addProductController implements Initializable {
+
 
     @FXML
     private Button btnadd;
@@ -28,10 +30,13 @@ public class addProductController implements Initializable {
     private Button btncancel;
 
     @FXML
+    private DatePicker datepicker;
+
+    @FXML
     private TextField txtid;
 
     @FXML
-    private DatePicker dateexpire;
+    private TextField txtprice;
 
     @FXML
     private TextField txtproductname;
@@ -40,7 +45,8 @@ public class addProductController implements Initializable {
     private TextField txtqtyonstock;
 
     @FXML
-    private TextField txtusername;
+    private TextField txtTime;
+
 
     ProductModel proModel=new ProductModel();
     ArrayList<String> list;
@@ -52,19 +58,15 @@ public class addProductController implements Initializable {
             throw new RuntimeException(e);
         }
     }
-    @FXML
-    void datepickeronaction(ActionEvent event) {
-        Date date= Date.valueOf(dateexpire.getValue());
-    }
 
     @FXML
     void addbtnonaction(ActionEvent event) throws IOException {
         String p_code= txtid.getText();
-        Double price= Double.valueOf(txtusername.getText());
+        Double price= Double.valueOf(txtprice.getText());
         String description=txtproductname.getText();
         int qty = Integer.parseInt(txtqtyonstock.getText());
 
-        var model = new productDto(p_code,price,description,qty,Date.valueOf(dateexpire.getValue()));
+        var model = new productDto(p_code,price,description,qty,txtTime.getText());
         try {
             boolean isSaved;
             isSaved = ProductModel.saveProduct(model);

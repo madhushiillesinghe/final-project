@@ -17,7 +17,7 @@
          </image>
       </ImageView>
       <TextField fx:id="txtproductname" layoutX="239.0" layoutY="55.0" prefHeight="24.0" prefWidth="249.0" style="-fx-background-color: #ACE1AF;" />
-      <TextField fx:id="txtusername" layoutX="239.0" layoutY="105.0" prefHeight="24.0" prefWidth="130.0" promptText="        LKR" style="-fx-background-color: #ACE1AF;" />
+      <TextField fx:id="txtprice" layoutX="239.0" layoutY="105.0" prefHeight="24.0" prefWidth="130.0" promptText="        LKR" style="-fx-background-color: #ACE1AF;" />
       <TextField fx:id="txtqtyonstock" layoutX="239.0" layoutY="155.0" prefHeight="24.0" prefWidth="130.0" style="-fx-background-color: #ACE1AF;" />
       <Text layoutX="120.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product name" />
       <Text layoutX="120.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit price" />
@@ -41,6 +41,7 @@
       </ImageView>
       <TextField fx:id="txtid" layoutX="474.0" layoutY="8.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ffffff;" />
       <Text layoutX="452.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
-      <DatePicker fx:id="dateexpire" layoutX="239.0" layoutY="204.0" onAction="#datepickeronaction" promptText="   DD/MM/YYYY" style="-fx-background-color: #ACE1AF;" />
+      <DatePicker fx:id="datepicker" layoutX="231.0" layoutY="204.0" />
+      <TextField fx:id="txtTime" layoutX="231.0" layoutY="239.0" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: #ACE1AF;" />
    </children>
 </AnchorPane>

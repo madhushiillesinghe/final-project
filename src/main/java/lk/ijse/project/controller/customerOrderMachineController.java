@@ -13,6 +13,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import lk.ijse.project.model.CustomerOrderModel;
 import lk.ijse.project.util.Navigation;
+import javafx.scene.control.Label;
+import lk.ijse.project.util.DateTimeUtil;
 
 import java.io.IOException;
 import java.net.URL;
@@ -83,6 +85,12 @@ public class customerOrderMachineController implements Initializable {
     private TextField txtsearch;
 
     @FXML
+    private Label lbldate;
+
+    @FXML
+    private Label lbltime;
+
+    @FXML
     private VBox vBoxCusOrderManage;
 
     private static customerOrderMachineController controller;
@@ -98,8 +106,6 @@ public class customerOrderMachineController implements Initializable {
 
     @FXML
     void btnaddcustomeronaction(ActionEvent event) throws IOException {
-        Navigation.close(event);
-        Navigation.switchNavigation("addMachineOrderForm.fxml",event);
 
     }
 
@@ -185,6 +191,8 @@ public class customerOrderMachineController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
+            lbldate.setText(DateTimeUtil.dateNow());
+            lbltime.setText(DateTimeUtil.timeNow());
             getAllIds();
         } catch (SQLException e) {
             throw new RuntimeException(e);

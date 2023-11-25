@@ -16,7 +16,7 @@ import java.util.List;
 public class SupplyOderDto {
     private String sup_order_id;
     private String sup_id;
-    private Date date;
+    private String date;
     private ArrayList<String[]>  tmlist=new ArrayList<>();
 
 }

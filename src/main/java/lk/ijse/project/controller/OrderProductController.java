@@ -14,12 +14,14 @@ import javafx.scene.text.Text;
 import lk.ijse.project.model.CustomerOrderModel;
 import lk.ijse.project.model.SupplierOrderModel;
 import lk.ijse.project.util.Navigation;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import lk.ijse.project.util.DateTimeUtil;
 
 public class OrderProductController  implements Initializable {
 
@@ -82,6 +84,12 @@ public class OrderProductController  implements Initializable {
 
     @FXML
     private TextField txtsearch;
+    @FXML
+    private Label lbldate;
+
+    @FXML
+    private Label lbltime;
+
 
     @FXML
     private VBox vBoxCusProductOrderManage;
@@ -185,6 +193,8 @@ public class OrderProductController  implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
+            lbldate.setText(DateTimeUtil.dateNow());
+            lbltime.setText(DateTimeUtil.timeNow());
             getAllIds();
         } catch (Exception e) {
             throw new RuntimeException(e);

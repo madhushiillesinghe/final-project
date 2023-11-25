@@ -15,9 +15,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class UpdateProductController implements Initializable {
+
 
     @FXML
     private Button btncancel;
@@ -26,7 +28,7 @@ public class UpdateProductController implements Initializable {
     private Button btnupdate;
 
     @FXML
-    private DatePicker dateexpire;
+    private DatePicker txtdatepicker;
 
     @FXML
     private TextField txtid;
@@ -56,7 +58,7 @@ public class UpdateProductController implements Initializable {
 
     @FXML
     void datepickeronaction(ActionEvent event) {
-
+    Date date= Date.valueOf(txtdatepicker.getValue());
     }
 
     @FXML
@@ -67,7 +69,7 @@ public class UpdateProductController implements Initializable {
         prodto.setP_code(UpdateProductController.id);
         prodto.setDescription(txtproductname.getText());
         prodto.setQty_on_stock(Integer.parseInt(txtqtyonstock.getText()));
-        prodto.setExpire_date(Date.valueOf(dateexpire.getValue()));
+        prodto.setExpire_date(String.valueOf(txtdatepicker.getValue()));
         prodto.setUnit_price(Double.parseDouble(txtunitprice.getText()));
 
         try {
@@ -86,8 +88,7 @@ public class UpdateProductController implements Initializable {
             txtunitprice.setText(String.valueOf(prodto.getUnit_price()));
             txtproductname.setText(prodto.getDescription());
             txtqtyonstock.setText(String.valueOf(prodto.getQty_on_stock()));
-            dateexpire.setValue(prodto.getExpire_date().toLocalDate());
-
+            txtdatepicker.setValue(LocalDate.parse(prodto.getExpire_date()));
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

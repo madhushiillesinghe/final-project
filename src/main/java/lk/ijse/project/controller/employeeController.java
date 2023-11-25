@@ -12,7 +12,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import lk.ijse.project.model.employeeModel;
+import javafx.scene.control.Label;
 import lk.ijse.project.util.Navigation;
+import lk.ijse.project.util.DateTimeUtil;
 
 
 import java.io.IOException;
@@ -73,6 +75,10 @@ public class employeeController implements Initializable {
 
     @FXML
     private VBox vBoxEmployeeManage;
+    @FXML
+    private Label txtdate;
+    @FXML
+    private Label txttime;
 
     @FXML
     void addcustomer(MouseEvent event) {
@@ -142,6 +148,8 @@ public class employeeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
+            txtdate.setText(DateTimeUtil.dateNow());
+            txttime.setText(DateTimeUtil.timeNow());
             getAllIds();
         } catch (SQLException e) {
             throw new RuntimeException(e);

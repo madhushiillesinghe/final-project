@@ -12,9 +12,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import lk.ijse.project.model.customerModel;
-import lk.ijse.project.util.Navigation;
+import lk.ijse.project.util.*;
 import lk.ijse.project.util.Navigation.*;
 import lk.ijse.project.model.supplierModel;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
@@ -72,6 +73,11 @@ public class supplierController implements Initializable {
 
     @FXML
     private TextField txtsearch;
+    @FXML
+    private Label txttime;
+
+    @FXML
+    private Label txtdate;
 
     @FXML
     private VBox vBoxSupplierManage;
@@ -147,6 +153,8 @@ public class supplierController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
+            txtdate.setText(DateTimeUtil.dateNow());
+            txttime.setText(DateTimeUtil.timeNow());
             getAllIds();
         } catch (SQLException e) {
             throw new RuntimeException(e);

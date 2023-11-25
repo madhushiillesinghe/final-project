@@ -14,7 +14,7 @@
    <children>
       <ImageView fitHeight="768.0" fitWidth="1366.0">
          <image>
-            <Image url="@../icon/Employee.png" />
+            <Image url="@../icon/DashboardOwnerManagePage.png" />
          </image>
       </ImageView>
       <Pane layoutX="363.0" layoutY="76.0" prefHeight="43.0" prefWidth="200.0" />
@@ -167,5 +167,7 @@
             <ColorAdjust brightness="-0.05" contrast="0.12" hue="0.02" saturation="-0.38" />
          </effect>
       </Pane>
+      <Label fx:id="txtdate" layoutX="1217.0" layoutY="48.0" prefHeight="28.0" prefWidth="103.0" text="Label" />
+      <Label fx:id="txttime" layoutX="1217.0" layoutY="85.0" prefHeight="25.0" prefWidth="94.0" text="Label" />
    </children>
 </AnchorPane>

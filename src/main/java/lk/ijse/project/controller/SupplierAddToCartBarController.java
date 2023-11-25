@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import lk.ijse.project.dto.tm.employeeTm;
+import javafx.scene.control.Label;
 import lk.ijse.project.model.ProductModel;
 import lk.ijse.project.model.employeeModel;
 
@@ -59,6 +59,8 @@ public class SupplierAddToCartBarController {
             txtUnitPrice.setText(descriptionAndUnitPrice[1]);
             txtQty.setText(element[1]);
             total.setText(String.valueOf(Double.parseDouble(txtUnitPrice.getText()) * Integer.parseInt(txtQty.getText())));
+
+            //addSupplierOrderController.lblNetTotal.setText(String.valueOf(netTotal));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

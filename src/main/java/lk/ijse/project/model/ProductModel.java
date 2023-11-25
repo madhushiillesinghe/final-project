@@ -4,6 +4,7 @@ import lk.ijse.project.dto.tm.productTm;
 import lk.ijse.project.fp.FpConnection;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 public class ProductModel {
@@ -16,7 +17,7 @@ public class ProductModel {
         pstm.setDouble(2, prodto.getUnit_price());
         pstm.setString(3, prodto.getDescription());
         pstm.setInt(4, prodto.getQty_on_stock());
-        pstm.setDate(5, (Date) prodto.getExpire_date());
+        pstm.setString(5, prodto.getExpire_date());
 
         return pstm.executeUpdate() > 0;
     }
@@ -31,7 +32,7 @@ public class ProductModel {
         pstm.setDouble(1, prodto.getUnit_price());
         pstm.setString(2, prodto.getDescription());
         pstm.setInt(3, prodto.getQty_on_stock());
-        pstm.setDate(4, (Date) prodto.getExpire_date());
+        pstm.setString(4, prodto.getExpire_date());
         pstm.setString(5, prodto.getP_code());
 
 
@@ -88,7 +89,7 @@ public class ProductModel {
                     resultSet.getDouble(2),
                     resultSet.getString(3),
                     resultSet.getInt(4),
-                    resultSet.getDate(5)
+                    resultSet.getString(5)
             );
         }
         return dto;
@@ -120,7 +121,7 @@ public class ProductModel {
                     resultSet.getDouble(2),
                     resultSet.getString(3),
                     resultSet.getInt(4),
-                    resultSet.getDate(5)
+                    resultSet.getString(5)
             );
 
             dtoList.add(dto);
@@ -145,7 +146,7 @@ public class ProductModel {
                     resultSet.getString(3),
                     resultSet.getDouble(2),
                     resultSet.getInt(4),
-                    resultSet.getDate(5)
+                    resultSet.getString(5)
             );
         }
         return protm;
@@ -167,7 +168,7 @@ public class ProductModel {
                     resultSet.getDouble(2),
                     resultSet.getString(3),
                     resultSet.getInt(4),
-                    resultSet.getDate(5)
+                    resultSet.getString(5)
             );
         }
         return prodto;

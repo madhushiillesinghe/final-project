@@ -2,10 +2,15 @@ package lk.ijse.project.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import lk.ijse.project.util.DateTimeUtil;
 
-public class DashboardManagerController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class DashboardManagerController implements Initializable {
 
     @FXML
     private Button btncustomer;
@@ -39,6 +44,12 @@ public class DashboardManagerController {
 
     @FXML
     private Label lblsupplier;
+
+    @FXML
+    private Label txtdate;
+
+    @FXML
+    private Label txttime;
 
     @FXML
     void customerbtnonaction(ActionEvent event) {
@@ -75,4 +86,9 @@ public class DashboardManagerController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+    txtdate.setText(DateTimeUtil.dateNow());
+    txttime.setText(DateTimeUtil.dateNow());
+    }
 }

@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,5 +16,5 @@ public class productDto {
     private double unit_price;
     private String description;
     private int qty_on_stock;
-    private Date expire_date;
+    private String expire_date;
 }

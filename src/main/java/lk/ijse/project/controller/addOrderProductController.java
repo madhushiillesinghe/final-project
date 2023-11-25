@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import lk.ijse.project.dto.*;
 import lk.ijse.project.model.*;
-import lk.ijse.project.util.Navigation;
+import lk.ijse.project.util.*;
 import lk.ijse.project.util.NewId;
 
 import java.io.IOException;
@@ -82,6 +82,12 @@ public class addOrderProductController implements Initializable {
     private TextField txtunitprice;
 
     @FXML
+    private Label lbldate;
+
+    @FXML
+    private Label lblnettotal;
+
+    @FXML
     private VBox vBoxproductorderbar;
 
     CustomerOrderModel cusomodel=new CustomerOrderModel();
@@ -91,6 +97,8 @@ public class addOrderProductController implements Initializable {
 
     ArrayList<String> list;
     public addOrderProductController(){
+
+        controller = this;
 
         {
             try {
@@ -102,6 +110,11 @@ public class addOrderProductController implements Initializable {
 
     }
 
+    private static addOrderProductController controller;
+
+    public static addOrderProductController getInstance() {
+        return controller;
+    }
 
     @FXML
     void addtocartbtnonaction(ActionEvent event) {
@@ -163,11 +176,6 @@ public class addOrderProductController implements Initializable {
     }
 
     @FXML
-    void dateonaction(ActionEvent event) {
-        Date date= Date.valueOf(datepickdate.getValue());
-    }
-
-    @FXML
     void placeorderbtnonaction(ActionEvent event) throws SQLException {
         CustomerOrderDto cusOrderDto = new CustomerOrderDto();
 
@@ -175,7 +183,7 @@ public class addOrderProductController implements Initializable {
         cusOrderDto.setCus_id(comboxcustomerid.getSelectionModel().getSelectedItem());
         cusOrderDto.setM_id(comboxmachineid.getSelectionModel().getSelectedItem());
         cusOrderDto.setDate(Date.valueOf(datepickdate.getValue()));
-       cusOrderDto.setTmlist(productList);
+        cusOrderDto.setTmlist(productList);
 
         boolean isSaved = placeCustomerOrder.SaveCustomerplaceOrder(cusOrderDto);
 
@@ -207,6 +215,7 @@ public class addOrderProductController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        lbldate.setText(DateTimeUtil.dateNow());
         loadAllProductIds();
         loadAllCustomerIds();
         loadAllMachineIds();

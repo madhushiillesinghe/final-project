@@ -15,5 +15,5 @@ public class productTm {
     private String name;
     private double unitPrice;
     private int qty;
-    private Date expireDate;
+    private String expireDate;
 }

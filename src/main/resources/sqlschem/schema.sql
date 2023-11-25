@@ -26,7 +26,7 @@ CREATE TABLE agri_product(
                              unit_price DOUBLE NOT NULL,
                              description VARCHAR(15) NOT NULL,
                              qty_on_stock INT ,
-                             expire_date DATE
+                             expire_date VARCHAR(25)
 );
 
 CREATE TABLE customer(
