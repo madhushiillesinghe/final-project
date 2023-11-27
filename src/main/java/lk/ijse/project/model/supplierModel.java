@@ -48,12 +48,12 @@ public class supplierModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public static supplierDto searchSupplier(String sup_id) throws SQLException {
+    public static supplierDto searchSupplier(int nicno) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
-        String sql = "SELECT * FROM supplier WHERE sup_id = ?";
+        String sql = "SELECT * FROM supplier WHERE nic = ?";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setString(1, sup_id);
+        pstm.setInt(1, nicno);
 
         ResultSet resultSet = pstm.executeQuery();
 
@@ -198,6 +198,21 @@ public class supplierModel {
 
         while (resultSet.next()) {
             list.add(resultSet.getString(1));
+        }
+        return list;
+    }
+
+    public ArrayList<String> getAllSupplierNic() throws SQLException {
+
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql="SELECT nic FROM supplier ORDER BY LENGTH(nic),nic";
+        PreparedStatement pstm=connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+        ArrayList<String> list = new ArrayList<>();
+
+        while (resultSet.next()) {
+            list.add(String.valueOf(resultSet.getInt(1)));
         }
         return list;
     }

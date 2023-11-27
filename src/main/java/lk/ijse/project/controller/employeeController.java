@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import lk.ijse.project.model.customerModel;
 import lk.ijse.project.model.employeeModel;
 import javafx.scene.control.Label;
 import lk.ijse.project.util.Navigation;
@@ -134,7 +135,15 @@ public class employeeController implements Initializable {
     }
 
     @FXML
-    void searchemployee(MouseEvent event) {
+    void searchemployee(MouseEvent event) throws SQLException, IOException {
+        employeeModel empmodel=new employeeModel();
+        ArrayList<String> allempid=empmodel.getAllEmployeeNic();
+        for(int i=0;i<allempid.size();i++){
+            if(txtsearch.getText().equals(allempid.get(i))){
+                ViewEmployeeFormController.nic= Integer.parseInt(txtsearch.getText());
+                Navigation.switchNavigation("ViewEmployeeForm.fxml",event);
+            }
+        }
 
     }
 

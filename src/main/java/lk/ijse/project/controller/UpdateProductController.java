@@ -23,13 +23,13 @@ public class UpdateProductController implements Initializable {
 
 
     @FXML
+    private TextField TXTexpiredate;
+
+    @FXML
     private Button btncancel;
 
     @FXML
     private Button btnupdate;
-
-    @FXML
-    private DatePicker txtdatepicker;
 
     @FXML
     private TextField txtid;
@@ -42,7 +42,6 @@ public class UpdateProductController implements Initializable {
 
     @FXML
     private TextField txtunitprice;
-
     public static String id;
 
     ProductModel promodel = new ProductModel();
@@ -58,29 +57,27 @@ public class UpdateProductController implements Initializable {
     }
 
     @FXML
-    void datepickeronaction(ActionEvent event) {
-    Date date= Date.valueOf(txtdatepicker.getValue());
-    }
-
-    @FXML
     void updatebtnonaction(ActionEvent event) {
-       productDto prodto = new productDto();
+        boolean isValidate=validateProduct();
+        if(isValidate) {
+            productDto prodto = new productDto();
 
 
-        prodto.setP_code(UpdateProductController.id);
-        prodto.setDescription(txtproductname.getText());
-        prodto.setQty_on_stock(Integer.parseInt(txtqtyonstock.getText()));
-        prodto.setExpire_date(String.valueOf(txtdatepicker.getValue()));
-        prodto.setUnit_price(Double.parseDouble(txtunitprice.getText()));
+            prodto.setP_code(UpdateProductController.id);
+            prodto.setDescription(txtproductname.getText());
+            prodto.setQty_on_stock(Integer.parseInt(txtqtyonstock.getText()));
+            prodto.setExpire_date(TXTexpiredate.getText());
+            prodto.setUnit_price(Double.parseDouble(txtunitprice.getText()));
 
-        try {
-            boolean updated = ProductModel.updateProduct(prodto);
-            var model=new ProductModel();
-            if (updated) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Product updatedd!").show();
+            try {
+                boolean updated = ProductModel.updateProduct(prodto);
+                var model = new ProductModel();
+                if (updated) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Product updatedd!").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
     public void setData(){
@@ -89,7 +86,7 @@ public class UpdateProductController implements Initializable {
             txtunitprice.setText(String.valueOf(prodto.getUnit_price()));
             txtproductname.setText(prodto.getDescription());
             txtqtyonstock.setText(String.valueOf(prodto.getQty_on_stock()));
-            txtdatepicker.setValue(LocalDate.parse(prodto.getExpire_date()));
+            TXTexpiredate.setText(prodto.getExpire_date());
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -101,8 +98,7 @@ public class UpdateProductController implements Initializable {
         setData();
     }
     private boolean validateProduct() {
-        //String expiredatetxt = txtdatepicker.getText();
-
+        String expiredatetxt = TXTexpiredate.getText();
         boolean prodateValidated = Pattern.matches("^(3[01]|1[0-9]|0[1-9]|2[0-9])/(1[0-2]|0[1-9])/[0-9]{4}",expiredatetxt);
 
         if (!prodateValidated) {

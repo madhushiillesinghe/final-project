@@ -58,12 +58,12 @@ public class employeeModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public static employeeDto searchEmployee(String emp_id) throws SQLException {
+    public static employeeDto searchEmployee(int nicno) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
-        String sql = "SELECT * FROM employee WHERE emp_id = ?";
+        String sql = "SELECT * FROM employee WHERE nic = ?";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setString(1, emp_id);
+        pstm.setInt(1, nicno);
 
         ResultSet resultSet = pstm.executeQuery();
 
@@ -164,6 +164,19 @@ public class employeeModel {
 
         while (resultSet.next()) {
             list.add(resultSet.getString(1));
+        }
+        return list;
+    }
+    public ArrayList<String> getAllEmployeeNic() throws SQLException {
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql = "SELECT nic FROM employee ORDER BY LENGTH(nic),nic";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+        ArrayList<String> list = new ArrayList<>();
+
+        while (resultSet.next()) {
+            list.add(String.valueOf(resultSet.getInt(1)));
         }
         return list;
     }

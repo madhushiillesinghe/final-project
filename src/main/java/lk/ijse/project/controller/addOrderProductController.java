@@ -159,7 +159,7 @@ public class addOrderProductController implements Initializable {
     void customeridonaction(ActionEvent event) {
         String  sid = comboxcustomerid.getSelectionModel().getSelectedItem().toString();
         try{
-            customerDto dto=customerModel.searchCustomer(sid);
+            customerDto dto=customerModel.getData(sid);
             txtcusnme.setText(dto.getFirst_name());
         } catch (SQLException e) {
             throw new RuntimeException(e);

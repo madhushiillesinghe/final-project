@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.ViewSupplierFormController">
+   <children>
+      <ImageView fitHeight="350.0" fitWidth="600.0">
+         <image>
+            <Image url="@../icon/addcustomer%20(1).png" />
+         </image>
+      </ImageView>
+      <Text layoutX="69.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Supplier">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="40.0" layoutY="10.0">
+         <image>
+            <Image url="@../icon/Group693.png" />
+         </image>
+      </ImageView>
+      <Text fill="#f8eeee" fontSmoothingType="LCD" layoutX="245.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Emp_id">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="437.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="          Id:" />
+      <Text layoutX="68.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name:" />
+      <Text layoutX="303.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name:" />
+      <Text layoutX="67.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact no:" />
+      <Text layoutX="69.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
+      <Text layoutX="69.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIC:" />
+      <Text layoutX="63.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="product type:" />
+      <Label fx:id="lblfname" layoutX="152.0" layoutY="44.0" prefHeight="20.0" prefWidth="119.0" style="-fx-background-color: #ACE1AF;" text="Label" />
+      <Label fx:id="lblSupId" layoutX="508.0" layoutY="10.0" prefHeight="20.0" prefWidth="88.0" style="-fx-background-color: #ffffff;" text="Label" />
+      <Label fx:id="lblempId" layoutX="316.0" layoutY="10.0" prefHeight="20.0" prefWidth="98.0" style="-fx-background-color: #ffffff;" text="Label" />
+      <Label fx:id="lblproductType" layoutX="148.0" layoutY="248.0" prefHeight="20.0" prefWidth="170.0" style="-fx-background-color: #ACE1AF;" text="Label" />
+      <Label fx:id="lblNIc" layoutX="152.0" layoutY="193.0" prefHeight="20.0" prefWidth="162.0" style="-fx-background-color: #ACE1AF;" text="Label" />
+      <Label fx:id="lblEmail" layoutX="152.0" layoutY="141.0" prefHeight="20.0" prefWidth="382.0" style="-fx-background-color: #ACE1AF;" text="Label" />
+      <Label fx:id="lblno" layoutX="152.0" layoutY="91.0" prefHeight="20.0" prefWidth="156.0" style="-fx-background-color: #ACE1AF;" text="Label" />
+      <Label fx:id="lbllname" layoutX="383.0" layoutY="44.0" prefHeight="20.0" prefWidth="119.0" style="-fx-background-color: #ACE1AF;" text="Label" />
+   </children>
+</AnchorPane>

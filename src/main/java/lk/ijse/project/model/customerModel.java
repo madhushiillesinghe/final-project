@@ -60,12 +60,12 @@ public class customerModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public static customerDto searchCustomer(String cusid) throws SQLException {
+    public static customerDto searchCustomer(int nicno) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
-        String sql = "SELECT * FROM customer WHERE cus_id = ?";
+        String sql = "SELECT * FROM customer WHERE nic = ?";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setString(1,cusid);
+        pstm.setInt(1,nicno);
 
         ResultSet resultSet = pstm.executeQuery();
 
@@ -209,6 +209,7 @@ public class customerModel {
         return dto;
     }
 
+
         public ArrayList<String> getAllCustomerId() throws SQLException{
         Connection connection = FpConnection.getInstance().getConnection();
         String sql="SELECT cus_id FROM customer ORDER BY LENGTH(cus_id),cus_id";
@@ -219,6 +220,19 @@ public class customerModel {
 
         while (resultSet.next()) {
             list.add(resultSet.getString(1));
+        }
+        return list;
+    }
+    public ArrayList<String> getAllCustomerNic() throws SQLException{
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql="SELECT nic FROM customer ORDER BY LENGTH(nic),nic";
+        PreparedStatement pstm=connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+        ArrayList<String> list = new ArrayList<>();
+
+        while (resultSet.next()) {
+            list.add(String.valueOf(resultSet.getInt(1)));
         }
         return list;
     }

@@ -5,13 +5,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import lk.ijse.project.dto.supplierDto;
+import lk.ijse.project.dto.tm.supplierTm;
 import lk.ijse.project.model.customerModel;
+import lk.ijse.project.model.employeeModel;
 import lk.ijse.project.util.*;
 import lk.ijse.project.util.Navigation.*;
 import lk.ijse.project.model.supplierModel;
@@ -81,6 +85,8 @@ public class supplierController implements Initializable {
 
     @FXML
     private VBox vBoxSupplierManage;
+    
+    addSupplierController sup=new addSupplierController();
 
     @FXML
     void addcustomer(MouseEvent event) {
@@ -139,8 +145,15 @@ public class supplierController implements Initializable {
     }
 
     @FXML
-    void searchsupplier(MouseEvent event) {
-
+    void searchsupplier(MouseEvent event) throws SQLException, IOException {
+        supplierModel supmodel=new supplierModel();
+        ArrayList<String> allsupnic=supmodel.getAllSupplierNic();
+        for(int i=0;i<allsupnic.size();i++){
+            if(txtsearch.getText().equals(allsupnic.get(i))){
+                ViewSupplierFormController.nic= Integer.parseInt(txtsearch.getText());
+                Navigation.switchNavigation("ViewSupplierForm.fxml",event);
+            }
+        }
     }
 
     @FXML
@@ -184,4 +197,5 @@ public class supplierController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
 }
