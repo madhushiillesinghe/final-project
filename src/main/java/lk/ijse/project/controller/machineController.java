@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import lk.ijse.project.model.customerModel;
 import lk.ijse.project.model.machineModel;
 import lk.ijse.project.util.*;
 import javafx.scene.control.Label;
@@ -135,8 +136,15 @@ public class machineController implements Initializable {
     }
 
     @FXML
-    void searchmachine(MouseEvent event) {
-
+    void searchmachine(MouseEvent event) throws SQLException, IOException {
+        machineModel mmodel=new machineModel();
+        ArrayList<String> allmacid=mmodel.getAllMachineId();
+        for(int i=0;i<allmacid.size();i++){
+            if(txtsearch.getText().equals(allmacid.get(i))){
+                ViewMachineFormController.id= txtsearch.getText();
+                Navigation.switchNavigation("ViewMachineForm.fxml",event);
+            }
+        }
     }
 
     @FXML

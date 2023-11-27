@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.project.controller.ViewMachineFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.ViewMachineFormController">
+   <children>
+      <ImageView fitHeight="350.0" fitWidth="600.0">
+         <image>
+            <Image url="@../icon/addcustomer%20(1).png" />
+         </image>
+      </ImageView>
+      <Text layoutX="69.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Machine">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="40.0" layoutY="10.0">
+         <image>
+            <Image url="@../icon/charticon.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="108.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine name" />
+      <Text layoutX="108.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine task" />
+      <Text layoutX="108.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" />
+      <Text layoutX="108.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Per day rent" wrappingWidth="85.91552734375" />
+      <Button fx:id="btncancel" layoutX="444.0" layoutY="292.0" mnemonicParsing="false" onAction="#cancelbtnonaction" style="-fx-background-color: #ffffff;" text="CANCEL" textFill="#0b7923" />
+      <Text layoutX="426.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="machine id" />
+      <Label fx:id="lblname" layoutX="227.0" layoutY="79.0" prefHeight="20.0" prefWidth="157.0" style="-fx-background-color: #ACE1AF;" text="Label" />
+      <Label fx:id="lblid" layoutX="508.0" layoutY="10.0" prefHeight="20.0" prefWidth="86.0" style="-fx-background-color: #ffffff;" text="Label" />
+      <Label fx:id="lblrent" layoutX="227.0" layoutY="208.0" prefHeight="20.0" prefWidth="109.0" style="-fx-background-color: #ACE1AF;" text="Label" />
+      <Label fx:id="lblqty" layoutX="227.0" layoutY="165.0" prefHeight="20.0" prefWidth="95.0" style="-fx-background-color: #ACE1AF;" text="Label" />
+      <Label fx:id="lbltask" layoutX="227.0" layoutY="122.0" prefHeight="20.0" prefWidth="244.0" style="-fx-background-color: #ACE1AF;" text="Label" />
+   </children>
 </AnchorPane>
