@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import lk.ijse.project.model.ProductModel;
+import lk.ijse.project.model.customerModel;
 import lk.ijse.project.util.*;
 import javafx.scene.control.Label;
 
@@ -143,7 +144,15 @@ public class agriProductController implements Initializable {
     }
 
     @FXML
-    void searchproducts(MouseEvent event) {
+    void searchproducts(MouseEvent event) throws SQLException, IOException {
+        ProductModel promodel=new ProductModel();
+        ArrayList<String> allproid=promodel.getAllProductId();
+        for(int i=0;i<allproid.size();i++){
+            if(txtsearch.getText().equals(allproid.get(i))){
+                ViewProductFormController.id= txtsearch.getText();
+                Navigation.switchNavigation("ViewProductForm.fxml",event);
+            }
+        }
 
     }
     @FXML
