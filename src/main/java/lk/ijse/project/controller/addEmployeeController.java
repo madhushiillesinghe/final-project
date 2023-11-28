@@ -93,9 +93,8 @@ public class addEmployeeController  implements Initializable {
             String lastname = txtlastname.getText();
             String street = txtstreet.getText();
             int houseno = Integer.parseInt(txthouseno.getText());
-           // String role = txtrole.getText();
             int contactno = Integer.parseInt(txtcontactno.getText());
-            int nic = Integer.parseInt(txtnicno.getText());
+            String nic = txtnicno.getText();
             String email = txtemail.getText();
             String password = txtpassword.getText();
             String usename = txtusername.getText();
@@ -145,32 +144,38 @@ public class addEmployeeController  implements Initializable {
         String emailtext=txtemail.getText();
         String lastnameText=txtlastname.getText();
         String cityText=txtcity.getText();
+        String nictext=txtnicno.getText();
 
         boolean empnameValidated= Pattern.matches("[A-z]{3,}",nameText);
         boolean emplastnameValidated=Pattern.matches("[A-z]{3,}",lastnameText);
-        boolean empcityValidated=Pattern.matches("[A-z]{3,}",lastnameText);
+        boolean empcityValidated=Pattern.matches("[A-z]{3,}",cityText);
         boolean empcontactValidated=Pattern.matches("[0-9]{10}",contxt);
         boolean empemailValidated=Pattern.matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",emailtext);
+        boolean empnicValidate=Pattern.matches("^\\d{9}[vVxX]$|^\\d{12}$",nictext);
 
 
         if (!empnameValidated) {
-            new Alert(Alert.AlertType.ERROR, "Invalid supplier firstname").show();
+            new Alert(Alert.AlertType.ERROR, "Invalid employee firstname").show();
             return false;
         }
         if(!empcontactValidated) {
-            new Alert(Alert.AlertType.ERROR, "Invalid supplier tele no").show();
+            new Alert(Alert.AlertType.ERROR, "Invalid employee tele no").show();
             return false;
         }
         if(!empemailValidated) {
-            new Alert(Alert.AlertType.ERROR, "Invalid supplier email").show();
+            new Alert(Alert.AlertType.ERROR, "Invalid employee email").show();
             return false;
         }
         if(!emplastnameValidated) {
-            new Alert(Alert.AlertType.ERROR, "Invalid supplier last name").show();
+            new Alert(Alert.AlertType.ERROR, "Invalid employee last name").show();
             return false;
         }
         if(!empcityValidated) {
-            new Alert(Alert.AlertType.ERROR, "Invalid supplier city").show();
+            new Alert(Alert.AlertType.ERROR, "Invalid employee city").show();
+            return false;
+        }
+        if(!empnicValidate) {
+            new Alert(Alert.AlertType.ERROR, "Invalid employee NIC").show();
             return false;
         }
         return true;

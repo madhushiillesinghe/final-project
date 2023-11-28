@@ -88,7 +88,7 @@ public class UpdateSupplierController implements Initializable {
             supdto.setFirst_name(txtfirstname.getText());
             supdto.setEmp_id(cmbempid.getSelectionModel().getSelectedItem().toString());
             supdto.setLast_name(txtlastname.getText());
-            supdto.setNic(Integer.parseInt(txtnic.getText()));
+            supdto.setNic(txtnic.getText());
             supdto.setEmail(txtemail.getText());
             supdto.setContact_no(Integer.parseInt(txtcontactno.getText()));
             supdto.setSupplier_product_type(txttype.getText());
@@ -111,7 +111,7 @@ public class UpdateSupplierController implements Initializable {
                 txtemail.setText(supdto.getEmail());
                 txtlastname.setText(supdto.getLast_name());
                 txtfirstname.setText(supdto.getFirst_name());
-                txtnic.setText(String.valueOf(supdto.getNic()));
+                txtnic.setText(supdto.getNic());
                 txttype.setText(supdto.getSupplier_product_type());
 
 
@@ -145,11 +145,14 @@ public class UpdateSupplierController implements Initializable {
             String contxt=txtcontactno.getText();
             String emailtext=txtemail.getText();
             String lastnameText=txtlastname.getText();
+            String nictext=txtnic.getText();
+
 
             boolean supnameValidated= Pattern.matches("[A-z]{3,}",nameText);
             boolean suplastnameValidated=Pattern.matches("[A-z]{3,}",lastnameText);
             boolean supcontactValidated=Pattern.matches("[0-9]{10}",contxt);
             boolean supemailValidated=Pattern.matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",emailtext);
+            boolean supnicValidate=Pattern.matches("^\\d{9}[vVxX]$|^\\d{12}$",nictext);
 
 
             if (!supnameValidated) {
@@ -166,6 +169,10 @@ public class UpdateSupplierController implements Initializable {
             }
             if(!suplastnameValidated) {
                 new Alert(Alert.AlertType.ERROR, "Invalid supplier last name").show();
+                return false;
+            }
+            if(!supnicValidate) {
+                new Alert(Alert.AlertType.ERROR, "Invalid supplier NIC").show();
                 return false;
             }
             return true;

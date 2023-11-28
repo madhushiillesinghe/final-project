@@ -98,7 +98,7 @@ public class UpdateCustomerController implements Initializable {
             cusdto.setCity(txtcity.getText());
             cusdto.setStreet(txtstreet.getText());
             cusdto.setHouse_no(Integer.parseInt(txthouseno.getText()));
-            cusdto.setNic(Integer.parseInt(txtnic.getText()));
+            cusdto.setNic(txtnic.getText());
             cusdto.setEmail(txtemail.getText());
             cusdto.setContact_no(Integer.parseInt(txtcontactno.getText()));
             cusdto.setAccount_type(txtaccounttype.getText());
@@ -123,7 +123,7 @@ public class UpdateCustomerController implements Initializable {
             txtstreet.setText(cusdto.getStreet());
             txtlastname.setText(cusdto.getLast_name());
             txtfirstname.setText(cusdto.getFirst_name());
-            txtnic.setText(String.valueOf(cusdto.getNic()));
+            txtnic.setText(cusdto.getNic());
             txtaccounttype.setText(cusdto.getAccount_type());
 
 
@@ -157,11 +157,13 @@ public class UpdateCustomerController implements Initializable {
         String contxt=txtcontactno.getText();
         String emailtext=txtemail.getText();
         String cityText=txtcity.getText();
+        String nictext=txtnic.getText();
 
         boolean cusnameValidated= Pattern.matches("[A-z]{3,}",nameText);
         boolean cusaddressValidated=Pattern.matches("[A-z]{3,}",cityText);
         boolean cuscontactValidated=Pattern.matches("[0-9]{10}",contxt);
         boolean cusemailValidated=Pattern.matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",emailtext);
+        boolean cusnicValidate=Pattern.matches("^\\d{9}[vVxX]$|^\\d{12}$",nictext);
 
 
         if (!cusnameValidated) {
@@ -178,6 +180,10 @@ public class UpdateCustomerController implements Initializable {
         }
         if(!cusaddressValidated) {
             new Alert(Alert.AlertType.ERROR, "Invalid customer City").show();
+            return false;
+        }
+        if(!cusnicValidate) {
+            new Alert(Alert.AlertType.ERROR, "Invalid customer NIC").show();
             return false;
         }
         return true;

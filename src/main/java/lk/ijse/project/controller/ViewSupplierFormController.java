@@ -39,7 +39,7 @@ public class ViewSupplierFormController implements Initializable {
     @FXML
     private Label lblproductType;
 
-    public static int nic;
+    public static String  nic;
 
     @FXML
     void cancelbtnonaction(ActionEvent event) throws IOException {
@@ -49,7 +49,7 @@ public class ViewSupplierFormController implements Initializable {
 
 
 
-    public static void setNic(int nic) {
+    public static void setNic(String nic) {
         ViewSupplierFormController.nic = nic;
 
     }
@@ -71,7 +71,7 @@ public class ViewSupplierFormController implements Initializable {
            lblno.setText(String.valueOf(supdto.getContact_no()));
            lblempId.setText(supdto.getEmp_id());
            lblSupId.setText(supdto.getSup_id());
-           lblNIc.setText(String.valueOf(supdto.getNic()));
+           lblNIc.setText(supdto.getNic());
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -31,7 +31,7 @@ public class employeeModel {
         pstm.setString(9, empDto.getEmail());
         pstm.setString(10, empDto.getFirst_name());
         pstm.setString(11, empDto.getLast_name());
-        pstm.setInt(12, empDto.getNic());
+        pstm.setString(12, empDto.getNic());
 
         return pstm.executeUpdate() > 0;
     }
@@ -52,18 +52,18 @@ public class employeeModel {
         pstm.setString(8, empDto.getEmail());
         pstm.setString(9, empDto.getFirst_name());
         pstm.setString(10, empDto.getLast_name());
-        pstm.setInt(11, empDto.getNic());
+        pstm.setString(11, empDto.getNic());
         pstm.setString(12, empDto.getEmp_id());
 
         return pstm.executeUpdate() > 0;
     }
 
-    public static employeeDto searchEmployee(int nicno) throws SQLException {
+    public static employeeDto searchEmployee(String nicno) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
         String sql = "SELECT * FROM employee WHERE nic = ?";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setInt(1, nicno);
+        pstm.setString(1, nicno);
 
         ResultSet resultSet = pstm.executeQuery();
 
@@ -81,7 +81,7 @@ public class employeeModel {
             String email = resultSet.getString(9);
             String fname = resultSet.getString(10);
             String lname = resultSet.getString(11);
-            int nic = resultSet.getInt(12);
+            String nic = resultSet.getString(12);
             dto = new employeeDto(empid, city, street, house_no, contact_no, role, username, password, email, fname, lname, nic);
 
         }
@@ -146,7 +146,7 @@ public class employeeModel {
                     resultSet.getString(3),
                     resultSet.getString(10),
                     resultSet.getString(11),
-                    resultSet.getInt(12)
+                    resultSet.getString(12)
             );
         }
         return dto;
@@ -176,7 +176,7 @@ public class employeeModel {
         ArrayList<String> list = new ArrayList<>();
 
         while (resultSet.next()) {
-            list.add(String.valueOf(resultSet.getInt(1)));
+            list.add(resultSet.getString(1));
         }
         return list;
     }
@@ -203,7 +203,7 @@ public class employeeModel {
                     resultSet.getString(3),
                     resultSet.getString(10),
                     resultSet.getString(11),
-                    resultSet.getInt(12)
+                    resultSet.getString(12)
             );
 
             dtoList.add(dto);

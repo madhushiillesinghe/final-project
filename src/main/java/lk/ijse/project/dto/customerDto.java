@@ -18,7 +18,7 @@ public class customerDto {
     private String email;
     private String first_name;
     private String last_name;
-    private int nic;
+    private String nic;
 
 
 }

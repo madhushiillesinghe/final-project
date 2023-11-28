@@ -16,7 +16,7 @@ CREATE TABLE employee(
                          email VARCHAR(25) UNIQUE,
                          first_name VARCHAR (25) NOT NULL,
                          last_name VARCHAR(35),
-                         nic int UNIQUE NOT NULL
+                         nic VARCHAR(30) UNIQUE NOT NULL
 );
 
 
@@ -40,7 +40,7 @@ CREATE TABLE customer(
                          email VARCHAR(25) UNIQUE,
                          first_name VARCHAR (25) NOT NULL,
                          last_name VARCHAR(35),
-                         nic int UNIQUE NOT NULL,
+                         nic VARCHAR(30) UNIQUE NOT NULL,
                          FOREIGN KEY (emp_id) REFERENCES employee(emp_id)ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -71,7 +71,7 @@ CREATE TABLE supplier(
                          email VARCHAR(25) UNIQUE,
                          first_name VARCHAR (25)NOT NULL,
                          last_name VARCHAR(35),
-                         nic int UNIQUE NOT NULL,
+                         nic VARCHAR (30) UNIQUE NOT NULL,
                          FOREIGN KEY (emp_id) REFERENCES employee(emp_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 

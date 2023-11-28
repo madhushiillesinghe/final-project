@@ -140,7 +140,7 @@ public class employeeController implements Initializable {
         ArrayList<String> allempid=empmodel.getAllEmployeeNic();
         for(int i=0;i<allempid.size();i++){
             if(txtsearch.getText().equals(allempid.get(i))){
-                ViewEmployeeFormController.nic= Integer.parseInt(txtsearch.getText());
+                ViewEmployeeFormController.nic=txtsearch.getText();
                 Navigation.switchNavigation("ViewEmployeeForm.fxml",event);
             }
         }

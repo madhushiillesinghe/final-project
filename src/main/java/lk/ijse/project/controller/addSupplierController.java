@@ -93,7 +93,7 @@ public class addSupplierController implements Initializable {
             String firstname = txtfirstname.getText();
             String lastname = txtlastname.getText();
             int contactno = Integer.parseInt(txtcontactno.getText());
-            int nic = Integer.parseInt(txtnic.getText());
+            String  nic =txtnic.getText();
             String email = txtemail.getText();
             String sid = txtid.getText();
             String type = txttype.getText();
@@ -135,11 +135,14 @@ public class addSupplierController implements Initializable {
         String contxt=txtcontactno.getText();
         String emailtext=txtemail.getText();
         String lastnameText=txtlastname.getText();
+        String nictext=txtnic.getText();
+
 
         boolean supnameValidated= Pattern.matches("[A-z]{3,}",nameText);
         boolean suplastnameValidated=Pattern.matches("[A-z]{3,}",lastnameText);
         boolean supcontactValidated=Pattern.matches("[0-9]{10}",contxt);
         boolean supemailValidated=Pattern.matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",emailtext);
+        boolean supnicValidate=Pattern.matches("^\\d{9}[vVxX]$|^\\d{12}$",nictext);
 
 
         if (!supnameValidated) {
@@ -156,6 +159,10 @@ public class addSupplierController implements Initializable {
         }
         if(!suplastnameValidated) {
             new Alert(Alert.AlertType.ERROR, "Invalid supplier last name").show();
+            return false;
+        }
+        if(!supnicValidate) {
+            new Alert(Alert.AlertType.ERROR, "Invalid supplier NIC").show();
             return false;
         }
         return true;

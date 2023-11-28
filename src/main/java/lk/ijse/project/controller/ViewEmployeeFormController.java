@@ -55,11 +55,11 @@ public class ViewEmployeeFormController implements Initializable {
     @FXML
     private Label lblstreet;
 
-    public static int nic;
+    public static String nic;
 
 
-    public static void setId(int nic) {
-        ViewCustomerFormController.nic = nic;
+    public static void setId(String  nic) {
+        ViewEmployeeFormController.nic = nic;
 
     }
 
@@ -84,7 +84,7 @@ public class ViewEmployeeFormController implements Initializable {
             lblstreet.setText(empdto.getStreet());
             lbllastname.setText(empdto.getLast_name());
             lblfirstname.setText(empdto.getFirst_name());
-            lblnicno.setText(String.valueOf(empdto.getNic()));
+            lblnicno.setText(empdto.getNic());
             lblrole.setText(empdto.getRole());
             lblpassword.setText(empdto.getPassword());
             lblusername.setText(empdto.getUser_name());

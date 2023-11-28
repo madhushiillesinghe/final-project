@@ -150,7 +150,7 @@ public class supplierController implements Initializable {
         ArrayList<String> allsupnic=supmodel.getAllSupplierNic();
         for(int i=0;i<allsupnic.size();i++){
             if(txtsearch.getText().equals(allsupnic.get(i))){
-                ViewSupplierFormController.nic= Integer.parseInt(txtsearch.getText());
+                ViewSupplierFormController.nic=txtsearch.getText();
                 Navigation.switchNavigation("ViewSupplierForm.fxml",event);
             }
         }

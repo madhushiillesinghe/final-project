@@ -30,7 +30,7 @@ public class customerModel {
         pstm.setString(8,cusDto.getEmail());
         pstm.setString(9, cusDto.getFirst_name());
         pstm.setString(10,cusDto.getLast_name());
-        pstm.setInt(11, cusDto.getNic());
+        pstm.setString(11, cusDto.getNic());
 
         boolean isSaved = pstm.executeUpdate() > 0;
 
@@ -54,18 +54,18 @@ public class customerModel {
         pstm.setString(7,cusDto.getEmail());
         pstm.setString(8, cusDto.getFirst_name());
         pstm.setString(9,cusDto.getLast_name());
-        pstm.setInt(10, cusDto.getNic());
+        pstm.setString(10, cusDto.getNic());
         pstm.setString(11, cusDto.getCus_id());
 
         return pstm.executeUpdate() > 0;
     }
 
-    public static customerDto searchCustomer(int nicno) throws SQLException {
+    public static customerDto searchCustomer(String nicno) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
         String sql = "SELECT * FROM customer WHERE nic = ?";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setInt(1,nicno);
+        pstm.setString(1,nicno);
 
         ResultSet resultSet = pstm.executeQuery();
 
@@ -83,7 +83,7 @@ public class customerModel {
                     resultSet.getString(8),
                     resultSet.getString(9),
                     resultSet.getString(10),
-                    resultSet.getInt(11)
+                    resultSet.getString(11)
             );
         }
         return dto;
@@ -122,7 +122,7 @@ public class customerModel {
                     resultSet.getString(8),
                     resultSet.getString(9),
                     resultSet.getString(10),
-                    resultSet.getInt(11)
+                    resultSet.getString(11)
             );
         }
         return dto;
@@ -150,7 +150,7 @@ public class customerModel {
                     resultSet.getString(8),
                     resultSet.getString(9),
                     resultSet.getString(10),
-                    resultSet.getInt(11)
+                    resultSet.getString(11)
             );
 
             dtoList.add(dto);
@@ -203,7 +203,7 @@ public class customerModel {
                     resultSet.getString(8),
                     resultSet.getString(9),
                     resultSet.getString(10),
-                    resultSet.getInt(11)
+                    resultSet.getString(11)
             );
         }
         return dto;
@@ -232,7 +232,7 @@ public class customerModel {
         ArrayList<String> list = new ArrayList<>();
 
         while (resultSet.next()) {
-            list.add(String.valueOf(resultSet.getInt(1)));
+            list.add(resultSet.getString(1));
         }
         return list;
     }

@@ -53,9 +53,9 @@ public class ViewCustomerFormController implements Initializable {
     private Label lblstreet;
 
 
-    public static int nic;
+    public static String  nic;
 
-    public static void setId(int nic) {
+    public static void setId(String nic) {
         ViewCustomerFormController.nic = nic;
 
     }
@@ -82,7 +82,7 @@ public class ViewCustomerFormController implements Initializable {
             lblstreet.setText(cusdto.getStreet());
             lbllastname.setText(cusdto.getLast_name());
             lblfirstname.setText(cusdto.getFirst_name());
-            lblnic.setText(String.valueOf(cusdto.getNic()));
+            lblnic.setText(cusdto.getNic());
             lblaccounttype.setText(cusdto.getAccount_type());
             lblempid.setText(cusdto.getEmp_id());
             lblcusid.setText(cusdto.getCus_id());

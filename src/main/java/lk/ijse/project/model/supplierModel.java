@@ -24,7 +24,7 @@ public class supplierModel {
         pstm.setString(5, supDto.getEmail());
         pstm.setString(6, supDto.getFirst_name());
         pstm.setString(7, supDto.getLast_name());
-        pstm.setInt(8, supDto.getNic());
+        pstm.setString(8, supDto.getNic());
 
         return pstm.executeUpdate() > 0;
     }
@@ -42,18 +42,18 @@ public class supplierModel {
         pstm.setString(4, supDto.getEmail());
         pstm.setString(5, supDto.getFirst_name());
         pstm.setString(6, supDto.getLast_name());
-        pstm.setInt(7, supDto.getNic());
+        pstm.setString(7, supDto.getNic());
         pstm.setString(8, supDto.getSup_id());
 
         return pstm.executeUpdate() > 0;
     }
 
-    public static supplierDto searchSupplier(int nicno) throws SQLException {
+    public static supplierDto searchSupplier(String nicno) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
         String sql = "SELECT * FROM supplier WHERE nic = ?";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setInt(1, nicno);
+        pstm.setString(1, nicno);
 
         ResultSet resultSet = pstm.executeQuery();
 
@@ -68,7 +68,7 @@ public class supplierModel {
                     resultSet.getString(5),
                     resultSet.getString(6),
                     resultSet.getString(7),
-                    resultSet.getInt(8)
+                    resultSet.getString(8)
             );
         }
         return dto;
@@ -103,7 +103,7 @@ public class supplierModel {
                     resultSet.getString(5),
                     resultSet.getString(6),
                     resultSet.getString(7),
-                    resultSet.getInt(8)
+                    resultSet.getString(8)
             );
 
             dtoList.add(dto);
@@ -155,7 +155,7 @@ public class supplierModel {
                     resultSet.getString(5),
                     resultSet.getString(6),
                     resultSet.getString(7),
-                    resultSet.getInt(8)
+                    resultSet.getString(8)
             );
         }
         return dto;
@@ -181,7 +181,7 @@ public class supplierModel {
                     resultSet.getString(5),
                     resultSet.getString(6),
                     resultSet.getString(7),
-                    resultSet.getInt(8)
+                    resultSet.getString(8)
             );
         }
         return dto;
@@ -212,7 +212,7 @@ public class supplierModel {
         ArrayList<String> list = new ArrayList<>();
 
         while (resultSet.next()) {
-            list.add(String.valueOf(resultSet.getInt(1)));
+            list.add(resultSet.getString(1));
         }
         return list;
     }

@@ -190,7 +190,7 @@ public class CustomerController implements Initializable {
                 ArrayList<String> allcusid=cusmodel.getAllCustomerNic();
                 for(int i=0;i<allcusid.size();i++){
                         if(txtsearch.getText().equals(allcusid.get(i))){
-                                ViewCustomerFormController.nic= Integer.parseInt(txtsearch.getText());
+                                ViewCustomerFormController.nic= txtsearch.getText();
                                 Navigation.switchNavigation("viewCustomerForm.fxml",mouseEvent);
                         }
                 }
