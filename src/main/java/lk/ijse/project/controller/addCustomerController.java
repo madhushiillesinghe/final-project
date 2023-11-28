@@ -37,7 +37,7 @@ public class addCustomerController implements Initializable {
     private ComboBox<String> cmbempid;
 
     @FXML
-    private TextField txtaccounttype;
+    private ComboBox<String > cmbaccounttype;
 
     @FXML
     private TextField txtcity;
@@ -99,7 +99,7 @@ public class addCustomerController implements Initializable {
             cusdto.setHouse_no(Integer.parseInt(txthouseno.getText()));
             cusdto.setNic(Integer.parseInt(txtnic.getText()));
             cusdto.setEmail(txtemail.getText());
-            cusdto.setAccount_type(txtaccounttype.getText());
+            cusdto.setAccount_type(cmbaccounttype.getSelectionModel().getSelectedItem());
             cusdto.setEmp_id(cmbempid.getSelectionModel().getSelectedItem());
 
             customerModel cusodel = new customerModel();
@@ -142,8 +142,17 @@ public class addCustomerController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loademployeeids();
         txtid.setText(NewId.newId(list,NewId.GetType.CUSTOMER));
+        setAccountType();
 
     }
+
+    private void setAccountType() {
+        ArrayList<String> account=new ArrayList<>();
+        account.add("VIP");
+        account.add("Regular");
+        cmbaccounttype.getItems().addAll(account);
+    }
+
     private boolean validateCustomer() {
         String nameText=txtfirstname.getText();
         String contxt=txtcontactno.getText();

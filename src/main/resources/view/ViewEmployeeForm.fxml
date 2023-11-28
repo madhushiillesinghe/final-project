@@ -15,7 +15,7 @@
             <Image url="@../icon/addcustomer%20(1).png" />
          </image>
       </ImageView>
-      <Text layoutX="74.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Employee">
+      <Text layoutX="74.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Employee">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

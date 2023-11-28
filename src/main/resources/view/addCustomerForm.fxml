@@ -56,7 +56,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <TextField fx:id="txtaccounttype" layoutX="151.0" layoutY="276.0" prefHeight="24.0" prefWidth="131.0" style="-fx-background-color: #ACE1AF;" />
       <ComboBox fx:id="cmbempid" layoutX="322.0" layoutY="9.0" onAction="#empididonaction" prefWidth="150.0" style="-fx-background-color: #ffffff;" />
+      <ComboBox fx:id="cmbaccounttype" layoutX="165.0" layoutY="276.0" prefWidth="150.0" style="-fx-background-color: #ACE1AF;" />
    </children>
 </AnchorPane>
