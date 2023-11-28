@@ -16,8 +16,7 @@ public class CustomerPlaceOrderModel {
     public boolean SaveCustomerplaceOrder(CustomerOrderDto dto) throws SQLException {
         boolean result = false;
         Connection connection = null;
-        boolean isUpdatedproduct=false;
-        boolean isUpdaetedMachine=false;
+
         try {
             connection = FpConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
@@ -25,23 +24,9 @@ public class CustomerPlaceOrderModel {
             boolean isOrderSaved = CustomerOrderModel.saveCustomerOrder(dto);
 
             if (isOrderSaved) {
-                if (dto.getCus_order_id() != null) {
-                    isUpdatedproduct = ProductModel.updateproduct(dto.getTmlist());
-                    if (dto.getM_id() == null) {
-                        isUpdaetedMachine = machineModel.update(dto.getTmlist());
-                    }
-                }
-                isUpdaetedMachine = machineModel.update(dto.getTmlist());
+                boolean isUpdated = ProductModel.updateproduct(dto.getTmlist());
 
-/*                if (dto.getTmlist() != null) {
-                    isUpdatedproduct = ProductModel.updateproduct(dto.getTmlist());
-                }
-                if (dto.getM_id() != null) {
-                    isUpdaetedMachine = machineModel.update(dto.getTmlist());
-                }*/
-
-
-                if(isUpdatedproduct|isUpdaetedMachine) {
+                if(isUpdated) {
                     boolean isOrderDetailSaved = customerOrderDetailModel.save(dto);
 
                     if(isOrderDetailSaved) {

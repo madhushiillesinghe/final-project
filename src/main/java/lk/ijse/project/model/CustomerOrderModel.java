@@ -8,12 +8,11 @@ import java.util.ArrayList;
 public class CustomerOrderModel {
         public static boolean saveCustomerOrder(CustomerOrderDto dto) throws SQLException {
             Connection connection= FpConnection.getInstance().getConnection();
-            String sql="INSERT INTO customer_order VALUES(?, ?, ?, ?)";
+            String sql="INSERT INTO customer_order VALUES(?, ?, ?)";
             PreparedStatement pstm=connection.prepareStatement(sql);
             pstm.setString(1,dto.getCus_order_id());
             pstm.setString(2,dto.getCus_id());
-            pstm.setString(3,dto.getM_id());
-            pstm.setDate(4, (Date) dto.getDate());
+            pstm.setString(3,  dto.getDate());
 
             return pstm.executeUpdate()>0;
         }
@@ -47,8 +46,7 @@ public class CustomerOrderModel {
             if (resultSet.next()) {
                 cusOderDto.setCus_order_id(resultSet.getString(1));
                 cusOderDto.setCus_id(resultSet.getString(2));
-                cusOderDto.setM_id(resultSet.getString(3));
-                cusOderDto.setDate(resultSet.getDate(4));
+                cusOderDto.setDate(resultSet.getString(3));
             }
             return cusOderDto;
         }

@@ -22,13 +22,11 @@ import lk.ijse.project.util.NewId;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static lk.ijse.project.controller.addOrderMachineController.productList;
 
 public class addSupplierOrderController implements Initializable {
     @FXML

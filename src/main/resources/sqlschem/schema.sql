@@ -55,11 +55,18 @@ CREATE TABLE machine(
 CREATE TABLE customer_order(
                                order_id VARCHAR(30) PRIMARY KEY,
                                cus_id VARCHAR(15) NOT NULL,
+                               order_date DATE NOT NULL,
+                               FOREIGN KEY (cus_id) REFERENCES customer(cus_id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE TABLE machine_rent(
+                               order_id VARCHAR(30) PRIMARY KEY,
+                               cus_id VARCHAR(15) NOT NULL,
                                m_id VARCHAR(15),
                                order_date DATE NOT NULL,
                                FOREIGN KEY (m_id) REFERENCES machine(m_id) ON DELETE CASCADE ON UPDATE CASCADE,
                                FOREIGN KEY (cus_id) REFERENCES customer(cus_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
 
 
 

@@ -17,7 +17,6 @@ import lk.ijse.project.util.NewId;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,11 +38,7 @@ public class addOrderProductController implements Initializable {
 
     @FXML
     private ComboBox<String> comboxproductid;
-    @FXML
-    private ComboBox<String> comboxmachineid;
 
-    @FXML
-    private DatePicker datepickdate;
 
     @FXML
     private Text description;
@@ -75,6 +70,19 @@ public class addOrderProductController implements Initializable {
     @FXML
     private TextField txtqtyonstock;
 
+
+    @FXML
+    private TextField txtrentprice;
+
+    @FXML
+    private TextField txtgetmachine;
+
+    @FXML
+    private TextField txtmachinename;
+
+    @FXML
+    private TextField txtmachineqty;
+
     @FXML
     private Text txttotal;
 
@@ -89,6 +97,7 @@ public class addOrderProductController implements Initializable {
 
     @FXML
     private VBox vBoxproductorderbar;
+    public static double netTotal;
 
     CustomerOrderModel cusomodel=new CustomerOrderModel();
     CustomerPlaceOrderModel placeCustomerOrder = new CustomerPlaceOrderModel();
@@ -96,9 +105,9 @@ public class addOrderProductController implements Initializable {
     ArrayList<String[]> productList = new ArrayList<>();
 
     ArrayList<String> list;
-    public addOrderProductController(){
 
-        controller = this;
+    ArrayList<String > listmachine;
+    public addOrderProductController(){
 
         {
             try {
@@ -109,22 +118,16 @@ public class addOrderProductController implements Initializable {
         }
 
     }
-
-    private static addOrderProductController controller;
-
-    public static addOrderProductController getInstance() {
-        return controller;
-    }
-
     @FXML
     void addtocartbtnonaction(ActionEvent event) {
 
         String[] products = {String.valueOf(comboxproductid.getSelectionModel().getSelectedItem()), txtqtyofbuy.getText()};
 
         productList.add(products);
+        netTotal += ((Double.parseDouble(txtunitprice.getText())) * (Double.parseDouble(txtqtyofbuy.getText())));
+        lblnettotal.setText(String.valueOf(netTotal));
 
         allCustomerProductOrderCartId();
-
         txtqtyofbuy.clear();
 
     }
@@ -165,15 +168,19 @@ public class addOrderProductController implements Initializable {
             throw new RuntimeException(e);
         }
 
-    }@FXML
+    }/*@FXML
     void machidcmbonaction(ActionEvent event) {
-        String  mid = comboxmachineid.getSelectionModel().getSelectedItem().toString();
-        try{
-           machineDto dto=machineModel.searchMachine(mid);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
+        String mid = comboxmachineid.getSelectionModel().getSelectedItem().toString();
+            try {
+                machineDto dto = machineModel.searchMachine(mid);
+
+                txtmachinename.setText(dto.getM_name());
+                txtrentprice.setText(String.valueOf(dto.getMachine_per_day_amount()));
+                txtmachineqty.setText(String.valueOf(dto.getMachine_qty()));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }*/
+
 
     @FXML
     void placeorderbtnonaction(ActionEvent event) throws SQLException {
@@ -181,14 +188,12 @@ public class addOrderProductController implements Initializable {
 
         cusOrderDto.setCus_order_id(txtorderid.getText());
         cusOrderDto.setCus_id(comboxcustomerid.getSelectionModel().getSelectedItem());
-        cusOrderDto.setM_id(comboxmachineid.getSelectionModel().getSelectedItem());
-        cusOrderDto.setDate(Date.valueOf(datepickdate.getValue()));
+        cusOrderDto.setDate(lbldate.getText());
         cusOrderDto.setTmlist(productList);
 
         boolean isSaved = placeCustomerOrder.SaveCustomerplaceOrder(cusOrderDto);
 
         if (isSaved) {
-           // Navigation.close(event);
             OrderProductController.getInstance().getAllIds();
         }
         else {
@@ -218,23 +223,7 @@ public class addOrderProductController implements Initializable {
         lbldate.setText(DateTimeUtil.dateNow());
         loadAllProductIds();
         loadAllCustomerIds();
-        loadAllMachineIds();
         txtorderid.setText(NewId.newId(list,NewId.GetType.CUSTOMERORDERID));
-    }
-
-    private void loadAllMachineIds() {
-        ObservableList<String> obList = FXCollections.observableArrayList();
-        try {
-            List<machineDto> machList = machineModel.loadAllMachine();
-
-            for (machineDto machDto : machList) {
-                obList.add(machDto.getM_id());
-            }
-
-            comboxmachineid.setItems(obList);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     private void loadAllCustomerIds() {

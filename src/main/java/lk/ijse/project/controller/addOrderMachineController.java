@@ -1,3 +1,4 @@
+
 package lk.ijse.project.controller;
 
 import javafx.collections.FXCollections;
@@ -6,17 +7,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import lk.ijse.project.dto.CustomerOrderDto;
 import lk.ijse.project.dto.customerDto;
 import lk.ijse.project.dto.machineDto;
-import lk.ijse.project.dto.productDto;
+import lk.ijse.project.dto.machineOrderDto;
 import lk.ijse.project.model.*;
+import lk.ijse.project.util.DateTimeUtil;
 import lk.ijse.project.util.Navigation;
 import lk.ijse.project.util.NewId;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +37,7 @@ public class addOrderMachineController implements Initializable {
     private ComboBox<String > comboxmachineid;
 
     @FXML
-    private DatePicker datepickdate;
+    private Label lbldate;
 
     @FXML
     private TextField txtcusname;
@@ -62,19 +62,23 @@ public class addOrderMachineController implements Initializable {
 
     @FXML
     private TextField txttotalamount;
-    CustomerOrderModel cusomodel=new CustomerOrderModel();
-    CustomerPlaceOrderModel placeCustomerOrder = new CustomerPlaceOrderModel();
 
-    public static ArrayList<String[]> productList = new ArrayList<>();
+    public static int netTotal;
+    MachineRentModel cusrmodel=new MachineRentModel();
+    MachinePlaceOrderModel placeCustomerrent = new MachinePlaceOrderModel();
+
+    ArrayList<String[]> machineList = new ArrayList<>();
 
     ArrayList<String> list;
-    {
-        try {
-            list = cusomodel.getAllOrderIds();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+
+
+        {
+            try {
+                list =cusrmodel.getAllRentIds();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
-    }
 
     @FXML
     void cancelbtnonaction(ActionEvent event) throws IOException {
@@ -94,13 +98,8 @@ public class addOrderMachineController implements Initializable {
     }
 
     @FXML
-    void dateonaction(ActionEvent event) {
-        Date date= Date.valueOf(datepickdate.getValue());
-    }
-
-    @FXML
     void machidcmbonaction(ActionEvent event) {
-        String  mid = comboxcustomerid.getSelectionModel().getSelectedItem().toString();
+        String  mid = comboxmachineid.getSelectionModel().getSelectedItem().toString();
         try {
             machineDto dto = machineModel.searchMachine(mid);
 
@@ -113,25 +112,35 @@ public class addOrderMachineController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+    @FXML
+    void txtcalculatetotal(ActionEvent event) {
+
+    }
 
     @FXML
     void placeorderbtnonaction(ActionEvent event) throws SQLException {
-        CustomerOrderDto cusOrderDto = new CustomerOrderDto();
 
-        cusOrderDto.setCus_order_id(txtorderid.getText());
-        cusOrderDto.setCus_id(comboxcustomerid.getSelectionModel().getSelectedItem());
-        cusOrderDto.setM_id(comboxmachineid.getSelectionModel().getSelectedItem());
-        cusOrderDto.setDate(Date.valueOf(datepickdate.getValue()));
-        cusOrderDto.setTmlist(productList);
 
-        boolean isSaved = placeCustomerOrder.SaveCustomerplaceOrder(cusOrderDto);
+        String[] machines = {String.valueOf(comboxmachineid.getSelectionModel().getSelectedItem()), txtdaysofkeep.getText()};
+        netTotal += ((Integer.parseInt(txtrentprice.getText())) * (Integer.parseInt(txtdaysofkeep.getText())));
+        txttotalamount.setText(String.valueOf(netTotal));
 
+        machineList.add(machines);
+        txtdaysofkeep.clear();
+        machineOrderDto morderdto = new machineOrderDto();
+
+        morderdto.setCus_rent_id(txtorderid.getText());
+        morderdto.setCus_id(comboxcustomerid.getSelectionModel().getSelectedItem());
+        morderdto.setM_id(comboxmachineid.getSelectionModel().getSelectedItem());
+       morderdto.setDate(lbldate.getText());
+       morderdto.setTmlist(machineList);
+
+        boolean isSaved = placeCustomerrent.SaveCustomerMachineplaceOrder(morderdto);
         if (isSaved) {
-            //Navigation.close(event);
             customerOrderMachineController.getInstance().getAllIds();
         }
         else {
-            new Alert(Alert.AlertType.ERROR, "Unable to Save the ORDER!!!").show();
+            new Alert(Alert.AlertType.ERROR, "Unable to Save the Rent").show();
         }
 
 
@@ -140,6 +149,7 @@ public class addOrderMachineController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        lbldate.setText(DateTimeUtil.dateNow());
         loadAllMachineIds();
         loadAllCustomerIds();
         txtorderid.setText(NewId.newId(list,NewId.GetType.CUSTOMERRENTID));
@@ -175,3 +185,4 @@ public class addOrderMachineController implements Initializable {
         }
     }
 }
+

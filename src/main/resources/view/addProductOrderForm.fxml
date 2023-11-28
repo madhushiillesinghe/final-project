@@ -13,9 +13,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="462.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.addOrderProductController">
+<AnchorPane prefHeight="523.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.project.controller.addOrderProductController">
    <children>
-      <ImageView fitHeight="598.0" fitWidth="774.0" layoutX="-53.0" layoutY="-112.0">
+      <ImageView fitHeight="634.0" fitWidth="774.0" layoutX="-53.0" layoutY="-112.0">
          <image>
             <Image url="@../icon/addcustomer%20(1).png" />
          </image>
@@ -30,12 +30,12 @@
             <Image url="@../icon/recipt.png" />
          </image>
       </ImageView>
-      <ComboBox fx:id="comboxproductid" layoutX="95.0" layoutY="89.0" onAction="#productidonaction" prefHeight="24.0" prefWidth="106.0" style="-fx-background-color: #ACE1AF;" />
+      <ComboBox fx:id="comboxproductid" layoutX="109.0" layoutY="99.0" onAction="#productidonaction" prefHeight="24.0" prefWidth="106.0" style="-fx-background-color: #ACE1AF;" />
       <ComboBox fx:id="comboxcustomerid" layoutX="109.0" layoutY="47.0" onAction="#customeridonaction" prefHeight="24.0" prefWidth="106.0" style="-fx-background-color: #ACE1AF;" />
-      <TextField fx:id="txtqtyofbuy" layoutX="134.0" layoutY="128.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="18.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product id:" />
+      <TextField fx:id="txtqtyofbuy" layoutX="148.0" layoutY="154.0" prefHeight="24.0" prefWidth="59.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="22.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product id:" />
       <Text layoutX="15.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer id:" />
-      <Text layoutX="18.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity of buy:" />
+      <Text layoutX="15.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity of buy:" />
       <TextField fx:id="txtorderid" layoutX="351.0" layoutY="9.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ffffff;" />
       <Text fill="#110b0b" fontSmoothingType="LCD" layoutX="283.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="order Id">
          <font>
@@ -43,31 +43,31 @@
          </font>
       </Text>
       <Text layoutX="454.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" />
-      <TextField fx:id="txtdescription" layoutX="598.0" layoutY="85.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="540.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-      <TextField fx:id="txtunitprice" layoutX="301.0" layoutY="87.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="224.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit Price" />
-      <TextField fx:id="txtqtyonstock" layoutX="444.0" layoutY="85.0" prefHeight="24.0" prefWidth="69.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="406.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QTY" />
-      <TextField fx:id="txtcusnme" layoutX="453.0" layoutY="48.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="376.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cus Name" />
-      <Button fx:id="btncancel" layoutX="452.0" layoutY="460.0" mnemonicParsing="false" onAction="#cancelbtnonaction" style="-fx-background-color: #ffffff;" text="CANCEL" textFill="#0b7923" />
-      <Button fx:id="btnplaceorder" layoutX="538.0" layoutY="460.0" mnemonicParsing="false" onAction="#placeorderbtnonaction" style="-fx-background-color: #0B7923;" text="PLACE ORDER" textFill="#ebd6d6">
+      <TextField fx:id="txtdescription" layoutX="429.0" layoutY="96.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="380.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+      <TextField fx:id="txtunitprice" layoutX="612.0" layoutY="95.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="540.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit Price" />
+      <TextField fx:id="txtqtyonstock" layoutX="254.0" layoutY="96.0" prefHeight="24.0" prefWidth="69.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="228.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QTY" />
+      <TextField fx:id="txtcusnme" layoutX="358.0" layoutY="47.0" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: #ACE1AF;" />
+      <Text layoutX="268.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cus Name" />
+      <Button fx:id="btncancel" layoutX="485.0" layoutY="484.0" mnemonicParsing="false" onAction="#cancelbtnonaction" style="-fx-background-color: #ffffff;" text="CANCEL" textFill="#0b7923" />
+      <Button fx:id="btnplaceorder" layoutX="579.0" layoutY="484.0" mnemonicParsing="false" onAction="#placeorderbtnonaction" style="-fx-background-color: #0B7923;" text="PLACE ORDER" textFill="#ebd6d6">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <ScrollPane layoutX="11.0" layoutY="240.0" opacity="0.87" prefHeight="212.0" prefWidth="686.0" style="-fx-background-color: #ffffff;">
+      <ScrollPane layoutX="18.0" layoutY="262.0" opacity="0.87" prefHeight="212.0" prefWidth="686.0" style="-fx-background-color: #ffffff;">
          <content>
             <VBox fx:id="vBoxproductorderbar" prefHeight="170.0" prefWidth="666.0" />
          </content>
       </ScrollPane>
-      <Button fx:id="btnaddtocart" layoutX="513.0" layoutY="148.0" mnemonicParsing="false" onAction="#addtocartbtnonaction" style="-fx-background-color: #0B7923;" text="ADD TO CART" textFill="#ebd6d6">
+      <Button fx:id="btnaddtocart" layoutX="571.0" layoutY="181.0" mnemonicParsing="false" onAction="#addtocartbtnonaction" style="-fx-background-color: #0B7923;" text="ADD TO CART" textFill="#ebd6d6">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="187.0" prefHeight="42.0" prefWidth="674.0" spacing="20.0" style="-fx-background-color: #ffffff;">
+      <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="213.0" prefHeight="42.0" prefWidth="674.0" spacing="20.0" style="-fx-background-color: #ffffff;">
          <children>
             <Text fx:id="txtProductId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="code" wrappingWidth="77.81900024414062">
                <font>
@@ -101,10 +101,8 @@
             </Text>
          </children>
       </HBox>
-      <ComboBox fx:id="comboxmachineid" layoutX="358.0" layoutY="128.0" onAction="#machidcmbonaction" prefWidth="150.0" style="-fx-background-color: #ACE1AF;" />
-      <Text layoutX="281.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine Id" />
       <Label fx:id="lbldate" layoutX="506.0" layoutY="10.0" prefHeight="25.0" prefWidth="106.0" text="Label" />
-      <Label fx:id="lblnettotal" layoutX="109.0" layoutY="449.0" prefHeight="25.0" prefWidth="106.0" text="Label" />
-      <Text layoutX="33.0" layoutY="467.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Net Total" />
+      <Label fx:id="lblnettotal" layoutX="95.0" layoutY="483.0" prefHeight="25.0" prefWidth="106.0" text="Label" />
+      <Text layoutX="23.0" layoutY="500.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Net Total" />
    </children>
 </AnchorPane>

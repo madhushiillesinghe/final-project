@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import lk.ijse.project.model.CustomerOrderModel;
+import lk.ijse.project.model.MachineRentModel;
 import lk.ijse.project.util.Navigation;
 import javafx.scene.control.Label;
 import lk.ijse.project.util.DateTimeUtil;
@@ -95,6 +96,10 @@ public class customerOrderMachineController implements Initializable {
 
     private static customerOrderMachineController controller;
 
+    public customerOrderMachineController() {
+        controller = this;
+    }
+
     public static customerOrderMachineController getInstance() {
         return controller;
     }
@@ -106,6 +111,8 @@ public class customerOrderMachineController implements Initializable {
 
     @FXML
     void btnaddcustomeronaction(ActionEvent event) throws IOException {
+        Navigation.close(event);
+        Navigation.switchNavigation("addMachineOrderForm.fxml",event);
 
     }
 
@@ -201,9 +208,8 @@ public class customerOrderMachineController implements Initializable {
 
     void getAllIds() throws SQLException {
        vBoxCusOrderManage.getChildren().clear();
-        ArrayList<String> list = null;
-        CustomerOrderModel cusomodel = new CustomerOrderModel();
-        list = cusomodel.getAllOrderIds();
+        MachineRentModel cusrmodel = new MachineRentModel();
+        ArrayList<String>  list =cusrmodel.getAllRentIds();
 
         for (int i = 0; i < list.size(); i++) {
             loadTableData(list.get(i));

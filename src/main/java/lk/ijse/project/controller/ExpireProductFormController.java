@@ -6,12 +6,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import lk.ijse.project.model.ExpireProductModel;
+import lk.ijse.project.util.DateTimeUtil;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
@@ -66,6 +68,12 @@ public class ExpireProductFormController  implements Initializable {
 
     @FXML
     private Text txxtCount;
+
+    @FXML
+    private Label lbldate;
+
+    @FXML
+    private Label lbltime;
 
     @FXML
     private VBox vBoxExpireProductManage;
@@ -142,6 +150,8 @@ public class ExpireProductFormController  implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
+            lbldate.setText(DateTimeUtil.dateNow());
+            lbltime.setText(DateTimeUtil.timeNow());
             getAllIds();
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -93,7 +93,12 @@ public class OrderProductController  implements Initializable {
 
     @FXML
     private VBox vBoxCusProductOrderManage;
+
     private static OrderProductController controller;
+
+    public OrderProductController() {
+        controller = this;
+    }
 
     public static OrderProductController getInstance() {
         return controller;

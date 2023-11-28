@@ -14,7 +14,6 @@ import java.util.Date;
 public class CustomerOrderDto {
     private String cus_order_id;
     private String cus_id;
-    private String m_id;
-    private Date date;
+    private String  date;
     private ArrayList<String[]> tmlist=new ArrayList<>();
 }

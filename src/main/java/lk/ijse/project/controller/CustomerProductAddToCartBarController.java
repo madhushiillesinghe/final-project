@@ -5,6 +5,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import lk.ijse.project.model.ProductModel;
+import lk.ijse.project.model.machineModel;
 
 import java.sql.SQLException;
 
@@ -39,6 +40,8 @@ public class CustomerProductAddToCartBarController {
 
         try {
             String[] descriptionAndUnitPrice = productModel.descAndUnitPriceGet(id[0]);
+
+            //String[]nameAndRentPrice= machineModel.nameAndUnitPriceGetRentPrice(id[0]);
 
             this.txtProductId.setText(id[0]);
             description.setText(descriptionAndUnitPrice[0]);
