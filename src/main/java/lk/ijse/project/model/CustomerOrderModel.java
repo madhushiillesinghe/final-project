@@ -50,4 +50,15 @@ public class CustomerOrderModel {
             }
             return cusOderDto;
         }
+    public  static int dashboardOrderCount() throws SQLException {
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql = "SELECT COUNT(order_id) FROM customer_order";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet set = pstm.executeQuery();
+        if (set.next()) {
+            int count = set.getInt(1);
+            return count;
+        }
+        return  0;
+    }
 }

@@ -5,8 +5,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import lk.ijse.project.model.CustomerOrderModel;
+import lk.ijse.project.model.ProductModel;
 import lk.ijse.project.model.employeeModel;
+import lk.ijse.project.model.machineModel;
 import lk.ijse.project.util.*;
+import lombok.SneakyThrows;
 
 import java.io.IOException;
 import java.net.URL;
@@ -40,16 +44,16 @@ public class DashboardController implements Initializable {
     private Button btnsupplier;
 
     @FXML
-    private Label lblcustomer;
+    private Label txtemployee;
 
     @FXML
-    private Label lblemployee;
+    private Label txtmachine;
 
     @FXML
-    private Label lblproduct;
+    private Label txtorder;
 
     @FXML
-    private Label lblsupplier;
+    private Label txtproduct;
 
     @FXML
     private Label txtdate;
@@ -59,6 +63,10 @@ public class DashboardController implements Initializable {
 
 
 employeeModel empmodel =new employeeModel();
+ProductModel productModel=new ProductModel();
+machineModel machmodel=new machineModel();
+
+CustomerOrderModel cusomodel=new CustomerOrderModel();
     @FXML
     void customerbtnonaction(ActionEvent event) throws IOException {
         Navigation.close(event);
@@ -108,21 +116,39 @@ employeeModel empmodel =new employeeModel();
     }
 
 
+    @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         txtdate.setText(DateTimeUtil.dateNow());
         txttime.setText(DateTimeUtil.timeNow());
+        showDashboardEmployeeCount(empmodel);
+        showDashboardProductCount(productModel);
+        showDashboardmachineCount(machmodel);
+        showDashboardorderCount(cusomodel);
 
 
-        try {
-            showDashboardValue(empmodel);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+
     }
 
-    private void showDashboardValue(employeeModel empmodel) throws SQLException {
-        int totalEmployee=empmodel.dashboardEmployeeCount();
-        lblemployee.setText(String.valueOf(totalEmployee));
+    private void showDashboardorderCount(CustomerOrderModel cusomodel) throws SQLException {
+        int countofcusorder= cusomodel.dashboardOrderCount();
+        txtorder.setText(String.valueOf(countofcusorder));
     }
+
+    private void showDashboardmachineCount(machineModel machmodel) throws SQLException {
+        int countofmachine= machmodel.dashboardMachineCount();
+        txtmachine.setText(String.valueOf(countofmachine));
+    }
+
+    private void showDashboardProductCount(ProductModel productModel) throws SQLException {
+        int countofproduct= ProductModel.dashboardProductCount();
+       txtproduct.setText(String.valueOf(countofproduct));
+    }
+
+    private void showDashboardEmployeeCount(employeeModel empmodel) throws SQLException {
+       int countofemployee= empmodel.dashboardEmployeeCount();
+       txtemployee.setText(String.valueOf(countofemployee));
+        System.out.println(countofemployee);
+    }
+
 }

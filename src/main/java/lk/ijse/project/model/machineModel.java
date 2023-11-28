@@ -216,5 +216,16 @@ public class machineModel {
 
         return set;
     }*/
+    public  static int dashboardMachineCount() throws SQLException {
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql = "SELECT COUNT(m_id) FROM machine";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet set = pstm.executeQuery();
+        if (set.next()) {
+            int count = set.getInt(1);
+            return count;
+        }
+        return  0;
+    }
 }
 
