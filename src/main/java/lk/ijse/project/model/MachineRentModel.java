@@ -52,7 +52,7 @@ public class MachineRentModel {
             mdto.setCus_rent_id(resultSet.getString(1));
             mdto.setCus_id(resultSet.getString(2));
             mdto.setM_id(resultSet.getString(3));
-            mdto.setDate(resultSet.getString(3));
+            mdto.setDate(resultSet.getString(4));
         }
         return mdto;
     }

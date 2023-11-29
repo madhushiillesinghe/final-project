@@ -1,19 +1,25 @@
 package lk.ijse.project.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import lk.ijse.project.dto.ExpireProductDto;
-import lk.ijse.project.model.ExpireProductModel;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import lk.ijse.project.dto.AddExpireProductDto;
+import lk.ijse.project.dto.productDto;
+import lk.ijse.project.model.*;
+import lk.ijse.project.util.DateTimeUtil;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class AddExpireProductFormController  {
+public class AddExpireProductFormController implements Initializable {
 
     @FXML
     private Button btnadd;
@@ -22,10 +28,7 @@ public class AddExpireProductFormController  {
     private Button btncancel;
 
     @FXML
-    private TextField txtcount;
-
-    @FXML
-    private TextField txtid;
+    private TextField txttota;
 
     @FXML
     private TextField txtxDescription;
@@ -36,7 +39,14 @@ public class AddExpireProductFormController  {
     @FXML
     private TextField txtxunitprice;
 
+
+    @FXML
+    private Label lbldate;
+    @FXML
+    private ComboBox<String>cmbproduct;
     ExpireProductModel exproModel=new ExpireProductModel();
+
+    ArrayList<String[]> productlist = new ArrayList<>();
 
 
     ArrayList<String> list;
@@ -50,24 +60,41 @@ public class AddExpireProductFormController  {
     }
 
     @FXML
-    void addbtnonaction(ActionEvent event) {
-        ExpireProductDto exprodto=new ExpireProductDto();
+    void productidonaction(ActionEvent event) {
+        String  pid = cmbproduct.getSelectionModel().getSelectedItem().toString();
+        try{
+            productDto dto= ProductModel.searchProduct(pid);
+            txtxDescription.setText(dto.getDescription());
+            txtxunitprice.setText(String.valueOf(dto.getUnit_price()));
+            txtxdate.setText(dto.getExpire_date());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
+
+    @FXML
+    void addbtnonaction(ActionEvent event) throws SQLException {
+
+        String[] products = {String.valueOf(cmbproduct.getSelectionModel().getSelectedItem()),txttota.getText()};
+        productlist.add(products);
+       // txttota.clear();
+
+        AddExpireProductDto exprodto=new AddExpireProductDto();
+
+        exprodto.setP_code(cmbproduct.getSelectionModel().getSelectedItem());
         exprodto.setDescription(txtxDescription.getText());
-        exprodto.setCount(Integer.parseInt(txtcount.getText()));
-        exprodto.setP_code(txtid.getText());
+        exprodto.setCount(Integer.parseInt(txttota.getText()));
+        exprodto.setTmlist(productlist);
 
-        try {
             boolean isSaved;
-            isSaved = ExpireProductModel.saveExpireProduct(exprodto);
+            isSaved = AddExpireProductModel.SaveAddExpireProduct(exprodto);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Expire product add sucuss!").show();
-
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
-
+            else {
+                new Alert(Alert.AlertType.ERROR, "Unable to Save expire product").show();
+            }
     }
 
     @FXML
@@ -76,4 +103,24 @@ public class AddExpireProductFormController  {
         Navigation.switchNavigation("ExpireProductForm.fxml",event);
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        lbldate.setText(DateTimeUtil.dateNow());
+    loadAllProductIds();
+    }
+
+    private void loadAllProductIds() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        try {
+            List<productDto> productlist = ProductModel.loadAllProduct();
+
+            for (productDto pDto :productlist) {
+                obList.add(pDto.getP_code());
+            }
+
+            cmbproduct.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

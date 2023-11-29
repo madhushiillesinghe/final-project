@@ -5,7 +5,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import lk.ijse.project.dto.tm.ExpireProductTm;
+import lk.ijse.project.dto.AddExpireProductDto;
 import lk.ijse.project.model.ExpireProductModel;
 import lk.ijse.project.util.Navigation;
 
@@ -51,10 +51,9 @@ public class ExpireProductBarFormController {
         Navigation.popupNavigation("UpdateExpireProductForm.fxml");
     }
 
-    public void setData(String id) {
-        ExpireProductTm exprotm= null;
+    public void setData(String id)  {
         try {
-            exprotm= ExpireProductModel.getExpireProduct(id);
+            AddExpireProductDto exprotm=ExpireProductModel.getData(id);
             this.txtId.setText(exprotm.getP_code());
             txtName.setText(exprotm.getDescription());
             txxtCount.setText(String.valueOf(exprotm.getCount()));

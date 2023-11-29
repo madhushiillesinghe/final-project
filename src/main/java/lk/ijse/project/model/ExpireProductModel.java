@@ -1,6 +1,8 @@
 package lk.ijse.project.model;
 
+import lk.ijse.project.dto.AddExpireProductDto;
 import lk.ijse.project.dto.ExpireProductDto;
+import lk.ijse.project.dto.machineOrderDto;
 import lk.ijse.project.dto.tm.ExpireProductTm;
 import lk.ijse.project.fp.FpConnection;
 
@@ -9,14 +11,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExpireProductModel {
-    public static boolean saveExpireProduct(ExpireProductDto exprodto) throws SQLException {
+    public static boolean saveExpireProduct(AddExpireProductDto exprodto) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
         String sql = "INSERT INTO expired_product VALUES(?, ?, ?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, exprodto.getP_code());
         pstm.setString(2, exprodto.getDescription());
-        pstm.setInt(3, exprodto.getCount());
+        pstm.setInt(3,exprodto.getCount());
 
         return pstm.executeUpdate() > 0;
     }
@@ -145,5 +147,23 @@ public class ExpireProductModel {
         }
         return list;
     }
+    public static AddExpireProductDto getData(String id) throws SQLException {
 
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql="SELECT * FROM expired_product WHERE p_id=?";
+        PreparedStatement pstm=connection.prepareStatement(sql);
+
+        pstm.setString(1, id);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        AddExpireProductDto dto = new AddExpireProductDto();
+
+        if (resultSet.next()) {
+            dto.setP_code(resultSet.getString(1));
+            dto.setDescription(resultSet.getString(2));
+            dto.setCount(resultSet.getInt(3));
+        }
+        return dto;
+    }
 }

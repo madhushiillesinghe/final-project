@@ -78,6 +78,16 @@ public class ExpireProductFormController  implements Initializable {
     @FXML
     private VBox vBoxExpireProductManage;
 
+    private static ExpireProductFormController controller;
+
+    public ExpireProductFormController() {
+        controller = this;
+    }
+
+    public static ExpireProductFormController getInstance() {
+        return controller;
+    }
+
     @FXML
     void addcustomer(MouseEvent event) {
 
