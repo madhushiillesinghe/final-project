@@ -1,16 +1,18 @@
 package lk.ijse.project.controller;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import lk.ijse.project.model.CustomerOrderModel;
-import lk.ijse.project.model.ProductModel;
-import lk.ijse.project.model.employeeModel;
-import lk.ijse.project.model.machineModel;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import lk.ijse.project.model.*;
 import lk.ijse.project.util.*;
 import lombok.SneakyThrows;
+import javafx.application.Application;
 
 import java.io.IOException;
 import java.net.URL;
@@ -62,6 +64,8 @@ public class DashboardController implements Initializable {
     private Label txttime;
 
 
+    @FXML
+    private Pane panepiechart;
 employeeModel empmodel =new employeeModel();
 ProductModel productModel=new ProductModel();
 machineModel machmodel=new machineModel();
@@ -125,10 +129,25 @@ CustomerOrderModel cusomodel=new CustomerOrderModel();
         showDashboardProductCount(productModel);
         showDashboardmachineCount(machmodel);
         showDashboardorderCount(cusomodel);
-
-
+        pieChart();
 
     }
+
+    private void pieChart() {
+        PieChart piechart=new PieChart();
+        try{
+            ObservableList<PieChart.Data> pieChartData= DashboardModel.getProductDataForPieChart();
+            piechart.setData(pieChartData);
+            piechart.getData().get(0).getNode().setStyle("-fx-pie-color: #151B8D ");
+            piechart.getData().get(1).getNode().setStyle("-fx-pie-color: #046307 ");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        panepiechart.getChildren().add(piechart);
+
+    }
+
 
     private void showDashboardorderCount(CustomerOrderModel cusomodel) throws SQLException {
         int countofcusorder= cusomodel.dashboardOrderCount();
@@ -141,7 +160,7 @@ CustomerOrderModel cusomodel=new CustomerOrderModel();
     }
 
     private void showDashboardProductCount(ProductModel productModel) throws SQLException {
-        int countofproduct= ProductModel.dashboardProductCount();
+        int countofproduct= productModel.dashboardProductCount();
        txtproduct.setText(String.valueOf(countofproduct));
     }
 

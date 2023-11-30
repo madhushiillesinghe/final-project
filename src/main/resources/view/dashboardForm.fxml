@@ -89,7 +89,6 @@
             <Image url="@../icon/recipt.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="450.0" layoutY="296.0" prefHeight="426.0" prefWidth="818.0" style="-fx-background-color: #FFFFFF;" />
       <Pane layoutX="463.0" layoutY="191.0" prefHeight="69.0" prefWidth="161.0" style="-fx-background-color: #74B72E; -fx-border-radius: 15;">
          <effect>
             <ColorAdjust brightness="0.31" contrast="-0.02" hue="0.29" saturation="-0.21" />
@@ -105,7 +104,7 @@
                   <Image url="@../icon/employee.png" />
                </image>
             </ImageView>
-            <Label fx:id="txtemployee" layoutX="125.0" layoutY="22.0" prefHeight="25.0" prefWidth="36.0" text="Label" />
+            <Label fx:id="txtemployee" layoutX="54.0" layoutY="43.0" prefHeight="25.0" prefWidth="36.0" text="Label" />
          </children>
       </Pane>
       <Pane layoutX="894.0" layoutY="191.0" opacity="0.7" prefHeight="69.0" prefWidth="161.0" style="-fx-background-color: #03c04A; -fx-border-radius: 15;">
@@ -125,7 +124,7 @@
                   <Image url="@../icon/shopping.png" />
                </image>
             </ImageView>
-            <Label fx:id="txtorder" layoutX="115.0" layoutY="23.0" prefHeight="25.0" prefWidth="36.0" text="Label" />
+            <Label fx:id="txtorder" layoutX="63.0" layoutY="43.0" prefHeight="25.0" prefWidth="36.0" text="Label" />
          </children>
          <effect>
             <ColorAdjust brightness="0.31" contrast="0.12" hue="-0.12" saturation="-0.21" />
@@ -136,7 +135,7 @@
             <ColorAdjust brightness="-0.33" contrast="0.36" hue="-0.12" saturation="-0.14" />
          </effect>
          <children>
-            <Label layoutX="34.0" layoutY="25.0" text="Machine">
+            <Label layoutX="46.0" layoutY="25.0" text="Machine">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -146,7 +145,7 @@
                   <Image url="@../icon/machinei.png" />
                </image>
             </ImageView>
-            <Label fx:id="txtmachine" layoutX="111.0" layoutY="23.0" prefHeight="25.0" prefWidth="36.0" text="Label" />
+            <Label fx:id="txtmachine" layoutX="63.0" layoutY="43.0" prefHeight="25.0" prefWidth="36.0" text="Label" />
          </children>
       </Pane>
       <Pane layoutX="1107.0" layoutY="191.0" opacity="0.75" prefHeight="69.0" prefWidth="161.0" style="-fx-background-color: #66FF00; -fx-border-radius: 15;">
@@ -156,17 +155,17 @@
                   <Font name="System Italic" size="20.0" />
                </font>
             </Text>
-            <Label layoutX="39.0" layoutY="25.0" text="Product">
+            <Label layoutX="66.0" layoutY="25.0" text="Product">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="13.0" layoutY="25.0">
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="23.0" layoutY="25.0">
                <image>
                   <Image url="@../icon/agriicon.png" />
                </image>
             </ImageView>
-            <Label fx:id="txtproduct" layoutX="124.0" layoutY="21.0" prefHeight="25.0" prefWidth="36.0" text="Label" />
+            <Label fx:id="txtproduct" layoutX="81.0" layoutY="38.0" prefHeight="25.0" prefWidth="36.0" text="Label" />
          </children>
          <effect>
             <ColorAdjust brightness="-0.05" contrast="0.12" hue="0.02" saturation="-0.38" />
@@ -174,5 +173,21 @@
       </Pane>
       <Label fx:id="txtdate" layoutX="1217.0" layoutY="59.0" prefHeight="28.0" prefWidth="103.0" text="Label" />
       <Label fx:id="txttime" layoutX="1217.0" layoutY="91.0" prefHeight="25.0" prefWidth="94.0" text="Label" />
+      <Pane fx:id="panepiechart" layoutX="381.0" layoutY="290.0" prefHeight="305.0" prefWidth="431.0" style="-fx-background-color: #ffffff;" />
+      <Text fill="#235428" fontSmoothingType="LCD" layoutX="966.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-stroke-width: 15;" text="SOUTHERN AGRO">
+         <font>
+            <Font name="FreeSerif" size="32.0" />
+         </font>
+      </Text>
+      <Text fill="#283c25" layoutX="854.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TO BE SRILANKA'S CORPORATE   INSPIRATION " wrappingWidth="471.400390625">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#283c25" layoutX="998.0" layoutY="411.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AT ALL TIME" wrappingWidth="471.400390625">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

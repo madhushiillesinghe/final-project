@@ -72,12 +72,12 @@ public class ProductModel {
 
 
 
-    public static productDto searchProduct(String p_code) throws SQLException {
+    public static productDto searchExpireDate(String expiredate) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
-        String sql = "SELECT * FROM agri_product WHERE p_code = ?";
+        String sql = "SELECT * FROM agri_product WHERE expire_date = ?";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setString(1, p_code);
+        pstm.setString(1, expiredate);
 
         ResultSet resultSet = pstm.executeQuery();
 
@@ -95,6 +95,28 @@ public class ProductModel {
         return dto;
     }
 
+    public static productDto searchProduct(String p_code) throws SQLException {
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql = "SELECT * FROM agri_product WHERE p_code = ?";
+
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setString(1, p_code);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        productDto dto = null;
+
+        if (resultSet.next()) {
+            dto = new productDto(
+                    resultSet.getString(1),
+                    resultSet.getDouble(2),
+                    resultSet.getString(3),
+                    resultSet.getInt(4),
+                    resultSet.getString(5)
+            );
+        }
+        return dto;
+    }
     public static boolean deleteProduct(String p_code) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
 
