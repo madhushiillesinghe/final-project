@@ -1,14 +1,24 @@
 package lk.ijse.project.controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.geometry.Pos;
+import javafx.util.Duration;
+import lk.ijse.project.dto.productDto;
 import lk.ijse.project.model.*;
 import lk.ijse.project.util.*;
 import lombok.SneakyThrows;
@@ -17,6 +27,7 @@ import javafx.application.Application;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
@@ -63,14 +74,32 @@ public class DashboardController implements Initializable {
     @FXML
     private Label txttime;
 
+    @FXML
+    private Text lblExpireDate;
+
+    @FXML
+    private Text lblProductName;
+
+    @FXML
+    private Text lblProductPrice;
+
+    @FXML
+    private Text lblProductQty;
+
+    @FXML
+    private ComboBox<String> cmbExpireProducts;
 
     @FXML
     private Pane panepiechart;
-employeeModel empmodel =new employeeModel();
-ProductModel productModel=new ProductModel();
-machineModel machmodel=new machineModel();
 
-CustomerOrderModel cusomodel=new CustomerOrderModel();
+    @FXML
+    private AnchorPane expireProductPopUpPane;
+
+    employeeModel empmodel =new employeeModel();
+    ProductModel productModel=new ProductModel();
+    machineModel machmodel=new machineModel();
+    CustomerOrderModel cusomodel=new CustomerOrderModel();
+
     @FXML
     void customerbtnonaction(ActionEvent event) throws IOException {
         Navigation.close(event);
@@ -120,18 +149,7 @@ CustomerOrderModel cusomodel=new CustomerOrderModel();
     }
 
 
-    @SneakyThrows
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        txtdate.setText(DateTimeUtil.dateNow());
-        txttime.setText(DateTimeUtil.timeNow());
-        showDashboardEmployeeCount(empmodel);
-        showDashboardProductCount(productModel);
-        showDashboardmachineCount(machmodel);
-        showDashboardorderCount(cusomodel);
-        pieChart();
 
-    }
 
     private void pieChart() {
         PieChart piechart=new PieChart();
@@ -144,8 +162,14 @@ CustomerOrderModel cusomodel=new CustomerOrderModel();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        panepiechart.getChildren().add(piechart);
 
+        // stackPane to center the PieChart
+        StackPane stackPane = new StackPane();
+        stackPane.setAlignment(Pos.CENTER);
+        stackPane.getChildren().add(piechart);
+
+        panepiechart.getChildren().add(stackPane);
+        StackPane.setAlignment(stackPane, Pos.CENTER);
     }
 
 
@@ -170,4 +194,54 @@ CustomerOrderModel cusomodel=new CustomerOrderModel();
         System.out.println(countofemployee);
     }
 
+    @FXML
+    void btnCloseOnAction(ActionEvent event) {
+        expireProductPopUpPane.setVisible(false);
+    }
+
+    @FXML
+    void cmbExpireProductsOnAction(ActionEvent event) throws SQLException {
+        setDataInExpiredPopUpPane();
+        expireProductPopUpPane.setVisible(true);
+
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(0.2), expireProductPopUpPane);
+        transition.setFromX(expireProductPopUpPane.getWidth()); // Slide in from the right
+        transition.setToX(0);
+        transition.play();
+    }
+
+    public void setDataInComboBox() throws SQLException {
+        ArrayList<String> ids = productModel.getExpiredProductIds();
+        cmbExpireProducts.getItems().addAll(ids);
+    }
+
+    public void setDataInExpiredPopUpPane() throws SQLException {
+        productDto productDto = ProductModel.searchProduct(cmbExpireProducts.getSelectionModel().getSelectedItem());
+
+        lblProductName.setText(productDto.getDescription());
+        lblProductPrice.setText(String.valueOf(productDto.getUnit_price()));
+        lblProductQty.setText(String.valueOf(productDto.getQty_on_stock()));
+        lblExpireDate.setText(productDto.getExpire_date());
+    }
+
+    @SneakyThrows
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        setDataInComboBox();
+
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> txttime.setText(DateTimeUtil.timeNow())));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+
+        txtdate.setText(DateTimeUtil.dateNow());
+        showDashboardEmployeeCount(empmodel);
+        showDashboardProductCount(productModel);
+        showDashboardmachineCount(machmodel);
+        showDashboardorderCount(cusomodel);
+        pieChart();
+    }
+
+    public void closeOnMouseClicked(MouseEvent mouseEvent) {
+
+    }
 }

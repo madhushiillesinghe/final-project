@@ -173,6 +173,7 @@ public class ProductModel {
         }
         return protm;
     }
+
     public static productDto getProductDto(String pCode) throws SQLException {
         Connection connection = FpConnection.getInstance().getConnection();
         String sql = "SELECT * FROM agri_product WHERE p_code = ?";
@@ -198,6 +199,20 @@ public class ProductModel {
     public ArrayList<String> getAllProductId() throws SQLException{
         Connection connection = FpConnection.getInstance().getConnection();
         String sql="SELECT p_code FROM agri_product ORDER BY LENGTH(p_code),p_code";
+        PreparedStatement pstm=connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+        ArrayList<String> list = new ArrayList<>();
+
+        while (resultSet.next()) {
+            list.add(resultSet.getString(1));
+        }
+        return list;
+    }
+
+    public ArrayList<String> getExpiredProductIds() throws SQLException{
+        Connection connection = FpConnection.getInstance().getConnection();
+        String sql="SELECT p_code FROM agri_product WHERE expire_date IS NOT NULL";
         PreparedStatement pstm=connection.prepareStatement(sql);
 
         ResultSet resultSet = pstm.executeQuery();
