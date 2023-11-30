@@ -5,14 +5,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import lk.ijse.project.dto.tm.employeeTm;
-import lk.ijse.project.model.employeeModel;
+import lk.ijse.project.dto.tm.EmployeeTm;
+import lk.ijse.project.model.EmployeeModel;
 import lk.ijse.project.util.Navigation;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JRDesignQuery;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import lk.ijse.project.fp.FpConnection;
+import lk.ijse.project.DB.DBConnection;
 import net.sf.jasperreports.swing.JRViewer;
 
 import javax.swing.*;
@@ -48,9 +48,9 @@ public class EmployeeBarFormController {
     void deleteOnMouseClick(MouseEvent event) {
     String id=txtId.getText();
 
-    var empModel=new employeeModel();
+    var empModel=new EmployeeModel();
     try{
-        boolean isDeleted=employeeModel.deleteEmployee(id);
+        boolean isDeleted= EmployeeModel.deleteEmployee(id);
         if(isDeleted){
             new Alert( Alert.AlertType.CONFIRMATION,"Employee deleted").show();
         }
@@ -65,11 +65,11 @@ public class EmployeeBarFormController {
         UpdateEmployeeController.setId(txtId.getText());
         Navigation.popupNavigation("updateEmployee.fxml");
     }
-   employeeModel empmodel=new employeeModel();
+   EmployeeModel empmodel=new EmployeeModel();
     public void setData(String id) throws SQLException {
-        employeeTm emptm= null;
+        EmployeeTm emptm= null;
         try {
-            emptm=employeeModel.getEmployee(id);
+            emptm= EmployeeModel.getEmployee(id);
             this.txtId.setText(emptm.getId());
             txtName.setText(emptm.getName());
             txtRole.setText(emptm.getRole());
@@ -87,7 +87,7 @@ public class EmployeeBarFormController {
     query.setText("SELECT emp_id, email, first_name,  role, contact_no FROM employee; ");
     jasperDesign.setQuery(query);
     JasperReport jasperReport= JasperCompileManager.compileReport(jasperDesign);
-    JasperPrint jasperPrint= JasperFillManager.fillReport(jasperReport,null,FpConnection.getInstance().getConnection());
+    JasperPrint jasperPrint= JasperFillManager.fillReport(jasperReport,null, DBConnection.getInstance().getConnection());
     JFrame frame= new JFrame("Jasper Report Viewer");
     JRViewer viewer=new JRViewer(jasperPrint);
     frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

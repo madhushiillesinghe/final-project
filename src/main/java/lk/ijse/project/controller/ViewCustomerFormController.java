@@ -5,8 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import lk.ijse.project.dto.customerDto;
-import lk.ijse.project.model.customerModel;
+import lk.ijse.project.dto.CustomerDto;
+import lk.ijse.project.model.CustomerModel;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
@@ -74,7 +74,7 @@ public class ViewCustomerFormController implements Initializable {
 
     private void setData() {
         try{
-            customerDto cusdto= customerModel.searchCustomer(nic);
+            CustomerDto cusdto= CustomerModel.searchCustomer(nic);
 
             lblemail.setText(cusdto.getEmail());
             lblhouseno.setText(String.valueOf(cusdto.getHouse_no()));

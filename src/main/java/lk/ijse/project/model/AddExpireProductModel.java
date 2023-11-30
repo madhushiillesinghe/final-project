@@ -1,8 +1,7 @@
 package lk.ijse.project.model;
 
 import lk.ijse.project.dto.AddExpireProductDto;
-import lk.ijse.project.dto.machineOrderDto;
-import lk.ijse.project.fp.FpConnection;
+import lk.ijse.project.DB.DBConnection;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -16,7 +15,7 @@ public class AddExpireProductModel {
         boolean result = false;
         Connection connection = null;
         try {
-            connection = FpConnection.getInstance().getConnection();
+            connection = DBConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
 
             boolean isExpireproducrSave= ExpireProductModel.saveExpireProduct(dto);

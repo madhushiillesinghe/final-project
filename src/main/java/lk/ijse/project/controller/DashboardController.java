@@ -3,6 +3,7 @@ package lk.ijse.project.controller;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,16 +19,16 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.geometry.Pos;
 import javafx.util.Duration;
-import lk.ijse.project.dto.productDto;
+import lk.ijse.project.dto.ProductDto;
 import lk.ijse.project.model.*;
 import lk.ijse.project.util.*;
 import lombok.SneakyThrows;
-import javafx.application.Application;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
@@ -95,9 +96,9 @@ public class DashboardController implements Initializable {
     @FXML
     private AnchorPane expireProductPopUpPane;
 
-    employeeModel empmodel =new employeeModel();
+    EmployeeModel empmodel =new EmployeeModel();
     ProductModel productModel=new ProductModel();
-    machineModel machmodel=new machineModel();
+    MachineModel machmodel=new MachineModel();
     CustomerOrderModel cusomodel=new CustomerOrderModel();
 
     @FXML
@@ -178,7 +179,7 @@ public class DashboardController implements Initializable {
         txtorder.setText(String.valueOf(countofcusorder));
     }
 
-    private void showDashboardmachineCount(machineModel machmodel) throws SQLException {
+    private void showDashboardmachineCount(MachineModel machmodel) throws SQLException {
         int countofmachine= machmodel.dashboardMachineCount();
         txtmachine.setText(String.valueOf(countofmachine));
     }
@@ -188,7 +189,7 @@ public class DashboardController implements Initializable {
        txtproduct.setText(String.valueOf(countofproduct));
     }
 
-    private void showDashboardEmployeeCount(employeeModel empmodel) throws SQLException {
+    private void showDashboardEmployeeCount(EmployeeModel empmodel) throws SQLException {
        int countofemployee= empmodel.dashboardEmployeeCount();
        txtemployee.setText(String.valueOf(countofemployee));
         System.out.println(countofemployee);
@@ -210,13 +211,26 @@ public class DashboardController implements Initializable {
         transition.play();
     }
 
-    public void setDataInComboBox() throws SQLException {
-        ArrayList<String> ids = productModel.getExpiredProductIds();
-        cmbExpireProducts.getItems().addAll(ids);
+    public void setDataInComboBox() {
+
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        try {
+            List<ProductDto> itemList = ProductModel.loadAllExpireProduct();
+
+            for (ProductDto itemDto : itemList) {
+                obList.add(itemDto.getP_code());
+            }
+
+           cmbExpireProducts.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
+
+
     public void setDataInExpiredPopUpPane() throws SQLException {
-        productDto productDto = ProductModel.searchProduct(cmbExpireProducts.getSelectionModel().getSelectedItem());
+        ProductDto productDto = ProductModel.searchProduct(cmbExpireProducts.getSelectionModel().getSelectedItem());
 
         lblProductName.setText(productDto.getDescription());
         lblProductPrice.setText(String.valueOf(productDto.getUnit_price()));

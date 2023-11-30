@@ -3,7 +3,7 @@ package lk.ijse.project.model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
-import lk.ijse.project.fp.FpConnection;
+import lk.ijse.project.DB.DBConnection;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,7 +13,7 @@ import java.sql.Statement;
 public class DashboardModel {
     public static ObservableList<PieChart.Data> getProductDataForPieChart() throws SQLException {
 
-        Connection connection= FpConnection.getInstance().getConnection();
+        Connection connection= DBConnection.getInstance().getConnection();
 
         ObservableList<PieChart.Data> productdata= FXCollections.observableArrayList();
 

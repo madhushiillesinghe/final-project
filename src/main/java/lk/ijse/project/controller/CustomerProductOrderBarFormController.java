@@ -25,12 +25,12 @@ public class CustomerProductOrderBarFormController {
     @FXML
     private Text txtTime;
     CustomerOrderModel cusOrderModel = new CustomerOrderModel();
-    customerModel cusModel = new customerModel();
+    CustomerModel cusModel = new CustomerModel();
 
     public void setData(String id) {
         try {
             CustomerOrderDto cusOrderDto =CustomerOrderModel.getData(id);
-           customerDto cusdto = customerModel.getData(cusOrderDto.getCus_id());
+           CustomerDto cusdto = CustomerModel.getData(cusOrderDto.getCus_id());
 
             this.txtId.setText(cusOrderDto.getCus_order_id());
             txtDate.setText(DateTimeUtil.dateNow());

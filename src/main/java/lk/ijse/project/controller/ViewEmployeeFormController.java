@@ -5,8 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import lk.ijse.project.dto.employeeDto;
-import lk.ijse.project.model.employeeModel;
+import lk.ijse.project.dto.EmployeeDto;
+import lk.ijse.project.model.EmployeeModel;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
@@ -76,7 +76,7 @@ public class ViewEmployeeFormController implements Initializable {
     }
     public void setData(){
         try{
-            employeeDto empdto= employeeModel.searchEmployee(nic);
+            EmployeeDto empdto= EmployeeModel.searchEmployee(nic);
             lblcontactno.setText(String.valueOf(empdto.getContact_no()));
             lblemail.setText(empdto.getEmail());
             lblhouseno.setText(String.valueOf(empdto.getHouse_no()));

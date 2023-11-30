@@ -5,7 +5,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import lk.ijse.project.model.ProductModel;
-import lk.ijse.project.model.machineModel;
 
 import java.sql.SQLException;
 

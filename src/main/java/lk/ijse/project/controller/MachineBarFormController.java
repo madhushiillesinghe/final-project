@@ -5,8 +5,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import lk.ijse.project.dto.tm.machineTm;
-import lk.ijse.project.model.machineModel;
+import lk.ijse.project.dto.tm.MachineTm;
+import lk.ijse.project.model.MachineModel;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
@@ -36,9 +36,9 @@ public class MachineBarFormController {
     void deleteOnMouseClick(MouseEvent event) {
         String id = txtId.getText();
 
-        var mmodel = new machineModel();
+        var mmodel = new MachineModel();
         try {
-            boolean isDeleted = machineModel.deleteMachine(id);
+            boolean isDeleted = MachineModel.deleteMachine(id);
             if (isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Machine deleted").show();
             }
@@ -52,11 +52,11 @@ public class MachineBarFormController {
        UpdateMachineFormController.setId(txtId.getText());
         Navigation.popupNavigation("UpdateMachineForm.fxml");
     }
-    machineModel machmodel=new machineModel();
+    MachineModel machmodel=new MachineModel();
     public void setData(String id) throws SQLException {
-        machineTm machtm= null;
+        MachineTm machtm= null;
         try{
-           machtm=machineModel.getMachine(id);
+           machtm= MachineModel.getMachine(id);
 
             this.txtId.setText(machtm.getId());
             txtName.setText(machtm.getName());

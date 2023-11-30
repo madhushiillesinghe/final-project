@@ -4,9 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import javafx.scene.control.Label;
 import lk.ijse.project.model.ProductModel;
-import lk.ijse.project.model.employeeModel;
 
 import java.sql.SQLException;
 

@@ -1,15 +1,14 @@
 package lk.ijse.project.model;
-import lk.ijse.project.dto.productDto;
-import lk.ijse.project.dto.tm.productTm;
-import lk.ijse.project.fp.FpConnection;
+import lk.ijse.project.dto.ProductDto;
+import lk.ijse.project.dto.tm.ProductTm;
+import lk.ijse.project.DB.DBConnection;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 public class ProductModel {
-    public static boolean saveProduct(productDto prodto) throws SQLException {
-        Connection connection = FpConnection.getInstance().getConnection();
+    public static boolean saveProduct(ProductDto prodto) throws SQLException {
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql = "INSERT INTO agri_product VALUES(?, ?, ?, ?, ?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
@@ -22,8 +21,8 @@ public class ProductModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public static boolean updateProduct(productDto prodto) throws SQLException {
-        Connection connection = FpConnection.getInstance().getConnection();
+    public static boolean updateProduct(ProductDto prodto) throws SQLException {
+        Connection connection = DBConnection.getInstance().getConnection();
 
         String sql = "UPDATE agri_product SET  unit_price = ?, description = ?, qty_on_stock = ?, expire_date = ? WHERE p_code = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -41,7 +40,7 @@ public class ProductModel {
 
     public static boolean update(ArrayList<String[]> arrayList) throws SQLException {
         String sql = "UPDATE agri_product SET qty_on_stock = qty_on_stock + ? WHERE p_code=?";
-        PreparedStatement statement = FpConnection.getInstance().getConnection().prepareStatement(sql);
+        PreparedStatement statement = DBConnection.getInstance().getConnection().prepareStatement(sql);
 
         for (int i = 0; i < arrayList.size() ; i++) {
             statement.setInt(1, Integer.parseInt(arrayList.get(i)[1]));
@@ -56,7 +55,7 @@ public class ProductModel {
     }
     public static boolean updateproduct(ArrayList<String[]> arrayList) throws SQLException {
         String sql = "UPDATE agri_product SET qty_on_stock = qty_on_stock - ? WHERE p_code=?";
-        PreparedStatement statement = FpConnection.getInstance().getConnection().prepareStatement(sql);
+        PreparedStatement statement = DBConnection.getInstance().getConnection().prepareStatement(sql);
 
         for (int i = 0; i < arrayList.size() ; i++) {
             statement.setInt(1, Integer.parseInt(arrayList.get(i)[1]));
@@ -72,8 +71,8 @@ public class ProductModel {
 
 
 
-    public static productDto searchExpireDate(String expiredate) throws SQLException {
-        Connection connection = FpConnection.getInstance().getConnection();
+    public static ProductDto searchExpireDate(String expiredate) throws SQLException {
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql = "SELECT * FROM agri_product WHERE expire_date = ?";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -81,10 +80,10 @@ public class ProductModel {
 
         ResultSet resultSet = pstm.executeQuery();
 
-       productDto dto = null;
+       ProductDto dto = null;
 
         if (resultSet.next()) {
-            dto = new productDto(
+            dto = new ProductDto(
                     resultSet.getString(1),
                     resultSet.getDouble(2),
                     resultSet.getString(3),
@@ -95,8 +94,8 @@ public class ProductModel {
         return dto;
     }
 
-    public static productDto searchProduct(String p_code) throws SQLException {
-        Connection connection = FpConnection.getInstance().getConnection();
+    public static ProductDto searchProduct(String p_code) throws SQLException {
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql = "SELECT * FROM agri_product WHERE p_code = ?";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -104,10 +103,10 @@ public class ProductModel {
 
         ResultSet resultSet = pstm.executeQuery();
 
-        productDto dto = null;
+        ProductDto dto = null;
 
         if (resultSet.next()) {
-            dto = new productDto(
+            dto = new ProductDto(
                     resultSet.getString(1),
                     resultSet.getDouble(2),
                     resultSet.getString(3),
@@ -118,7 +117,7 @@ public class ProductModel {
         return dto;
     }
     public static boolean deleteProduct(String p_code) throws SQLException {
-        Connection connection = FpConnection.getInstance().getConnection();
+        Connection connection = DBConnection.getInstance().getConnection();
 
         String sql = "DELETE FROM agri_product WHERE p_code = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -127,18 +126,18 @@ public class ProductModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public static List<productDto> loadAllProduct() throws SQLException {
-        Connection connection = FpConnection.getInstance().getConnection();
+    public static List<ProductDto> loadAllProduct() throws SQLException {
+        Connection connection = DBConnection.getInstance().getConnection();
 
         String sql = "SELECT * FROM agri_product";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         ResultSet resultSet = pstm.executeQuery();
 
-        List<productDto> dtoList = new ArrayList<>();
+        List<ProductDto> dtoList = new ArrayList<>();
 
         while (resultSet.next()) {
-            var dto = new productDto(
+            var dto = new ProductDto(
                     resultSet.getString(1),
                     resultSet.getDouble(2),
                     resultSet.getString(3),
@@ -151,8 +150,32 @@ public class ProductModel {
 
         return dtoList;
     }
-    public static productTm getProduct(String pCode) throws SQLException {
-        Connection connection = FpConnection.getInstance().getConnection();
+    public static List<ProductDto> loadAllExpireProduct() throws SQLException {
+        Connection connection = DBConnection.getInstance().getConnection();
+
+        String sql = "SELECT * FROM agri_product WHERE expire_date";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        List<ProductDto> dtoList = new ArrayList<>();
+
+        while (resultSet.next()) {
+            var dto = new ProductDto(
+                    resultSet.getString(1),
+                    resultSet.getDouble(2),
+                    resultSet.getString(3),
+                    resultSet.getInt(4),
+                    resultSet.getString(5)
+            );
+
+            dtoList.add(dto);
+        }
+
+        return dtoList;
+    }
+    public static ProductTm getProduct(String pCode) throws SQLException {
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql = "SELECT * FROM agri_product WHERE p_code = ?";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -160,10 +183,10 @@ public class ProductModel {
 
         ResultSet resultSet = pstm.executeQuery();
 
-       productTm protm = null;
+       ProductTm protm = null;
 
         if(resultSet.next()) {
-            protm = new productTm(
+            protm = new ProductTm(
                     resultSet.getString(1),
                     resultSet.getString(3),
                     resultSet.getDouble(2),
@@ -174,8 +197,8 @@ public class ProductModel {
         return protm;
     }
 
-    public static productDto getProductDto(String pCode) throws SQLException {
-        Connection connection = FpConnection.getInstance().getConnection();
+    public static ProductDto getProductDto(String pCode) throws SQLException {
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql = "SELECT * FROM agri_product WHERE p_code = ?";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -183,10 +206,10 @@ public class ProductModel {
 
         ResultSet resultSet = pstm.executeQuery();
 
-        productDto prodto= null;
+        ProductDto prodto= null;
 
         if(resultSet.next()) {
-            prodto = new productDto(
+            prodto = new ProductDto(
                     resultSet.getString(1),
                     resultSet.getDouble(2),
                     resultSet.getString(3),
@@ -197,7 +220,7 @@ public class ProductModel {
         return prodto;
     }
     public ArrayList<String> getAllProductId() throws SQLException{
-        Connection connection = FpConnection.getInstance().getConnection();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql="SELECT p_code FROM agri_product ORDER BY LENGTH(p_code),p_code";
         PreparedStatement pstm=connection.prepareStatement(sql);
 
@@ -210,8 +233,8 @@ public class ProductModel {
         return list;
     }
 
-    public ArrayList<String> getExpiredProductIds() throws SQLException{
-        Connection connection = FpConnection.getInstance().getConnection();
+    public static ArrayList<String> getExpiredProductIds() throws SQLException{
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql="SELECT p_code FROM agri_product WHERE expire_date IS NOT NULL";
         PreparedStatement pstm=connection.prepareStatement(sql);
 
@@ -227,7 +250,7 @@ public class ProductModel {
     public String[] descAndUnitPriceGet(String id) throws SQLException {
         String sql = "SELECT description, unit_price FROM agri_product WHERE p_code=?";
 
-        PreparedStatement preparedStatement = FpConnection.getInstance().getConnection().prepareStatement(sql);
+        PreparedStatement preparedStatement = DBConnection.getInstance().getConnection().prepareStatement(sql);
         preparedStatement.setString(1,id);
 
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -243,7 +266,7 @@ public class ProductModel {
     }
 
     public  static int dashboardProductCount() throws SQLException {
-        Connection connection = FpConnection.getInstance().getConnection();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql = "SELECT COUNT(p_code) FROM agri_product";
         PreparedStatement pstm = connection.prepareStatement(sql);
         ResultSet set = pstm.executeQuery();

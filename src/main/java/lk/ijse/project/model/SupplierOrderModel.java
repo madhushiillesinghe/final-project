@@ -1,16 +1,15 @@
 package lk.ijse.project.model;
 
-import lk.ijse.project.dto.SupplyOderDto;
+import lk.ijse.project.dto.SupplyOrderDto;
 
-import lk.ijse.project.dto.supplierDto;
-import lk.ijse.project.fp.FpConnection;
+import lk.ijse.project.DB.DBConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
 
 public class SupplierOrderModel {
-    public static boolean saveOrder(SupplyOderDto dto) throws SQLException {
-        Connection connection= FpConnection.getInstance().getConnection();
+    public static boolean saveOrder(SupplyOrderDto dto) throws SQLException {
+        Connection connection= DBConnection.getInstance().getConnection();
         String sql="INSERT INTO supplier_order VALUES(?, ?, ?)";
         PreparedStatement pstm=connection.prepareStatement(sql);
         pstm.setString(1,dto.getSup_order_id());
@@ -21,7 +20,7 @@ public class SupplierOrderModel {
     }
 
     public static ArrayList<String> getAllOrderIds() throws SQLException {
-        Connection connection = FpConnection.getInstance().getConnection();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql="SELECT sup_order_id FROM supplier_order ORDER BY LENGTH(sup_order_id),sup_order_id";
         PreparedStatement pstm=connection.prepareStatement(sql);
 
@@ -34,9 +33,9 @@ public class SupplierOrderModel {
         return list;
     }
 
-    public static SupplyOderDto getData(String id) throws SQLException {
+    public static SupplyOrderDto getData(String id) throws SQLException {
 
-        Connection connection = FpConnection.getInstance().getConnection();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql="SELECT * FROM supplier_order WHERE sup_order_id=?";
         PreparedStatement pstm=connection.prepareStatement(sql);
 
@@ -44,7 +43,7 @@ public class SupplierOrderModel {
 
         ResultSet resultSet = pstm.executeQuery();
 
-        SupplyOderDto supplyOderDto = new SupplyOderDto();
+        SupplyOrderDto supplyOderDto = new SupplyOrderDto();
 
         if (resultSet.next()) {
             supplyOderDto.setSup_order_id(resultSet.getString(1));

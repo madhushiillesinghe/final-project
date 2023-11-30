@@ -1,15 +1,13 @@
 package lk.ijse.project.model;
 
-import lk.ijse.project.controller.addOrderProductController;
 import lk.ijse.project.dto.CustomerOrderDto;
-import lk.ijse.project.dto.SupplyOderDto;
-import lk.ijse.project.fp.FpConnection;
+import lk.ijse.project.DB.DBConnection;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public class CustomerPlaceOrderModel {
-    private final customerOrderDetailModel cusorderdetailmodel=new customerOrderDetailModel();
+    private final CustomerOrderDetailModel cusorderdetailmodel=new CustomerOrderDetailModel();
     private final ProductModel promodel=new ProductModel();
     private final CustomerOrderModel cusordermodel=new CustomerOrderModel();
 
@@ -18,7 +16,7 @@ public class CustomerPlaceOrderModel {
         Connection connection = null;
 
         try {
-            connection = FpConnection.getInstance().getConnection();
+            connection = DBConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
 
             boolean isOrderSaved = CustomerOrderModel.saveCustomerOrder(dto);
@@ -27,7 +25,7 @@ public class CustomerPlaceOrderModel {
                 boolean isUpdated = ProductModel.updateproduct(dto.getTmlist());
 
                 if(isUpdated) {
-                    boolean isOrderDetailSaved = customerOrderDetailModel.save(dto);
+                    boolean isOrderDetailSaved = CustomerOrderDetailModel.save(dto);
 
                     if(isOrderDetailSaved) {
                         connection.commit();

@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import lk.ijse.project.model.employeeModel;
+import lk.ijse.project.model.EmployeeModel;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
@@ -31,7 +31,7 @@ public class LoginController {
 
     @FXML
     void loginbtnonaction(ActionEvent event) throws SQLException, IOException {
-        employeeModel empmodel = new employeeModel();
+        EmployeeModel empmodel = new EmployeeModel();
         boolean isValidate = empmodel.checkUsernameAndPassword(txtusername.getText(), pwfpassword.getText()).equals("owner");
         if (isValidate) {
             Navigation.switchNavigation("dashboardForm.fxml", event);

@@ -2,11 +2,11 @@ package lk.ijse.project.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
-import lk.ijse.project.dto.machineOrderDto;
-import lk.ijse.project.dto.machineDto;
+import lk.ijse.project.dto.MachineOrderDto;
+import lk.ijse.project.dto.MachineDto;
 import lk.ijse.project.model.MachineRentModel;
 import lk.ijse.project.util.DateTimeUtil;
-import lk.ijse.project.model.machineModel;
+import lk.ijse.project.model.MachineModel;
 
 import java.sql.SQLException;
 
@@ -30,8 +30,8 @@ public class CustomerMachineOrderBarFormController {
 
     public void setData(String id) {
         try {
-            machineOrderDto morderdto = MachineRentModel.getData(id);
-            machineDto mdto= machineModel.getData(morderdto.getM_id());
+            MachineOrderDto morderdto = MachineRentModel.getData(id);
+            MachineDto mdto= MachineModel.getData(morderdto.getM_id());
 
             this.txtId.setText(morderdto.getCus_rent_id());
             txtDate.setText(DateTimeUtil.dateNow());

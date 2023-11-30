@@ -5,9 +5,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import lk.ijse.project.dto.tm.customerTm;
-import lk.ijse.project.model.customerModel;
-import lk.ijse.project.controller.addCustomerController;
+import lk.ijse.project.dto.tm.CustomerTm;
+import lk.ijse.project.model.CustomerModel;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
@@ -38,9 +37,9 @@ public class CustomerBarFormController {
     void deleteOnMouseClick(MouseEvent event) {
         String id = txtId.getText();
 
-        var cusmodel = new customerModel();
+        var cusmodel = new CustomerModel();
         try {
-            boolean isDeleted = customerModel.deleteCustomer(id);
+            boolean isDeleted = CustomerModel.deleteCustomer(id);
             if (isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Customer deleted").show();
             }
@@ -54,11 +53,11 @@ public class CustomerBarFormController {
         UpdateCustomerController.setId(txtId.getText());
         Navigation.popupNavigation("updateCustomerForm.fxml");
     }
-    customerModel cusmodel=new customerModel();
+    CustomerModel cusmodel=new CustomerModel();
     public void setData(String id) throws SQLException {
-        customerTm custm= null;
+        CustomerTm custm= null;
         try {
-            custm=customerModel.getCustomer(id);
+            custm= CustomerModel.getCustomer(id);
             this.txtId.setText(custm.getId());
             txtName.setText(custm.getName());
             txtAccount.setText(custm.getAccount());

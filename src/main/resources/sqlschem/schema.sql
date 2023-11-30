@@ -13,7 +13,7 @@ CREATE TABLE employee(
                          role VARCHAR (30)NOT NULL,
                          user_name VARCHAR(25) ,
                          password VARCHAR(35),
-                         email VARCHAR(25) UNIQUE,
+                         email VARCHAR(35) UNIQUE,
                          first_name VARCHAR (25) NOT NULL,
                          last_name VARCHAR(35),
                          nic VARCHAR(30) UNIQUE NOT NULL
@@ -37,7 +37,7 @@ CREATE TABLE customer(
                          contact_no int,
                          emp_id VARCHAR (30) NOT NULL,
                          account_type VARCHAR(35),
-                         email VARCHAR(25) UNIQUE,
+                         email VARCHAR(35) UNIQUE,
                          first_name VARCHAR (25) NOT NULL,
                          last_name VARCHAR(35),
                          nic VARCHAR(30) UNIQUE NOT NULL,

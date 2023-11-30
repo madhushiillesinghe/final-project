@@ -6,13 +6,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import lk.ijse.project.dto.machineDto;
-import lk.ijse.project.model.machineModel;
+import lk.ijse.project.dto.MachineDto;
+import lk.ijse.project.model.MachineModel;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -41,7 +40,7 @@ public class UpdateMachineFormController implements Initializable {
 
     public static String id;
 
-    machineModel machmodel= new machineModel();
+    MachineModel machmodel= new MachineModel();
 
     public static void setId(String id) {
         UpdateMachineFormController.id = id;
@@ -55,7 +54,7 @@ public class UpdateMachineFormController implements Initializable {
 
     @FXML
     void updatebtnonaction(ActionEvent event) {
-        machineDto machdto = new machineDto();
+        MachineDto machdto = new MachineDto();
 
 
         machdto.setM_id(UpdateMachineFormController.id);
@@ -66,8 +65,8 @@ public class UpdateMachineFormController implements Initializable {
 
 
         try {
-            boolean updated = machineModel.updateMachine(machdto);
-            var model=new machineModel();
+            boolean updated = MachineModel.updateMachine(machdto);
+            var model=new MachineModel();
             if (updated) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Machine updatedd!").show();
             }
@@ -77,7 +76,7 @@ public class UpdateMachineFormController implements Initializable {
     }
     public void setData(){
         try{
-            machineDto machdto= machineModel.getMachineDto(id);
+            MachineDto machdto= MachineModel.getMachineDto(id);
             txtmachinename.setText(machdto.getM_name());
             txtmachinetask.setText(machdto.getM_task());
             txtperdayrent.setText(String.valueOf(machdto.getMachine_per_day_amount()));

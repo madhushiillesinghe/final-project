@@ -1,13 +1,12 @@
 package lk.ijse.project.model;
 import lk.ijse.project.dto.CustomerOrderDto;
-import lk.ijse.project.dto.SupplyOderDto;
-import lk.ijse.project.fp.FpConnection;
+import lk.ijse.project.DB.DBConnection;
 import java.sql.*;
 import java.util.ArrayList;
 
 public class CustomerOrderModel {
         public static boolean saveCustomerOrder(CustomerOrderDto dto) throws SQLException {
-            Connection connection= FpConnection.getInstance().getConnection();
+            Connection connection= DBConnection.getInstance().getConnection();
             String sql="INSERT INTO customer_order VALUES(?, ?, ?)";
             PreparedStatement pstm=connection.prepareStatement(sql);
             pstm.setString(1,dto.getCus_order_id());
@@ -18,7 +17,7 @@ public class CustomerOrderModel {
         }
 
         public static ArrayList<String> getAllOrderIds() throws SQLException {
-            Connection connection = FpConnection.getInstance().getConnection();
+            Connection connection = DBConnection.getInstance().getConnection();
             String sql="SELECT order_id FROM customer_order ORDER BY LENGTH(order_id),order_id";
             PreparedStatement pstm=connection.prepareStatement(sql);
 
@@ -33,7 +32,7 @@ public class CustomerOrderModel {
 
         public static CustomerOrderDto getData(String id) throws SQLException {
 
-            Connection connection = FpConnection.getInstance().getConnection();
+            Connection connection = DBConnection.getInstance().getConnection();
             String sql="SELECT * FROM customer_order WHERE order_id=?";
             PreparedStatement pstm=connection.prepareStatement(sql);
 
@@ -51,7 +50,7 @@ public class CustomerOrderModel {
             return cusOderDto;
         }
     public  static int dashboardOrderCount() throws SQLException {
-        Connection connection = FpConnection.getInstance().getConnection();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql = "SELECT COUNT(order_id) FROM customer_order";
         PreparedStatement pstm = connection.prepareStatement(sql);
         ResultSet set = pstm.executeQuery();

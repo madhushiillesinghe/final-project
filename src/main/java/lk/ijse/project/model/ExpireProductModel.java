@@ -2,9 +2,8 @@ package lk.ijse.project.model;
 
 import lk.ijse.project.dto.AddExpireProductDto;
 import lk.ijse.project.dto.ExpireProductDto;
-import lk.ijse.project.dto.machineOrderDto;
 import lk.ijse.project.dto.tm.ExpireProductTm;
-import lk.ijse.project.fp.FpConnection;
+import lk.ijse.project.DB.DBConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ import java.util.List;
 
 public class ExpireProductModel {
     public static boolean saveExpireProduct(AddExpireProductDto exprodto) throws SQLException {
-        Connection connection = FpConnection.getInstance().getConnection();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql = "INSERT INTO expired_product VALUES(?, ?, ?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
@@ -24,7 +23,7 @@ public class ExpireProductModel {
     }
 
     public static boolean updateexpireProduct(ExpireProductDto exprodto) throws SQLException {
-        Connection connection = FpConnection.getInstance().getConnection();
+        Connection connection = DBConnection.getInstance().getConnection();
 
         String sql = "UPDATE expired_product SET  description = ?, expired_product_count = ? WHERE p_id = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -42,7 +41,7 @@ public class ExpireProductModel {
 
 
     public ExpireProductDto searchExpireProduct(String p_code) throws SQLException {
-        Connection connection = FpConnection.getInstance().getConnection();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql = "SELECT * FROM expired_product WHERE p_id = ?";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -63,7 +62,7 @@ public class ExpireProductModel {
     }
 
     public static boolean deleteExpireProductProduct(String p_code) throws SQLException {
-        Connection connection = FpConnection.getInstance().getConnection();
+        Connection connection = DBConnection.getInstance().getConnection();
 
         String sql = "DELETE FROM expired_product WHERE p_id = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -73,7 +72,7 @@ public class ExpireProductModel {
     }
 
     public List<ExpireProductDto> loadAllExpireProduct() throws SQLException {
-        Connection connection = FpConnection.getInstance().getConnection();
+        Connection connection = DBConnection.getInstance().getConnection();
 
         String sql = "SELECT * FROM expired_product";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -95,7 +94,7 @@ public class ExpireProductModel {
         return dtoList;
     }
     public static ExpireProductTm getExpireProduct(String pCode) throws SQLException {
-        Connection connection = FpConnection.getInstance().getConnection();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql = "SELECT * FROM expired_product WHERE p_id = ?";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -115,7 +114,7 @@ public class ExpireProductModel {
         return exprotm;
     }
     public static ExpireProductDto getExpireProductDto(String pCode) throws SQLException {
-        Connection connection = FpConnection.getInstance().getConnection();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql = "SELECT * FROM expired_product WHERE p_id = ?";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -135,7 +134,7 @@ public class ExpireProductModel {
         return exprodto;
     }
     public ArrayList<String> getAllExpireProductId() throws SQLException{
-        Connection connection = FpConnection.getInstance().getConnection();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql="SELECT p_id FROM expired_product ORDER BY LENGTH(p_id),p_id";
         PreparedStatement pstm=connection.prepareStatement(sql);
 
@@ -149,7 +148,7 @@ public class ExpireProductModel {
     }
     public static AddExpireProductDto getData(String id) throws SQLException {
 
-        Connection connection = FpConnection.getInstance().getConnection();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql="SELECT * FROM expired_product WHERE p_id=?";
         PreparedStatement pstm=connection.prepareStatement(sql);
 

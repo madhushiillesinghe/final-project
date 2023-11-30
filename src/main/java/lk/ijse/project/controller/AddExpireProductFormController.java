@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import lk.ijse.project.dto.AddExpireProductDto;
-import lk.ijse.project.dto.productDto;
+import lk.ijse.project.dto.ProductDto;
 import lk.ijse.project.model.*;
 import lk.ijse.project.util.DateTimeUtil;
 import lk.ijse.project.util.Navigation;
@@ -63,7 +63,7 @@ public class AddExpireProductFormController implements Initializable {
     void productidonaction(ActionEvent event) {
         String  pid = cmbproduct.getSelectionModel().getSelectedItem().toString();
         try{
-            productDto dto= ProductModel.searchProduct(pid);
+            ProductDto dto= ProductModel.searchProduct(pid);
             txtxDescription.setText(dto.getDescription());
             txtxunitprice.setText(String.valueOf(dto.getUnit_price()));
             txtxdate.setText(dto.getExpire_date());
@@ -112,9 +112,9 @@ public class AddExpireProductFormController implements Initializable {
     private void loadAllProductIds() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
-            List<productDto> productlist = ProductModel.loadAllProduct();
+            List<ProductDto> productlist = ProductModel.loadAllProduct();
 
-            for (productDto pDto :productlist) {
+            for (ProductDto pDto :productlist) {
                 obList.add(pDto.getP_code());
             }
 

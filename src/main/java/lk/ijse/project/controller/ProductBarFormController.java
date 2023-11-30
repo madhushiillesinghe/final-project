@@ -5,7 +5,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import lk.ijse.project.dto.tm.productTm;
+import lk.ijse.project.dto.tm.ProductTm;
 import lk.ijse.project.model.ProductModel;
 import lk.ijse.project.util.Navigation;
 
@@ -57,7 +57,7 @@ public class ProductBarFormController {
     }
     ProductModel promodel=new ProductModel();
     public void setData(String id) throws SQLException {
-       productTm protm= null;
+       ProductTm protm= null;
        try{
         protm= ProductModel.getProduct(id);
 

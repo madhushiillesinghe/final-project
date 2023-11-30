@@ -3,10 +3,9 @@ package lk.ijse.project.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import lk.ijse.project.dto.supplierDto;
-import lk.ijse.project.model.supplierModel;
+import lk.ijse.project.dto.SupplierDto;
+import lk.ijse.project.model.SupplierModel;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
@@ -62,7 +61,7 @@ public class ViewSupplierFormController implements Initializable {
 
     private void setData() {
         try{
-            supplierDto supdto= supplierModel.searchSupplier(nic);
+            SupplierDto supdto= SupplierModel.searchSupplier(nic);
 
             lblEmail.setText(supdto.getEmail());
            lblfname.setText(supdto.getFirst_name());

@@ -9,13 +9,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import lk.ijse.project.dto.customerDto;
-import lk.ijse.project.dto.supplierDto;
-import lk.ijse.project.dto.employeeDto;
-import lk.ijse.project.model.customerModel;
-import lk.ijse.project.model.employeeModel;
+import lk.ijse.project.dto.SupplierDto;
+import lk.ijse.project.dto.EmployeeDto;
+import lk.ijse.project.model.EmployeeModel;
 import lk.ijse.project.util.Navigation;
-import lk.ijse.project.model.supplierModel;
+import lk.ijse.project.model.SupplierModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -57,7 +55,7 @@ public class UpdateSupplierController implements Initializable {
     private TextField txttype;
     public static String id;
 
-    supplierModel supmodel = new supplierModel();
+    SupplierModel supmodel = new SupplierModel();
 
     public static void setId(String id) {
         UpdateSupplierController.id = id;
@@ -81,7 +79,7 @@ public class UpdateSupplierController implements Initializable {
     void updatebtnonaction(ActionEvent event) {
         boolean isValidate=validateSupplier();
         if (isValidate) {
-            supplierDto supdto = new supplierDto();
+            SupplierDto supdto = new SupplierDto();
 
 
             supdto.setSup_id(UpdateSupplierController.id);
@@ -93,8 +91,8 @@ public class UpdateSupplierController implements Initializable {
             supdto.setContact_no(Integer.parseInt(txtcontactno.getText()));
             supdto.setSupplier_product_type(txttype.getText());
             try {
-                boolean updated = supplierModel.updateSupplier(supdto);
-                var model = new supplierModel();
+                boolean updated = SupplierModel.updateSupplier(supdto);
+                var model = new SupplierModel();
                 if (updated) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Supplier updatedd!").show();
                 }
@@ -106,7 +104,7 @@ public class UpdateSupplierController implements Initializable {
 
     public void setData() {
             try {
-                supplierDto supdto = supplierModel.getSupplierDto(id);
+                SupplierDto supdto = SupplierModel.getSupplierDto(id);
                 txtcontactno.setText(String.valueOf(supdto.getContact_no()));
                 txtemail.setText(supdto.getEmail());
                 txtlastname.setText(supdto.getLast_name());
@@ -123,9 +121,9 @@ public class UpdateSupplierController implements Initializable {
         ObservableList<String> obList = FXCollections.observableArrayList();
         cmbempid.setItems(obList);
         try {
-            List<employeeDto> empidList = employeeModel.loadAllEmployee();
+            List<EmployeeDto> empidList = EmployeeModel.loadAllEmployee();
 
-            for (employeeDto dto : empidList) {
+            for (EmployeeDto dto : empidList) {
                 obList.add(dto.getEmp_id());
             }
 

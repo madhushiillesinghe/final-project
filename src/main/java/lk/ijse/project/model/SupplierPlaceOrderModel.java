@@ -1,20 +1,20 @@
 package lk.ijse.project.model;
-import lk.ijse.project.dto.SupplyOderDto;
-import lk.ijse.project.fp.FpConnection;
+import lk.ijse.project.dto.SupplyOrderDto;
+import lk.ijse.project.DB.DBConnection;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public class SupplierPlaceOrderModel {
-    private final supplierOrderDetailModel suporderdetailmodel=new supplierOrderDetailModel();
+    private final SupplierOrderDetailModel suporderdetailmodel=new SupplierOrderDetailModel();
     private final ProductModel promodel=new ProductModel();
     private final SupplierOrderModel supordermodel=new SupplierOrderModel();
 
-    public boolean SavesupplierplaceOrder(SupplyOderDto dto) throws SQLException {
+    public boolean SavesupplierplaceOrder(SupplyOrderDto dto) throws SQLException {
         boolean result = false;
         Connection connection = null;
         try {
-            connection = FpConnection.getInstance().getConnection();
+            connection = DBConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
 
             boolean isOrderSaved = SupplierOrderModel.saveOrder(dto);
@@ -24,7 +24,7 @@ public class SupplierPlaceOrderModel {
                 boolean isUpdated = ProductModel.update(dto.getTmlist());
 
                 if(isUpdated) {
-                    boolean isOrderDetailSaved = supplierOrderDetailModel.save(dto);
+                    boolean isOrderDetailSaved = SupplierOrderDetailModel.save(dto);
 
                     if(isOrderDetailSaved) {
                         connection.commit();

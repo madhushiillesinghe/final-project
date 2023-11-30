@@ -11,7 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import lk.ijse.project.model.customerModel;
+import lk.ijse.project.model.CustomerModel;
 import lk.ijse.project.util.*;
 import javafx.scene.control.Label;
 
@@ -86,7 +86,7 @@ public class CustomerController implements Initializable {
                 vBoxCustomerManage.getChildren().clear();
 
                 ArrayList<String> list=null;
-                customerModel cusmodel=new customerModel();
+                CustomerModel cusmodel=new CustomerModel();
                 list=cusmodel.getAllCustomerId();
 
                 for(int i=0;i<list.size();i++){
@@ -186,7 +186,7 @@ public class CustomerController implements Initializable {
         }
 
         public void searchcustomer(MouseEvent mouseEvent) throws IOException, SQLException {
-                customerModel cusmodel=new customerModel();
+                CustomerModel cusmodel=new CustomerModel();
                 ArrayList<String> allcusid=cusmodel.getAllCustomerNic();
                 for(int i=0;i<allcusid.size();i++){
                         if(txtsearch.getText().equals(allcusid.get(i))){

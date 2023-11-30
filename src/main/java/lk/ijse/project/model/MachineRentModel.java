@@ -1,7 +1,7 @@
 package lk.ijse.project.model;
 
-import lk.ijse.project.dto.machineOrderDto;
-import lk.ijse.project.fp.FpConnection;
+import lk.ijse.project.dto.MachineOrderDto;
+import lk.ijse.project.DB.DBConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,8 +10,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class MachineRentModel {
-    public static boolean saveRent(machineOrderDto dto) throws SQLException {
-        Connection connection= FpConnection.getInstance().getConnection();
+    public static boolean saveRent(MachineOrderDto dto) throws SQLException {
+        Connection connection= DBConnection.getInstance().getConnection();
         String sql="INSERT INTO machine_rent VALUES(?, ?, ?, ?)";
         PreparedStatement pstm=connection.prepareStatement(sql);
         pstm.setString(1,dto.getCus_rent_id());
@@ -23,7 +23,7 @@ public class MachineRentModel {
     }
 
     public static ArrayList<String> getAllRentIds() throws SQLException {
-        Connection connection = FpConnection.getInstance().getConnection();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql="SELECT order_id FROM  machine_rent ORDER BY LENGTH(order_id),order_id";
         PreparedStatement pstm=connection.prepareStatement(sql);
 
@@ -36,9 +36,9 @@ public class MachineRentModel {
         return list;
     }
 
-    public static machineOrderDto getData(String id) throws SQLException {
+    public static MachineOrderDto getData(String id) throws SQLException {
 
-        Connection connection = FpConnection.getInstance().getConnection();
+        Connection connection = DBConnection.getInstance().getConnection();
         String sql="SELECT * FROM machine_rent WHERE order_id=?";
         PreparedStatement pstm=connection.prepareStatement(sql);
 
@@ -46,7 +46,7 @@ public class MachineRentModel {
 
         ResultSet resultSet = pstm.executeQuery();
 
-        machineOrderDto mdto = new machineOrderDto();
+        MachineOrderDto mdto = new MachineOrderDto();
 
         if (resultSet.next()) {
             mdto.setCus_rent_id(resultSet.getString(1));

@@ -7,16 +7,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import lk.ijse.project.util.Navigation;
-import lk.ijse.project.model.employeeModel;
-import lk.ijse.project.dto.employeeDto;
+import lk.ijse.project.model.EmployeeModel;
+import lk.ijse.project.dto.EmployeeDto;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
-
-import static lk.ijse.project.model.employeeModel.getEmployee;
 
 public class UpdateEmployeeController implements Initializable {
 
@@ -63,7 +61,7 @@ public class UpdateEmployeeController implements Initializable {
     private TextField txtusername;
 
     public static String id;
-    employeeModel empmodel = new employeeModel();
+    EmployeeModel empmodel = new EmployeeModel();
 
     public static void setId(String id) {
         UpdateEmployeeController.id = id;
@@ -81,7 +79,7 @@ public class UpdateEmployeeController implements Initializable {
 
         boolean isValidated = validateEmployee();
         if (isValidated) {
-            employeeDto empdto = new employeeDto();
+            EmployeeDto empdto = new EmployeeDto();
 
             empdto.setEmp_id(UpdateEmployeeController.id);
             empdto.setFirst_name(txtfirstname.getText());
@@ -96,8 +94,8 @@ public class UpdateEmployeeController implements Initializable {
             empdto.setUser_name(txtusername.getText());
             empdto.setPassword(txtpassword.getText());
             try {
-                boolean updated = employeeModel.updateEmployee(empdto);
-                var model = new employeeModel();
+                boolean updated = EmployeeModel.updateEmployee(empdto);
+                var model = new EmployeeModel();
                 if (updated) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Employee updatedd!").show();
                 }
@@ -108,7 +106,7 @@ public class UpdateEmployeeController implements Initializable {
     }
     public void setData(){
         try{
-          employeeDto empdto= employeeModel.getemployee(id);
+          EmployeeDto empdto= EmployeeModel.getemployee(id);
             txtcontactno.setText(String.valueOf(empdto.getContact_no()));
             txtemail.setText(empdto.getEmail());
             txthouseno.setText(String.valueOf(empdto.getHouse_no()));

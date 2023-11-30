@@ -5,8 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import lk.ijse.project.dto.machineDto;
-import lk.ijse.project.model.machineModel;
+import lk.ijse.project.dto.MachineDto;
+import lk.ijse.project.model.MachineModel;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
@@ -54,7 +54,7 @@ public class ViewMachineFormController implements Initializable {
 
     private void setData() {
         try{
-           machineDto mdto= machineModel.searchMachine(id);
+           MachineDto mdto= MachineModel.searchMachine(id);
 
             lblid.setText(mdto.getM_id());
             lblname.setText(mdto.getM_name());

@@ -3,13 +3,10 @@ package lk.ijse.project.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
-import lk.ijse.project.dto.SupplyOderDto;
-import lk.ijse.project.dto.supplierDto;
-import lk.ijse.project.dto.tm.ProductOrderTm;
-import lk.ijse.project.dto.tm.employeeTm;
+import lk.ijse.project.dto.SupplyOrderDto;
+import lk.ijse.project.dto.SupplierDto;
 import lk.ijse.project.model.SupplierOrderModel;
-import lk.ijse.project.model.employeeModel;
-import lk.ijse.project.model.supplierModel;
+import lk.ijse.project.model.SupplierModel;
 import lk.ijse.project.util.DateTimeUtil;
 
 import java.sql.SQLException;
@@ -32,12 +29,12 @@ public class SupplierOrderBarFormController {
     private Text txtTime;
 
     SupplierOrderModel supplierOrderModel = new SupplierOrderModel();
-    supplierModel supplierModel = new supplierModel();
+    SupplierModel supplierModel = new SupplierModel();
 
     public void setData(String id) {
         try {
-            SupplyOderDto supplyOderDto = supplierOrderModel.getData(id);
-            supplierDto supplierDto = supplierModel.getData(supplyOderDto.getSup_id());
+            SupplyOrderDto supplyOderDto = supplierOrderModel.getData(id);
+            SupplierDto supplierDto = supplierModel.getData(supplyOderDto.getSup_id());
 
             this.txtId.setText(supplyOderDto.getSup_order_id());
             txtDate.setText(DateTimeUtil.dateNow());

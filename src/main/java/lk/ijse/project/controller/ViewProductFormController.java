@@ -5,9 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import lk.ijse.project.dto.productDto;
+import lk.ijse.project.dto.ProductDto;
 import lk.ijse.project.model.ProductModel;
-import lk.ijse.project.model.supplierModel;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
@@ -47,7 +46,7 @@ public class ViewProductFormController implements Initializable {
 
     private void setData() {
         try{
-           productDto prodto= ProductModel.searchProduct(id);
+           ProductDto prodto= ProductModel.searchProduct(id);
 
             lblname.setText(prodto.getDescription());
            lblid.setText(prodto.getP_code());

@@ -5,17 +5,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import lk.ijse.project.dto.productDto;
+import lk.ijse.project.dto.ProductDto;
 import lk.ijse.project.model.ProductModel;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
@@ -60,7 +57,7 @@ public class UpdateProductController implements Initializable {
     void updatebtnonaction(ActionEvent event) {
         boolean isValidate=validateProduct();
         if(isValidate) {
-            productDto prodto = new productDto();
+            ProductDto prodto = new ProductDto();
 
 
             prodto.setP_code(UpdateProductController.id);
@@ -82,7 +79,7 @@ public class UpdateProductController implements Initializable {
     }
     public void setData(){
         try{
-            productDto prodto= ProductModel.getProductDto(id);
+            ProductDto prodto= ProductModel.getProductDto(id);
             txtunitprice.setText(String.valueOf(prodto.getUnit_price()));
             txtproductname.setText(prodto.getDescription());
             txtqtyonstock.setText(String.valueOf(prodto.getQty_on_stock()));

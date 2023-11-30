@@ -9,10 +9,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import lk.ijse.project.dto.customerDto;
-import lk.ijse.project.dto.employeeDto;
-import lk.ijse.project.model.customerModel;
-import lk.ijse.project.model.employeeModel;
+import lk.ijse.project.dto.CustomerDto;
+import lk.ijse.project.dto.EmployeeDto;
+import lk.ijse.project.model.CustomerModel;
+import lk.ijse.project.model.EmployeeModel;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
@@ -65,7 +65,7 @@ public class UpdateCustomerController implements Initializable {
 
     public static String id;
 
-    customerModel cusmodel = new customerModel();
+    CustomerModel cusmodel = new CustomerModel();
 
     public static void setId(String id) {
         UpdateCustomerController.id = id;
@@ -88,7 +88,7 @@ public class UpdateCustomerController implements Initializable {
     void updatebtnonaction(ActionEvent event) {
         boolean isValidate = validateCustomer();
         if (isValidate) {
-            customerDto cusdto = new customerDto();
+            CustomerDto cusdto = new CustomerDto();
 
 
             cusdto.setCus_id(UpdateCustomerController.id);
@@ -103,8 +103,8 @@ public class UpdateCustomerController implements Initializable {
             cusdto.setContact_no(Integer.parseInt(txtcontactno.getText()));
             cusdto.setAccount_type(txtaccounttype.getText());
             try {
-                boolean updated = customerModel.updateCustomer(cusdto);
-                var model = new customerModel();
+                boolean updated = CustomerModel.updateCustomer(cusdto);
+                var model = new CustomerModel();
                 if (updated) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Customer updatedd!").show();
                 }
@@ -115,7 +115,7 @@ public class UpdateCustomerController implements Initializable {
     }
     public void setData(){
         try{
-           customerDto cusdto= customerModel.getCustomerdto(id);
+           CustomerDto cusdto= CustomerModel.getCustomerdto(id);
             txtcontactno.setText(String.valueOf(cusdto.getContact_no()));
             txtemail.setText(cusdto.getEmail());
             txthouseno.setText(String.valueOf(cusdto.getHouse_no()));
@@ -135,9 +135,9 @@ public class UpdateCustomerController implements Initializable {
         ObservableList<String> obList = FXCollections.observableArrayList();
         txtempid.setItems(obList);
         try {
-            List<employeeDto> empidList = employeeModel.loadAllEmployee();
+            List<EmployeeDto> empidList = EmployeeModel.loadAllEmployee();
 
-            for (employeeDto dto : empidList) {
+            for (EmployeeDto dto : empidList) {
                 obList.add(dto.getEmp_id());
             }
 
