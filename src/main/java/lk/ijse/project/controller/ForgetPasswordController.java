@@ -28,6 +28,7 @@ public class ForgetPasswordController {
     @FXML
     void btnOnAction(ActionEvent event) throws IOException, MessagingException, SQLException {
             EmployeeModel employeeModel=new EmployeeModel();
+            username=txtusername.getText();
         boolean isValidate =employeeModel.checkUsernameForForget(txtusername.getText()).equals("owner");
            if(isValidate){
                 Random random=new Random();
