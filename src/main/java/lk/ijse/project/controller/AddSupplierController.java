@@ -68,8 +68,6 @@ public class AddSupplierController implements Initializable {
         }
     }
 
-
-
     private void loademployeeids() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         cmbempid.setItems(obList);
@@ -79,7 +77,6 @@ public class AddSupplierController implements Initializable {
             for (EmployeeDto dto : empidList) {
                 obList.add(dto.getEmp_id());
             }
-            // cmbItemCode.setItems(obList);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

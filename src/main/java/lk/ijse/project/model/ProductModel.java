@@ -233,20 +233,6 @@ public class ProductModel {
         return list;
     }
 
-    public static ArrayList<String> getExpiredProductIds() throws SQLException{
-        Connection connection = DBConnection.getInstance().getConnection();
-        String sql="SELECT p_code FROM agri_product WHERE expire_date IS NOT NULL";
-        PreparedStatement pstm=connection.prepareStatement(sql);
-
-        ResultSet resultSet = pstm.executeQuery();
-        ArrayList<String> list = new ArrayList<>();
-
-        while (resultSet.next()) {
-            list.add(resultSet.getString(1));
-        }
-        return list;
-    }
-
     public String[] descAndUnitPriceGet(String id) throws SQLException {
         String sql = "SELECT description, unit_price FROM agri_product WHERE p_code=?";
 

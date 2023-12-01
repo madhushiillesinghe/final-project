@@ -108,7 +108,7 @@ public class CustomerController implements Initializable {
         }
         @FXML
         void btnaddcustomeronaction(ActionEvent event) throws IOException {
-                Navigation.close(event);
+                //Navigation.close(event);
                 Navigation.popupNavigation("addCustomerForm.fxml");
         }
 
@@ -161,12 +161,6 @@ public class CustomerController implements Initializable {
                 Navigation.close(event);
                 Navigation.switchNavigation("productForm.fxml",event);
         }
-
-        /*@FXML
-        void searchcustomer(MouseEvent event) throws IOException {
-
-        }*/
-
         @FXML
         void supplierbtnonaction(ActionEvent event) throws IOException {
                 Navigation.close(event);

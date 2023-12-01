@@ -107,7 +107,6 @@ public class AddSupplierOrderController implements Initializable {
       }
 
   }
-
     @FXML
     void addtocartbtnonaction(ActionEvent event) {
         String[] products = {String.valueOf(comboxproductid.getSelectionModel().getSelectedItem()), txtqtyofbuy.getText()};
@@ -146,7 +145,6 @@ public class AddSupplierOrderController implements Initializable {
         boolean isSaved = placeSupplierOrder.SavesupplierplaceOrder(supplierOrderDto);
 
         if (isSaved) {
-            //Navigation.close(event);
             SupplierOrderController.getInstance().getAllIds();
         }
         else {
@@ -232,6 +230,5 @@ public class AddSupplierOrderController implements Initializable {
 
     public void customeridonaction(ActionEvent actionEvent) {
         String  sid = comboxsupplierid.getSelectionModel().getSelectedItem().toString();
-
     }
 }

@@ -43,7 +43,6 @@ public class AddMachineController implements Initializable {
 
    MachineModel mModel=new MachineModel();
 
-
         ArrayList<String> list;
 
     {
@@ -53,7 +52,6 @@ public class AddMachineController implements Initializable {
             throw new RuntimeException(e);
         }
     }
-
 
     @FXML
     void addbtnonaction(ActionEvent event) throws IOException {

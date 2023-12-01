@@ -241,6 +241,6 @@
             <Button layoutX="365.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnCloseOnAction" prefHeight="264.0" prefWidth="48.0" style="-fx-background-color: transparent; -fx-background-radius: 20;" text=" " />
          </children>
       </AnchorPane>
-      <ComboBox fx:id="cmbExpireProducts" layoutX="749.0" layoutY="255.0" onAction="#cmbExpireProductsOnAction" prefHeight="44.0" prefWidth="237.0" promptText="Expired Products" style="-fx-background-color: white; -fx-background-radius: 15;" />
+      <ComboBox fx:id="cmbExpireProducts" layoutX="700.0" layoutY="250.0" onAction="#cmbExpireProductsOnAction" prefHeight="44.0" prefWidth="237.0" promptText="Expired Products" style="-fx-background-color: white; -fx-background-radius: 15;" />
    </children>
 </AnchorPane>

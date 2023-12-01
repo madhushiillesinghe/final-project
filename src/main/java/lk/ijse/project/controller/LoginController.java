@@ -36,7 +36,7 @@ public class LoginController {
         if (isValidate) {
             Navigation.switchNavigation("dashboardForm.fxml", event);
         } else if (empmodel.checkUsernameAndPassword(txtusername.getText(), pwfpassword.getText()).equals("manager")) {
-                Navigation.switchNavigation("dashboardForm.fxml", event);
+                Navigation.switchNavigation("DashboardManager.fxml", event);
             }
          else {
             new Alert(Alert.AlertType.ERROR, "Wrong User Name Or Password!!").show();

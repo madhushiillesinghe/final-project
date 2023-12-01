@@ -41,5 +41,5 @@ public class CustomerProductOrderBarFormController {
             throw new RuntimeException(e);
         }
     }
-    }
+}
 

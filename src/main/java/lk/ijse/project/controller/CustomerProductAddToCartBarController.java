@@ -40,8 +40,6 @@ public class CustomerProductAddToCartBarController {
         try {
             String[] descriptionAndUnitPrice = productModel.descAndUnitPriceGet(id[0]);
 
-            //String[]nameAndRentPrice= machineModel.nameAndUnitPriceGetRentPrice(id[0]);
-
             this.txtProductId.setText(id[0]);
             description.setText(descriptionAndUnitPrice[0]);
             txtUnitPrice.setText(descriptionAndUnitPrice[1]);
@@ -51,5 +49,5 @@ public class CustomerProductAddToCartBarController {
             throw new RuntimeException(e);
         }
     }
-    }
+}
 

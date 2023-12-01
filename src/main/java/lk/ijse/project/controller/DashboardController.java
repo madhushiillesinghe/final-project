@@ -206,7 +206,7 @@ public class DashboardController implements Initializable {
         expireProductPopUpPane.setVisible(true);
 
         TranslateTransition transition = new TranslateTransition(Duration.seconds(0.2), expireProductPopUpPane);
-        transition.setFromX(expireProductPopUpPane.getWidth()); // Slide in from the right
+        transition.setFromX(expireProductPopUpPane.getWidth());
         transition.setToX(0);
         transition.play();
     }

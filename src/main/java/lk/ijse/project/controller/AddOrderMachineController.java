@@ -71,7 +71,6 @@ public class AddOrderMachineController implements Initializable {
 
     ArrayList<String> list;
 
-
         {
             try {
                 list =cusrmodel.getAllRentIds();
@@ -114,7 +113,6 @@ public class AddOrderMachineController implements Initializable {
     }
     @FXML
     void txtcalculatetotal(ActionEvent event) {
-
     }
 
     @FXML
@@ -142,9 +140,6 @@ public class AddOrderMachineController implements Initializable {
         else {
             new Alert(Alert.AlertType.ERROR, "Unable to Save the Rent").show();
         }
-
-
-
     }
 
     @Override

@@ -52,24 +52,4 @@ public class SupplierOrderModel {
         }
         return supplyOderDto;
     }
-
-    /*public static ProductOrderTm getOrder(String order_id) throws SQLException {
-        Connection connection = FpConnection.getInstance().getConnection();
-        String sql = "SELECT * FROM supplier_order WHERE sup_order_id = ?";
-
-        PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setString(1,order_id);
-
-        ResultSet resultSet = pstm.executeQuery();
-
-        ProductOrderTm prootm= null;
-
-        if(resultSet.next()) {
-           prootm= new ProductOrderTm();
-           resultSet.getString(1);
-        }
-        return prootm;
-
-
-    }*/
 }

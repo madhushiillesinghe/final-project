@@ -194,24 +194,6 @@ public class MachineModel {
         }
         return true;
     }
-    /*public static String[] nameAndUnitPriceGetRentPrice(String id) throws SQLException {
-
-        String sql = "SELECT  m_name, rent_fee FROM machine WHERE m_id=?";
-
-        PreparedStatement preparedStatement = FpConnection.getInstance().getConnection().prepareStatement(sql);
-        preparedStatement.setString(1, id);
-
-        ResultSet resultSet = preparedStatement.executeQuery();
-
-        String[] set = new String[2];
-
-        if (resultSet.next()) {
-            set[0] = resultSet.getString(1);
-            set[1] = resultSet.getString(2);
-        }
-
-        return set;
-    }*/
     public  static int dashboardMachineCount() throws SQLException {
         Connection connection = DBConnection.getInstance().getConnection();
         String sql = "SELECT COUNT(m_id) FROM machine";

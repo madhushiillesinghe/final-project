@@ -38,29 +38,6 @@ public class ExpireProductModel {
         return pstm.executeUpdate() > 0;
     }
 
-
-
-    public ExpireProductDto searchExpireProduct(String p_code) throws SQLException {
-        Connection connection = DBConnection.getInstance().getConnection();
-        String sql = "SELECT * FROM expired_product WHERE p_id = ?";
-
-        PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setString(1, p_code);
-
-        ResultSet resultSet = pstm.executeQuery();
-
-        ExpireProductDto dto = null;
-
-        if (resultSet.next()) {
-            dto = new ExpireProductDto(
-                    resultSet.getString(1),
-                    resultSet.getString(2),
-                    resultSet.getInt(3)
-            );
-        }
-        return dto;
-    }
-
     public static boolean deleteExpireProductProduct(String p_code) throws SQLException {
         Connection connection = DBConnection.getInstance().getConnection();
 
@@ -71,48 +48,7 @@ public class ExpireProductModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public List<ExpireProductDto> loadAllExpireProduct() throws SQLException {
-        Connection connection = DBConnection.getInstance().getConnection();
 
-        String sql = "SELECT * FROM expired_product";
-        PreparedStatement pstm = connection.prepareStatement(sql);
-
-        ResultSet resultSet = pstm.executeQuery();
-
-        List<ExpireProductDto> dtoList = new ArrayList<>();
-
-        while (resultSet.next()) {
-            var dto = new ExpireProductDto(
-                    resultSet.getString(1),
-                    resultSet.getString(2),
-                    resultSet.getInt(3)
-            );
-
-            dtoList.add(dto);
-        }
-
-        return dtoList;
-    }
-    public static ExpireProductTm getExpireProduct(String pCode) throws SQLException {
-        Connection connection = DBConnection.getInstance().getConnection();
-        String sql = "SELECT * FROM expired_product WHERE p_id = ?";
-
-        PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setString(1,pCode);
-
-        ResultSet resultSet = pstm.executeQuery();
-
-       ExpireProductTm exprotm = null;
-
-        if(resultSet.next()) {
-            exprotm = new ExpireProductTm(
-                    resultSet.getString(1),
-                    resultSet.getString(2),
-                    resultSet.getInt(3)
-            );
-        }
-        return exprotm;
-    }
     public static ExpireProductDto getExpireProductDto(String pCode) throws SQLException {
         Connection connection = DBConnection.getInstance().getConnection();
         String sql = "SELECT * FROM expired_product WHERE p_id = ?";

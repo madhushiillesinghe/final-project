@@ -93,7 +93,7 @@ public class ProductController implements Initializable {
 
     @FXML
     void btnaddcustomeronaction(ActionEvent event) throws IOException {
-        Navigation.close(event);
+       // Navigation.close(event);
         Navigation.popupNavigation("addproductForm.fxml");
     }
 

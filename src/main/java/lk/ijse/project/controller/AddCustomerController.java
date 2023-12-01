@@ -27,7 +27,6 @@ import java.util.regex.Pattern;
 
 public class AddCustomerController implements Initializable {
 
-
     @FXML
     private Button btnadd;
 
@@ -130,8 +129,6 @@ public class AddCustomerController implements Initializable {
             for (EmployeeDto dto : empidList) {
                 obList.add(dto.getEmp_id());
             }
-
-            // cmbItemCode.setItems(obList);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

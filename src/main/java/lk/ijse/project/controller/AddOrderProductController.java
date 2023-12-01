@@ -168,20 +168,7 @@ public class AddOrderProductController implements Initializable {
             throw new RuntimeException(e);
         }
 
-    }/*@FXML
-    void machidcmbonaction(ActionEvent event) {
-        String mid = comboxmachineid.getSelectionModel().getSelectedItem().toString();
-            try {
-                machineDto dto = machineModel.searchMachine(mid);
-
-                txtmachinename.setText(dto.getM_name());
-                txtrentprice.setText(String.valueOf(dto.getMachine_per_day_amount()));
-                txtmachineqty.setText(String.valueOf(dto.getMachine_qty()));
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }*/
-
-
+    }
     @FXML
     void placeorderbtnonaction(ActionEvent event) throws SQLException {
         CustomerOrderDto cusOrderDto = new CustomerOrderDto();

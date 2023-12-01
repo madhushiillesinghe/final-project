@@ -22,9 +22,6 @@ public class AddEmployeeController implements Initializable {
     @FXML
     private Button btncancel;
 
-
-
-
     @FXML
     private TextField txtcity;
 
@@ -73,8 +70,6 @@ public class AddEmployeeController implements Initializable {
             throw new RuntimeException(e);
         }
     }
-
-
 
     @FXML
     void addbtnonaction(ActionEvent event) throws IOException {

@@ -187,5 +187,4 @@ public class MachineController implements Initializable {
             throw new RuntimeException(e);
         }
     }
-
 }

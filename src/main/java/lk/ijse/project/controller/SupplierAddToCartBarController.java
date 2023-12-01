@@ -34,20 +34,6 @@ public class SupplierAddToCartBarController {
     void deleteOnMouseClick(MouseEvent event) {
 
     }
-
-//    public void setData(String id) throws SQLException {
-//        employeeTm emptm= null;
-//        try {
-//            emptm= employeeModel.getEmployee(id);
-//            this.txtorderbarid.setText(emptm.getId());
-//            txt.setText(emptm.getName());
-//            txtRole.setText(emptm.getRole());
-//            txtEmail.setText(emptm.getEmail());
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-
     public void setData(String[] element) {
         try {
             String[] descriptionAndUnitPrice = productModel.descAndUnitPriceGet(element[0]);
@@ -57,8 +43,6 @@ public class SupplierAddToCartBarController {
             txtUnitPrice.setText(descriptionAndUnitPrice[1]);
             txtQty.setText(element[1]);
             total.setText(String.valueOf(Double.parseDouble(txtUnitPrice.getText()) * Integer.parseInt(txtQty.getText())));
-
-            //addSupplierOrderController.lblNetTotal.setText(String.valueOf(netTotal));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

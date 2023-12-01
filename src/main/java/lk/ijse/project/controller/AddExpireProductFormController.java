@@ -78,7 +78,6 @@ public class AddExpireProductFormController implements Initializable {
 
         String[] products = {String.valueOf(cmbproduct.getSelectionModel().getSelectedItem()),txttota.getText()};
         productlist.add(products);
-       // txttota.clear();
 
         AddExpireProductDto exprodto=new AddExpireProductDto();
 

@@ -104,7 +104,7 @@ public class SupplierOrderController implements Initializable {
 
     @FXML
     void btnAddSupplierOrderOnAction(ActionEvent event) throws IOException {
-        Navigation.close(event);
+        //Navigation.close(event);
         Navigation.popupNavigation("addSupplyOrderForm.fxml");
     }
 

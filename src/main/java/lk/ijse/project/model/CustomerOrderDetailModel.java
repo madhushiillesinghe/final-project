@@ -10,18 +10,6 @@ import java.sql.SQLException;
 
 public class CustomerOrderDetailModel {
 
-    public static boolean saveCustomerOrder(String orderId, ProductOrderTm prootm) throws SQLException {
-        Connection connection= DBConnection.getInstance().getConnection();
-        String sql="INSERT INTO order_payment VALUES(?, ?, ?, ?)";
-        PreparedStatement pstm=connection.prepareStatement(sql);
-        pstm.setString(1,prootm.getCode());
-        pstm.setString(2,orderId);
-        pstm.setInt(3,prootm.getQty());
-        pstm.setDouble(4,prootm.getPrice());
-
-        return pstm.executeUpdate()>0;
-    }
-
     public static boolean save(CustomerOrderDto dto) throws SQLException {
         String sql = "INSERT INTO order_payment VALUES (?,?)";
 

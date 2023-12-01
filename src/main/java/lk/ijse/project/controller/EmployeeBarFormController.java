@@ -57,8 +57,6 @@ public class EmployeeBarFormController {
     } catch (SQLException e) {
         new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
     }
-
-
     }
     @FXML
     void updateOnMouseClick(MouseEvent event) throws IOException {
@@ -98,5 +96,4 @@ public class EmployeeBarFormController {
         e.printStackTrace();
      }
     }
-
 }
