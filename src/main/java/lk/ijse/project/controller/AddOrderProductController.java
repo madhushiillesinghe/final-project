@@ -132,13 +132,22 @@ public class AddOrderProductController implements Initializable {
 
     }
 
-    private void allCustomerProductOrderCartId() {
+    void allCustomerProductOrderCartId() {
         vBoxproductorderbar.getChildren().clear();
 
         for (int i = 0; i < productList.size(); i++) {
             loadDataTable(productList.get(i));
         }
     }
+    void allCustomerProductOrderCartIds() {
+        vBoxproductorderbar.getChildren().clear();
+
+        for (int i = 0; i <( productList.size()); i++) {
+                vBoxproductorderbar.getChildren().clear();
+            }
+        }
+
+
 
     private void loadDataTable(String[] id) {
         try {

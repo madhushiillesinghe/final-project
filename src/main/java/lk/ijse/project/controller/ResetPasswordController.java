@@ -2,13 +2,18 @@ package lk.ijse.project.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import lk.ijse.project.util.Navigation;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class ResetPasswordController {
+public class ResetPasswordController implements Initializable {
+
 
     @FXML
     private Button btnback;
@@ -17,17 +22,9 @@ public class ResetPasswordController {
     private Button btnverify;
 
     @FXML
-    private TextField txt1;
+    private TextField txtotp;
 
-    @FXML
-    private TextField txt2;
-
-    @FXML
-    private TextField txt3;
-
-    @FXML
-    private TextField txt4;
-
+    private  int otp;
     @FXML
     void backonaction(ActionEvent event) throws IOException {
         Navigation.switchNavigation("forgetPasswordForm.fxml",event);
@@ -35,7 +32,17 @@ public class ResetPasswordController {
 
     @FXML
     void verifyonaction(ActionEvent event) throws IOException {
-        Navigation.switchNavigation("dashboardForm.fxml",event);
+        System.out.println(ForgetPasswordController.otp);
+        boolean verify=String.valueOf((ForgetPasswordController.otp)).equals(txtotp.getText());
+        if(verify){
+            Navigation.switchNavigation("dashboardForm.fxml",event);
+        }else {
+            new Alert(Alert.AlertType.ERROR,"Invalid OTP");
+        }
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.otp=ForgetPasswordController.otp;
+    }
 }
