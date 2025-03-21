@@ -35,7 +35,3 @@ Key features include:
 - **MySQL** for database management.
 - **JDK** and **Maven** for compiling the project.
 
-### Installation
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/yourusername/southern-agro-company.git
